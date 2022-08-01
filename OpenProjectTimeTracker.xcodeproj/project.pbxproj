@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
+		B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AF2897C19700FE944A /* AuthorizationService.swift */; };
+		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
+		B743E1B62897C62A00FE944A /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* ScreenFactory.swift */; };
+		B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = B743E1B82897D94400FE944A /* OpenProjectKey.plist */; };
+		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
+		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
+		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
 		B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE52895779F00617364 /* AppDelegate.swift */; };
 		B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE72895779F00617364 /* SceneDelegate.swift */; };
 		B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EEE289577A000617364 /* Assets.xcassets */; };
@@ -14,6 +22,10 @@
 		B7AF8EFD289577A000617364 /* OpenProjectTimeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EFC289577A000617364 /* OpenProjectTimeTrackerTests.swift */; };
 		B7AF8F07289577A000617364 /* OpenProjectTimeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */; };
 		B7AF8F09289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */; };
+		B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */; };
+		B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F202895880B00617364 /* AuthorizationContentView.swift */; };
+		B7AF8F2828958E8100617364 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7AF8F2728958E8100617364 /* OAuthSwift */; };
+		B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F2A2895A83B00617364 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,17 +46,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		B743E1AF2897C19700FE944A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
+		B743E1B52897C62A00FE944A /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		B743E1B82897D94400FE944A /* OpenProjectKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OpenProjectKey.plist; sourceTree = "<group>"; };
+		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenProjectTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AF8EE52895779F00617364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AF8EE72895779F00617364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B7AF8EEE289577A000617364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7AF8EF1289577A000617364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B7AF8EF3289577A000617364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7AF8EF8289577A000617364 /* OpenProjectTimeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenProjectTimeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AF8EFC289577A000617364 /* OpenProjectTimeTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerTests.swift; sourceTree = "<group>"; };
 		B7AF8F02289577A000617364 /* OpenProjectTimeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenProjectTimeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerUITests.swift; sourceTree = "<group>"; };
 		B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		B7AF8F202895880B00617364 /* AuthorizationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContentView.swift; sourceTree = "<group>"; };
+		B7AF8F2A2895A83B00617364 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7AF8F2828958E8100617364 /* OAuthSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +95,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B743E1B12897C21E00FE944A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1B22897C22C00FE944A /* Authorization */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B743E1B22897C22C00FE944A /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1AF2897C19700FE944A /* AuthorizationService.swift */,
+				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B743E1C22897E19800FE944A /* APIKey */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1C32897E1B400FE944A /* APIKey.swift */,
+			);
+			path = APIKey;
+			sourceTree = "<group>";
+		};
 		B7AF8ED92895779F00617364 = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +171,7 @@
 			children = (
 				B7AF8EEE289577A000617364 /* Assets.xcassets */,
 				B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */,
-				B7AF8EF3289577A000617364 /* Info.plist */,
+				B743E1B82897D94400FE944A /* OpenProjectKey.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -132,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				B7AF8F17289578C500617364 /* App */,
+				B7AF8F192895798C00617364 /* Screens */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -139,7 +188,12 @@
 		B7AF8F17289578C500617364 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B743E1AD2897B85E00FE944A /* Logger.swift */,
+				B743E1C72897EBF100FE944A /* URLHandler.swift */,
 				B7AF8F18289578D500617364 /* Delegates */,
+				B7AF8F292895A82E00617364 /* Extensions */,
+				B743E1B12897C21E00FE944A /* Services */,
+				B743E1C22897E19800FE944A /* APIKey */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -151,6 +205,33 @@
 				B7AF8EE72895779F00617364 /* SceneDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B7AF8F192895798C00617364 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1B52897C62A00FE944A /* ScreenFactory.swift */,
+				B7AF8F1A2895799700617364 /* Authorization */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B7AF8F1A2895799700617364 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8F202895880B00617364 /* AuthorizationContentView.swift */,
+				B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B7AF8F292895A82E00617364 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8F2A2895A83B00617364 /* UIView.swift */,
+				B743E1C52897E91200FE944A /* Alert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +250,9 @@
 			dependencies = (
 			);
 			name = OpenProjectTimeTracker;
+			packageProductDependencies = (
+				B7AF8F2728958E8100617364 /* OAuthSwift */,
+			);
 			productName = OpenProjectTimeTracker;
 			productReference = B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -241,6 +325,9 @@
 				Base,
 			);
 			mainGroup = B7AF8ED92895779F00617364;
+			packageReferences = (
+				B7AF8F2628958E8100617364 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+			);
 			productRefGroup = B7AF8EE32895779F00617364 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */,
 				B7AF8EF2289577A000617364 /* LaunchScreen.storyboard in Resources */,
 				B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */,
 			);
@@ -283,7 +371,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B743E1B62897C62A00FE944A /* ScreenFactory.swift in Sources */,
+				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
+				B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */,
+				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
+				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
+				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
+				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
 				B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */,
+				B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */,
+				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
+				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,10 +554,12 @@
 				DEVELOPMENT_TEAM = Y8YBRN8X3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenProjectTimeTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,10 +583,12 @@
 				DEVELOPMENT_TEAM = Y8YBRN8X3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenProjectTimeTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,6 +718,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7AF8F2628958E8100617364 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7AF8F2728958E8100617364 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AF8F2628958E8100617364 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7AF8EDA2895779F00617364 /* Project object */;
 }

@@ -11,6 +11,12 @@ final class AuthorizationContentView: UIView {
     
     // MARK: - Subviews
     
+    private lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView().disableMask()
+        imageView.image = UIImage(named: "openProjectLogo")
+        return imageView
+    }()
+    
     private lazy var loginButton: UIButton = {
         let button = UIButton().disableMask()
         button.setTitle("Login", for: .normal)
@@ -39,10 +45,16 @@ final class AuthorizationContentView: UIView {
     private func setup() {
         backgroundColor = .white
         
+        addSubview(logoImageView)
         addSubview(loginButton)
         NSLayoutConstraint.activate([
-            loginButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loginButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            logoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
+            logoImageView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            logoImageView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
+            logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
+            
+            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -120),
+            loginButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             loginButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             loginButton.heightAnchor.constraint(equalToConstant: 40)
         ])

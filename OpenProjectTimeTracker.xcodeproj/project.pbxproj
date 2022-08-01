@@ -67,6 +67,7 @@
 		B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		B7AF8F202895880B00617364 /* AuthorizationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContentView.swift; sourceTree = "<group>"; };
 		B7AF8F2A2895A83B00617364 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +173,7 @@
 				B7AF8EEE289577A000617364 /* Assets.xcassets */,
 				B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */,
 				B743E1B82897D94400FE944A /* OpenProjectKey.plist */,
+				B7F9D29B2898349C00906BCB /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -553,7 +555,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8YBRN8X3W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OpenProjectTimeTracker/Info.plist;
+				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -582,7 +584,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8YBRN8X3W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OpenProjectTimeTracker/Info.plist;
+				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

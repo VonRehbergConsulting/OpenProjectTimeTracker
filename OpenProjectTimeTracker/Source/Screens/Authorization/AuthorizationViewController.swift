@@ -16,6 +16,8 @@ final class AuthorizationViewController: UIViewController {
     
     var authorizationService: AuthorizationServiceProtocol?
     
+    weak var coordinator: AuthorizationCoordinatorProtocol?
+    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -29,8 +31,7 @@ final class AuthorizationViewController: UIViewController {
             self?.authorizationService?.authorize { [weak self] result in
                 switch result {
                 case .success(let token):
-                    Logger.log("OAuth token: " + token.oauthToken)
-                    Logger.log("Refresh token: " + token.refreshToken)
+                    self?.coordinator?.finishAuthorization(token: token)
                 case .failure(_):
                     self?.showAlert(title: "Authorization error", message: "Please, try again later")
                 }

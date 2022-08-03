@@ -11,21 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    var apiKey: APIKey {
-        guard let path = Bundle.main.path(forResource: "OpenProjectKey", ofType: "plist")
-        else {
-            Logger.log(event: .error, "Can't find API key file")
-            return .zero
-        }
-        let url = URL(fileURLWithPath: path)
-        guard let data = try? Data(contentsOf: url),
-              let result = try? PropertyListDecoder().decode(APIKey.self, from: data)
-        else {
-            Logger.log(event: .error, "Can't read API key file")
-            return .zero
-        }
-        return result
-    }
+    var appCoordinator: AppCoordinatorProtocol?
     
     lazy var urlHandler = URLHandler()
 
@@ -37,10 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+        let navigationController = UINavigationController()
+        window?.rootViewController = navigationController
+        
+        let router = CoordinatorRouter(window: window!)
+        let factory = CoordinatorFactory(router: router)
+        
+        appCoordinator = AppCoordinator(router: router, coordinatorFactory: factory)
+        appCoordinator?.start()
 
-        let viewController = ScreenFactory().createAuthorizationScreen(apiKey: apiKey)
-
-        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
     

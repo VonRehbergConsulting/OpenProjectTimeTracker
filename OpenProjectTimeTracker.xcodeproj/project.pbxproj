@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7252835289A61BA008C2699 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252834289A61BA008C2699 /* Coordinator.swift */; };
+		B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */; };
+		B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252838289A695A008C2699 /* CoordinatorFactory.swift */; };
+		B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283A289A69C8008C2699 /* AppCoordinator.swift */; };
+		B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283C289A8969008C2699 /* ProjectsCoordinator.swift */; };
+		B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283E289A8F11008C2699 /* CoordinatorRouter.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AF2897C19700FE944A /* AuthorizationService.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
-		B743E1B62897C62A00FE944A /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* ScreenFactory.swift */; };
+		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
 		B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = B743E1B82897D94400FE944A /* OpenProjectKey.plist */; };
 		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
@@ -46,10 +52,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7252834289A61BA008C2699 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		B7252838289A695A008C2699 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		B725283A289A69C8008C2699 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B725283C289A8969008C2699 /* ProjectsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCoordinator.swift; sourceTree = "<group>"; };
+		B725283E289A8F11008C2699 /* CoordinatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouter.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1AF2897C19700FE944A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
-		B743E1B52897C62A00FE944A /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
 		B743E1B82897D94400FE944A /* OpenProjectKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OpenProjectKey.plist; sourceTree = "<group>"; };
 		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -96,6 +108,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7252833289A61A1008C2699 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B7252834289A61BA008C2699 /* Coordinator.swift */,
+				B7252838289A695A008C2699 /* CoordinatorFactory.swift */,
+				B725283A289A69C8008C2699 /* AppCoordinator.swift */,
+				B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */,
+				B725283C289A8969008C2699 /* ProjectsCoordinator.swift */,
+				B725283E289A8F11008C2699 /* CoordinatorRouter.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		B743E1B12897C21E00FE944A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +218,7 @@
 				B743E1AD2897B85E00FE944A /* Logger.swift */,
 				B743E1C72897EBF100FE944A /* URLHandler.swift */,
 				B7AF8F18289578D500617364 /* Delegates */,
+				B7252833289A61A1008C2699 /* Coordinators */,
 				B7AF8F292895A82E00617364 /* Extensions */,
 				B743E1B12897C21E00FE944A /* Services */,
 				B743E1C22897E19800FE944A /* APIKey */,
@@ -212,7 +238,7 @@
 		B7AF8F192895798C00617364 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B743E1B52897C62A00FE944A /* ScreenFactory.swift */,
+				B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */,
 				B7AF8F1A2895799700617364 /* Authorization */,
 			);
 			path = Screens;
@@ -373,18 +399,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B743E1B62897C62A00FE944A /* ScreenFactory.swift in Sources */,
+				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
 				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
+				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
 				B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */,
+				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
+				B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
 				B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */,
+				B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */,
 				B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */,
+				B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */,
 				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
+				B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,7 +56,7 @@ class AuthorizationService: AuthorizationServiceProtocol {
     
     func authorize(_ completion: @escaping ((Result<AuthorizationToken, Error>) -> Void)) {
         
-        Logger.log("Starting authorization")
+        Logger.log("Sending authorization request")
         
         guard let codeVerifier = generateCodeVerifier(),
               let codeChallenge = generateCodeChallenge(codeVerifier: codeVerifier)

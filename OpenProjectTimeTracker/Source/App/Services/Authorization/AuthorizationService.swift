@@ -13,14 +13,19 @@ protocol AuthorizationServiceProtocol {
     var viewController: UIViewController? { get set }
     
     func authorize(_ completion: @escaping ((Result<AuthorizationToken, Error>) -> Void))
-    
 }
 
-class AuthorizationService: AuthorizationServiceProtocol {
+protocol RefreshTokenServiceProtocol {
+    
+    func refresh(_ token: AuthorizationToken, completion: @escaping (Result<AuthorizationToken, Error>) -> Void)
+}
+
+class AuthorizationService: AuthorizationServiceProtocol,
+                            RefreshTokenServiceProtocol {
     
     // MARK: - Properties
     
-    let apiKey: APIKey
+    private let apiKey: APIKey
     
     private lazy var oauth2swift: OAuth2Swift = {
         let oauth2swift = OAuth2Swift(
@@ -83,6 +88,25 @@ class AuthorizationService: AuthorizationServiceProtocol {
             case .failure(let error):
                 Logger.log(event: .failure, "Authorization failed: " + error.localizedDescription)
                 Logger.log(event: .failure, error.errorUserInfo)
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    // MARK: - RefreshTokenProtocol
+    
+    func refresh(_ token: AuthorizationToken, completion: @escaping (Result<AuthorizationToken, Error>) -> Void) {
+        oauth2swift.renewAccessToken(withRefreshToken: token.refreshToken) { result in
+            switch result {
+            case .success(let (credential, _, _)):
+                let token = AuthorizationToken(
+                    oauthToken: credential.oauthToken,
+                    refreshToken: credential.oauthRefreshToken
+                )
+                Logger.log(event: .success, "Token refresh succeded")
+                completion(.success(token))
+            case .failure(let error):
+                Logger.log(event: .failure, "Token refresh failed: " + error.localizedDescription)
                 completion(.failure(error))
             }
         }

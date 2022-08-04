@@ -7,10 +7,9 @@
 
 import UIKit
 
-protocol CoordinatorRouterProtocol {
+protocol CoordinatorRouterProtocol: AnyObject {
     
-    func setRootViewController(_ viewController: UIViewController)
-    
+    func transition(to viewController: UIViewController)
 }
 
 class CoordinatorRouter: CoordinatorRouterProtocol {
@@ -28,12 +27,12 @@ class CoordinatorRouter: CoordinatorRouterProtocol {
     
     // MARK: - CoordinatorRouterProtocol
     
-    func setRootViewController(_ viewController: UIViewController) {
+    func transition(to viewController: UIViewController) {
         navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.isHidden = true
         
         window.rootViewController = navigationController
-        let options: UIView.AnimationOptions = .transitionFlipFromTop
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
         let duration: TimeInterval = 0.6
         UIView.transition(with: window, duration: duration, options: options, animations: {})
     }

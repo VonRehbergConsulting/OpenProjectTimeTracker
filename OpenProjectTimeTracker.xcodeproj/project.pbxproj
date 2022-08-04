@@ -13,6 +13,7 @@
 		B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283A289A69C8008C2699 /* AppCoordinator.swift */; };
 		B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283C289A8969008C2699 /* ProjectsCoordinator.swift */; };
 		B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283E289A8F11008C2699 /* CoordinatorRouter.swift */; };
+		B7252841289A9993008C2699 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252840289A9993008C2699 /* TokenStorage.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AF2897C19700FE944A /* AuthorizationService.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
@@ -58,6 +59,7 @@
 		B725283A289A69C8008C2699 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B725283C289A8969008C2699 /* ProjectsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCoordinator.swift; sourceTree = "<group>"; };
 		B725283E289A8F11008C2699 /* CoordinatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouter.swift; sourceTree = "<group>"; };
+		B7252840289A9993008C2699 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1AF2897C19700FE944A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
@@ -113,10 +115,18 @@
 			children = (
 				B7252834289A61BA008C2699 /* Coordinator.swift */,
 				B7252838289A695A008C2699 /* CoordinatorFactory.swift */,
+				B725283E289A8F11008C2699 /* CoordinatorRouter.swift */,
+				B725284F289BADF3008C2699 /* Coordinators */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B725284F289BADF3008C2699 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
 				B725283A289A69C8008C2699 /* AppCoordinator.swift */,
 				B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */,
 				B725283C289A8969008C2699 /* ProjectsCoordinator.swift */,
-				B725283E289A8F11008C2699 /* CoordinatorRouter.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 			children = (
 				B743E1AD2897B85E00FE944A /* Logger.swift */,
 				B743E1C72897EBF100FE944A /* URLHandler.swift */,
+				B7252840289A9993008C2699 /* TokenStorage.swift */,
 				B7AF8F18289578D500617364 /* Delegates */,
 				B7252833289A61A1008C2699 /* Coordinators */,
 				B7AF8F292895A82E00617364 /* Extensions */,
@@ -405,6 +416,7 @@
 				B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */,
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
+				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
 				B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,

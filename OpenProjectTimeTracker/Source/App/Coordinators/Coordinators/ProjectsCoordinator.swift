@@ -7,26 +7,32 @@
 
 import UIKit
 
-protocol ProjectsCoordinatorProtocol: Coordinator {
+protocol ProjectsCoordinatorOutput {
+    var finishFlow: (() -> Void)? { get set }
+}
+
+protocol ProjectsCoordinatorProtocol: AnyObject {
     
 }
 
-class ProjectsCoordinator: ProjectsCoordinatorProtocol {
+class ProjectsCoordinator: Coordinator,
+                           ProjectsCoordinatorProtocol,
+                           ProjectsCoordinatorOutput{
+    
+    // MARK: - ProjectsCoordinatorOutput
+    var finishFlow: (() -> Void)?
     
     // MARK: - Properties
     
-    private var childCoordinators: [Coordinator] = []
     private let router: CoordinatorRouterProtocol
     
     // MARK: - ProjectsCoordinatorProtocol
-    
-    var finishFlow: (() -> Void)?
     
     func start() {
         Logger.log("Starting projects flow")
         let viewController = UIViewController()
         viewController.view.backgroundColor = .systemGreen
-        router.setRootViewController(viewController)
+        router.transition(to: viewController)
     }
     
     // MARK: - Lifecycle

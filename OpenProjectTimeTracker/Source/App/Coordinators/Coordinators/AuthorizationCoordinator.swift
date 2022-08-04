@@ -7,28 +7,36 @@
 
 import UIKit
 
+protocol AuthorizationCoordinatorOutput {
+    
+    var finishFlow: ((AuthorizationToken) -> Void)? { get set }
+}
+
 protocol AuthorizationCoordinatorProtocol: AnyObject {
     
     func finishAuthorization(token: AuthorizationToken)
 }
 
-class AuthorizationCoordinator: Coordinator, AuthorizationCoordinatorProtocol {
+class AuthorizationCoordinator: Coordinator,
+                                AuthorizationCoordinatorOutput,
+                                AuthorizationCoordinatorProtocol {
     
     // MARK: - Properties
     
     private let screenFactory: AuthorizationScreenFactoryProtocol
-    private var childCoordinators: [Coordinator] = []
     private let router: CoordinatorRouterProtocol
     
-    // MARK: - Coordinator
+    // MARK: - AuthorizationCoordinatorOutput
     
-    var finishFlow: (() -> Void)?
+    var finishFlow: ((AuthorizationToken) -> Void)?
+    
+    // MARK: - Coordinator
     
     func start() {
         Logger.log("Starting authorization flow")
         let viewController = screenFactory.createAuthorizationScreen()
         viewController.coordinator = self
-        router.setRootViewController(viewController)
+        router.transition(to: viewController)
     }
     
     // MARK: - Lifecycle
@@ -44,6 +52,6 @@ class AuthorizationCoordinator: Coordinator, AuthorizationCoordinatorProtocol {
     func finishAuthorization(token: AuthorizationToken) {
         Logger.log("OAuth token: " + token.oauthToken)
         Logger.log("Refresh token: " + token.refreshToken)
-        finishFlow?()
+        finishFlow?(token)
     }
 }

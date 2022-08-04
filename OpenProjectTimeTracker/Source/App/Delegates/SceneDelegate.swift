@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    var appCoordinator: AppCoordinatorProtocol?
+    var appCoordinator: AppCoordinator?
     
     lazy var urlHandler = URLHandler()
 
@@ -23,16 +23,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController()
-        window?.rootViewController = navigationController
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .white
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
         
         let router = CoordinatorRouter(window: window!)
         let factory = CoordinatorFactory(router: router)
+        let tokenStorage = TokenStorage()
+        let refreshService = AuthorizationService(apiKey: .openProject)
         
-        appCoordinator = AppCoordinator(router: router, coordinatorFactory: factory)
+        appCoordinator = AppCoordinator(router: router,
+                                        coordinatorFactory: factory,
+                                        tokenStorage: tokenStorage,
+                                        refreshTokenService: refreshService
+        )
         appCoordinator?.start()
-
-        window?.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

@@ -9,7 +9,5 @@ import UIKit
 
 protocol Coordinator: AnyObject {
     
-    var finishFlow: (() -> Void)? { get set }
-    
     func start()
 }

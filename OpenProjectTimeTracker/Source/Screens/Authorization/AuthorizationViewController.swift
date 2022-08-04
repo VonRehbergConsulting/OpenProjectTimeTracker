@@ -31,15 +31,11 @@ final class AuthorizationViewController: UIViewController {
             self?.authorizationService?.authorize { [weak self] result in
                 switch result {
                 case .success(let token):
-                    self?.coordinator?.finishAuthorization(token: token)
+                    self?.coordinator?.finishAuthorization(token)
                 case .failure(_):
                     self?.showAlert(title: "Authorization error", message: "Please, try again later")
                 }
             }
         }   
     }
-    
-    // MARK: - Private helpers
-    
-    
 }

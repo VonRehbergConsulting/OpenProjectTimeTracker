@@ -1,0 +1,33 @@
+//
+//  OpenProjectEndpoints.swift
+//  OpenProjectTimeTracker
+//
+//  Created by Denis Shtangey on 04.08.22.
+//
+
+import Foundation
+
+enum OpenProjectEndpoints {
+    
+    // MARK: - Plist struct
+    
+    private struct EndpointPlist: Codable {
+        var baseURL: String
+        var userData: String
+    }
+    
+    case userData
+    
+    var reference: String {
+        guard let result = PlistReader<EndpointPlist>().read(from: "OpenProjectEndpoints") else {
+            Logger.log(event: .error, "Can't find API endpoints")
+            return ""
+        }
+        var reference = result.baseURL
+        switch self {
+        case .userData:
+            reference += result.userData
+        }
+        return reference
+    }
+}

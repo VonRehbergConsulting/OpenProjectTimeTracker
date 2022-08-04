@@ -15,7 +15,6 @@
 		B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283E289A8F11008C2699 /* CoordinatorRouter.swift */; };
 		B7252841289A9993008C2699 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252840289A9993008C2699 /* TokenStorage.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
-		B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AF2897C19700FE944A /* AuthorizationService.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
 		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
 		B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = B743E1B82897D94400FE944A /* OpenProjectKey.plist */; };
@@ -33,6 +32,13 @@
 		B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F202895880B00617364 /* AuthorizationContentView.swift */; };
 		B7AF8F2828958E8100617364 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7AF8F2728958E8100617364 /* OAuthSwift */; };
 		B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F2A2895A83B00617364 /* UIView.swift */; };
+		B7B18BF5289BF5B000545968 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BF4289BF5B000545968 /* UserService.swift */; };
+		B7B18BF7289BF7EE00545968 /* OAuth2Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */; };
+		B7B18BF9289BF9EC00545968 /* OpenProjectEndpoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */; };
+		B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */; };
+		B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BFC289BFB3A00545968 /* PlistReader.swift */; };
+		B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BFE289C048900545968 /* OpenProjectService.swift */; };
+		B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +67,6 @@
 		B725283E289A8F11008C2699 /* CoordinatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouter.swift; sourceTree = "<group>"; };
 		B7252840289A9993008C2699 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		B743E1AF2897C19700FE944A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
 		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
 		B743E1B82897D94400FE944A /* OpenProjectKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OpenProjectKey.plist; sourceTree = "<group>"; };
@@ -81,6 +86,13 @@
 		B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		B7AF8F202895880B00617364 /* AuthorizationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContentView.swift; sourceTree = "<group>"; };
 		B7AF8F2A2895A83B00617364 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B7B18BF4289BF5B000545968 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Swift.swift; sourceTree = "<group>"; };
+		B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OpenProjectEndpoints.plist; sourceTree = "<group>"; };
+		B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectEndpoints.swift; sourceTree = "<group>"; };
+		B7B18BFC289BFB3A00545968 /* PlistReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistReader.swift; sourceTree = "<group>"; };
+		B7B18BFE289C048900545968 /* OpenProjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectService.swift; sourceTree = "<group>"; };
+		B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCheckCoordinator.swift; sourceTree = "<group>"; };
 		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				B725283A289A69C8008C2699 /* AppCoordinator.swift */,
+				B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */,
 				B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */,
 				B725283C289A8969008C2699 /* ProjectsCoordinator.swift */,
 			);
@@ -134,18 +147,12 @@
 		B743E1B12897C21E00FE944A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B743E1B22897C22C00FE944A /* Authorization */,
+				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
+				B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */,
+				B7B18BFE289C048900545968 /* OpenProjectService.swift */,
+				B7B18BF3289BF5A500545968 /* User */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		B743E1B22897C22C00FE944A /* Authorization */ = {
-			isa = PBXGroup;
-			children = (
-				B743E1AF2897C19700FE944A /* AuthorizationService.swift */,
-				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
-			);
-			path = Authorization;
 			sourceTree = "<group>";
 		};
 		B743E1C22897E19800FE944A /* APIKey */ = {
@@ -209,6 +216,7 @@
 				B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */,
 				B743E1B82897D94400FE944A /* OpenProjectKey.plist */,
 				B7F9D29B2898349C00906BCB /* Info.plist */,
+				B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -228,8 +236,10 @@
 				B743E1AD2897B85E00FE944A /* Logger.swift */,
 				B743E1C72897EBF100FE944A /* URLHandler.swift */,
 				B7252840289A9993008C2699 /* TokenStorage.swift */,
+				B7B18BFC289BFB3A00545968 /* PlistReader.swift */,
 				B7AF8F18289578D500617364 /* Delegates */,
 				B7252833289A61A1008C2699 /* Coordinators */,
+				B7B18BF2289BBDDB00545968 /* DesignSystem */,
 				B7AF8F292895A82E00617364 /* Extensions */,
 				B743E1B12897C21E00FE944A /* Services */,
 				B743E1C22897E19800FE944A /* APIKey */,
@@ -269,8 +279,24 @@
 			children = (
 				B7AF8F2A2895A83B00617364 /* UIView.swift */,
 				B743E1C52897E91200FE944A /* Alert.swift */,
+				B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B7B18BF2289BBDDB00545968 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		B7B18BF3289BF5A500545968 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B7B18BF4289BF5B000545968 /* UserService.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +411,7 @@
 			files = (
 				B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */,
 				B7AF8EF2289577A000617364 /* LaunchScreen.storyboard in Resources */,
+				B7B18BF9289BF9EC00545968 /* OpenProjectEndpoints.plist in Resources */,
 				B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,10 +437,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */,
 				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
 				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
 				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
-				B743E1B02897C19700FE944A /* AuthorizationService.swift in Sources */,
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
@@ -421,12 +448,17 @@
 				B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
+				B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */,
 				B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */,
 				B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */,
 				B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */,
+				B7B18BF7289BF7EE00545968 /* OAuth2Swift.swift in Sources */,
 				B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */,
 				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
+				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
+				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
+				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
 				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
 				B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */,
 			);

@@ -29,14 +29,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         let router = CoordinatorRouter(window: window!)
-        let factory = CoordinatorFactory(router: router)
         let tokenStorage = TokenStorage()
-        let refreshService = AuthorizationService(apiKey: .openProject)
+        let service = OpenProjectService(apiKey: .openProject, tokenStorage: tokenStorage)
+        let factory = CoordinatorFactory(
+            router: router,
+            tokenStorage: tokenStorage,
+            authorizationService: service,
+            refreshService: service,
+            requestService: service
+        )
         
         appCoordinator = AppCoordinator(router: router,
                                         coordinatorFactory: factory,
-                                        tokenStorage: tokenStorage,
-                                        refreshTokenService: refreshService
+                                        tokenStorage: tokenStorage
         )
         appCoordinator?.start()
     }

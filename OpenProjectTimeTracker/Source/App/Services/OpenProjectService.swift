@@ -1,43 +1,51 @@
 //
-//  AuthorizationService.swift
+//  OpenProjectService.swift
 //  OpenProjectTimeTracker
 //
-//  Created by Denis Shtangey on 01.08.22.
+//  Created by Denis Shtangey on 04.08.22.
 //
 
 import OAuthSwift
 import UIKit
 
-protocol AuthorizationServiceProtocol {
+// MARK: - Service protocols
+
+protocol AuthorizationServiceProtocol: AnyObject {
     
     var viewController: UIViewController? { get set }
     
     func authorize(_ completion: @escaping ((Result<AuthorizationToken, Error>) -> Void))
 }
 
-protocol RefreshTokenServiceProtocol {
+protocol RefreshTokenServiceProtocol: AnyObject {
     
     func refresh(_ token: AuthorizationToken, completion: @escaping (Result<AuthorizationToken, Error>) -> Void)
 }
 
-class AuthorizationService: AuthorizationServiceProtocol,
-                            RefreshTokenServiceProtocol {
+protocol RequestServiceProtocol: AnyObject {
+    
+    func request(_ url: String, method: HTTPMethod, _ completion: @escaping ((Result<Data, Error>) -> Void))
+}
+
+// MARK: - HTTPMethod
+
+enum HTTPMethod {
+    case get
+    case post
+}
+
+// MARK: - OpenProjectService
+
+class OpenProjectService: AuthorizationServiceProtocol,
+                          RefreshTokenServiceProtocol,
+                          RequestServiceProtocol {
     
     // MARK: - Properties
     
     private let apiKey: APIKey
     
     private lazy var oauth2swift: OAuth2Swift = {
-        let oauth2swift = OAuth2Swift(
-            consumerKey: apiKey.consumerKey,
-            consumerSecret: apiKey.consumerSecret,
-            authorizeUrl: apiKey.authorizeURL,
-            accessTokenUrl: apiKey.tokenURL,
-            responseType: "code",
-            contentType: ""
-        )
-        
-        oauth2swift.allowMissingStateCheck = true
+        let oauth2swift = OAuth2Swift(apiKey)
         
         if let viewController = viewController {
             let handler = SafariURLHandler(viewController: viewController, oauthSwift: oauth2swift)
@@ -49,12 +57,16 @@ class AuthorizationService: AuthorizationServiceProtocol,
         return oauth2swift
     }()
     
+    let tokenStorage: TokenStorageProtocol
+    
     weak var viewController: UIViewController?
     
     // MARK: - Lifecycle
     
-    init(apiKey: APIKey) {
+    init(apiKey: APIKey,
+         tokenStorage: TokenStorageProtocol) {
         self.apiKey = apiKey
+        self.tokenStorage = tokenStorage
     }
     
     // MARK: - AuthorizationServiceProtocol
@@ -110,5 +122,32 @@ class AuthorizationService: AuthorizationServiceProtocol,
                 completion(.failure(error))
             }
         }
+    }
+    
+    // MARK: - RequestServiceProtocol
+    
+    func request(_ url: String, method: HTTPMethod, _ completion: @escaping ((Result<Data, Error>) -> Void)) {
+        
+        var oauthMethod: OAuthSwiftHTTPRequest.Method
+        switch method {
+        case .get:
+            oauthMethod = .GET
+        case .post:
+            oauthMethod = .POST
+        }
+        
+        oauth2swift.startAuthorizedRequest(
+            url,
+            method: oauthMethod,
+            parameters: [:]) { result in
+                switch result {
+                case .success(let (response)):
+                    Logger.log(event: .success, "Request succeded")
+                    completion(.success(response.data))
+                case .failure(let error):
+                    Logger.log(event: .failure, "Request failed: \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+            }
     }
 }

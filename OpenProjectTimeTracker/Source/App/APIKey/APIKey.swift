@@ -19,19 +19,12 @@ struct APIKey: Codable {
     }
     
     static var openProject: APIKey {
-        guard let path = Bundle.main.path(forResource: "OpenProjectKey", ofType: "plist")
-        else {
-            Logger.log(event: .error, "Can't find API key file")
+        if let key  = PlistReader<APIKey>().read(from: "OpenProjectKey") {
+            return key
+        } else {
+            Logger.log(event: .error, "Can't read Open Project API key")
             return .zero
         }
-        let url = URL(fileURLWithPath: path)
-        guard let data = try? Data(contentsOf: url),
-              let result = try? PropertyListDecoder().decode(APIKey.self, from: data)
-        else {
-            Logger.log(event: .error, "Can't read API key file")
-            return .zero
-        }
-        return result
     }
     
 }

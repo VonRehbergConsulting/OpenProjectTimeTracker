@@ -14,7 +14,7 @@ protocol AuthorizationCoordinatorOutput {
 
 protocol AuthorizationCoordinatorProtocol: AnyObject {
     
-    func finishAuthorization(token: AuthorizationToken)
+    func finishAuthorization(_ token: AuthorizationToken)
 }
 
 class AuthorizationCoordinator: Coordinator,
@@ -49,9 +49,7 @@ class AuthorizationCoordinator: Coordinator,
     
     // MARK: - AuthorizationCoordinatorProtocol
     
-    func finishAuthorization(token: AuthorizationToken) {
-        Logger.log("OAuth token: " + token.oauthToken)
-        Logger.log("Refresh token: " + token.refreshToken)
+    func finishAuthorization(_ token: AuthorizationToken) {
         finishFlow?(token)
     }
 }

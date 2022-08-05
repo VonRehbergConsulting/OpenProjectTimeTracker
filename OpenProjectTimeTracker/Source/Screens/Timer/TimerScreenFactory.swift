@@ -30,7 +30,9 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
     func createTimerScreen(userID: Int) -> TimerViewController {
         let viewController = TimerViewController()
         let presenter = TimerPresenter()
-        let model = TimerModel(userID: userID)
+        
+        let taskService = TasksService(service: service)
+        let model = TimerModel(userID: userID, service: taskService)
         
         viewController.presenter = presenter
         presenter.view = viewController

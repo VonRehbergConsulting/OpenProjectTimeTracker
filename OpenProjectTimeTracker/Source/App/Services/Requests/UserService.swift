@@ -22,19 +22,6 @@ final class UserService: UserServiceProtocol {
         var id: Int
     }
     
-    // MARK: - Error
-    
-    enum NetworkError: Error {
-        case parsingError
-        
-        var localizedDescription: String {
-            switch self {
-            case .parsingError:
-                return "Unable to parse response data"
-            }
-        }
-    }
-    
     // MARK: - Properties
     
     private let service: RequestServiceProtocol
@@ -48,7 +35,7 @@ final class UserService: UserServiceProtocol {
     // MARK: - UserServiceProtocol
     
     func getUserID(_ completion: @escaping ((Result<Int, Error>) -> Void)) {
-        service.request(OpenProjectEndpoints.userData.reference, method: .get) { result in
+        service.request(OpenProjectEndpoints.userData.reference, method: .get, parameters: [:]) { result in
             switch result {
             case .success(let data):
                 if let userDataResponse = try? JSONDecoder().decode(UserDataResponse.self, from: data) {

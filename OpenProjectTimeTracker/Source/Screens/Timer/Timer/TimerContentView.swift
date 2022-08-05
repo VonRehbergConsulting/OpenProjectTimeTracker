@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class TimerContentView: UIView {
+protocol TimerContentViewProtocol {
+    
+    func setDelegates(dataSource: UITableViewDataSource, delegate: UITableViewDelegate)
+    
+    func insertItems(at indexPaths: [IndexPath])
+}
+
+final class TimerContentView: UIView, TimerContentViewProtocol {
     
     // MARK: - Layout constants
     
@@ -56,6 +63,7 @@ final class TimerContentView: UIView {
     private lazy var taskTableView: UITableView = {
         let tableView = UITableView().disableMask()
         tableView.backgroundColor = .lightGray
+        tableView.register(TimerTaskCell.self, forCellReuseIdentifier: TimerTaskCell.reuseIdentifier)
         return tableView
     }()
     
@@ -86,5 +94,18 @@ final class TimerContentView: UIView {
             taskTableView.rightAnchor.constraint(equalTo: topStackView.rightAnchor),
             taskTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.edgeInsets)
         ])
+    }
+    
+    // MARK: - TimerContentViewProtocol
+    
+    func insertItems(at indexPaths: [IndexPath]) {
+        taskTableView.beginUpdates()
+        taskTableView.insertRows(at: indexPaths, with: .fade)
+        taskTableView.endUpdates()
+    }
+    
+    func setDelegates(dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
+        taskTableView.dataSource = dataSource
+        taskTableView.delegate = delegate
     }
 }

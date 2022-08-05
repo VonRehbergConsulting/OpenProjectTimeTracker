@@ -14,9 +14,11 @@ enum OpenProjectEndpoints {
     private struct EndpointPlist: Codable {
         var baseURL: String
         var userData: String
+        var tasks: String
     }
     
     case userData
+    case tasks
     
     var reference: String {
         guard let result = PlistReader<EndpointPlist>().read(from: "OpenProjectEndpoints") else {
@@ -27,6 +29,8 @@ enum OpenProjectEndpoints {
         switch self {
         case .userData:
             reference += result.userData
+        case .tasks:
+            reference += result.tasks
         }
         return reference
     }

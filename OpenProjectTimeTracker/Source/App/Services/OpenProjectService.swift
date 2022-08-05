@@ -24,7 +24,7 @@ protocol RefreshTokenServiceProtocol: AnyObject {
 
 protocol RequestServiceProtocol: AnyObject {
     
-    func request(_ url: String, method: HTTPMethod, _ completion: @escaping ((Result<Data, Error>) -> Void))
+    func request(_ url: String, method: HTTPMethod, parameters: [String: Any], _ completion: @escaping ((Result<Data, Error>) -> Void))
 }
 
 // MARK: - HTTPMethod
@@ -126,7 +126,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
     
     // MARK: - RequestServiceProtocol
     
-    func request(_ url: String, method: HTTPMethod, _ completion: @escaping ((Result<Data, Error>) -> Void)) {
+    func request(_ url: String, method: HTTPMethod, parameters: [String: Any] = [:], _ completion: @escaping ((Result<Data, Error>) -> Void)) {
         
         var oauthMethod: OAuthSwiftHTTPRequest.Method
         switch method {
@@ -136,16 +136,19 @@ class OpenProjectService: AuthorizationServiceProtocol,
             oauthMethod = .POST
         }
         
-        oauth2swift.startAuthorizedRequest(
-            url,
-            method: oauthMethod,
-            parameters: [:]) { result in
-                switch result {
-                case .success(let (response)):
-                    completion(.success(response.data))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+        // TODO: implement token renewal
+        oauth2swift.startAuthorizedRequest(url,
+                                           method: oauthMethod,
+                                           parameters: parameters,
+                                           onTokenRenewal: { _ in
+        }, completionHandler: { result in
+            switch result {
+            case .success(let (response)):
+                completion(.success(response.data))
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
             }
+        })
     }
 }

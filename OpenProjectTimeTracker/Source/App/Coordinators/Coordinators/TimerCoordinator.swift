@@ -17,29 +17,49 @@ protocol TimerCoordinatorProtocol: AnyObject {
 
 class TimerCoordinator: Coordinator,
                         TimerCoordinatorProtocol,
-                        TimerCoordinatorOutput{
+                        TimerCoordinatorOutput {
+    
+    // MARK: - Properties
+    
+    private let screenFactory: TimerScreenFactoryProtocol
+    private let router: CoordinatorRouterProtocol
+    private let service: UserServiceProtocol
     
     // MARK: - TimerCoordinatorOutput
     var finishFlow: (() -> Void)?
     
-    // MARK: - Properties
+    // MARK: - Lifecycle
     
-    private let router: CoordinatorRouterProtocol
+    init(screenFactory: TimerScreenFactoryProtocol,
+         router: CoordinatorRouterProtocol,
+         service: UserServiceProtocol) {
+        self.screenFactory = screenFactory
+        self.router = router
+        self.service = service
+    }
     
     // MARK: - TimerCoordinatorProtocol
     
     func start() {
-        Logger.log("Starting projects flow")
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .systemGreen
+        Logger.log("Starting timer flow")
+        Logger.log("Requesting user id")
+        service.getUserID() { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let id):
+                Logger.log(event: .success, "User id recieved")
+                self.showScreen(id: id)
+            case.failure(let error):
+                Logger.log(event: .error, "Unable to get user id: \(error)")
+                self.finishFlow?()
+            }
+        }
+    }
+    
+    // MARK: - Private helpers
+    
+    private func showScreen(id: Int) {
+        let viewController = screenFactory.createTimerScreen(userID: id)
         router.transition(to: viewController)
     }
-    
-    // MARK: - Lifecycle
-    
-    init(router: CoordinatorRouterProtocol) {
-        self.router = router
-    }
-    
-    
 }

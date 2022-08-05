@@ -142,10 +142,8 @@ class OpenProjectService: AuthorizationServiceProtocol,
             parameters: [:]) { result in
                 switch result {
                 case .success(let (response)):
-                    Logger.log(event: .success, "Request succeded")
                     completion(.success(response.data))
                 case .failure(let error):
-                    Logger.log(event: .failure, "Request failed: \(error.localizedDescription)")
                     completion(.failure(error))
                 }
             }

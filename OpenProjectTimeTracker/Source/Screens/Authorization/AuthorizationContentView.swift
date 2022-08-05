@@ -17,13 +17,10 @@ final class AuthorizationContentView: UIView {
         return imageView
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton().disableMask()
+    private lazy var loginButton: DSButton = {
+        let button = DSButton().disableMask()
         button.setTitle("Login", for: .normal)
-        button.backgroundColor = .systemBlue
         button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        button.layer.cornerRadius = 16
-        button.clipsToBounds = true
         return button
     }()
     

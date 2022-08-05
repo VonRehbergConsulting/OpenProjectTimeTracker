@@ -13,7 +13,7 @@ protocol CoordinatorFactoryProtocol {
     
     func createAuthorizationCoordinator() -> AuthorizationCoordinator
     
-    func createProjectsCoordinator() -> ProjectsCoordinator
+    func createProjectsCoordinator() -> TimerCoordinator
     
 }
 
@@ -57,8 +57,8 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
         return coordinator
     }
     
-    func createProjectsCoordinator() -> ProjectsCoordinator {
-        let coordinator = ProjectsCoordinator(router: router)
+    func createProjectsCoordinator() -> TimerCoordinator {
+        let coordinator = TimerCoordinator(router: router)
         return coordinator
     }
     

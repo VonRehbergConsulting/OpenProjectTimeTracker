@@ -1,5 +1,5 @@
 //
-//  ProjectsCoordinator.swift
+//  TimerCoordinator.swift
 //  OpenProjectTimeTracker
 //
 //  Created by Denis Shtangey on 03.08.22.
@@ -7,26 +7,26 @@
 
 import UIKit
 
-protocol ProjectsCoordinatorOutput {
+protocol TimerCoordinatorOutput {
     var finishFlow: (() -> Void)? { get set }
 }
 
-protocol ProjectsCoordinatorProtocol: AnyObject {
+protocol TimerCoordinatorProtocol: AnyObject {
     
 }
 
-class ProjectsCoordinator: Coordinator,
-                           ProjectsCoordinatorProtocol,
-                           ProjectsCoordinatorOutput{
+class TimerCoordinator: Coordinator,
+                        TimerCoordinatorProtocol,
+                        TimerCoordinatorOutput{
     
-    // MARK: - ProjectsCoordinatorOutput
+    // MARK: - TimerCoordinatorOutput
     var finishFlow: (() -> Void)?
     
     // MARK: - Properties
     
     private let router: CoordinatorRouterProtocol
     
-    // MARK: - ProjectsCoordinatorProtocol
+    // MARK: - TimerCoordinatorProtocol
     
     func start() {
         Logger.log("Starting projects flow")

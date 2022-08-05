@@ -59,7 +59,7 @@ class AppCoordinator: Coordinator {
         if tokenStorage.token == nil {
             startAuthorizationFlow()
         } else {
-            startProjectsFlow()
+            startTimerFlow()
         }
     }
     
@@ -78,7 +78,7 @@ class AppCoordinator: Coordinator {
         coordinator.start()
     }
     
-    private func startProjectsFlow() {
+    private func startTimerFlow() {
         let coordinator = coordinatorFactory.createProjectsCoordinator()
         childCoordinators.append(coordinator)
         coordinator.finishFlow = { [weak self] in

@@ -11,7 +11,7 @@
 		B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */; };
 		B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252838289A695A008C2699 /* CoordinatorFactory.swift */; };
 		B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283A289A69C8008C2699 /* AppCoordinator.swift */; };
-		B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283C289A8969008C2699 /* ProjectsCoordinator.swift */; };
+		B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283C289A8969008C2699 /* TimerCoordinator.swift */; };
 		B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283E289A8F11008C2699 /* CoordinatorRouter.swift */; };
 		B7252841289A9993008C2699 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252840289A9993008C2699 /* TokenStorage.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
@@ -63,7 +63,7 @@
 		B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		B7252838289A695A008C2699 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		B725283A289A69C8008C2699 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		B725283C289A8969008C2699 /* ProjectsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCoordinator.swift; sourceTree = "<group>"; };
+		B725283C289A8969008C2699 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		B725283E289A8F11008C2699 /* CoordinatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouter.swift; sourceTree = "<group>"; };
 		B7252840289A9993008C2699 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				B725283A289A69C8008C2699 /* AppCoordinator.swift */,
 				B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */,
 				B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */,
-				B725283C289A8969008C2699 /* ProjectsCoordinator.swift */,
+				B725283C289A8969008C2699 /* TimerCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
-				B725283D289A8969008C2699 /* ProjectsCoordinator.swift in Sources */,
+				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
 				B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */,

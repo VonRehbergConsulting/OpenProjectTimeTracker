@@ -26,6 +26,8 @@ final class TimerModel: TimerModelProtocol {
     private let service: TasksServiceProtocol
     
     private var tasks = [Task]()
+    private var isLoading = false
+    private var nextPage = 1
     
     // MARK: - Lifecycle
     
@@ -53,21 +55,29 @@ final class TimerModel: TimerModelProtocol {
     func loadTasks(_ completion: @escaping ([Int]) -> Void) {
         // TODO: Add multithreading
         // TODO: Appending of tasks instead of setting
-        service.loadTasks(id: userID) { [weak self] result in
+        guard isLoading == false else { return }
+        isLoading = true
+        Logger.log("Loading tasks")
+        service.loadTasks(id: userID, page: nextPage) { [weak self] result in
             guard let self = self else { return }
+            var indexes = [Int]()
             switch result {
             case .failure(let error):
                 Logger.log(event: .failure, "Can't load tasks: \(error.localizedDescription)")
-                completion([])
             case .success(let response):
-                Logger.log(event: .success, "Tasks loaded")
-                self.tasks = response
-                var indexes = [Int]()
-                for i in 0..<response.count  {
-                    indexes.append(i)
+                let responseCount = response.count
+                Logger.log(event: .success, "Tasks loaded: \(responseCount)")
+                if responseCount > 0 {
+                    self.nextPage += 1
+                    let firstIndex = self.tasks.count
+                    self.tasks.append(contentsOf: response)
+                    for i in firstIndex..<self.tasks.count  {
+                        indexes.append(i)
+                    }
                 }
-                completion(indexes)
             }
+            self.isLoading = false
+            completion(indexes)
         }
     }
 }

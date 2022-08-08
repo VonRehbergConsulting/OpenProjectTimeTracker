@@ -136,11 +136,18 @@ class OpenProjectService: AuthorizationServiceProtocol,
             oauthMethod = .POST
         }
         
-        // TODO: implement token renewal
+        // TODO: implement error on token renewal
         oauth2swift.startAuthorizedRequest(url,
                                            method: oauthMethod,
                                            parameters: parameters,
-                                           onTokenRenewal: { _ in
+                                           onTokenRenewal: { [weak self ] result in
+            switch result {
+            case .success(let credentials):
+                self?.tokenStorage.token = AuthorizationToken(oauthToken: credentials.oauthToken, refreshToken: credentials.oauthRefreshToken)
+            case .failure(_):
+                Logger.log(event: .warning, "Cannot refresh token")
+            }
+
         }, completionHandler: { result in
             switch result {
             case .success(let (response)):

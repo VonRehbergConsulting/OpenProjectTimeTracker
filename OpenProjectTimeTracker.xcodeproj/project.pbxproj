@@ -344,11 +344,11 @@
 			isa = PBXGroup;
 			children = (
 				B7C5BA46289D5118000A10D7 /* Task.swift */,
+				B7C5BA4A289D5F66000A10D7 /* TimerTaskCell.swift */,
 				B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */,
 				B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */,
 				B7C5BA32289D13A8000A10D7 /* TimerPresenter.swift */,
 				B7C5BA34289D13B0000A10D7 /* TimerModel.swift */,
-				B7C5BA4A289D5F66000A10D7 /* TimerTaskCell.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";

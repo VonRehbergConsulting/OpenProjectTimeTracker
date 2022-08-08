@@ -18,6 +18,13 @@ final class TimerViewController: UIViewController,
     
     // MARK: - Properties
     
+    private var isLoading = false {
+        didSet {
+            contentView?.showSpinner = isLoading
+        }
+    }
+    private var isLoadingBlocked = false
+    
     var contentView: TimerContentViewProtocol? { view as? TimerContentViewProtocol }
     
     var presenter: TimerPresenterProtocol?
@@ -31,9 +38,7 @@ final class TimerViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView?.setDelegates(dataSource: self, delegate: self)
-        presenter?.loadTasks { [weak self] indexPaths in
-            self?.contentView?.insertItems(at: indexPaths)
-        }
+        loadNextPage()
     }
     
     // MARK: - UITableViewDelegate
@@ -55,7 +60,39 @@ final class TimerViewController: UIViewController,
         }
         let item = presenter?.item(at: indexPath) ?? .init(subject: "")
         cell.configure(item, at: indexPath)
+        cell.selectionStyle = .none
         return cell
     }
     
+    // MARK: - UIScrollViewDelegate
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset
+        let bounds = scrollView.bounds
+        let size = scrollView.contentSize
+        let inset = scrollView.contentInset
+        let y = offset.y + bounds.size.height - inset.bottom
+        let h = size.height + 1
+        if y > h {
+            loadNextPage()
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isLoadingBlocked = false
+    }
+    
+    // MARK: - Private helpers
+    
+    private func loadNextPage() {
+        guard isLoading == false,
+              isLoadingBlocked == false
+        else { return }
+        isLoading = true
+        isLoadingBlocked = true
+        presenter?.loadTasks { [weak self] indexPaths in
+            self?.contentView?.insertItems(at: indexPaths)
+            self?.isLoading = false
+        }
+    }
 }

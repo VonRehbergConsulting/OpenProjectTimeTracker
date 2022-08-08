@@ -10,10 +10,12 @@ import UIKit
 
 protocol TasksServiceProtocol {
     
-    func loadTasks(id: Int, _ completion: @escaping (Result<[Task], Error>) -> Void)
+    func loadTasks(id: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void)
 }
 
 final class TasksService: TasksServiceProtocol {
+    
+    private let pageSize = 20
     
     // MARK: - Properties
     
@@ -27,9 +29,13 @@ final class TasksService: TasksServiceProtocol {
     
     // MARK: - TasksServiceProtocol
     
-    func loadTasks(id: Int, _ completion: @escaping (Result<[Task], Error>) -> Void) {
+    func loadTasks(id: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void) {
         let url = OpenProjectEndpoints.tasks.reference
-        let parameters: [String: Any] = ["filters": "[{\"assignee\":{\"operator\":\"=\",\"values\":[\"\(id)\"]}}]"]
+        let parameters: [String: Any] = [
+            "filters": "[{\"assignee\":{\"operator\":\"=\",\"values\":[\"\(id)\"]}}]",
+            "pageSize": pageSize,
+            "offset": page
+        ]
         service.request(url, method: .get, parameters: parameters) { result in
             switch result {
             case .success(let data):

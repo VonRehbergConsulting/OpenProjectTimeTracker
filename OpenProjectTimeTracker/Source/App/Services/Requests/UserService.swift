@@ -35,7 +35,7 @@ final class UserService: UserServiceProtocol {
     // MARK: - UserServiceProtocol
     
     func getUserID(_ completion: @escaping ((Result<Int, Error>) -> Void)) {
-        service.request(OpenProjectEndpoints.userData.reference, method: .get, parameters: [:]) { result in
+        service.request(OpenProjectEndpoints.userData.reference, method: .get, parameters: [:], headers: [:], body: nil) { result in
             switch result {
             case .success(let data):
                 if let userDataResponse = try? JSONDecoder().decode(UserDataResponse.self, from: data) {
@@ -46,7 +46,6 @@ final class UserService: UserServiceProtocol {
             case .failure(let error):
                 completion(.failure(error))
             }
-            
         }
     }
 }

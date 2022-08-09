@@ -21,6 +21,7 @@
 		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
+		B77C128D28A28424004F8988 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C128C28A28424004F8988 /* TimeEntry.swift */; };
 		B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE52895779F00617364 /* AppDelegate.swift */; };
 		B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE72895779F00617364 /* SceneDelegate.swift */; };
 		B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EEE289577A000617364 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		B77C128C28A28424004F8988 /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenProjectTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AF8EE52895779F00617364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AF8EE72895779F00617364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,9 +175,11 @@
 		B743E1B12897C21E00FE944A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B77C128E28A28B22004F8988 /* OpenProjectModels */,
 				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
 				B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */,
 				B7B18BFE289C048900545968 /* OpenProjectService.swift */,
+				B77C128C28A28424004F8988 /* TimeEntry.swift */,
 				B7B18BF3289BF5A500545968 /* Requests */,
 			);
 			path = Services;
@@ -187,6 +191,13 @@
 				B743E1C32897E1B400FE944A /* APIKey.swift */,
 			);
 			path = APIKey;
+			sourceTree = "<group>";
+		};
+		B77C128E28A28B22004F8988 /* OpenProjectModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OpenProjectModels;
 			sourceTree = "<group>";
 		};
 		B7AF8ED92895779F00617364 = {
@@ -513,6 +524,7 @@
 				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */,
+				B77C128D28A28424004F8988 /* TimeEntry.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
 				B7C5BA31289D06E4000A10D7 /* TimerContentView.swift in Sources */,
 				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,

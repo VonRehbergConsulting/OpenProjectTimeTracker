@@ -8,6 +8,12 @@
 import Foundation
 
 struct Task {
-    var id: Int
+    
+    var selfHref: String
     var subject: String
+    
+    var projectHref: String
+    var projectTitle: String?
+    var prioriry: String?
+    var status: String?
 }

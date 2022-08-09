@@ -36,7 +36,7 @@ final class TasksService: TasksServiceProtocol {
             "pageSize": pageSize,
             "offset": page
         ]
-        service.request(url, method: .get, parameters: parameters) { result in
+        service.request(url, method: .get, parameters: parameters, headers: [:], body: nil) { result in
             switch result {
             case .success(let data):
                 if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
@@ -44,9 +44,30 @@ final class TasksService: TasksServiceProtocol {
                    let elements = embedded["elements"] as? [[String: Any]] {
                     var tasks = [Task]()
                     for element in elements {
-                        if let id = element["id"] as? Int,
-                           let subject = element["subject"] as? String {
-                            tasks.append(Task(id: id, subject: subject))
+                        if let subject = element["subject"] as? String,
+                           let links = element["_links"] as? [String: Any],
+                           let project = links["project"] as? [String: Any],
+                           let projectHref = project["href"] as? String,
+                           let self = links["project"] as? [String: Any],
+                           let selfHref = self["href"] as? String {
+                            let projectTitle = project["title"] as? String
+                            var priorityTitle: String?
+                            if let priority = links["priority"] as? [String: Any] {
+                                priorityTitle = priority["title"] as? String
+                            }
+                            var statusTitle: String?
+                            if let status = links["status"] as? [String: Any] {
+                                statusTitle = status["title"] as? String
+                            }
+                            
+                            let task = Task(
+                                selfHref: selfHref,
+                                subject: subject,
+                                projectHref: projectHref,
+                                projectTitle: projectTitle,
+                                prioriry: priorityTitle,
+                                status: statusTitle)
+                            tasks.append(task)
                         }
                     }
                     completion(.success(tasks))

@@ -24,7 +24,12 @@ protocol RefreshTokenServiceProtocol: AnyObject {
 
 protocol RequestServiceProtocol: AnyObject {
     
-    func request(_ url: String, method: HTTPMethod, parameters: [String: Any], _ completion: @escaping ((Result<Data, Error>) -> Void))
+    func request(_ url: String,
+                 method: HTTPMethod,
+                 parameters: [String: Any],
+                 headers: [String: String],
+                 body: Data?,
+                 _ completion: @escaping ((Result<Data, Error>) -> Void))
 }
 
 // MARK: - HTTPMethod
@@ -126,7 +131,12 @@ class OpenProjectService: AuthorizationServiceProtocol,
     
     // MARK: - RequestServiceProtocol
     
-    func request(_ url: String, method: HTTPMethod, parameters: [String: Any] = [:], _ completion: @escaping ((Result<Data, Error>) -> Void)) {
+    func request(_ url: String,
+                 method: HTTPMethod,
+                 parameters: [String: Any] = [:],
+                 headers: [String: String] = [:],
+                 body: Data? = nil,
+                 _ completion: @escaping ((Result<Data, Error>) -> Void)) {
         
         var oauthMethod: OAuthSwiftHTTPRequest.Method
         switch method {
@@ -140,7 +150,9 @@ class OpenProjectService: AuthorizationServiceProtocol,
         oauth2swift.startAuthorizedRequest(url,
                                            method: oauthMethod,
                                            parameters: parameters,
-                                           onTokenRenewal: { [weak self ] result in
+                                           headers: headers,
+                                           body: body,
+                                           onTokenRenewal: { [weak self] result in
             switch result {
             case .success(let credentials):
                 self?.tokenStorage.token = AuthorizationToken(oauthToken: credentials.oauthToken, refreshToken: credentials.oauthRefreshToken)
@@ -153,7 +165,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
             case .success(let (response)):
                 completion(.success(response.data))
             case .failure(let error):
-                print(error)
+                Logger.log(event: .error, error.errorUserInfo)
                 completion(.failure(error))
             }
         })

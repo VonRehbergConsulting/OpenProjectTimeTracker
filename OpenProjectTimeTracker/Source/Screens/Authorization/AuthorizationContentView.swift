@@ -52,8 +52,7 @@ final class AuthorizationContentView: UIView {
             
             loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -120),
             loginButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            loginButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
-            loginButton.heightAnchor.constraint(equalToConstant: 40)
+            loginButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
         ])
     }
     

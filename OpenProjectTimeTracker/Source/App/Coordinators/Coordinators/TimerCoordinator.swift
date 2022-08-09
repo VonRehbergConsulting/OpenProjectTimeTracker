@@ -13,6 +13,8 @@ protocol TimerCoordinatorOutput {
 
 protocol TimerCoordinatorProtocol: AnyObject {
     
+    func routeToTaskList(_ completion: @escaping (Task) -> Void)
+    
 }
 
 class TimerCoordinator: Coordinator,
@@ -24,6 +26,7 @@ class TimerCoordinator: Coordinator,
     private let screenFactory: TimerScreenFactoryProtocol
     private let router: CoordinatorRouterProtocol
     private let service: UserServiceProtocol
+    private var userID: Int = 0
     
     // MARK: - TimerCoordinatorOutput
     var finishFlow: (() -> Void)?
@@ -48,7 +51,8 @@ class TimerCoordinator: Coordinator,
             switch result {
             case .success(let id):
                 Logger.log(event: .success, "User id recieved")
-                self.showScreen(id: id)
+                self.userID = id
+                self.showTimerScreen()
             case.failure(let error):
                 Logger.log(event: .error, "Unable to get user id: \(error)")
                 self.finishFlow?()
@@ -56,10 +60,22 @@ class TimerCoordinator: Coordinator,
         }
     }
     
+    // MARK: - TimerCoordinatorProtocol
+    
+    func routeToTaskList(_ completion: @escaping (Task) -> Void) {
+        let viewController = screenFactory.createTaskListScreen(userID: userID)
+        viewController.finishFlow = { [weak self] task in
+            self?.router.pop(animated: true)
+            completion(task)
+        }
+        router.push(viewController, animated: true)
+    }
+    
     // MARK: - Private helpers
     
-    private func showScreen(id: Int) {
-        let viewController = screenFactory.createTimerScreen(userID: id)
+    private func showTimerScreen() {
+        let viewController = screenFactory.createTimerScreen(userID: userID)
+        viewController.coordinator = self
         router.transition(to: viewController)
     }
 }

@@ -9,11 +9,7 @@ import Foundation
 
 protocol TimerModelProtocol {
     
-    var taskCount: Int { get }
-    
-    func item(at index: Int) -> Task?
-    
-    func loadTasks(_ completion: @escaping ([Int]) -> Void)
+    func updateTaskData(selfHref: String, projectHref: String)
 }
 
 final class TimerModel: TimerModelProtocol {
@@ -23,61 +19,19 @@ final class TimerModel: TimerModelProtocol {
     weak var presenter: TimerPresenterProtocol?
     
     private let userID: Int
-    private let service: TasksServiceProtocol
-    
-    private var tasks = [Task]()
-    private var isLoading = false
-    private var nextPage = 1
+    private var selfHref = ""
+    private var projectHref = ""
     
     // MARK: - Lifecycle
     
-    init(userID: Int,
-         service: TasksServiceProtocol) {
+    init(userID: Int) {
         self.userID = userID
-        self.service = service
     }
     
     // MARK: - TimerModelProtocol
     
-    var taskCount: Int {
-        tasks.count
-    }
-    
-    func item(at index: Int) -> Task? {
-        if index >= 0,
-           index < tasks.count {
-            return tasks[index]
-        } else {
-            return nil
-        }
-    }
-    
-    func loadTasks(_ completion: @escaping ([Int]) -> Void) {
-        // TODO: Add multithreading
-        // TODO: Appending of tasks instead of setting
-        guard isLoading == false else { return }
-        isLoading = true
-        Logger.log("Loading tasks")
-        service.loadTasks(id: userID, page: nextPage) { [weak self] result in
-            guard let self = self else { return }
-            var indexes = [Int]()
-            switch result {
-            case .failure(let error):
-                Logger.log(event: .failure, "Can't load tasks: \(error.localizedDescription)")
-            case .success(let response):
-                let responseCount = response.count
-                Logger.log(event: .success, "Tasks loaded: \(responseCount)")
-                if responseCount > 0 {
-                    self.nextPage += 1
-                    let firstIndex = self.tasks.count
-                    self.tasks.append(contentsOf: response)
-                    for i in firstIndex..<self.tasks.count  {
-                        indexes.append(i)
-                    }
-                }
-            }
-            self.isLoading = false
-            completion(indexes)
-        }
+    func updateTaskData(selfHref: String, projectHref: String) {
+        self.selfHref = selfHref
+        self.projectHref = projectHref
     }
 }

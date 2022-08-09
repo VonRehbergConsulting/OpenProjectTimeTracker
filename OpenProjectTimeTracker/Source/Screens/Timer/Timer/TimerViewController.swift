@@ -11,22 +11,13 @@ protocol TimerViewProtocol: AnyObject {
     
 }
 
-final class TimerViewController: UIViewController,
-                                 TimerViewProtocol,
-                                 UITableViewDelegate,
-                                 UITableViewDataSource {
+final class TimerViewController: UIViewController, TimerViewProtocol {
     
     // MARK: - Properties
     
-    private var isLoading = false {
-        didSet {
-            contentView?.showSpinner = isLoading
-        }
-    }
-    private var isLoadingBlocked = false
-    
     var contentView: TimerContentViewProtocol? { view as? TimerContentViewProtocol }
     
+    weak var coordinator: TimerCoordinatorProtocol?
     var presenter: TimerPresenterProtocol?
     
     // MARK: - Lifecycle
@@ -37,62 +28,15 @@ final class TimerViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView?.setDelegates(dataSource: self, delegate: self)
-        loadNextPage()
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    // MARK: - UITableViewDataSource
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.taskCount ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimerTaskCell.reuseIdentifier, for: indexPath) as? TimerTaskCell else {
-            Logger.log(event: .error, "Can't dequeue cell")
-            return UITableViewCell()
-        }
-        let item = presenter?.item(at: indexPath) ?? .init(subject: "")
-        cell.configure(item, at: indexPath)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    // MARK: - UIScrollViewDelegate
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset
-        let bounds = scrollView.bounds
-        let size = scrollView.contentSize
-        let inset = scrollView.contentInset
-        let y = offset.y + bounds.size.height - inset.bottom
-        let h = size.height + 1
-        if y > h {
-            loadNextPage()
+        contentView?.taskDetailTapAction = { [weak self] in
+            self?.coordinator?.routeToTaskList() { task in
+                self?.updateTask(task)
+            }
         }
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        isLoadingBlocked = false
-    }
-    
-    // MARK: - Private helpers
-    
-    private func loadNextPage() {
-        guard isLoading == false,
-              isLoadingBlocked == false
-        else { return }
-        isLoading = true
-        isLoadingBlocked = true
-        presenter?.loadTasks { [weak self] indexPaths in
-            self?.contentView?.insertItems(at: indexPaths)
-            self?.isLoading = false
-        }
+    private func updateTask(_ task: Task) {
+        presenter?.updateTaskData(task)
+        contentView?.updateTaskData(task)
     }
 }

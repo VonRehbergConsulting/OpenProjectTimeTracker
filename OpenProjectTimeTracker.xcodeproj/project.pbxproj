@@ -22,6 +22,12 @@
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
 		B77C128D28A28424004F8988 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C128C28A28424004F8988 /* TimeEntry.swift */; };
+		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
+		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
+		B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129428A29A40004F8988 /* TaskListPresenter.swift */; };
+		B77C129728A29A48004F8988 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129628A29A48004F8988 /* TaskListModel.swift */; };
+		B77C129928A29BB6004F8988 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129828A29BB6004F8988 /* TaskDetailView.swift */; };
+		B77C129B28A2AFD5004F8988 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129A28A2AFD5004F8988 /* ShadowView.swift */; };
 		B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE52895779F00617364 /* AppDelegate.swift */; };
 		B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE72895779F00617364 /* SceneDelegate.swift */; };
 		B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EEE289577A000617364 /* Assets.xcassets */; };
@@ -88,6 +94,12 @@
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		B77C128C28A28424004F8988 /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
+		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
+		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		B77C129428A29A40004F8988 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
+		B77C129628A29A48004F8988 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
+		B77C129828A29BB6004F8988 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		B77C129A28A2AFD5004F8988 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenProjectTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AF8EE52895779F00617364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AF8EE72895779F00617364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +210,17 @@
 			children = (
 			);
 			path = OpenProjectModels;
+			sourceTree = "<group>";
+		};
+		B77C128F28A299CC004F8988 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B77C129028A29A2F004F8988 /* TaskListContentView.swift */,
+				B77C129228A29A38004F8988 /* TaskListViewController.swift */,
+				B77C129428A29A40004F8988 /* TaskListPresenter.swift */,
+				B77C129628A29A48004F8988 /* TaskListModel.swift */,
+			);
+			path = TaskList;
 			sourceTree = "<group>";
 		};
 		B7AF8ED92895779F00617364 = {
@@ -327,6 +350,7 @@
 			children = (
 				B7C5BA38289D2E2E000A10D7 /* Colors.swift */,
 				B7C5BA36289D2DB8000A10D7 /* DSButton.swift */,
+				B77C129A28A2AFD5004F8988 /* ShadowView.swift */,
 				B7C5BA4E289D5FA3000A10D7 /* Cells */,
 			);
 			path = DesignSystem;
@@ -347,6 +371,7 @@
 			children = (
 				B7C5BA2B289D06AD000A10D7 /* TimerScreenFactory.swift */,
 				B7C5BA2D289D06C7000A10D7 /* Timer */,
+				B77C128F28A299CC004F8988 /* TaskList */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -356,6 +381,7 @@
 			children = (
 				B7C5BA46289D5118000A10D7 /* Task.swift */,
 				B7C5BA4A289D5F66000A10D7 /* TimerTaskCell.swift */,
+				B77C129828A29BB6004F8988 /* TaskDetailView.swift */,
 				B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */,
 				B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */,
 				B7C5BA32289D13A8000A10D7 /* TimerPresenter.swift */,
@@ -511,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77C129928A29BB6004F8988 /* TaskDetailView.swift in Sources */,
 				B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */,
 				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
 				B7C5BA2C289D06AD000A10D7 /* TimerScreenFactory.swift in Sources */,
@@ -522,6 +549,7 @@
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
+				B77C129B28A2AFD5004F8988 /* ShadowView.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */,
 				B77C128D28A28424004F8988 /* TimeEntry.swift in Sources */,
@@ -540,11 +568,15 @@
 				B7B18BF7289BF7EE00545968 /* OAuth2Swift.swift in Sources */,
 				B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */,
 				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
+				B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */,
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
 				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
+				B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */,
+				B77C129728A29A48004F8988 /* TaskListModel.swift in Sources */,
+				B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */,
 				B7C5BA35289D13B0000A10D7 /* TimerModel.swift in Sources */,
 				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
 				B7C5BA47289D5118000A10D7 /* Task.swift in Sources */,

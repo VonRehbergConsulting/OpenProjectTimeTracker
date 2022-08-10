@@ -8,5 +8,7 @@
 	<string>users/me</string>
 	<key>tasks</key>
 	<string>work_packages</string>
+	<key>timeEntries</key>
+	<string>time_entries</string>
 </dict>
 </plist>

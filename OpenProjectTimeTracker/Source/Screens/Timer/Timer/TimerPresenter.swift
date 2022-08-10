@@ -24,5 +24,4 @@ final class TimerPresenter: TimerPresenterProtocol {
     func updateTaskData(_ task: Task) {
         model?.updateTaskData(selfHref: task.selfHref, projectHref: task.projectHref)
     }
-    
 }

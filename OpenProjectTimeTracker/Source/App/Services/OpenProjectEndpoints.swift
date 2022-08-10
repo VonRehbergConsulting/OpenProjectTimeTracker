@@ -15,10 +15,12 @@ enum OpenProjectEndpoints {
         var baseURL: String
         var userData: String
         var tasks: String
+        var timeEntries: String
     }
     
     case userData
     case tasks
+    case timeEntries
     
     var reference: String {
         guard let result = PlistReader<EndpointPlist>().read(from: "OpenProjectEndpoints") else {
@@ -31,6 +33,8 @@ enum OpenProjectEndpoints {
             reference += result.userData
         case .tasks:
             reference += result.tasks
+        case .timeEntries:
+            reference += result.timeEntries
         }
         return reference
     }

@@ -7,22 +7,13 @@
 
 import UIKit
 
-protocol TaskListContentViewProtocol: AnyObject {
-    
-    var showSpinner: Bool? { get set }
-    
-    func setDelegates(dataSource: UITableViewDataSource, delegate: UITableViewDelegate)
-    
-    func insertItems(at indexPaths: [IndexPath])
-}
-
-final class TaskListContentView: UIView, TaskListContentViewProtocol {
+final class TaskListContentView: UIView {
     
     // MARK: - Subviews
     
     private lazy var taskTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped).disableMask()
-        tableView.register(TimerTaskCell.self, forCellReuseIdentifier: TimerTaskCell.reuseIdentifier)
+        tableView.register(TimerListCell.self, forCellReuseIdentifier: TimerListCell.reuseIdentifier)
         tableView.tableFooterView = spinner
         return tableView
     }()
@@ -32,6 +23,13 @@ final class TaskListContentView: UIView, TaskListContentViewProtocol {
         spinner.startAnimating()
         return spinner
     }()
+    
+    // MARK: - Properties
+    
+    var showSpinner: Bool? {
+        get { taskTableView.tableFooterView?.isHidden }
+        set { taskTableView.tableFooterView?.isHidden = !(newValue ?? false) }
+    }
     
     // MARK: - Lifecycle
     
@@ -51,12 +49,7 @@ final class TaskListContentView: UIView, TaskListContentViewProtocol {
         taskTableView.attachToSuperview()
     }
     
-    // MARK: - TaskListContentViewProtocol
-    
-    var showSpinner: Bool? {
-        get { taskTableView.tableFooterView?.isHidden }
-        set { taskTableView.tableFooterView?.isHidden = !(newValue ?? false) }
-    }
+    // MARK: - Public methods
     
     func insertItems(at indexPaths: [IndexPath]) {
         if indexPaths.isEmpty {

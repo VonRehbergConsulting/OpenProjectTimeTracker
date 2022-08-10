@@ -19,7 +19,7 @@ final class TimerModel: TimerModelProtocol {
     weak var presenter: TimerPresenterProtocol?
     
     private let userID: Int
-    private var selfHref = ""
+    private var taskHref = ""
     private var projectHref = ""
     
     // MARK: - Lifecycle
@@ -31,7 +31,7 @@ final class TimerModel: TimerModelProtocol {
     // MARK: - TimerModelProtocol
     
     func updateTaskData(selfHref: String, projectHref: String) {
-        self.selfHref = selfHref
+        self.taskHref = selfHref
         self.projectHref = projectHref
     }
 }

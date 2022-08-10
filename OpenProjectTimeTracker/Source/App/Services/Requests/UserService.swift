@@ -47,21 +47,5 @@ final class UserService: UserServiceProtocol {
                 completion(.failure(error))
             }
         }
-        
-        
-//        let body = try? JSONEncoder().encode(TimeEntry())
-//        let headers: [String: String] = [
-//            "Content-Type": "application/json"
-//        ]
-//        service.request("http://localhost:8080/api/v3/time_entries", method: .post, parameters: [:], headers: headers, body: body) { result in
-//            switch result {
-//            case .success(let data):
-//                if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
-//                    Logger.log(event: .error, json)
-//                }
-//            case .failure(let error):
-//                break
-//            }
-//        }
     }
 }

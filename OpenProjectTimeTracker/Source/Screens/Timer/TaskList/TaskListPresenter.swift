@@ -11,7 +11,7 @@ protocol TaskListPresenterProtocol: AnyObject {
     
     var taskCount: Int { get }
     
-    func item(at indexPath: IndexPath) -> TimerTaskCell.Configuration?
+    func item(at indexPath: IndexPath) -> TimerListCell.Configuration?
     func task(at indexPath: IndexPath) -> Task?
     
     func loadTasks(_ completion: @escaping ([IndexPath]) -> Void)
@@ -30,9 +30,9 @@ final class TaskListPresenter: TaskListPresenterProtocol {
         model?.taskCount ?? 0
     }
     
-    func item(at indexPath: IndexPath) -> TimerTaskCell.Configuration? {
+    func item(at indexPath: IndexPath) -> TimerListCell.Configuration? {
         guard let task = model?.item(at: indexPath.row) else { return nil }
-        let item = TimerTaskCell.Configuration(subject: task.subject)
+        let item = TimerListCell.Configuration(subject: task.subject)
         return item
     }
     

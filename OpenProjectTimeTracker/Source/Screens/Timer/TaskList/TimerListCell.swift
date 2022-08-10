@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimerTaskCell: UITableViewCell, ConfigurableCell {
+class TimerListCell: UITableViewCell, ConfigurableCell {
     
     // MARK: - Configuration model
     

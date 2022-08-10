@@ -18,7 +18,7 @@ final class TaskListViewController: UIViewController,
     
     // MARK: - Properties
     
-    var contentView: TaskListContentViewProtocol? { view as? TaskListContentViewProtocol }
+    var contentView: TaskListContentView? { view as? TaskListContentView }
     
     var presenter: TaskListPresenterProtocol?
     var finishFlow: ((Task) -> Void)?
@@ -64,7 +64,7 @@ final class TaskListViewController: UIViewController,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimerTaskCell.reuseIdentifier, for: indexPath) as? TimerTaskCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimerListCell.reuseIdentifier, for: indexPath) as? TimerListCell else {
             Logger.log(event: .error, "Can't dequeue cell")
             return UITableViewCell()
         }

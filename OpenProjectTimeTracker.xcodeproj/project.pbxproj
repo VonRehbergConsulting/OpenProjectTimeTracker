@@ -21,7 +21,6 @@
 		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
-		B77C128D28A28424004F8988 /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C128C28A28424004F8988 /* TimeEntry.swift */; };
 		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
 		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
 		B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129428A29A40004F8988 /* TaskListPresenter.swift */; };
@@ -57,8 +56,13 @@
 		B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA44289D41AF000A10D7 /* NetworkError.swift */; };
 		B7C5BA47289D5118000A10D7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA46289D5118000A10D7 /* Task.swift */; };
 		B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */; };
-		B7C5BA4B289D5F66000A10D7 /* TimerTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4A289D5F66000A10D7 /* TimerTaskCell.swift */; };
+		B7C5BA4B289D5F66000A10D7 /* TimerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4A289D5F66000A10D7 /* TimerListCell.swift */; };
 		B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */; };
+		B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */; };
+		B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D828A3B7F300A7764B /* SummaryContentView.swift */; };
+		B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */; };
+		B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */; };
+		B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DE28A3B80B00A7764B /* SummaryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +97,6 @@
 		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
-		B77C128C28A28424004F8988 /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
 		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		B77C129428A29A40004F8988 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
@@ -131,8 +134,13 @@
 		B7C5BA44289D41AF000A10D7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B7C5BA46289D5118000A10D7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
-		B7C5BA4A289D5F66000A10D7 /* TimerTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTaskCell.swift; sourceTree = "<group>"; };
+		B7C5BA4A289D5F66000A10D7 /* TimerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListCell.swift; sourceTree = "<group>"; };
 		B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesService.swift; sourceTree = "<group>"; };
+		B7D588D828A3B7F300A7764B /* SummaryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryContentView.swift; sourceTree = "<group>"; };
+		B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryPresenter.swift; sourceTree = "<group>"; };
+		B7D588DE28A3B80B00A7764B /* SummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModel.swift; sourceTree = "<group>"; };
 		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +199,6 @@
 				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
 				B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */,
 				B7B18BFE289C048900545968 /* OpenProjectService.swift */,
-				B77C128C28A28424004F8988 /* TimeEntry.swift */,
 				B7B18BF3289BF5A500545968 /* Requests */,
 			);
 			path = Services;
@@ -215,6 +222,7 @@
 		B77C128F28A299CC004F8988 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
+				B7C5BA4A289D5F66000A10D7 /* TimerListCell.swift */,
 				B77C129028A29A2F004F8988 /* TaskListContentView.swift */,
 				B77C129228A29A38004F8988 /* TaskListViewController.swift */,
 				B77C129428A29A40004F8988 /* TaskListPresenter.swift */,
@@ -362,6 +370,7 @@
 				B7C5BA44289D41AF000A10D7 /* NetworkError.swift */,
 				B7B18BF4289BF5B000545968 /* UserService.swift */,
 				B7C5BA42289D3E9E000A10D7 /* TasksService.swift */,
+				B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 				B7C5BA2B289D06AD000A10D7 /* TimerScreenFactory.swift */,
 				B7C5BA2D289D06C7000A10D7 /* Timer */,
 				B77C128F28A299CC004F8988 /* TaskList */,
+				B7D588D728A3B7A600A7764B /* Summary */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -380,7 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				B7C5BA46289D5118000A10D7 /* Task.swift */,
-				B7C5BA4A289D5F66000A10D7 /* TimerTaskCell.swift */,
 				B77C129828A29BB6004F8988 /* TaskDetailView.swift */,
 				B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */,
 				B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */,
@@ -397,6 +406,17 @@
 				B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B7D588D728A3B7A600A7764B /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				B7D588D828A3B7F300A7764B /* SummaryContentView.swift */,
+				B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */,
+				B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */,
+				B7D588DE28A3B80B00A7764B /* SummaryModel.swift */,
+			);
+			path = Summary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,22 +564,25 @@
 				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
 				B7C5BA43289D3E9E000A10D7 /* TasksService.swift in Sources */,
 				B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */,
+				B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */,
 				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
 				B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */,
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
+				B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
 				B77C129B28A2AFD5004F8988 /* ShadowView.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */,
-				B77C128D28A28424004F8988 /* TimeEntry.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
 				B7C5BA31289D06E4000A10D7 /* TimerContentView.swift in Sources */,
 				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,
 				B7C5BA2F289D06DD000A10D7 /* TimerViewController.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
+				B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */,
+				B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
-				B7C5BA4B289D5F66000A10D7 /* TimerTaskCell.swift in Sources */,
+				B7C5BA4B289D5F66000A10D7 /* TimerListCell.swift in Sources */,
 				B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */,
 				B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */,
 				B7C5BA37289D2DB8000A10D7 /* DSButton.swift in Sources */,
@@ -571,6 +594,7 @@
 				B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */,
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
+				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
 				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
@@ -757,7 +781,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -786,7 +810,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,7 +15,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
     
     // MARK: - Properties
     
-    var contentView: TimerContentViewProtocol? { view as? TimerContentViewProtocol }
+    var contentView: TimerContentView? { view as? TimerContentView }
     
     weak var coordinator: TimerCoordinatorProtocol?
     var presenter: TimerPresenterProtocol?
@@ -32,6 +32,20 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
             self?.coordinator?.routeToTaskList() { task in
                 self?.updateTask(task)
             }
+        }
+        contentView?.timerButtonAction = { [weak self] in
+            var dateComponents = DateComponents()
+            dateComponents.hour = 2
+            dateComponents.minute = 43
+            dateComponents.second = 21
+            dateComponents.calendar = Calendar.current
+            let date = dateComponents.date!
+            
+            self?.coordinator?.routeToSummary(taskHref: "/api/v3/work_packages/4",
+                                              projectHref: "/api/v3/projects/1",
+                                              timeSpent: date,
+                                              taskTitle: "Do some cool staff",
+                                              projectTitle: "Cool project") {}
         }
     }
     

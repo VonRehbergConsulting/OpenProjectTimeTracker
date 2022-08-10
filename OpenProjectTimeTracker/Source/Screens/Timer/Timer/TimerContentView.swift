@@ -7,14 +7,7 @@
 
 import UIKit
 
-protocol TimerContentViewProtocol: AnyObject {
-    
-    var taskDetailTapAction: (() -> Void)? { get set }
-    
-    func updateTaskData(_ task: Task)
-}
-
-final class TimerContentView: UIView, TimerContentViewProtocol {
+final class TimerContentView: UIView {
     
     // MARK: - Layout constants
     
@@ -45,6 +38,7 @@ final class TimerContentView: UIView, TimerContentViewProtocol {
         let button = DSButton().disableMask()
         button.backgroundColor = Colors.start
         button.setTitle("Start working", for: .normal)
+        button.addTarget(self, action: #selector(timerButtonOnTap), for: .touchUpInside)
         return button
     }()
     
@@ -57,6 +51,13 @@ final class TimerContentView: UIView, TimerContentViewProtocol {
     
     // MARK: - Properties
     
+    var taskDetailTapAction: (() -> Void)? {
+        get { taskDetails.tapAction }
+        set { taskDetails.tapAction = newValue }
+    }
+    
+    var timerButtonAction: (() -> Void)?
+
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -80,14 +81,15 @@ final class TimerContentView: UIView, TimerContentViewProtocol {
         ])
     }
     
-    // MARK: - TimerContentViewProtocol
-    
-    var taskDetailTapAction: (() -> Void)? {
-        get { taskDetails.tapAction }
-        set { taskDetails.tapAction = newValue }
-    }
+    // MARK: - Public methods
     
     func updateTaskData(_ task: Task) {
         taskDetails.updateData(task)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func timerButtonOnTap() {
+        timerButtonAction?()
     }
 }

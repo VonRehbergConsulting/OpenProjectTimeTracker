@@ -63,6 +63,9 @@
 		B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */; };
 		B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */; };
 		B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DE28A3B80B00A7764B /* SummaryModel.swift */; };
+		B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E028A3E5FB00A7764B /* TimerView.swift */; };
+		B7D588E328A3EF9E00A7764B /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E228A3EF9E00A7764B /* TimerState.swift */; };
+		B7D588E528A3F73000A7764B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E428A3F73000A7764B /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +144,9 @@
 		B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryPresenter.swift; sourceTree = "<group>"; };
 		B7D588DE28A3B80B00A7764B /* SummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModel.swift; sourceTree = "<group>"; };
+		B7D588E028A3E5FB00A7764B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		B7D588E228A3EF9E00A7764B /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
+		B7D588E428A3F73000A7764B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -349,6 +355,7 @@
 				B7AF8F2A2895A83B00617364 /* UIView.swift */,
 				B743E1C52897E91200FE944A /* Alert.swift */,
 				B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */,
+				B7D588E428A3F73000A7764B /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,10 +398,12 @@
 			children = (
 				B7C5BA46289D5118000A10D7 /* Task.swift */,
 				B77C129828A29BB6004F8988 /* TaskDetailView.swift */,
+				B7D588E028A3E5FB00A7764B /* TimerView.swift */,
 				B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */,
 				B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */,
 				B7C5BA32289D13A8000A10D7 /* TimerPresenter.swift */,
 				B7C5BA34289D13B0000A10D7 /* TimerModel.swift */,
+				B7D588E228A3EF9E00A7764B /* TimerState.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -564,11 +573,13 @@
 				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
 				B7C5BA43289D3E9E000A10D7 /* TasksService.swift in Sources */,
 				B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */,
+				B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */,
 				B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */,
 				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
 				B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */,
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
 				B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */,
+				B7D588E328A3EF9E00A7764B /* TimerState.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
 				B77C129B28A2AFD5004F8988 /* ShadowView.swift in Sources */,
@@ -595,6 +606,7 @@
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,
+				B7D588E528A3F73000A7764B /* Date.swift in Sources */,
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
 				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,

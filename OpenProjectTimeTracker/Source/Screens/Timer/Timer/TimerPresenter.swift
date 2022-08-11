@@ -56,8 +56,6 @@ final class TimerPresenter: TimerPresenterProtocol {
         var currentTime = Date()
         if let stopTime = model.stopTime {
             currentTime = stopTime
-        } else if let pauseTime = model.pauseTime {
-            currentTime = pauseTime
         }
         var components = Calendar.current.dateComponents([.hour, .minute, .second], from: startTime, to: currentTime)
         components.calendar = .current
@@ -67,7 +65,6 @@ final class TimerPresenter: TimerPresenterProtocol {
     func reset() {
         model?.state = .setUp
         model?.startTime = nil
-        model?.pauseTime = nil
         model?.stopTime = nil
     }
     
@@ -86,20 +83,20 @@ final class TimerPresenter: TimerPresenterProtocol {
             return
         }
         model.state = .paused
-        model.pauseTime = Date()
+        model.stopTime = Date()
     }
     
     func resumeTimer() {
         guard var model = model,
               let startTime = model.startTime,
-              let pauseTime = model.pauseTime else {
+              let stopTime = model.stopTime else {
             Logger.log(event: .error, "Can't find model data")
             return
         }
         model.state = .active
-        let pauseInterval = Date() - pauseTime
+        let pauseInterval = Date() - stopTime
         model.startTime = startTime.addingTimeInterval(pauseInterval)
-        model.pauseTime = nil
+        model.stopTime = nil
     }
     
     func stopTimer() {
@@ -110,7 +107,7 @@ final class TimerPresenter: TimerPresenterProtocol {
             return
         }
         model.state = .setUp
-        if model.pauseTime != nil {
+        if model.stopTime != nil {
             resumeTimer()
         }
         model.stopTime = Date()

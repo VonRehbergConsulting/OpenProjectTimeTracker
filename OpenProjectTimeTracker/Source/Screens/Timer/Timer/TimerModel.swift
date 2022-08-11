@@ -13,7 +13,6 @@ protocol TimerModelProtocol {
     var state: TimerState { get set }
     
     var startTime: Date? { get set }
-    var pauseTime: Date? { get set }
     var stopTime: Date? { get set }
 }
 
@@ -34,11 +33,14 @@ final class TimerModel: TimerModelProtocol {
     // MARK: - TimerModelProtocol
     
     var task: Task? {
-        didSet { state = task == nil ? .taskNotSelected : .setUp }
+        didSet {
+            state = task == nil ? .taskNotSelected : .setUp
+            startTime = nil
+            stopTime = nil
+        }
     }
     var state: TimerState = .taskNotSelected
     
     var startTime: Date?
-    var pauseTime: Date?
     var stopTime: Date?
 }

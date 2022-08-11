@@ -75,6 +75,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
     // MARK: - Private helpers
     
     private func setUp(_ task: Task) {
+        stopUpdatingView()
         guard let presenter = presenter,
               let contentView = contentView
         else {

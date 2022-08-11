@@ -58,7 +58,7 @@ final class SummaryModel: SummaryModelProtocol {
                                 duration: timeSpent,
                                 date: Date(),
                                 comment: nil) { success in
-            print(success)
+            completion(success)
         }
     }
 }

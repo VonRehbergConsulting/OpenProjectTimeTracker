@@ -10,9 +10,10 @@ import Foundation
 protocol TimerPresenterProtocol: AnyObject {
     
     var state: TimerState? { get }
+    var task: Task? { get set }
     var timeSpent: DateComponents? { get }
     
-    func updateTaskData(_ task: Task)
+    func reset()
     
     func startTimer()
     func pauseTimer()
@@ -23,6 +24,15 @@ protocol TimerPresenterProtocol: AnyObject {
 
 final class TimerPresenter: TimerPresenterProtocol {
     
+    // MARK: - Struct
+    
+    struct TaskData {
+        var taskTitle: String
+        var taskHref: String
+        var projectTitle: String
+        var projectHref: String
+    }
+    
     // MARK: - Properties
     
     weak var view: TimerViewProtocol?
@@ -31,6 +41,10 @@ final class TimerPresenter: TimerPresenterProtocol {
     // MARK: - TimerPresenterProtocol
     
     var state: TimerState? { model?.state }
+    var task: Task? {
+        get { model?.task }
+        set { model?.task = newValue }
+    }
     
     var timeSpent: DateComponents? {
         guard let model = model,
@@ -45,12 +59,16 @@ final class TimerPresenter: TimerPresenterProtocol {
         } else if let pauseTime = model.pauseTime {
             currentTime = pauseTime
         }
-        return Calendar.current.dateComponents([.hour, .minute, .second], from: startTime, to: currentTime)
+        var components = Calendar.current.dateComponents([.hour, .minute, .second], from: startTime, to: currentTime)
+        components.calendar = .current
+        return components
     }
     
-    func updateTaskData(_ task: Task) {
-        model?.updateTaskData(selfHref: task.selfHref, projectHref: task.projectHref)
+    func reset() {
         model?.state = .setUp
+        model?.startTime = nil
+        model?.pauseTime = nil
+        model?.stopTime = nil
     }
     
     func startTimer() {

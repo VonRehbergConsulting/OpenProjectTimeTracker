@@ -81,10 +81,11 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
             Logger.log(event: .error, "Can't find instances")
             return
         }
-        presenter.updateTaskData(task)
+        presenter.task = task
         contentView.updateTaskData(task)
-        contentView.setState(.setUp)
     }
+    
+    // Status changes
     
     private func startTimer() {
         guard let presenter = presenter,
@@ -95,7 +96,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         }
         presenter.startTimer()
         contentView.setState(.active)
-        createTimer()
+        startUpdatingView()
     }
     
     private func pauseTimer() {
@@ -107,7 +108,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         }
         presenter.pauseTimer()
         contentView.setState(.paused)
-        timer?.invalidate()
+        stopUpdatingView()
     }
     
     private func resumeTimer() {
@@ -119,35 +120,53 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         }
         presenter.resumeTimer()
         contentView.setState(.active)
-        createTimer()
+        startUpdatingView()
     }
     
     private func finishTimer() {
-        var dateComponents = DateComponents()
-        dateComponents.hour = 2
-        dateComponents.minute = 43
-        dateComponents.second = 21
-        dateComponents.calendar = Calendar.current
-        let date = dateComponents.date!
-        
-        coordinator?.routeToSummary(taskHref: "/api/v3/work_packages/4",
-                                    projectHref: "/api/v3/projects/1",
+        pauseTimer()
+        guard let presenter = presenter,
+              let components = presenter.timeSpent,
+              let date = components.date,
+              let task = presenter.task
+        else {
+            Logger.log(event: .error, "Can't get data")
+            return
+        }
+        coordinator?.routeToSummary(taskHref: task.selfHref,
+                                    projectHref: task.projectHref,
                                     timeSpent: date,
-                                    taskTitle: "Do some cool staff",
-                                    projectTitle: "Cool project") {}
+                                    taskTitle: task.subject,
+                                    projectTitle: task.projectTitle) { [weak self, presenter] in
+            presenter.reset()
+            self?.contentView?.setState(.setUp)
+        }
     }
     
-    private func createTimer() {
+    // NSTimer
+    
+    private func startUpdatingView() {
         let timer = Timer(timeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let self = self,
-                  let timeSpent = self.presenter?.timeSpent
-            else {
-                Logger.log(event: .error, "Can't get time interval")
-                return
-            }
-            self.contentView?.timerTitle = timeSpent.description
+            self?.fireTimer(timer)
         }
+        fireTimer(timer)
         self.timer = timer
         RunLoop.current.add(timer, forMode: .common)
+    }
+    
+    private func fireTimer(_ timer: Timer) {
+        guard let timeSpent = self.presenter?.timeSpent
+        else {
+            Logger.log(event: .error, "Can't get time interval")
+            return
+        }
+        let hours = timeSpent.hour?.description ?? "00"
+        let minutes = timeSpent.minute?.description ?? "00"
+        let seconds = timeSpent.second?.description ?? "00"
+        self.contentView?.timerTitle = "\(hours):\(minutes):\(seconds)"
+    }
+    
+    private func stopUpdatingView() {
+        timer?.invalidate()
     }
 }

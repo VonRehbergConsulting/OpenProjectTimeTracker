@@ -37,7 +37,7 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
             // TODO: Inplement failure route
             self?.presenter?.createTimeEntry() { success in
                 if success {
-                    self?.finishFlow?()
+                    self?.showAlert(title: "Work time", message: "Your work has been logged", { self?.finishFlow?() })
                 } else {
                     Logger.log(event: .error, "Can't save the time entry!")
                 }

@@ -105,6 +105,7 @@ final class TimerContentView: UIView {
     
     func updateTaskData(_ task: Task) {
         taskDetails.updateData(task)
+        setState(.setUp)
     }
     
     func setState(_ state: TimerState) {

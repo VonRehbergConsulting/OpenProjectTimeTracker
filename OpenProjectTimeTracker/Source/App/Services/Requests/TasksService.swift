@@ -48,7 +48,7 @@ final class TasksService: TasksServiceProtocol {
                            let links = element["_links"] as? [String: Any],
                            let project = links["project"] as? [String: Any],
                            let projectHref = project["href"] as? String,
-                           let self = links["project"] as? [String: Any],
+                           let self = links["self"] as? [String: Any],
                            let selfHref = self["href"] as? String {
                             let projectTitle = project["title"] as? String
                             var priorityTitle: String?

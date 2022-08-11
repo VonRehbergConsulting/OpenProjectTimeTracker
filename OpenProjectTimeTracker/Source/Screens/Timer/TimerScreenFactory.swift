@@ -26,11 +26,13 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
     // MARK: - Properties
     
     private let service: RequestServiceProtocol
+    private let timerDataStorage: TimerDataStorageProtocol
     
     // MARK: - Lifecycle
     
-    init(service: RequestServiceProtocol) {
+    init(service: RequestServiceProtocol, timerDataStorage: TimerDataStorageProtocol) {
         self.service = service
+        self.timerDataStorage = timerDataStorage
     }
     
     // MARK: - TimerScreenFactoryProtocol
@@ -39,7 +41,7 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
         let viewController = TimerViewController()
         let presenter = TimerPresenter()
         
-        let model = TimerModel(userID: userID)
+        let model = TimerModel(userID: userID, storage: timerDataStorage)
         
         viewController.presenter = presenter
         presenter.view = viewController

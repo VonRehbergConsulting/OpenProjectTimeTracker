@@ -30,8 +30,8 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView?.setState(presenter?.state ?? .taskNotSelected)
         setActions()
+        checkInitialData()
     }
     
     private func setActions() {
@@ -51,39 +51,59 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
     private func taskDetailTapAction() {
         coordinator?.routeToTaskList() { [weak self] task in
             guard let self = self else { return }
-            self.setUp(task)
+            self.set(task)
         }
     }
     
     private func timerTapAction() {
-        guard let state = presenter?.state else {
-            Logger.log(event: .error, "Can't get state")
+        guard let presenter = presenter else {
+            Logger.log(event: .error, "Can't check the state")
             return
         }
-        switch state {
-        case .taskNotSelected:
-            break
-        case .setUp:
+        guard presenter.task != nil,
+              let isActive = presenter.isActive
+        else {
+            return
+        }
+        if isActive {
+            stopTimer()
+        } else {
             startTimer()
-        case .active:
-            pauseTimer()
-        case .paused:
-            resumeTimer()
         }
     }
     
     // MARK: - Private helpers
     
-    private func setUp(_ task: Task) {
-        stopUpdatingView()
+    private func checkInitialData() {
+        guard let task = presenter?.task,
+              presenter?.timeSpent != nil,
+              let isActive = presenter?.isActive
+        else {
+            contentView?.setState(.taskNotSelected)
+            presenter?.resetTimer()
+            return
+        }
+        contentView?.updateTaskData(task)
+        if isActive {
+            startTimer()
+        } else {
+            contentView?.setState(.inactive)
+            updateViewTimer()
+        }
+    }
+    
+    private func set(_ task: Task) {
+        stopTimer()
         guard let presenter = presenter,
               let contentView = contentView
         else {
             Logger.log(event: .error, "Can't find instances")
             return
         }
+        presenter.resetTimer()
         presenter.task = task
         contentView.updateTaskData(task)
+        contentView.setState(.setUp)
     }
     
     // Status changes
@@ -100,32 +120,20 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         startUpdatingView()
     }
     
-    private func pauseTimer() {
+    private func stopTimer() {
         guard let presenter = presenter,
               let contentView = contentView
         else {
             Logger.log(event: .error, "Can't find instances")
             return
         }
-        presenter.pauseTimer()
-        contentView.setState(.paused)
+        presenter.stopTimer()
+        contentView.setState(.inactive)
         stopUpdatingView()
     }
     
-    private func resumeTimer() {
-        guard let presenter = presenter,
-              let contentView = contentView
-        else {
-            Logger.log(event: .error, "Can't find instances")
-            return
-        }
-        presenter.resumeTimer()
-        contentView.setState(.active)
-        startUpdatingView()
-    }
-    
     private func finishTimer() {
-        pauseTimer()
+        stopTimer()
         guard let presenter = presenter,
               let components = presenter.timeSpent,
               let date = components.date,
@@ -139,32 +147,27 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
                                     timeSpent: date,
                                     taskTitle: task.subject,
                                     projectTitle: task.projectTitle) { [weak self, presenter] in
-            presenter.reset()
+            presenter.resetTimer()
             self?.contentView?.setState(.setUp)
         }
     }
     
-    // NSTimer
-    
     private func startUpdatingView() {
-        let timer = Timer(timeInterval: 1.0, repeats: true) { [weak self] timer in
-            self?.fireTimer(timer)
+        let timer = Timer(timeInterval: 0.5, repeats: true) { [weak self] _ in
+            self?.updateViewTimer()
         }
-        fireTimer(timer)
+        updateViewTimer()
         self.timer = timer
         RunLoop.current.add(timer, forMode: .common)
     }
     
-    private func fireTimer(_ timer: Timer) {
+    private func updateViewTimer() {
         guard let timeSpent = self.presenter?.timeSpent
         else {
             Logger.log(event: .error, "Can't get time interval")
             return
         }
-        let hours = timeSpent.hour?.description ?? "00"
-        let minutes = timeSpent.minute?.description ?? "00"
-        let seconds = timeSpent.second?.description ?? "00"
-        self.contentView?.timerTitle = "\(hours):\(minutes):\(seconds)"
+        contentView?.updateTimer(hours: timeSpent.hour, minutes: timeSpent.minute, seconds: timeSpent.second)
     }
     
     private func stopUpdatingView() {

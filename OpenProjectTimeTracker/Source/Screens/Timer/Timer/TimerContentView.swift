@@ -9,6 +9,13 @@ import UIKit
 
 final class TimerContentView: UIView {
     
+    enum State {
+        case taskNotSelected
+        case setUp
+        case active
+        case inactive
+    }
+    
     // MARK: - Constants
     
     private struct Constants {
@@ -73,7 +80,7 @@ final class TimerContentView: UIView {
     var timerTapAction: (() -> Void)?
     var timerLongPressAction: (() -> Void)?
     
-    var timerTitle: String? {
+    private var timerTitle: String? {
         get { timerView.text }
         set { timerView.text = newValue }
     }
@@ -108,7 +115,14 @@ final class TimerContentView: UIView {
         setState(.setUp)
     }
     
-    func setState(_ state: TimerState) {
+    func updateTimer(hours: Int?, minutes: Int?, seconds: Int?) {
+        let hoursStr = hours?.description ?? "00"
+        let minutesStr = minutes?.description ?? "00"
+        let secondsStr = seconds?.description ?? "00"
+        timerTitle = "\(hoursStr):\(minutesStr):\(secondsStr)"
+    }
+    
+    func setState(_ state: State) {
         switch state {
         case .taskNotSelected:
             updateTimerView(color: Colors.inactive, isEnabled: false, text: "")
@@ -116,7 +130,7 @@ final class TimerContentView: UIView {
             updateTimerView(color: Colors.start, isEnabled: true, text: "Start")
         case .active:
             updateTimerView(color: Colors.pause, isEnabled: true, text: nil)
-        case .paused:
+        case .inactive:
             updateTimerView(color: Colors.start, isEnabled: true, text: nil)
         }
     }

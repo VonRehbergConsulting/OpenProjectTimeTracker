@@ -24,6 +24,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     private let router: CoordinatorRouterProtocol
     
     private let tokenStorage: TokenStorageProtocol
+    private let timerDataStorage: TimerDataStorageProtocol
     
     private let authorizationService: AuthorizationServiceProtocol
     private let refreshService: RefreshTokenServiceProtocol
@@ -33,12 +34,14 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     
     init(router: CoordinatorRouterProtocol,
          tokenStorage: TokenStorageProtocol,
+         timerDataStorage: TimerDataStorageProtocol,
          authorizationService: AuthorizationServiceProtocol,
          refreshService: RefreshTokenServiceProtocol,
          requestService: RequestServiceProtocol
     ) {
         self.router = router
         self.tokenStorage = tokenStorage
+        self.timerDataStorage = timerDataStorage
         self.authorizationService = authorizationService
         self.refreshService = refreshService
         self.requestService = requestService
@@ -47,7 +50,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     // MARK: - CoordinatorFactoryProtocol
     
     func createAuthorizationCheckCoordinator() -> AuthorizationCheckCoordinator {
-        AuthorizationCheckCoordinator(service: refreshService, tokenStorage: tokenStorage)
+        AuthorizationCheckCoordinator(service: refreshService, tokenStorage: tokenStorage, timerDataStorage: timerDataStorage)
     }
     
     func createAuthorizationCoordinator() -> AuthorizationCoordinator {
@@ -58,7 +61,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     }
     
     func createProjectsCoordinator() -> TimerCoordinator {
-        let screenFactory = TimerScreenFactory(service: requestService)
+        let screenFactory = TimerScreenFactory(service: requestService, timerDataStorage: timerDataStorage)
         let userService = UserService(service: requestService)
         let coordinator = TimerCoordinator(screenFactory: screenFactory, router: router, service: userService)
         return coordinator

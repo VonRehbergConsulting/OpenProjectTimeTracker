@@ -30,10 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let router = CoordinatorRouter(window: window!)
         let tokenStorage = TokenStorage()
+        let timerDataStorage = TimerDataStorage()
         let service = OpenProjectService(apiKey: .openProject, tokenStorage: tokenStorage)
         let factory = CoordinatorFactory(
             router: router,
             tokenStorage: tokenStorage,
+            timerDataStorage: timerDataStorage,
             authorizationService: service,
             refreshService: service,
             requestService: service

@@ -23,13 +23,16 @@ final class AuthorizationCheckCoordinator: Coordinator,
     
     private let service: RefreshTokenServiceProtocol
     private let tokenStorage: TokenStorageProtocol
+    private let timerDataStorage: TimerDataStorageProtocol
     
     // MARK: - Lifecycle
     
     init(service: RefreshTokenServiceProtocol,
-         tokenStorage: TokenStorageProtocol) {
+         tokenStorage: TokenStorageProtocol,
+         timerDataStorage: TimerDataStorageProtocol) {
         self.service = service
         self.tokenStorage = tokenStorage
+        self.timerDataStorage = timerDataStorage
     }
     
     // MARK: AuthorizationCheckOutput
@@ -47,15 +50,24 @@ final class AuthorizationCheckCoordinator: Coordinator,
                 case .success(let token):
                     Logger.log("Status: authorized")
                     self.tokenStorage.token = token
+                    self.finishFlow?()
                 case .failure(_):
                     Logger.log("Status: token refreshing failed")
-                    self.tokenStorage.token = nil
+                    self.clearData()
+                    self.finishFlow?()
                 }
-                self.finishFlow?()
             }
         } else {
             Logger.log("Status: anauthorized")
+            self.clearData()
             finishFlow?()
         }
+    }
+    
+    // MARK: - Private helpers
+    
+    private func clearData() {
+        tokenStorage.token = nil
+        timerDataStorage.clear()
     }
 }

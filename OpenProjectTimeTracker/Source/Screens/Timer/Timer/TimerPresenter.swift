@@ -9,16 +9,13 @@ import Foundation
 
 protocol TimerPresenterProtocol: AnyObject {
     
-    var state: TimerState? { get }
+    var isActive: Bool? { get }
     var task: Task? { get set }
     var timeSpent: DateComponents? { get }
     
-    func reset()
-    
     func startTimer()
-    func pauseTimer()
-    func resumeTimer()
     func stopTimer()
+    func resetTimer()
     
 }
 
@@ -40,7 +37,10 @@ final class TimerPresenter: TimerPresenterProtocol {
     
     // MARK: - TimerPresenterProtocol
     
-    var state: TimerState? { model?.state }
+    var isActive: Bool? {
+        get { model?.isActive }
+        set { model?.isActive = newValue }
+    }
     var task: Task? {
         get { model?.task }
         set { model?.task = newValue }
@@ -62,54 +62,48 @@ final class TimerPresenter: TimerPresenterProtocol {
         return components
     }
     
-    func reset() {
-        model?.state = .setUp
-        model?.startTime = nil
-        model?.stopTime = nil
-    }
-    
     func startTimer() {
         guard var model = model else {
             Logger.log(event: .error, "Can't find model")
             return
         }
-        model.state = .active
-        model.startTime = Date()
+        if model.stopTime != nil {
+            resumeTimer()
+        } else {
+            if model.startTime == nil {
+                model.startTime = Date()
+            }
+            isActive = true
+        }
     }
     
-    func pauseTimer() {
+    func stopTimer() {
         guard var model = model else {
             Logger.log(event: .error, "Can't find model")
             return
         }
-        model.state = .paused
+        isActive = false
         model.stopTime = Date()
     }
     
-    func resumeTimer() {
+    func resetTimer() {
+        isActive = false
+        model?.startTime = nil
+        model?.stopTime = nil
+    }
+    
+    // MARK: - Private helpers
+    
+    private func resumeTimer() {
         guard var model = model,
               let startTime = model.startTime,
               let stopTime = model.stopTime else {
             Logger.log(event: .error, "Can't find model data")
             return
         }
-        model.state = .active
         let pauseInterval = Date() - stopTime
         model.startTime = startTime.addingTimeInterval(pauseInterval)
         model.stopTime = nil
-    }
-    
-    func stopTimer() {
-        guard var model = model,
-              model.startTime != nil
-        else {
-            Logger.log(event: .error, "Can't find model data")
-            return
-        }
-        model.state = .setUp
-        if model.stopTime != nil {
-            resumeTimer()
-        }
-        model.stopTime = Date()
+        isActive = true
     }
 }

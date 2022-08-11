@@ -20,7 +20,7 @@ class Logger {
     
     // MARK: - Properties
     
-    static var isDetailed = true
+    static var isDetailed = false
     static var isLoggingEnabled = true
     
     // MARK: - Methods

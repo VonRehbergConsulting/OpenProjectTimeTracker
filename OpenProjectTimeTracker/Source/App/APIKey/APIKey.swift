@@ -10,12 +10,11 @@ import Foundation
 struct APIKey: Codable {
     
     let consumerKey: String
-    let consumerSecret: String
     let authorizeURL: String
     let tokenURL: String
     
     static var zero: APIKey {
-        return .init(consumerKey: "", consumerSecret: "", authorizeURL: "http://localhost", tokenURL: "http://localhost")
+        return .init(consumerKey: "", authorizeURL: "http://localhost", tokenURL: "http://localhost")
     }
     
     static var openProject: APIKey {

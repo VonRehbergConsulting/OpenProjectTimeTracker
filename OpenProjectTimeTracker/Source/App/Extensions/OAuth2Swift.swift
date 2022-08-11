@@ -12,7 +12,7 @@ extension OAuth2Swift {
     convenience init(_ apiKey: APIKey) {
         self.init(
             consumerKey: apiKey.consumerKey,
-            consumerSecret: apiKey.consumerSecret,
+            consumerSecret: "",
             authorizeUrl: apiKey.authorizeURL,
             accessTokenUrl: apiKey.tokenURL,
             responseType: "code",

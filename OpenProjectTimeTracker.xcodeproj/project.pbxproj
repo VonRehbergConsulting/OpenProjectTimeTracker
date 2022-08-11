@@ -21,6 +21,7 @@
 		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
+		B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */; };
 		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
 		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
 		B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129428A29A40004F8988 /* TaskListPresenter.swift */; };
@@ -100,6 +101,7 @@
 		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorage.swift; sourceTree = "<group>"; };
 		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
 		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		B77C129428A29A40004F8988 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
@@ -218,6 +220,16 @@
 			path = APIKey;
 			sourceTree = "<group>";
 		};
+		B74FC51E28A500D9001791B1 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				B7B18BFC289BFB3A00545968 /* PlistReader.swift */,
+				B7252840289A9993008C2699 /* TokenStorage.swift */,
+				B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
 		B77C128E28A28B22004F8988 /* OpenProjectModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,14 +321,13 @@
 			children = (
 				B743E1AD2897B85E00FE944A /* Logger.swift */,
 				B743E1C72897EBF100FE944A /* URLHandler.swift */,
-				B7252840289A9993008C2699 /* TokenStorage.swift */,
-				B7B18BFC289BFB3A00545968 /* PlistReader.swift */,
 				B7AF8F18289578D500617364 /* Delegates */,
 				B7252833289A61A1008C2699 /* Coordinators */,
 				B7B18BF2289BBDDB00545968 /* DesignSystem */,
 				B7AF8F292895A82E00617364 /* Extensions */,
 				B743E1B12897C21E00FE944A /* Services */,
 				B743E1C22897E19800FE944A /* APIKey */,
+				B74FC51E28A500D9001791B1 /* Storages */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -567,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77C129928A29BB6004F8988 /* TaskDetailView.swift in Sources */,
+				B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */,
 				B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */,
 				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
 				B7C5BA2C289D06AD000A10D7 /* TimerScreenFactory.swift in Sources */,

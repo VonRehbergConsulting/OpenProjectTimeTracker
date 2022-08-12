@@ -59,7 +59,7 @@ final class TaskListModel: TaskListModelProtocol {
         guard isLoading == false else { return }
         isLoading = true
         Logger.log("Loading tasks")
-        service.loadTasks(id: 3, page: nextPage) { [weak self] result in
+        service.loadTasks(id: userID, page: nextPage) { [weak self] result in
             guard let self = self else { return }
             if let preProcessHandler = self.preProcessHandler {
                 self.preProcessHandler = nil

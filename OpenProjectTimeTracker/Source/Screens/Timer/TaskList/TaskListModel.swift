@@ -14,6 +14,7 @@ protocol TaskListModelProtocol {
     func item(at index: Int) -> Task?
     
     func loadTasks(_ completion: @escaping ([Int]) -> Void)
+    func reloadTasks(_ completion: @escaping (() -> Void))
 }
 
 final class TaskListModel: TaskListModelProtocol {
@@ -28,6 +29,9 @@ final class TaskListModel: TaskListModelProtocol {
     private var tasks = [Task]()
     private var isLoading = false
     private var nextPage = 1
+    
+    private var preProcessHandler: (() -> Void)?
+    private var clearCompletion: (() -> Void)?
     
     // MARK: -  Lifecycle
     
@@ -52,12 +56,15 @@ final class TaskListModel: TaskListModelProtocol {
     }
     
     func loadTasks(_ completion: @escaping ([Int]) -> Void) {
-        // TODO: Add multithreading
         guard isLoading == false else { return }
         isLoading = true
         Logger.log("Loading tasks")
-        service.loadTasks(id: userID, page: nextPage) { [weak self] result in
+        service.loadTasks(id: 3, page: nextPage) { [weak self] result in
             guard let self = self else { return }
+            if let preProcessHandler = self.preProcessHandler {
+                self.preProcessHandler = nil
+                preProcessHandler()
+            }
             var indexes = [Int]()
             switch result {
             case .failure(let error):
@@ -76,6 +83,27 @@ final class TaskListModel: TaskListModelProtocol {
             }
             self.isLoading = false
             completion(indexes)
+            if let clearCompletion = self.clearCompletion {
+                self.reset(clearCompletion)
+            }
         }
+    }
+    
+    func reloadTasks(_ completion: @escaping (() -> Void)) {
+        if isLoading {
+            clearCompletion = completion
+        }
+        else {
+            reset(completion)
+        }
+    }
+    
+    // MARK: - Private helpers
+    
+    private func reset(_ completion: @escaping (() -> Void)) {
+        clearCompletion = nil
+        preProcessHandler = { [weak self] in self?.tasks = [] }
+        nextPage = 1
+        loadTasks { _ in completion() }
     }
 }

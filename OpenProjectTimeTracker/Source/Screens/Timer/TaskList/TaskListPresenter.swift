@@ -15,6 +15,7 @@ protocol TaskListPresenterProtocol: AnyObject {
     func task(at indexPath: IndexPath) -> Task?
     
     func loadTasks(_ completion: @escaping ([IndexPath]) -> Void)
+    func reloadTasks(_ completion: @escaping (() -> Void))
 }
 
 final class TaskListPresenter: TaskListPresenterProtocol {
@@ -47,4 +48,7 @@ final class TaskListPresenter: TaskListPresenterProtocol {
         }
     }
     
+    func reloadTasks(_ completion: @escaping (() -> Void)) {
+        model?.reloadTasks(completion)
+    }
 }

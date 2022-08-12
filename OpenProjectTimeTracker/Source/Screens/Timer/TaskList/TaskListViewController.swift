@@ -23,12 +23,8 @@ final class TaskListViewController: UIViewController,
     var presenter: TaskListPresenterProtocol?
     var finishFlow: ((Task) -> Void)?
     
-    private var isLoading = false {
-        didSet {
-            contentView?.showSpinner = isLoading
-        }
-    }
-    private var isLoadingBlocked = false
+    private var isLoading = false
+    private var isScrolling = false
     
     // MARK: - Lifecycle
     
@@ -40,7 +36,10 @@ final class TaskListViewController: UIViewController,
         super.viewDidLoad()
         navigationItem.title = "Select task"
         contentView?.setDelegates(dataSource: self, delegate: self)
-        loadNextPage()
+        contentView?.refreshControlAction = { [weak self] in
+            self?.loadFirstPage()
+        }
+        loadFirstPage()
     }
     
     // MARK: - UITableViewDelegate
@@ -83,25 +82,41 @@ final class TaskListViewController: UIViewController,
         let inset = scrollView.contentInset
         let y = offset.y + bounds.size.height - inset.bottom
         let h = size.height + 1
-        if y > h {
+        if y > h,
+           !isScrolling {
             loadNextPage()
         }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        isLoadingBlocked = false
+        isScrolling = true
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        isScrolling = false
     }
     
     // MARK: - Private helpers
     
-    private func loadNextPage() {
-        guard isLoading == false,
-              isLoadingBlocked == false
-        else { return }
+    private func loadFirstPage() {
         isLoading = true
-        isLoadingBlocked = true
+        presenter?.reloadTasks { [weak self] in
+            self?.contentView?.finishRefreshing()
+            self?.isLoading = false
+        }
+    }
+    
+    private func loadNextPage() {
+        guard !isLoading,
+              !isScrolling
+        else { return }
+        contentView?.startLoading()
+        isLoading = true
         presenter?.loadTasks { [weak self] indexPaths in
-            self?.contentView?.insertItems(at: indexPaths)
+            self?.isScrolling = true
+            self?.contentView?.finishLoading(indexPaths)
             self?.isLoading = false
         }
     }

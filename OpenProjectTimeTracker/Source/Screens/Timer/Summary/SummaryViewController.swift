@@ -40,7 +40,7 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
             self.presenter?.comment = self.contentView?.comment
             self.presenter?.createTimeEntry() { success in
                 if success {
-                    self.showAlert(title: "Work time", message: "Your work has been logged", { self.finishFlow?() })
+                    self.showAlert(title: "Your work has been logged", message: nil, { self.finishFlow?() })
                 } else {
                     Logger.log(event: .error, "Can't save the time entry!")
                 }

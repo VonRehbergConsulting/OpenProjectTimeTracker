@@ -133,6 +133,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
     }
     
     private func finishTimer() {
+        guard presenter?.timeSpent != nil else { return }
         stopTimer()
         guard let presenter = presenter,
               let components = presenter.timeSpent,

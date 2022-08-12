@@ -12,6 +12,7 @@ protocol SummaryPresenterProtocol: AnyObject {
     var taskTitle: String? { get }
     var projectTitle: String? { get }
     var timeSpent: String? { get }
+    var comment: String? { get set }
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void)
 }
@@ -30,6 +31,10 @@ final class SummaryPresenter: SummaryPresenterProtocol {
     var timeSpent: String? {
         guard let time = model?.timeSpent else { return nil }
         return convertDuration(time)
+    }
+    var comment: String? {
+        get { model?.comment }
+        set { model?.comment = newValue}
     }
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void) {

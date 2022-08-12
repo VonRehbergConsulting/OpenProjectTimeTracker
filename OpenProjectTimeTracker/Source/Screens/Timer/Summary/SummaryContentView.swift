@@ -12,45 +12,63 @@ final class SummaryContentView: UIView {
     // MARK: - Constants
     
     private struct Constants {
-        static let stackViewSpacing: CGFloat = 4
+        static let stackViewSpacing: CGFloat = 20
         static let edgeInset: CGFloat = 16
+        static let buttonInset: CGFloat = 44
         
-        static let taskLabel = "Task: "
-        static let projectLabel = "Project: "
-        static let timeLabel = "Time spent: "
+        static let taskLabel = "Task"
+        static let projectLabel = "Project"
+        static let timeLabel = "Time spent"
+        static let commentLabel = "Comment"
     }
     
     // MARK: - Subviews
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView().disableMask()
+        return scrollView
+    }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView().disableMask()
         stackView.axis = .vertical
         stackView.spacing = Constants.stackViewSpacing
         
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(projectLabel)
-        stackView.addArrangedSubview(timeLabel)
-        stackView.addArrangedSubview(saveButton)
+        stackView.addArrangedSubview(taskTextField)
+        stackView.addArrangedSubview(projectTextField)
+        stackView.addArrangedSubview(timeTextField)
+        stackView.addArrangedSubview(commentTextField)
         return stackView
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel().disableMask()
-        label.font = .systemFont(ofSize: 20)
-        label.text = Constants.taskLabel
-        return label
+    private lazy var taskTextField: DSTextField = {
+        let textField = DSTextField().disableMask()
+        textField.caption = Constants.taskLabel
+        textField.isEnabled = false
+        return textField
     }()
     
-    private lazy var projectLabel: UILabel = {
-        let label = UILabel().disableMask()
-        label.text = Constants.projectLabel
-        return label
+    private lazy var projectTextField: DSTextField = {
+        let textField = DSTextField().disableMask()
+        textField.caption = Constants.projectLabel
+        textField.isEnabled = false
+        return textField
     }()
     
-    private lazy var timeLabel: UILabel = {
-        let label = UILabel().disableMask()
-        label.text = Constants.timeLabel
-        return label
+    private lazy var timeTextField: DSTextField = {
+        let textField = DSTextField().disableMask()
+        textField.caption = Constants.timeLabel
+        textField.isEnabled = false
+        return textField
+    }()
+    
+    private lazy var commentTextField: DSTextField = {
+        let textField = DSTextField().disableMask()
+        textField.caption = Constants.commentLabel
+        textField.shouldReturnHandler = { [weak self] in
+            textField.resignFirstResponder()
+        }
+        return textField
     }()
     
     private lazy var saveButton: DSButton = {
@@ -63,6 +81,11 @@ final class SummaryContentView: UIView {
     // MARK: - Properties
     
     var saveButtonAction: (() -> Void)?
+    
+    var comment: String? {
+        get { commentTextField.text }
+        set { commentTextField.text = newValue }
+    }
     
     // MARK: - Lifecycle
     
@@ -77,11 +100,22 @@ final class SummaryContentView: UIView {
     
     private func setup() {
         backgroundColor = .white
-        addSubview(stackView)
+        addSubview(scrollView)
+        addSubview(saveButton)
+        scrollView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.edgeInset),
-            stackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInset),
-            stackView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInset)
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.edgeInset),
+            stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -Constants.edgeInset * 2),
+            
+            saveButton.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: Constants.edgeInset),
+            saveButton.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInset),
+            saveButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInset),
+            saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Constants.buttonInset)
         ])
     }
     
@@ -91,9 +125,9 @@ final class SummaryContentView: UIView {
                  projectTitle: String?,
                  timeSpent: String?
     ) {
-        titleLabel.text = Constants.taskLabel + (taskTitle ?? "")
-        projectLabel.text = Constants.projectLabel + (projectTitle ?? "")
-        timeLabel.text = Constants.timeLabel + (timeSpent ?? "")
+        taskTextField.text = taskTitle ?? ""
+        projectTextField.text = projectTitle ?? ""
+        timeTextField.text = timeSpent ?? ""
     }
     
     // MARK: - Actions

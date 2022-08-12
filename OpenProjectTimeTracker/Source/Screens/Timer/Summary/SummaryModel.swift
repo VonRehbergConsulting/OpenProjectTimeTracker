@@ -12,6 +12,7 @@ protocol SummaryModelProtocol: AnyObject {
     var taskTitle: String? { get }
     var projectTitle: String? { get }
     var timeSpent: Date { get }
+    var comment: String? { get set }
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void)
 }
@@ -27,6 +28,7 @@ final class SummaryModel: SummaryModelProtocol {
     private let taskHref: String
     private let projectHref: String
     let timeSpent: Date
+    var comment: String?
     
     let taskTitle: String?
     let projectTitle: String?
@@ -57,7 +59,7 @@ final class SummaryModel: SummaryModelProtocol {
                                 workPackageHref: taskHref,
                                 duration: timeSpent,
                                 date: Date(),
-                                comment: nil) { success in
+                                comment: comment) { success in
             completion(success)
         }
     }

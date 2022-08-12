@@ -22,6 +22,7 @@
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
 		B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */; };
+		B74FC52228A63667001791B1 /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC52128A63667001791B1 /* DSTextField.swift */; };
 		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
 		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
 		B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129428A29A40004F8988 /* TaskListPresenter.swift */; };
@@ -101,6 +102,7 @@
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorage.swift; sourceTree = "<group>"; };
+		B74FC52128A63667001791B1 /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
 		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
 		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		B77C129428A29A40004F8988 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				B7C5BA38289D2E2E000A10D7 /* Colors.swift */,
 				B7C5BA36289D2DB8000A10D7 /* DSButton.swift */,
 				B77C129A28A2AFD5004F8988 /* ShadowView.swift */,
+				B74FC52128A63667001791B1 /* DSTextField.swift */,
 				B7C5BA4E289D5FA3000A10D7 /* Cells */,
 			);
 			path = DesignSystem;
@@ -618,6 +621,7 @@
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
 				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
+				B74FC52228A63667001791B1 /* DSTextField.swift in Sources */,
 				B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */,
 				B77C129728A29A48004F8988 /* TaskListModel.swift in Sources */,
 				B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */,

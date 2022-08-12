@@ -83,7 +83,9 @@ final class TimerPresenter: TimerPresenterProtocol {
             return
         }
         isActive = false
-        model.stopTime = Date()
+        if model.stopTime == nil {
+            model.stopTime = Date()
+        }
     }
     
     func resetTimer() {

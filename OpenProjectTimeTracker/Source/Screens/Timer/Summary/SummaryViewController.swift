@@ -29,15 +29,18 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Overview"
         contentView?.setData(taskTitle: presenter?.taskTitle,
                              projectTitle: presenter?.projectTitle,
                              timeSpent: presenter?.timeSpent)
         
         contentView?.saveButtonAction = { [weak self] in
+            guard let self = self else { return }
             // TODO: Inplement failure route
-            self?.presenter?.createTimeEntry() { success in
+            self.presenter?.comment = self.contentView?.comment
+            self.presenter?.createTimeEntry() { success in
                 if success {
-                    self?.showAlert(title: "Work time", message: "Your work has been logged", { self?.finishFlow?() })
+                    self.showAlert(title: "Work time", message: "Your work has been logged", { self.finishFlow?() })
                 } else {
                     Logger.log(event: .error, "Can't save the time entry!")
                 }

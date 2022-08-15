@@ -67,6 +67,7 @@
 		B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DE28A3B80B00A7764B /* SummaryModel.swift */; };
 		B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E028A3E5FB00A7764B /* TimerView.swift */; };
 		B7D588E528A3F73000A7764B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E428A3F73000A7764B /* Date.swift */; };
+		B7F9A30B28AA32F600F694C5 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A30A28AA32F600F694C5 /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		B7D588DE28A3B80B00A7764B /* SummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModel.swift; sourceTree = "<group>"; };
 		B7D588E028A3E5FB00A7764B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		B7D588E428A3F73000A7764B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B7F9A30A28AA32F600F694C5 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -367,6 +369,7 @@
 				B743E1C52897E91200FE944A /* Alert.swift */,
 				B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */,
 				B7D588E428A3F73000A7764B /* Date.swift */,
+				B7F9A30A28AA32F600F694C5 /* UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */,
 				B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
+				B7F9A30B28AA32F600F694C5 /* UIFont.swift in Sources */,
 				B7C5BA4B289D5F66000A10D7 /* TimerListCell.swift in Sources */,
 				B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */,
 				B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */,
@@ -803,6 +807,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -815,7 +820,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -832,6 +837,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -844,7 +850,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

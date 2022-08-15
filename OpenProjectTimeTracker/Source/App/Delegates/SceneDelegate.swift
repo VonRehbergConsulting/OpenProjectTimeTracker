@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
+//        window?.overrideUserInterfaceStyle = .dark
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
         window?.rootViewController = viewController

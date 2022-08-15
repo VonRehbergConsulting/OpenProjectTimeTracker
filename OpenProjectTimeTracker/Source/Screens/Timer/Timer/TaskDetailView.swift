@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class TaskDetailView: ShadowView {
+final class TaskDetailView: UIView
+{
     
     // MARK: - Constants
     
@@ -76,7 +77,8 @@ final class TaskDetailView: ShadowView {
     }
     
     private func setup() {
-        backgroundColor = .white
+        backgroundColor = .systemGroupedBackground
+        layer.cornerRadius = 12
         addSubview(labelsStack)
         addSubview(emptyLabel)
         labelsStack.attachToSuperview(inset: Constants.edgeInsets)

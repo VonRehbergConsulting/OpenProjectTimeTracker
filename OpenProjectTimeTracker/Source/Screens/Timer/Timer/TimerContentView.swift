@@ -19,34 +19,13 @@ final class TimerContentView: UIView {
     // MARK: - Constants
     
     private struct Constants {
-        static let stackViewSpacing: CGFloat = 20
-        static let edgeInsets: CGFloat = 16
+        static let timerInset: CGFloat = 20
+        static let controlsInset: CGFloat = 28
+        static let controlsSpacing: CGFloat = 48
+        static let edgeInsets: CGFloat = 20
     }
     
     // MARK: - Subviews
-    
-    private lazy var topStackView: UIStackView = {
-        let stackView = UIStackView().disableMask()
-        stackView.axis = .vertical
-        stackView.spacing = Constants.stackViewSpacing
-        
-        stackView.addArrangedSubview(taskDetails)
-        
-        let subView = UIView().disableMask()
-        subView.backgroundColor = .clear
-        subView.addSubview(timerView)
-        NSLayoutConstraint.activate([
-            timerView.widthAnchor.constraint(equalTo: subView.widthAnchor, multiplier: 0.7),
-            timerView.heightAnchor.constraint(equalTo: subView.heightAnchor),
-            timerView.centerXAnchor.constraint(equalTo: subView.centerXAnchor),
-            timerView.centerYAnchor.constraint(equalTo: subView.centerYAnchor)
-        ])
-        
-        stackView.addArrangedSubview(subView)
-        stackView.addArrangedSubview(hintLabel)
-        
-        return stackView
-    }()
     
     private lazy var taskDetails: TaskDetailView = {
         let view = TaskDetailView().disableMask()
@@ -55,30 +34,44 @@ final class TimerContentView: UIView {
     
     private lazy var timerView: TimerView = {
         let timerView = TimerView().disableMask()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(timerOnTap))
-        timerView.addGestureRecognizer(tapGestureRecognizer)
-        longPressGestureRecognizer.addTarget(self, action: #selector(timerOnLongPress))
-        timerView.addGestureRecognizer(longPressGestureRecognizer)
         return timerView
     }()
     
-    private lazy var hintLabel: UILabel = {
-        let label = UILabel().disableMask()
-        label.numberOfLines = 2
-        label.text = "Tap to pause, resume\nHold to finish"
-        return label
+    private lazy var controlsStackView: UIStackView = {
+        let stackView = UIStackView().disableMask()
+        stackView.axis = .horizontal
+        stackView.spacing = Constants.controlsSpacing
+        stackView.distribution = .fillEqually
+        
+        stackView.addArrangedSubview(startButton)
+        stackView.addArrangedSubview(finishButton)
+        return stackView
+    }()
+    
+    private lazy var startButton: DSButton = {
+        let button = DSButton().disableMask()
+        button.setTitle("Start", for: .normal)
+        button.backgroundColor = Colors.start
+        button.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var finishButton: DSButton = {
+        let button = DSButton().disableMask()
+        button.setTitle("Finish", for: .normal)
+        button.backgroundColor = Colors.inactive
+        button.addTarget(self, action: #selector(finishButtonOnTap), for: .touchUpInside)
+        return button
     }()
     
     // MARK: - Properties
-    
-    private var longPressGestureRecognizer = UILongPressGestureRecognizer()
     
     var taskDetailTapAction: (() -> Void)? {
         get { taskDetails.tapAction }
         set { taskDetails.tapAction = newValue }
     }
-    var timerTapAction: (() -> Void)?
-    var timerLongPressAction: (() -> Void)?
+    var startButtonAction: (() -> Void)?
+    var finishButtonAction: (() -> Void)?
     
     private var timerTitle: String? {
         get { timerView.text }
@@ -97,14 +90,25 @@ final class TimerContentView: UIView {
     }
     
     private func setup() {
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = .systemBackground
         
-        addSubview(topStackView)
+        addSubview(taskDetails)
+        addSubview(timerView)
+        addSubview(controlsStackView)
         
         NSLayoutConstraint.activate([
-            topStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.edgeInsets),
-            topStackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInsets),
-            topStackView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInsets),
+            taskDetails.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            taskDetails.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInsets),
+            taskDetails.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInsets),
+            
+            timerView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: -Constants.edgeInsets * 2),
+            timerView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            timerView.heightAnchor.constraint(greaterThanOrEqualTo: taskDetails.heightAnchor),
+            timerView.topAnchor.constraint(equalTo: taskDetails.bottomAnchor, constant: Constants.timerInset),
+            
+            controlsStackView.topAnchor.constraint(equalTo: timerView.bottomAnchor, constant: Constants.controlsInset),
+            controlsStackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInsets),
+            controlsStackView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInsets),
         ])
     }
     
@@ -116,44 +120,47 @@ final class TimerContentView: UIView {
     }
     
     func updateTimer(hours: Int?, minutes: Int?, seconds: Int?) {
-        let hoursStr = hours?.description ?? "00"
-        let minutesStr = minutes?.description ?? "00"
-        let secondsStr = seconds?.description ?? "00"
+        func processNumber(_ number: Int?) -> String {
+            guard let number = number else { return "00" }
+            if number < 10 { return "0\(number)" }
+            return number.description
+        }
+        let hoursStr = processNumber(hours)
+        let minutesStr = processNumber(minutes)
+        let secondsStr = processNumber(seconds)
         timerTitle = "\(hoursStr):\(minutesStr):\(secondsStr)"
     }
     
     func setState(_ state: State) {
         switch state {
         case .taskNotSelected:
-            updateTimerView(color: Colors.inactive, isEnabled: false, text: "")
+            timerView.text = "00:00:00"
+            startButton.setTitle("Start", for: .normal)
+            startButton.backgroundColor = Colors.inactive
+            finishButton.backgroundColor = Colors.inactive
         case .setUp:
-            updateTimerView(color: Colors.start, isEnabled: true, text: "Start")
+            timerView.text = "00:00:00"
+            startButton.setTitle("Start", for: .normal)
+            startButton.backgroundColor = Colors.start
+            finishButton.backgroundColor = Colors.inactive
         case .active:
-            updateTimerView(color: Colors.pause, isEnabled: true, text: nil)
+            startButton.setTitle("Pause", for: .normal)
+            startButton.backgroundColor = Colors.pause
+            finishButton.backgroundColor = Colors.stop
         case .inactive:
-            updateTimerView(color: Colors.start, isEnabled: true, text: nil)
+            startButton.setTitle("Resume", for: .normal)
+            startButton.backgroundColor = Colors.start
+            finishButton.backgroundColor = Colors.stop
         }
     }
     
     // MARK: - Actions
     
-    @objc private func timerOnTap() {
-        timerTapAction?()
+    @objc private func startButtonOnTap() {
+        startButtonAction?()
     }
     
-    @objc private func timerOnLongPress() {
-        if longPressGestureRecognizer.state == .began {
-            timerLongPressAction?()
-        }
-    }
-    
-    // MARK: - Private helpers
-    
-    private func updateTimerView(color: UIColor, isEnabled: Bool, text: String?) {
-        timerView.backgroundColor = color
-        timerView.isUserInteractionEnabled = isEnabled
-        if text != nil {
-            timerView.text = text
-        }
+    @objc private func finishButtonOnTap() {
+        finishButtonAction?()
     }
 }

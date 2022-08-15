@@ -24,6 +24,6 @@ class DSButton: UIButton {
         backgroundColor = Colors.brand
         layer.cornerRadius = 12
         clipsToBounds = true
-        heightAnchor.constraint(equalToConstant: 44).isActive = true
+        heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
     }
 }

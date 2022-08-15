@@ -24,12 +24,7 @@ protocol RefreshTokenServiceProtocol: AnyObject {
 
 protocol RequestServiceProtocol: AnyObject {
     
-    func request(_ url: String,
-                 method: HTTPMethod,
-                 parameters: [String: Any],
-                 headers: [String: String],
-                 body: Data?,
-                 _ completion: @escaping ((Result<Data, Error>) -> Void))
+    func send<Parser>(requestConfig: RequestConfig<Parser>, _ completion: @escaping (Result<Parser.Model, Error>) -> Void)
 }
 
 // MARK: - HTTPMethod
@@ -37,6 +32,7 @@ protocol RequestServiceProtocol: AnyObject {
 enum HTTPMethod {
     case get
     case post
+    case patch
 }
 
 // MARK: - OpenProjectService
@@ -131,27 +127,22 @@ class OpenProjectService: AuthorizationServiceProtocol,
     
     // MARK: - RequestServiceProtocol
     
-    func request(_ url: String,
-                 method: HTTPMethod,
-                 parameters: [String: Any] = [:],
-                 headers: [String: String] = [:],
-                 body: Data? = nil,
-                 _ completion: @escaping ((Result<Data, Error>) -> Void)) {
-        
+    func send<Parser>(requestConfig: RequestConfig<Parser>, _ completion: @escaping (Result<Parser.Model, Error>) -> Void) {
         var oauthMethod: OAuthSwiftHTTPRequest.Method
-        switch method {
+        switch requestConfig.request.method {
         case .get:
             oauthMethod = .GET
         case .post:
             oauthMethod = .POST
+        case .patch:
+            oauthMethod = .PATCH
         }
-        
-        // TODO: implement error on token renewal
-        oauth2swift.startAuthorizedRequest(url,
+        // TODO: implement error handling on token renewal
+        oauth2swift.startAuthorizedRequest(requestConfig.request.url,
                                            method: oauthMethod,
-                                           parameters: parameters,
-                                           headers: headers,
-                                           body: body,
+                                           parameters: requestConfig.request.parameters,
+                                           headers: requestConfig.request.headers,
+                                           body: requestConfig.request.body,
                                            onTokenRenewal: { [weak self] result in
             switch result {
             case .success(let credentials):
@@ -163,9 +154,12 @@ class OpenProjectService: AuthorizationServiceProtocol,
         }, completionHandler: { result in
             switch result {
             case .success(let (response)):
-                completion(.success(response.data))
+                if let parsedData = requestConfig.parser.parse(response.data) {
+                    completion(.success(parsedData))
+                } else {
+                    completion(.failure(NetworkError.parsingError))
+                }
             case .failure(let error):
-                Logger.log(event: .error, error.errorUserInfo)
                 completion(.failure(error))
             }
         })

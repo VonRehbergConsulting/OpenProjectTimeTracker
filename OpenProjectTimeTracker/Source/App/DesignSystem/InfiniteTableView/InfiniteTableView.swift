@@ -1,22 +1,15 @@
 //
-//  TaskListContentView.swift
+//  InfiniteTableView.swift
 //  OpenProjectTimeTracker
 //
-//  Created by Denis Shtangey on 09.08.22.
+//  Created by Denis Shtangey on 15.08.22.
 //
 
 import UIKit
 
-final class TaskListContentView: UIView {
+class InfiniteTableView: UITableView {
     
     // MARK: - Subviews
-    
-    private lazy var taskTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped).disableMask()
-        tableView.register(TimerListCell.self, forCellReuseIdentifier: TimerListCell.reuseIdentifier)
-        tableView.tableFooterView = spinner
-        return tableView
-    }()
     
     private lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 0, height: 40))
@@ -31,8 +24,13 @@ final class TaskListContentView: UIView {
     
     // MARK: - Lifecycle
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
+        setup()
+    }
+    
+    init(frame: CGRect) {
+        super.init(frame: frame, style: .insetGrouped)
         setup()
     }
     
@@ -41,21 +39,14 @@ final class TaskListContentView: UIView {
     }
     
     private func setup() {
-        addSubview(taskTableView)
-        taskTableView.attachToSuperview()
-        
+        tableFooterView = spinner
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Reload")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        taskTableView.refreshControl = refreshControl
+        self.refreshControl = refreshControl
     }
     
     // MARK: - Public methods
-    
-    func setDelegates(dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
-        taskTableView.dataSource = dataSource
-        taskTableView.delegate = delegate
-    }
     
     func startLoading() {
         spinner.startAnimating()
@@ -64,19 +55,19 @@ final class TaskListContentView: UIView {
     func finishLoading(_ indexPaths: [IndexPath]) {
         spinner.stopAnimating()
         if indexPaths.isEmpty {
-            let indexPath = IndexPath(row: taskTableView.numberOfRows(inSection: 0) - 1, section: 0)
-            taskTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            let indexPath = IndexPath(row: numberOfRows(inSection: 0) - 1, section: 0)
+            scrollToRow(at: indexPath, at: .bottom, animated: true)
         } else {
-            taskTableView.beginUpdates()
-            taskTableView.insertRows(at: indexPaths, with: .fade)
-            taskTableView.endUpdates()
+            beginUpdates()
+            insertRows(at: indexPaths, with: .fade)
+            endUpdates()
         }
     }
     
     func finishRefreshing() {
         spinner.stopAnimating()
-        taskTableView.reloadSections([0], with: .fade)
-        taskTableView.refreshControl?.endRefreshing()
+        reloadSections([0], with: .fade)
+        refreshControl?.endRefreshing()
     }
     
     // MARK: - Actions

@@ -15,7 +15,8 @@ protocol TimerCoordinatorProtocol: AnyObject {
     
     func routeToTaskList(_ completion: @escaping (Task) -> Void)
     
-    func routeToSummary(taskHref: String,
+    func routeToSummary(timeEntryID: Int?,
+                        taskHref: String,
                         projectHref: String,
                         timeSpent: Date,
                         taskTitle: String?,
@@ -77,13 +78,15 @@ class TimerCoordinator: Coordinator,
         router.push(viewController, animated: true)
     }
     
-    func routeToSummary(taskHref: String,
+    func routeToSummary(timeEntryID: Int?,
+                        taskHref: String,
                         projectHref: String,
                         timeSpent: Date,
                         taskTitle: String?,
                         projectTitle: String?,
                         _ completion: @escaping () -> Void) {
-        let viewController = screenFactory.createSummaryScreen(userID: userID,
+        let viewController = screenFactory.createSummaryScreen(timeEntryID: timeEntryID,
+                                                               userID: userID,
                                                                taskHref: taskHref,
                                                                projectHref: projectHref,
                                                                timeSpent: timeSpent,

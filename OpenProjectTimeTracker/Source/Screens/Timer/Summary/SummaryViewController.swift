@@ -42,7 +42,7 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
                 if success {
                     self.showAlert(title: "Your work has been logged", message: nil, { self.finishFlow?() })
                 } else {
-                    Logger.log(event: .error, "Can't save the time entry!")
+                    Logger.log(event: .error, "Can't save time entry!")
                 }
             }
         }

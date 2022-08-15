@@ -9,12 +9,12 @@ import Foundation
 
 protocol TaskListModelProtocol {
     
-    var taskCount: Int { get }
+    var itemCount: Int { get }
     
     func item(at index: Int) -> Task?
     
-    func loadTasks(_ completion: @escaping ([Int]) -> Void)
-    func reloadTasks(_ completion: @escaping (() -> Void))
+    func loadNext(_ completion: @escaping ([Int]) -> Void)
+    func reload(_ completion: @escaping (() -> Void))
 }
 
 final class TaskListModel: TaskListModelProtocol {
@@ -42,7 +42,7 @@ final class TaskListModel: TaskListModelProtocol {
     
     // MARK: - TimerModelProtocol
     
-    var taskCount: Int {
+    var itemCount: Int {
         tasks.count
     }
     
@@ -55,11 +55,11 @@ final class TaskListModel: TaskListModelProtocol {
         }
     }
     
-    func loadTasks(_ completion: @escaping ([Int]) -> Void) {
+    func loadNext(_ completion: @escaping ([Int]) -> Void) {
         guard isLoading == false else { return }
         isLoading = true
         Logger.log("Loading tasks")
-        service.loadTasks(id: userID, page: nextPage) { [weak self] result in
+        service.list(id: userID, page: nextPage) { [weak self] result in
             guard let self = self else { return }
             if let preProcessHandler = self.preProcessHandler {
                 self.preProcessHandler = nil
@@ -89,7 +89,7 @@ final class TaskListModel: TaskListModelProtocol {
         }
     }
     
-    func reloadTasks(_ completion: @escaping (() -> Void)) {
+    func reload(_ completion: @escaping (() -> Void)) {
         if isLoading {
             clearCompletion = completion
         }
@@ -104,6 +104,6 @@ final class TaskListModel: TaskListModelProtocol {
         clearCompletion = nil
         preProcessHandler = { [weak self] in self?.tasks = [] }
         nextPage = 1
-        loadTasks { _ in completion() }
+        loadNext { _ in completion() }
     }
 }

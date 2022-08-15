@@ -10,6 +10,7 @@ import Foundation
 protocol TimerPresenterProtocol: AnyObject {
     
     var isActive: Bool? { get }
+    var timeEntryID: Int? { get set }
     var task: Task? { get set }
     var timeSpent: DateComponents? { get }
     
@@ -40,6 +41,10 @@ final class TimerPresenter: TimerPresenterProtocol {
     var isActive: Bool? {
         get { model?.isActive }
         set { model?.isActive = newValue }
+    }
+    var timeEntryID: Int? {
+        get { model?.timeEntryID }
+        set { model?.timeEntryID = newValue }
     }
     var task: Task? {
         get { model?.task }

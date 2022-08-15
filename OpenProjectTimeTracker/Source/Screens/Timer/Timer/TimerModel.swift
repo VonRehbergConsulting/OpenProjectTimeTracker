@@ -11,6 +11,7 @@ protocol TimerModelProtocol {
     
     var task: Task? { get set }
     var isActive: Bool? { get set }
+    var timeEntryID: Int? { get set }
     
     var startTime: Date? { get set }
     var stopTime: Date? { get set }
@@ -50,6 +51,10 @@ final class TimerModel: TimerModelProtocol {
     var stopTime: Date? {
         get { storage.stopTime }
         set { storage.stopTime = newValue }
+    }
+    var timeEntryID: Int? {
+        get { storage.timeEntryID }
+        set { storage.timeEntryID = newValue }
     }
     
     // MARK: - Private helpers

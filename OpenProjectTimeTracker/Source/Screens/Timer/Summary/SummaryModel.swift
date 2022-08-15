@@ -24,6 +24,7 @@ final class SummaryModel: SummaryModelProtocol {
     weak var presenter: SummaryPresenterProtocol?
     
     private let service: TimeEntriesServiceProtocol
+    private let timeEntryID: Int?
     private let userID: Int
     private let taskHref: String
     private let projectHref: String
@@ -36,12 +37,14 @@ final class SummaryModel: SummaryModelProtocol {
     // MARK: - Lifecycle
     
     init(service: TimeEntriesServiceProtocol,
+         timeEntryID: Int?,
          userID: Int,
          taskHref: String,
          projectHref: String,
          timeSpent: Date,
          taskTitle: String?,
          projectTitle: String?) {
+        self.timeEntryID = timeEntryID
         self.userID = userID
         self.service = service
         self.taskHref = taskHref
@@ -54,12 +57,12 @@ final class SummaryModel: SummaryModelProtocol {
     // MARK: - SummaryModelProtocol
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void) {
-        service.createTimeEntry(userID: userID,
-                                projectHref: projectHref,
-                                workPackageHref: taskHref,
-                                duration: timeSpent,
-                                date: Date(),
-                                comment: comment) { success in
+        service.create(userID: userID,
+                       projectHref: projectHref,
+                       workPackageHref: taskHref,
+                       duration: timeSpent,
+                       date: Date(),
+                       comment: comment) { success in
             completion(success)
         }
     }

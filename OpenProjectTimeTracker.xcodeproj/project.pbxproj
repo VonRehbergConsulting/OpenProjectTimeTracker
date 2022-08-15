@@ -68,6 +68,26 @@
 		B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E028A3E5FB00A7764B /* TimerView.swift */; };
 		B7D588E528A3F73000A7764B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E428A3F73000A7764B /* Date.swift */; };
 		B7F9A30B28AA32F600F694C5 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A30A28AA32F600F694C5 /* UIFont.swift */; };
+		B7F9A30E28AA4E0900F694C5 /* InfiniteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */; };
+		B7F9A31028AA4FD700F694C5 /* InfiniteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A30F28AA4FD700F694C5 /* InfiniteDataSource.swift */; };
+		B7F9A31228AA5B9700F694C5 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */; };
+		B7F9A31428AA5C1100F694C5 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */; };
+		B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */; };
+		B7F9A31B28AA605900F694C5 /* WorkPackagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31A28AA605900F694C5 /* WorkPackagesRequest.swift */; };
+		B7F9A31D28AA615F00F694C5 /* WorkPackagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31C28AA615F00F694C5 /* WorkPackagesParser.swift */; };
+		B7F9A31F28AA61F000F694C5 /* WorkPackagesRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */; };
+		B7F9A32428AA636C00F694C5 /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32328AA636C00F694C5 /* UserDataRequest.swift */; };
+		B7F9A32628AA63AB00F694C5 /* UserDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32528AA63AB00F694C5 /* UserDataParser.swift */; };
+		B7F9A32828AA641300F694C5 /* UserDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32728AA641300F694C5 /* UserDataRequestFactory.swift */; };
+		B7F9A32B28AA65B300F694C5 /* TimeEntriesCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32A28AA65B300F694C5 /* TimeEntriesCreateRequest.swift */; };
+		B7F9A32F28AA66DE00F694C5 /* EmptyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32E28AA66DE00F694C5 /* EmptyParser.swift */; };
+		B7F9A33128AA67D100F694C5 /* TimeEntriesRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33028AA67D100F694C5 /* TimeEntriesRequestFactory.swift */; };
+		B7F9A33328AA693D00F694C5 /* TimeEntriesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33228AA693D00F694C5 /* TimeEntriesListRequest.swift */; };
+		B7F9A33528AA69F700F694C5 /* TimeEntriesListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33428AA69F700F694C5 /* TimeEntriesListParser.swift */; };
+		B7F9A33928AA6C0100F694C5 /* TimeEntryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33828AA6C0100F694C5 /* TimeEntryListModel.swift */; };
+		B7F9A33E28AA6F7500F694C5 /* TimeEntryFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33D28AA6F7500F694C5 /* TimeEntryFormatter.swift */; };
+		B7F9A34028AA6FE100F694C5 /* TimeEntryUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33F28AA6FE100F694C5 /* TimeEntryUpdateRequest.swift */; };
+		B7F9A34228AA70CF00F694C5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A34128AA70CF00F694C5 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +171,26 @@
 		B7D588E028A3E5FB00A7764B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		B7D588E428A3F73000A7764B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B7F9A30A28AA32F600F694C5 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteTableView.swift; sourceTree = "<group>"; };
+		B7F9A30F28AA4FD700F694C5 /* InfiniteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteDataSource.swift; sourceTree = "<group>"; };
+		B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
+		B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
+		B7F9A31A28AA605900F694C5 /* WorkPackagesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackagesRequest.swift; sourceTree = "<group>"; };
+		B7F9A31C28AA615F00F694C5 /* WorkPackagesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackagesParser.swift; sourceTree = "<group>"; };
+		B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackagesRequestFactory.swift; sourceTree = "<group>"; };
+		B7F9A32328AA636C00F694C5 /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
+		B7F9A32528AA63AB00F694C5 /* UserDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataParser.swift; sourceTree = "<group>"; };
+		B7F9A32728AA641300F694C5 /* UserDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequestFactory.swift; sourceTree = "<group>"; };
+		B7F9A32A28AA65B300F694C5 /* TimeEntriesCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesCreateRequest.swift; sourceTree = "<group>"; };
+		B7F9A32E28AA66DE00F694C5 /* EmptyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyParser.swift; sourceTree = "<group>"; };
+		B7F9A33028AA67D100F694C5 /* TimeEntriesRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesRequestFactory.swift; sourceTree = "<group>"; };
+		B7F9A33228AA693D00F694C5 /* TimeEntriesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesListRequest.swift; sourceTree = "<group>"; };
+		B7F9A33428AA69F700F694C5 /* TimeEntriesListParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesListParser.swift; sourceTree = "<group>"; };
+		B7F9A33828AA6C0100F694C5 /* TimeEntryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryListModel.swift; sourceTree = "<group>"; };
+		B7F9A33D28AA6F7500F694C5 /* TimeEntryFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryFormatter.swift; sourceTree = "<group>"; };
+		B7F9A33F28AA6FE100F694C5 /* TimeEntryUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryUpdateRequest.swift; sourceTree = "<group>"; };
+		B7F9A34128AA70CF00F694C5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -377,6 +417,7 @@
 		B7B18BF2289BBDDB00545968 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				B7F9A30C28AA4DF900F694C5 /* InfiniteTableView */,
 				B7C5BA38289D2E2E000A10D7 /* Colors.swift */,
 				B7C5BA36289D2DB8000A10D7 /* DSButton.swift */,
 				B77C129A28A2AFD5004F8988 /* ShadowView.swift */,
@@ -389,10 +430,13 @@
 		B7B18BF3289BF5A500545968 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */,
+				B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */,
+				B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */,
 				B7C5BA44289D41AF000A10D7 /* NetworkError.swift */,
-				B7B18BF4289BF5B000545968 /* UserService.swift */,
-				B7C5BA42289D3E9E000A10D7 /* TasksService.swift */,
-				B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */,
+				B7F9A31928AA5FF000F694C5 /* WorkPackages */,
+				B7F9A32228AA635F00F694C5 /* UserData */,
+				B7F9A32928AA656700F694C5 /* TimeEntries */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -440,6 +484,78 @@
 				B7D588DE28A3B80B00A7764B /* SummaryModel.swift */,
 			);
 			path = Summary;
+			sourceTree = "<group>";
+		};
+		B7F9A30C28AA4DF900F694C5 /* InfiniteTableView */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */,
+				B7F9A30F28AA4FD700F694C5 /* InfiniteDataSource.swift */,
+			);
+			path = InfiniteTableView;
+			sourceTree = "<group>";
+		};
+		B7F9A31928AA5FF000F694C5 /* WorkPackages */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A31A28AA605900F694C5 /* WorkPackagesRequest.swift */,
+				B7F9A31C28AA615F00F694C5 /* WorkPackagesParser.swift */,
+				B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */,
+				B7C5BA42289D3E9E000A10D7 /* TasksService.swift */,
+			);
+			path = WorkPackages;
+			sourceTree = "<group>";
+		};
+		B7F9A32228AA635F00F694C5 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A32328AA636C00F694C5 /* UserDataRequest.swift */,
+				B7F9A32528AA63AB00F694C5 /* UserDataParser.swift */,
+				B7F9A32728AA641300F694C5 /* UserDataRequestFactory.swift */,
+				B7B18BF4289BF5B000545968 /* UserService.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		B7F9A32928AA656700F694C5 /* TimeEntries */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A34128AA70CF00F694C5 /* Comment.swift */,
+				B7F9A32E28AA66DE00F694C5 /* EmptyParser.swift */,
+				B7F9A33D28AA6F7500F694C5 /* TimeEntryFormatter.swift */,
+				B7F9A33728AA6B4700F694C5 /* List */,
+				B7F9A33628AA6B4000F694C5 /* Create */,
+				B7F9A33C28AA6F4800F694C5 /* Update */,
+				B7F9A33028AA67D100F694C5 /* TimeEntriesRequestFactory.swift */,
+				B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */,
+			);
+			path = TimeEntries;
+			sourceTree = "<group>";
+		};
+		B7F9A33628AA6B4000F694C5 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A32A28AA65B300F694C5 /* TimeEntriesCreateRequest.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		B7F9A33728AA6B4700F694C5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A33828AA6C0100F694C5 /* TimeEntryListModel.swift */,
+				B7F9A33228AA693D00F694C5 /* TimeEntriesListRequest.swift */,
+				B7F9A33428AA69F700F694C5 /* TimeEntriesListParser.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B7F9A33C28AA6F4800F694C5 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A33F28AA6FE100F694C5 /* TimeEntryUpdateRequest.swift */,
+			);
+			path = Update;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,26 +700,41 @@
 				B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */,
 				B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */,
 				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
+				B7F9A32628AA63AB00F694C5 /* UserDataParser.swift in Sources */,
 				B7C5BA2C289D06AD000A10D7 /* TimerScreenFactory.swift in Sources */,
+				B7F9A31B28AA605900F694C5 /* WorkPackagesRequest.swift in Sources */,
 				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
 				B7C5BA43289D3E9E000A10D7 /* TasksService.swift in Sources */,
 				B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */,
 				B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */,
 				B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */,
 				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
+				B7F9A32B28AA65B300F694C5 /* TimeEntriesCreateRequest.swift in Sources */,
 				B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */,
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
 				B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
+				B7F9A33528AA69F700F694C5 /* TimeEntriesListParser.swift in Sources */,
 				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
 				B77C129B28A2AFD5004F8988 /* ShadowView.swift in Sources */,
+				B7F9A32828AA641300F694C5 /* UserDataRequestFactory.swift in Sources */,
+				B7F9A33328AA693D00F694C5 /* TimeEntriesListRequest.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
+				B7F9A33E28AA6F7500F694C5 /* TimeEntryFormatter.swift in Sources */,
+				B7F9A31028AA4FD700F694C5 /* InfiniteDataSource.swift in Sources */,
+				B7F9A32F28AA66DE00F694C5 /* EmptyParser.swift in Sources */,
 				B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
+				B7F9A32428AA636C00F694C5 /* UserDataRequest.swift in Sources */,
 				B7C5BA31289D06E4000A10D7 /* TimerContentView.swift in Sources */,
+				B7F9A34228AA70CF00F694C5 /* Comment.swift in Sources */,
 				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,
 				B7C5BA2F289D06DD000A10D7 /* TimerViewController.swift in Sources */,
+				B7F9A30E28AA4E0900F694C5 /* InfiniteTableView.swift in Sources */,
+				B7F9A31228AA5B9700F694C5 /* RequestProtocol.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
+				B7F9A33928AA6C0100F694C5 /* TimeEntryListModel.swift in Sources */,
+				B7F9A34028AA6FE100F694C5 /* TimeEntryUpdateRequest.swift in Sources */,
 				B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */,
 				B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
@@ -614,22 +745,27 @@
 				B7C5BA37289D2DB8000A10D7 /* DSButton.swift in Sources */,
 				B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */,
 				B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */,
+				B7F9A31D28AA615F00F694C5 /* WorkPackagesParser.swift in Sources */,
 				B7B18BF7289BF7EE00545968 /* OAuth2Swift.swift in Sources */,
 				B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */,
 				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
 				B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */,
+				B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */,
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,
 				B7D588E528A3F73000A7764B /* Date.swift in Sources */,
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
+				B7F9A33128AA67D100F694C5 /* TimeEntriesRequestFactory.swift in Sources */,
 				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
 				B74FC52228A63667001791B1 /* DSTextField.swift in Sources */,
 				B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */,
 				B77C129728A29A48004F8988 /* TaskListModel.swift in Sources */,
+				B7F9A31F28AA61F000F694C5 /* WorkPackagesRequestFactory.swift in Sources */,
 				B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */,
 				B7C5BA35289D13B0000A10D7 /* TimerModel.swift in Sources */,
+				B7F9A31428AA5C1100F694C5 /* ParserProtocol.swift in Sources */,
 				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
 				B7C5BA47289D5118000A10D7 /* Task.swift in Sources */,
 				B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */,

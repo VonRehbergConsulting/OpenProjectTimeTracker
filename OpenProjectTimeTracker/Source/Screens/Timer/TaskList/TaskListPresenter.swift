@@ -28,7 +28,7 @@ final class TaskListPresenter: TaskListPresenterProtocol {
     // MARK: - TaskListPresenterProtocol
     
     var taskCount: Int {
-        model?.taskCount ?? 0
+        model?.itemCount ?? 0
     }
     
     func item(at indexPath: IndexPath) -> TimerListCell.Configuration? {
@@ -42,13 +42,13 @@ final class TaskListPresenter: TaskListPresenterProtocol {
     }
     
     func loadTasks(_ completion: @escaping ([IndexPath]) -> Void) {
-        model?.loadTasks { indexes in
+        model?.loadNext { indexes in
             let indexPaths = indexes.compactMap { IndexPath(row: $0, section: 0) }
             completion(indexPaths)
         }
     }
     
     func reloadTasks(_ completion: @escaping (() -> Void)) {
-        model?.reloadTasks(completion)
+        model?.reload(completion)
     }
 }

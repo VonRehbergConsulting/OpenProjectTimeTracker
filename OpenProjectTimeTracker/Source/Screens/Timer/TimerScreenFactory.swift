@@ -13,7 +13,8 @@ protocol TimerScreenFactoryProtocol {
     
     func createTaskListScreen(userID: Int) -> TaskListViewController
     
-    func createSummaryScreen(userID: Int,
+    func createSummaryScreen(timeEntryID: Int?,
+                             userID: Int,
                              taskHref: String,
                              projectHref: String,
                              timeSpent: Date,
@@ -55,7 +56,8 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
         let viewController = TaskListViewController()
         let presenter = TaskListPresenter()
         
-        let taskService = TasksService(service: service)
+        let requestFactory = WorkPackagesRequestFactory()
+        let taskService = TasksService(service: service, requestFactory: requestFactory)
         let model = TaskListModel(userID: userID, service: taskService)
         
         viewController.presenter = presenter
@@ -66,7 +68,8 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
         return viewController
     }
     
-    func createSummaryScreen(userID: Int,
+    func createSummaryScreen(timeEntryID: Int?,
+                             userID: Int,
                              taskHref: String,
                              projectHref: String,
                              timeSpent: Date,
@@ -75,8 +78,10 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
         let viewController = SummaryViewController()
         let presenter = SummaryPresenter()
         
-        let timeEntriesService = TimeEntriesService(service: service)
+        let requestFactory = TimeEntriesRequestFactory()
+        let timeEntriesService = TimeEntriesService(service: service, requestFactory: requestFactory)
         let model = SummaryModel(service: timeEntriesService,
+                                 timeEntryID: timeEntryID,
                                  userID: userID,
                                  taskHref: taskHref,
                                  projectHref: projectHref,

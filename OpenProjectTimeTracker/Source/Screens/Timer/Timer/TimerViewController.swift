@@ -143,7 +143,9 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
             Logger.log(event: .error, "Can't get data")
             return
         }
-        coordinator?.routeToSummary(taskHref: task.selfHref,
+        let timeEntryID = presenter.timeEntryID
+        coordinator?.routeToSummary(timeEntryID: timeEntryID,
+                                    taskHref: task.selfHref,
                                     projectHref: task.projectHref,
                                     timeSpent: date,
                                     taskTitle: task.subject,

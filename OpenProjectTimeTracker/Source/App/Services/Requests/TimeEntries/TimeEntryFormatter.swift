@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Swift_ISO8601_DurationParser
 
 final class TimeEntryFormatter {
     
@@ -30,5 +31,9 @@ final class TimeEntryFormatter {
         }
         if result == "PT" { result = "PT0H" }
         return result
+    }
+    
+    static func decode(hours: String) -> DateComponents? {
+        return DateComponents.durationFrom8601String(hours)
     }
 }

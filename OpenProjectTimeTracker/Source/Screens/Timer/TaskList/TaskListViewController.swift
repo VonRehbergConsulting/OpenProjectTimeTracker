@@ -21,7 +21,7 @@ final class TaskListViewController: UIViewController,
     var contentView: TaskListContentView? { view as? TaskListContentView }
     
     var presenter: TaskListPresenterProtocol?
-    var finishFlow: ((Task) -> Void)?
+    var finishFlow: ((Task, TimeEntryListModel?) -> Void)?
     
     private var isLoading = false
     private var isScrolling = false
@@ -39,17 +39,29 @@ final class TaskListViewController: UIViewController,
         contentView?.refreshControlAction = { [weak self] in
             self?.loadFirstPage()
         }
+        contentView?.segmentedControlAction = { [weak self] segment in
+            self?.presenter?.modelType = .init(rawValue: segment) ?? .task
+            self?.loadFirstPage()
+        }
         loadFirstPage()
     }
     
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let task = presenter?.task(at: indexPath) else {
-            Logger.log(event: .error, "Can't find task")
+        guard let presenter = presenter else {
+            Logger.log(event: .error, "Can't find presenter")
             return
         }
-        finishFlow?(task)
+        presenter.outputData(at: indexPath) { [weak self] task, timeEntry in
+            guard let self = self,
+                  let task = task else {
+                Logger.log(event: .error, "Cant load task")
+                self?.showAlert(title: "Error", message: "Please, try again later")
+                return
+            }
+            self.finishFlow?(task, timeEntry)
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -59,15 +71,16 @@ final class TaskListViewController: UIViewController,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.taskCount ?? 0
+        presenter?.itemsCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TimerListCell.reuseIdentifier, for: indexPath) as? TimerListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskListCell.reuseIdentifier, for: indexPath) as? TaskListCell,
+              let item = presenter?.item(at: indexPath)
+        else {
             Logger.log(event: .error, "Can't dequeue cell")
             return UITableViewCell()
         }
-        let item = presenter?.item(at: indexPath) ?? .init(subject: "")
         cell.configure(item, at: indexPath)
         cell.selectionStyle = .none
         return cell
@@ -102,7 +115,7 @@ final class TaskListViewController: UIViewController,
     
     private func loadFirstPage() {
         isLoading = true
-        presenter?.reloadTasks { [weak self] in
+        presenter?.reloadItems { [weak self] in
             self?.contentView?.finishRefreshing()
             self?.isLoading = false
         }
@@ -114,7 +127,7 @@ final class TaskListViewController: UIViewController,
         else { return }
         contentView?.startLoading()
         isLoading = true
-        presenter?.loadTasks { [weak self] indexPaths in
+        presenter?.loadItems { [weak self] indexPaths in
             self?.isScrolling = true
             self?.contentView?.finishLoading(indexPaths)
             self?.isLoading = false

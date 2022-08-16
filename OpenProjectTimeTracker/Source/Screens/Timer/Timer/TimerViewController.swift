@@ -49,9 +49,9 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
     // MARK: - Actions
     
     private func taskDetailTapAction() {
-        coordinator?.routeToTaskList() { [weak self] task in
+        coordinator?.routeToTaskList() { [weak self] task, timeEntry in
             guard let self = self else { return }
-            self.set(task)
+            self.set(task: task, timeEntry: timeEntry)
         }
     }
     
@@ -92,7 +92,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         }
     }
     
-    private func set(_ task: Task) {
+    private func set(task: Task, timeEntry: TimeEntryListModel?) {
         stopTimer()
         guard let presenter = presenter,
               let contentView = contentView
@@ -100,10 +100,16 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
             Logger.log(event: .error, "Can't find instances")
             return
         }
-        presenter.resetTimer()
         presenter.task = task
         contentView.updateTaskData(task)
-        contentView.setState(.setUp)
+        presenter.resetTimer()
+        if let timeEntry = timeEntry {
+            presenter.setTimeEntry(timeEntry)
+            contentView.setState(.inactive)
+            updateViewTimer()
+        } else {
+            contentView.setState(.setUp)
+        }
     }
     
     // Status changes
@@ -144,12 +150,15 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
             return
         }
         let timeEntryID = presenter.timeEntryID
+        let comment = presenter.comment
         coordinator?.routeToSummary(timeEntryID: timeEntryID,
                                     taskHref: task.selfHref,
                                     projectHref: task.projectHref,
                                     timeSpent: date,
                                     taskTitle: task.subject,
-                                    projectTitle: task.projectTitle) { [weak self, presenter] in
+                                    projectTitle: task.projectTitle,
+                                    comment: comment
+        ) { [weak self, presenter] in
             presenter.resetTimer()
             self?.contentView?.setState(.setUp)
         }
@@ -170,7 +179,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
             Logger.log(event: .error, "Can't get time interval")
             return
         }
-        contentView?.updateTimer(hours: timeSpent.hour, minutes: timeSpent.minute, seconds: timeSpent.second)
+        contentView?.updateTimer(timeSpent)
     }
     
     private func stopUpdatingView() {

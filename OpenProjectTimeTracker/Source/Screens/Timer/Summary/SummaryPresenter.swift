@@ -38,7 +38,7 @@ final class SummaryPresenter: SummaryPresenterProtocol {
     }
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void) {
-        model?.createTimeEntry(completion)
+        model?.saveTimeEntry(completion)
     }
     
     // MARK: - Private helpers

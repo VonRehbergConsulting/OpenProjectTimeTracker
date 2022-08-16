@@ -10,7 +10,9 @@ import UIKit
 
 protocol TasksServiceProtocol {
     
-    func list(id: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void)
+    func task(id: Int, _ completion: @escaping (Result<Task, Error>) -> Void)
+    
+    func list(userID: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void)
 }
 
 final class TasksService: TasksServiceProtocol {
@@ -32,8 +34,20 @@ final class TasksService: TasksServiceProtocol {
     
     // MARK: - TasksServiceProtocol
     
-    func list(id: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void) {
-        let requestConfig = requestFactory.createWorkPackagesRequestConfig(userID: id, page: page)
+    func task(id: Int, _ completion: @escaping (Result<Task, Error>) -> Void) {
+        let requestConfig = requestFactory.createWorkPackageRequestConfig(id: id)
+        service.send(requestConfig: requestConfig) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let task):
+                completion(.success(task))
+            }
+        }
+    }
+    
+    func list(userID: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void) {
+        let requestConfig = requestFactory.createWorkPackagesRequestConfig(userID: userID, page: page)
         service.send(requestConfig: requestConfig, completion)
     }
 }

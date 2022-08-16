@@ -19,7 +19,9 @@ protocol TimerScreenFactoryProtocol {
                              projectHref: String,
                              timeSpent: Date,
                              taskTitle: String?,
-                             projectTitle: String?) -> SummaryViewController
+                             projectTitle: String?,
+                             comment: String?
+    ) -> SummaryViewController
 }
 
 final class TimerScreenFactory: TimerScreenFactoryProtocol {
@@ -56,9 +58,15 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
         let viewController = TaskListViewController()
         let presenter = TaskListPresenter()
         
-        let requestFactory = WorkPackagesRequestFactory()
-        let taskService = TasksService(service: service, requestFactory: requestFactory)
-        let model = TaskListModel(userID: userID, service: taskService)
+        let workPackagesRequestFactory = WorkPackagesRequestFactory()
+        let taskService = TasksService(service: service, requestFactory: workPackagesRequestFactory)
+        let taskListDataProvider = TaskListDataProvider(userID: userID, service: taskService)
+        
+        let timeEntriesRequestFacrory = TimeEntriesRequestFactory()
+        let timeEntriesService = TimeEntriesService(service: service, requestFactory: timeEntriesRequestFacrory)
+        let timeEntriesDataProvider = TimeEntriesDataProvider(userID: userID, service: timeEntriesService)
+        
+        let model = TaskListModel(taskDataProvider: taskListDataProvider, timeEntryDataProvider: timeEntriesDataProvider)
         
         viewController.presenter = presenter
         presenter.view = viewController
@@ -74,7 +82,9 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
                              projectHref: String,
                              timeSpent: Date,
                              taskTitle: String?,
-                             projectTitle: String?) -> SummaryViewController {
+                             projectTitle: String?,
+                             comment: String?
+    ) -> SummaryViewController {
         let viewController = SummaryViewController()
         let presenter = SummaryPresenter()
         
@@ -87,7 +97,9 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
                                  projectHref: projectHref,
                                  timeSpent: timeSpent,
                                  taskTitle: taskTitle,
-                                 projectTitle: projectTitle)
+                                 projectTitle: projectTitle,
+                                 comment: comment
+        )
         
         viewController.presenter = presenter
         presenter.view = viewController

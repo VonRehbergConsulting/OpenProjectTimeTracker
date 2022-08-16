@@ -13,7 +13,7 @@ protocol TimerCoordinatorOutput {
 
 protocol TimerCoordinatorProtocol: AnyObject {
     
-    func routeToTaskList(_ completion: @escaping (Task) -> Void)
+    func routeToTaskList(_ completion: @escaping (Task, TimeEntryListModel?) -> Void)
     
     func routeToSummary(timeEntryID: Int?,
                         taskHref: String,
@@ -21,6 +21,7 @@ protocol TimerCoordinatorProtocol: AnyObject {
                         timeSpent: Date,
                         taskTitle: String?,
                         projectTitle: String?,
+                        comment: String?,
                         _ completion: @escaping () -> Void)
 }
 
@@ -69,11 +70,11 @@ class TimerCoordinator: Coordinator,
     
     // MARK: - TimerCoordinatorProtocol
     
-    func routeToTaskList(_ completion: @escaping (Task) -> Void) {
+    func routeToTaskList(_ completion: @escaping (Task, TimeEntryListModel?) -> Void) {
         let viewController = screenFactory.createTaskListScreen(userID: userID)
-        viewController.finishFlow = { [weak self] task in
+        viewController.finishFlow = { [weak self] task, timeEntry in
             self?.router.pop(animated: true)
-            completion(task)
+            completion(task, timeEntry)
         }
         router.push(viewController, animated: true)
     }
@@ -84,6 +85,7 @@ class TimerCoordinator: Coordinator,
                         timeSpent: Date,
                         taskTitle: String?,
                         projectTitle: String?,
+                        comment: String?,
                         _ completion: @escaping () -> Void) {
         let viewController = screenFactory.createSummaryScreen(timeEntryID: timeEntryID,
                                                                userID: userID,
@@ -91,7 +93,9 @@ class TimerCoordinator: Coordinator,
                                                                projectHref: projectHref,
                                                                timeSpent: timeSpent,
                                                                taskTitle: taskTitle,
-                                                               projectTitle: projectTitle)
+                                                               projectTitle: projectTitle,
+                                                               comment: comment
+        )
         viewController.finishFlow = { [weak self] in
             self?.router.pop(animated: true)
             completion()

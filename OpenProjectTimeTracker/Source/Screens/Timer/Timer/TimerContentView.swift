@@ -119,16 +119,8 @@ final class TimerContentView: UIView {
         setState(.setUp)
     }
     
-    func updateTimer(hours: Int?, minutes: Int?, seconds: Int?) {
-        func processNumber(_ number: Int?) -> String {
-            guard let number = number else { return "00" }
-            if number < 10 { return "0\(number)" }
-            return number.description
-        }
-        let hoursStr = processNumber(hours)
-        let minutesStr = processNumber(minutes)
-        let secondsStr = processNumber(seconds)
-        timerTitle = "\(hoursStr):\(minutesStr):\(secondsStr)"
+    func updateTimer(_ dateComponents: DateComponents) {
+        timerTitle = dateComponents.clockTime
     }
     
     func setState(_ state: State) {

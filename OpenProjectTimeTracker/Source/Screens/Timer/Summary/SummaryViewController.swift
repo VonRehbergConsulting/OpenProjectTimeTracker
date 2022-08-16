@@ -32,7 +32,9 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
         navigationItem.title = "Overview"
         contentView?.setData(taskTitle: presenter?.taskTitle,
                              projectTitle: presenter?.projectTitle,
-                             timeSpent: presenter?.timeSpent)
+                             timeSpent: presenter?.timeSpent,
+                             comment: presenter?.comment
+        )
         
         contentView?.saveButtonAction = { [weak self] in
             guard let self = self else { return }

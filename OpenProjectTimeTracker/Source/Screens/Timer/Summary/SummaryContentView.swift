@@ -123,11 +123,13 @@ final class SummaryContentView: UIView {
     
     func setData(taskTitle: String?,
                  projectTitle: String?,
-                 timeSpent: String?
+                 timeSpent: String?,
+                 comment: String?
     ) {
         taskTextField.text = taskTitle ?? ""
         projectTextField.text = projectTitle ?? ""
         timeTextField.text = timeSpent ?? ""
+        commentTextField.text = comment
     }
     
     // MARK: - Actions

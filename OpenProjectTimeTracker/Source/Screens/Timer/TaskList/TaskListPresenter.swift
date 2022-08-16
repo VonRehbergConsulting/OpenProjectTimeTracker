@@ -9,16 +9,22 @@ import Foundation
 
 protocol TaskListPresenterProtocol: AnyObject {
     
-    var taskCount: Int { get }
+    var modelType: TaskListPresenter.ModelType { get set }
+    var itemsCount: Int { get }
     
-    func item(at indexPath: IndexPath) -> TimerListCell.Configuration?
-    func task(at indexPath: IndexPath) -> Task?
+    func item(at indexPath: IndexPath) -> TaskListCell.Configuration?
+    func outputData(at indexPath: IndexPath, _ completion: @escaping (Task?, TimeEntryListModel?) -> Void)
     
-    func loadTasks(_ completion: @escaping ([IndexPath]) -> Void)
-    func reloadTasks(_ completion: @escaping (() -> Void))
+    func loadItems(_ completion: @escaping ([IndexPath]) -> Void)
+    func reloadItems(_ completion: @escaping (() -> Void))
 }
 
 final class TaskListPresenter: TaskListPresenterProtocol {
+    
+    enum ModelType: Int {
+        case task = 0
+        case timeEntry = 1
+    }
     
     // MARK: - Properties
     
@@ -27,28 +33,77 @@ final class TaskListPresenter: TaskListPresenterProtocol {
     
     // MARK: - TaskListPresenterProtocol
     
-    var taskCount: Int {
-        model?.itemCount ?? 0
-    }
+    var modelType: ModelType = .task
     
-    func item(at indexPath: IndexPath) -> TimerListCell.Configuration? {
-        guard let task = model?.item(at: indexPath.row) else { return nil }
-        let item = TimerListCell.Configuration(subject: task.subject)
-        return item
-    }
-    
-    func task(at indexPath: IndexPath) -> Task? {
-        return model?.item(at: indexPath.row)
-    }
-    
-    func loadTasks(_ completion: @escaping ([IndexPath]) -> Void) {
-        model?.loadNext { indexes in
-            let indexPaths = indexes.compactMap { IndexPath(row: $0, section: 0) }
-            completion(indexPaths)
+    var itemsCount: Int {
+        switch modelType {
+        case .task:
+            return model?.taskCount ?? 0
+        case .timeEntry:
+            return model?.timeEntryCount ?? 0
         }
     }
     
-    func reloadTasks(_ completion: @escaping (() -> Void)) {
-        model?.reload(completion)
+    func item(at indexPath: IndexPath) -> TaskListCell.Configuration? {
+        switch modelType {
+        case .task:
+            guard let task = model?.task(at: indexPath.row) else { return nil }
+            let title = task.subject
+            let secondLine = task.projectTitle ?? ""
+            let thirdLine = "Priority: \(task.prioriry ?? "")"
+            let fourthLine = "Status: \(task.status ?? "")"
+            let item = TaskListCell.Configuration(title: title, secondLine: secondLine, thirdLine: thirdLine, fourthLine: fourthLine)
+            return item
+        case .timeEntry:
+            guard let timeEntry = model?.timeEntry(at: indexPath.row) else { return nil }
+            let title = timeEntry.workPackageTitle
+            let secondLine = timeEntry.projectTitle
+            let thirdLine = "Time spent: \(timeEntry.timeSpent.clockTime)"
+            let fourthLine = "Comment: \(timeEntry.comment ?? "-")"
+            let item = TaskListCell.Configuration(title: title, secondLine: secondLine, thirdLine: thirdLine, fourthLine: fourthLine)
+            return item
+        }
+    }
+    
+    func outputData(at indexPath: IndexPath, _ completion: @escaping (Task?, TimeEntryListModel?) -> Void) {
+        switch modelType {
+        case .task:
+            completion(model?.task(at: indexPath.row), nil)
+        case .timeEntry:
+            guard let model = model,
+                  let timeEntry = model.timeEntry(at: indexPath.row)
+            else {
+                completion(nil, nil)
+                return
+            }
+            model.task(id: timeEntry.workPackageID) { task in
+                completion(task, timeEntry)
+            }
+        }
+    }
+    
+    
+    func loadItems(_ completion: @escaping ([IndexPath]) -> Void) {
+        switch modelType {
+        case .task:
+            model?.loadNextTasks { indexes in
+                let indexPaths = indexes.compactMap { IndexPath(row: $0, section: 0) }
+                completion(indexPaths)
+            }
+        case .timeEntry:
+            model?.loadNextTimeEntries { indexes in
+                let indexPaths = indexes.compactMap { IndexPath(row: $0, section: 0) }
+                completion(indexPaths)
+            }
+        }
+    }
+    
+    func reloadItems(_ completion: @escaping (() -> Void)) {
+        switch modelType {
+        case .task:
+            model?.reloadTasks(completion)
+        case .timeEntry:
+            model?.reloadTimeEntries(completion)
+        }
     }
 }

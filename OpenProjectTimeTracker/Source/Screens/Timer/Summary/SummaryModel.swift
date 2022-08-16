@@ -14,7 +14,7 @@ protocol SummaryModelProtocol: AnyObject {
     var timeSpent: Date { get }
     var comment: String? { get set }
     
-    func createTimeEntry(_ completion: @escaping (Bool) -> Void)
+    func saveTimeEntry(_ completion: @escaping (Bool) -> Void)
 }
 
 final class SummaryModel: SummaryModelProtocol {
@@ -43,7 +43,8 @@ final class SummaryModel: SummaryModelProtocol {
          projectHref: String,
          timeSpent: Date,
          taskTitle: String?,
-         projectTitle: String?) {
+         projectTitle: String?,
+         comment: String?) {
         self.timeEntryID = timeEntryID
         self.userID = userID
         self.service = service
@@ -52,11 +53,22 @@ final class SummaryModel: SummaryModelProtocol {
         self.timeSpent = timeSpent
         self.taskTitle = taskTitle
         self.projectTitle = projectTitle
+        self.comment = comment
     }
     
     // MARK: - SummaryModelProtocol
     
-    func createTimeEntry(_ completion: @escaping (Bool) -> Void) {
+    func saveTimeEntry(_ completion: @escaping (Bool) -> Void) {
+        if let timeEntryID = timeEntryID {
+            updateTimeEntry(id: timeEntryID, completion)
+        } else {
+            createTimeEntry(completion)
+        }
+    }
+    
+    // MARK: - Private helpers
+    
+    private func createTimeEntry(_ completion: @escaping (Bool) -> Void) {
         service.create(userID: userID,
                        projectHref: projectHref,
                        workPackageHref: taskHref,
@@ -65,5 +77,9 @@ final class SummaryModel: SummaryModelProtocol {
                        comment: comment) { success in
             completion(success)
         }
+    }
+    
+    private func updateTimeEntry(id: Int, _ completion: @escaping (Bool) -> Void) {
+        service.update(id: id, duration: timeSpent, comment: comment, completion)
     }
 }

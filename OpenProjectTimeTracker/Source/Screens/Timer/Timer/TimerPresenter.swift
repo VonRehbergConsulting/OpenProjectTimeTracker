@@ -11,9 +11,11 @@ protocol TimerPresenterProtocol: AnyObject {
     
     var isActive: Bool? { get }
     var timeEntryID: Int? { get set }
+    var comment: String? { get set }
     var task: Task? { get set }
     var timeSpent: DateComponents? { get }
     
+    func setTimeEntry(_ timeEntry: TimeEntryListModel)
     func startTimer()
     func stopTimer()
     func resetTimer()
@@ -46,6 +48,10 @@ final class TimerPresenter: TimerPresenterProtocol {
         get { model?.timeEntryID }
         set { model?.timeEntryID = newValue }
     }
+    var comment: String? {
+        get { model?.comment }
+        set { model?.comment = newValue }
+    }
     var task: Task? {
         get { model?.task }
         set { model?.task = newValue }
@@ -65,6 +71,22 @@ final class TimerPresenter: TimerPresenterProtocol {
         var components = Calendar.current.dateComponents([.hour, .minute, .second], from: startTime, to: currentTime)
         components.calendar = .current
         return components
+    }
+    
+    func setTimeEntry(_ timeEntry: TimeEntryListModel) {
+        timeEntryID = timeEntry.id
+        guard var model = model else {
+            Logger.log(event: .error, "Can't find model")
+            return
+        }
+        comment = timeEntry.comment
+        model.stopTime = Date()
+        let components = DateComponents(
+            hour: -(timeEntry.timeSpent.hour ?? 0),
+            minute: -(timeEntry.timeSpent.minute ?? 0),
+            second: -(timeEntry.timeSpent.second ?? 0) - 1
+        )
+        model.startTime = Calendar.current.date(byAdding: components, to: Date(), wrappingComponents: false)
     }
     
     func startTimer() {
@@ -97,6 +119,8 @@ final class TimerPresenter: TimerPresenterProtocol {
         isActive = false
         model?.startTime = nil
         model?.stopTime = nil
+        model?.timeEntryID = nil
+        model?.comment = nil
     }
     
     // MARK: - Private helpers

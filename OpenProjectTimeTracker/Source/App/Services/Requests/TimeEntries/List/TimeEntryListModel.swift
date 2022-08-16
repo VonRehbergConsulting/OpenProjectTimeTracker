@@ -12,4 +12,7 @@ struct TimeEntryListModel {
     var id: Int
     var projectTitle: String
     var workPackageTitle: String
+    var workPackageID: Int
+    var timeSpent: DateComponents
+    var comment: String?
 }

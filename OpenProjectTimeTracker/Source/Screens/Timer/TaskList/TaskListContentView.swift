@@ -9,25 +9,37 @@ import UIKit
 
 final class TaskListContentView: UIView {
     
+    // MARK: - Constants
+    
+    private struct Constants {
+        static let edgeInset: CGFloat = 16
+        static let segmentedControlEdgeInset: CGFloat = 20
+    }
+    
     // MARK: - Subviews
     
-    private lazy var taskTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped).disableMask()
-        tableView.register(TimerListCell.self, forCellReuseIdentifier: TimerListCell.reuseIdentifier)
-        tableView.tableFooterView = spinner
-        return tableView
+    private lazy var segmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: ["Tasks", "Time entries"]).disableMask()
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentedControllChangedValue), for: .valueChanged)
+        return segmentedControl
     }()
     
-    private lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 0, height: 40))
-        spinner.startAnimating()
-        spinner.hidesWhenStopped = true
-        return spinner
+    private lazy var tableView: InfiniteTableView = {
+        let tableView = InfiniteTableView(frame: .zero).disableMask()
+        tableView.backgroundColor = .clear
+        tableView.register(TaskListCell.self, forCellReuseIdentifier: TaskListCell.reuseIdentifier)
+        return tableView
     }()
     
     // MARK: - Properties
     
-    var refreshControlAction: (() -> Void)?
+    var refreshControlAction: (() -> Void)? {
+        get { tableView.refreshControlAction }
+        set { tableView.refreshControlAction = newValue }
+    }
+    
+    var segmentedControlAction: ((Int) -> Void)?
     
     // MARK: - Lifecycle
     
@@ -41,47 +53,48 @@ final class TaskListContentView: UIView {
     }
     
     private func setup() {
-        addSubview(taskTableView)
-        taskTableView.attachToSuperview()
+        backgroundColor = .systemGroupedBackground
+        addSubview(tableView)
+        tableView.attachToSuperview()
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Reload")
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        taskTableView.refreshControl = refreshControl
+        let insetsView = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 60))
+        insetsView.backgroundColor = .clear
+        insetsView.addSubview(segmentedControl)
+        NSLayoutConstraint.activate([
+            segmentedControl.topAnchor.constraint(equalTo: insetsView.topAnchor, constant: Constants.edgeInset),
+            segmentedControl.leftAnchor.constraint(equalTo: insetsView.leftAnchor, constant: Constants.segmentedControlEdgeInset),
+            segmentedControl.rightAnchor.constraint(equalTo: insetsView.rightAnchor, constant: -Constants.segmentedControlEdgeInset),
+            segmentedControl.bottomAnchor.constraint(equalTo: insetsView.bottomAnchor, constant: -Constants.edgeInset)
+        ])
+        tableView.tableHeaderView = insetsView
     }
     
     // MARK: - Public methods
     
     func setDelegates(dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
-        taskTableView.dataSource = dataSource
-        taskTableView.delegate = delegate
+        tableView.dataSource = dataSource
+        tableView.delegate = delegate
     }
     
     func startLoading() {
-        spinner.startAnimating()
+        tableView.startLoading()
     }
     
     func finishLoading(_ indexPaths: [IndexPath]) {
-        spinner.stopAnimating()
-        if indexPaths.isEmpty {
-            let indexPath = IndexPath(row: taskTableView.numberOfRows(inSection: 0) - 1, section: 0)
-            taskTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        } else {
-            taskTableView.beginUpdates()
-            taskTableView.insertRows(at: indexPaths, with: .fade)
-            taskTableView.endUpdates()
-        }
+        tableView.finishLoading(indexPaths)
     }
     
     func finishRefreshing() {
-        spinner.stopAnimating()
-        taskTableView.reloadSections([0], with: .fade)
-        taskTableView.refreshControl?.endRefreshing()
+        tableView.finishRefreshing()
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
     
     // MARK: - Actions
     
-    @objc private func refresh() {
-        refreshControlAction?()
+    @objc private func segmentedControllChangedValue() {
+        segmentedControlAction?(segmentedControl.selectedSegmentIndex)
     }
 }

@@ -8,9 +8,7 @@
 import Foundation
 import UIKit
 
-protocol LaunchViewProtocol: AnyObject {
-        
-}
+protocol LaunchViewProtocol: AnyObject {}
 
 final class LaunchViewController: UIViewController, LaunchViewProtocol {
     

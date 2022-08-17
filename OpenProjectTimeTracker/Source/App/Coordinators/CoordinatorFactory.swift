@@ -80,9 +80,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     
     func createProjectsCoordinator() -> TimerCoordinator {
         let screenFactory = TimerScreenFactory(service: requestService, timerDataStorage: timerDataStorage)
-        let requestFactory = UserDataRequestFactory()
-        let userService = UserService(service: requestService, requestFactory: requestFactory)
-        let coordinator = TimerCoordinator(screenFactory: screenFactory, router: router, service: userService)
+        let coordinator = TimerCoordinator(screenFactory: screenFactory, router: router, timerDataStorage: timerDataStorage)
         return coordinator
     }
     

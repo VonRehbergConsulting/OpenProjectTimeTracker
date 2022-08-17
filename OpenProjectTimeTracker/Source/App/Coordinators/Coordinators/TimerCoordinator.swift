@@ -13,6 +13,8 @@ protocol TimerCoordinatorOutput {
 
 protocol TimerCoordinatorProtocol: AnyObject {
     
+    func handleAuthorizationError()
+    
     func routeToTaskList(_ completion: @escaping (Task, TimeEntryListModel?) -> Void)
     
     func routeToSummary(timeEntryID: Int?,
@@ -33,8 +35,7 @@ class TimerCoordinator: Coordinator,
     
     private let screenFactory: TimerScreenFactoryProtocol
     private let router: CoordinatorRouterProtocol
-    private let service: UserServiceProtocol
-    private var userID: Int = 0
+    private let timerDataStorage: TimerDataStorageProtocol
     
     // MARK: - TimerCoordinatorOutput
     var finishFlow: (() -> Void)?
@@ -43,34 +44,38 @@ class TimerCoordinator: Coordinator,
     
     init(screenFactory: TimerScreenFactoryProtocol,
          router: CoordinatorRouterProtocol,
-         service: UserServiceProtocol) {
+         timerDataStorage: TimerDataStorageProtocol
+    ) {
         self.screenFactory = screenFactory
         self.router = router
-        self.service = service
+        self.timerDataStorage = timerDataStorage
     }
     
     // MARK: - TimerCoordinatorProtocol
     
     func start() {
         Logger.log("Starting timer flow")
-        Logger.log("Requesting user id")
-        service.getUserID() { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let id):
-                Logger.log(event: .success, "User id recieved")
-                self.userID = id
-                self.showTimerScreen()
-            case.failure(let error):
-                Logger.log(event: .error, "Unable to get user id: \(error)")
-                self.finishFlow?()
-            }
+        guard let userID = timerDataStorage.userID else {
+            handleAuthorizationError()
+            return
         }
+        let viewController = screenFactory.createTimerScreen(userID: userID)
+        viewController.coordinator = self
+        router.transition(to: viewController)
     }
     
     // MARK: - TimerCoordinatorProtocol
     
+    func handleAuthorizationError() {
+        timerDataStorage.clear()
+        finishFlow?()
+    }
+    
     func routeToTaskList(_ completion: @escaping (Task, TimeEntryListModel?) -> Void) {
+        guard let userID = timerDataStorage.userID else {
+            handleAuthorizationError()
+            return
+        }
         let viewController = screenFactory.createTaskListScreen(userID: userID)
         viewController.finishFlow = { [weak self] task, timeEntry in
             self?.router.pop(animated: true)
@@ -87,6 +92,10 @@ class TimerCoordinator: Coordinator,
                         projectTitle: String?,
                         comment: String?,
                         _ completion: @escaping () -> Void) {
+        guard let userID = timerDataStorage.userID else {
+            handleAuthorizationError()
+            return
+        }
         let viewController = screenFactory.createSummaryScreen(timeEntryID: timeEntryID,
                                                                userID: userID,
                                                                taskHref: taskHref,
@@ -101,13 +110,5 @@ class TimerCoordinator: Coordinator,
             completion()
         }
         router.push(viewController, animated: true)
-    }
-    
-    // MARK: - Private helpers
-    
-    private func showTimerScreen() {
-        let viewController = screenFactory.createTimerScreen(userID: userID)
-        viewController.coordinator = self
-        router.transition(to: viewController)
     }
 }

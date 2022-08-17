@@ -72,7 +72,9 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
                                                        userService: userService
         )
         let coordinator = AuthorizationCoordinator(router: router,
-                                                   screenFactory: screenFactory)
+                                                   screenFactory: screenFactory,
+                                                   timerDataStorage: timerDataStorage
+        )
         return coordinator
     }
     

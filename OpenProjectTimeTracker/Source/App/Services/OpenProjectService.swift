@@ -120,6 +120,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
                 if let swiftError = error.errorUserInfo["error"] as? NSError,
                    self.isUnauthorizedError(swiftError)
                 {
+                    self.tokenStorage.token = nil
                     completion(.failure(NetworkError.unanthorized))
                 } else {
                     completion(.failure(error))

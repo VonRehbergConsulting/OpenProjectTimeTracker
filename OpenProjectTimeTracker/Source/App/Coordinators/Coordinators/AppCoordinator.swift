@@ -70,13 +70,12 @@ class AppCoordinator: Coordinator {
     private func startAuthorizationFlow() {
         let coordinator = coordinatorFactory.createAuthorizationCoordinator()
         childCoordinators.append(coordinator)
-        coordinator.finishFlow = { [weak self] token in
+        coordinator.finishFlow = { [weak self] in
             guard let self = self else {
                 Logger.log(event: .warning, "Can't find app coordinator")
                 return
             }
             self.childCoordinators.removeAll { $0 === coordinator }
-            self.tokenStorage.token = token
             self.start()
         }
         coordinator.start()

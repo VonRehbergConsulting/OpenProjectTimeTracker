@@ -33,8 +33,14 @@ class AuthorizationScreenFactory: AuthorizationScreenFactoryProtocol {
     
     func createAuthorizationScreen() -> AuthorizationViewController {
         let viewController = AuthorizationViewController()
+        let presenter = AuthorizationPresenter()
+        let model = AuthorizationModel(authorizationService: authorizationService, userService: userService)
         
-        viewController.authorizationService = authorizationService
+        viewController.presenter = presenter
+        presenter.view = viewController
+        presenter.model = model
+        model.presenter = presenter
+        
         authorizationService.viewController = viewController
         
         return viewController

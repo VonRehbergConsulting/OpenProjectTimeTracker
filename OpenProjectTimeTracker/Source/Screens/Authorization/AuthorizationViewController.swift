@@ -18,9 +18,9 @@ final class AuthorizationViewController: UIViewController, AuthorizationViewPror
     
     var contentView: AuthorizationContentView? { view as? AuthorizationContentView }
     
-    var authorizationService: AuthorizationServiceProtocol?
+    var presenter: AuthorizationPresenterProtocol?
     
-    weak var coordinator: AuthorizationCoordinatorProtocol?
+    var finishFlow: ((Int) -> Void)?
     
     // MARK: - Lifecycle
     
@@ -32,12 +32,17 @@ final class AuthorizationViewController: UIViewController, AuthorizationViewPror
         super.viewDidLoad()
         
         contentView?.loginButtonAction = { [weak self] in
-            self?.authorizationService?.authorize { [weak self] result in
-                switch result {
-                case .success(let token):
-                    self?.coordinator?.finishAuthorization(token)
-                case .failure(_):
-                    self?.showAlert(title: "Authorization error", message: "Please, try again later")
+            guard let self = self,
+                let presenter = self.presenter
+            else { return }
+            self.contentView?.isLoginButtonEnabled = false
+            presenter.authorize() { [weak self] userID in
+                guard let self = self else { return }
+                if let userID = userID {
+                    self.finishFlow?(userID)
+                } else {
+                    self.showAlert(title: "Authorization error", message: "Please, try again later")
+                    self.contentView?.isLoginButtonEnabled = true
                 }
             }
         }   

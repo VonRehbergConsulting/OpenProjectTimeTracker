@@ -9,7 +9,7 @@ import Foundation
 
 protocol AuthorizationPresenterProtocol: AnyObject {
     
-    func getUserID(_ completion: @escaping (Int?) -> Void)
+    func authorize(_ completion: @escaping (_ userID: Int?) -> Void)
 }
 
 final class AuthorizationPresenter: AuthorizationPresenterProtocol {
@@ -20,6 +20,22 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     var model: AuthorizationModelProtocol?
     
     // MARK: - AuthorizationPresenterProtocol
+    
+    func authorize(_ completion: @escaping (_ userID: Int?) -> Void) {
+        guard let model = model else {
+            completion(nil)
+            return
+        }
+        model.authorize() { success in
+            if success {
+                model.getUserID() { userID in
+                    completion(userID)
+                }
+            } else {
+                completion(nil)
+            }
+        }
+    }
     
     func getUserID(_ completion: @escaping (Int?) -> Void) {
         model?.getUserID(completion)

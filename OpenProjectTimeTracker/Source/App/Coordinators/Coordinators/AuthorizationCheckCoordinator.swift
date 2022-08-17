@@ -46,6 +46,7 @@ final class AuthorizationCheckCoordinator: Coordinator,
     // MARK: - Coordinator
     
     func start() {
+        tokenStorage.token = nil
         let viewController = factory.createLaunchScreen()
         viewController.finishFlow = { [weak self] userID in
             guard let self = self else { return }

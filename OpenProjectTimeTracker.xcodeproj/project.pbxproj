@@ -33,7 +33,6 @@
 		B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE72895779F00617364 /* SceneDelegate.swift */; };
 		B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EEE289577A000617364 /* Assets.xcassets */; };
 		B7AF8EF2289577A000617364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */; };
-		B7AF8EFD289577A000617364 /* OpenProjectTimeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EFC289577A000617364 /* OpenProjectTimeTrackerTests.swift */; };
 		B7AF8F07289577A000617364 /* OpenProjectTimeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */; };
 		B7AF8F09289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */; };
 		B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */; };
@@ -62,6 +61,10 @@
 		B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */; };
 		B7C9D4BB28ACE10600EEF694 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */; };
 		B7C9D4BD28ACE10F00EEF694 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */; };
+		B7C9D4C328ACF3BE00EEF694 /* RefreshServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */; };
+		B7C9D4C528ACF4DC00EEF694 /* UserServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */; };
+		B7C9D4C728ACF52E00EEF694 /* TokenStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */; };
+		B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4CA28ACF57500EEF694 /* LaunchModelTests.swift */; };
 		B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */; };
 		B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D828A3B7F300A7764B /* SummaryContentView.swift */; };
 		B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */; };
@@ -149,7 +152,6 @@
 		B7AF8EEE289577A000617364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7AF8EF1289577A000617364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7AF8EF8289577A000617364 /* OpenProjectTimeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenProjectTimeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7AF8EFC289577A000617364 /* OpenProjectTimeTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerTests.swift; sourceTree = "<group>"; };
 		B7AF8F02289577A000617364 /* OpenProjectTimeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenProjectTimeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerUITests.swift; sourceTree = "<group>"; };
 		B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -178,6 +180,10 @@
 		B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
+		B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshServiceMock.swift; sourceTree = "<group>"; };
+		B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceMock.swift; sourceTree = "<group>"; };
+		B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageMock.swift; sourceTree = "<group>"; };
+		B7C9D4CA28ACF57500EEF694 /* LaunchModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModelTests.swift; sourceTree = "<group>"; };
 		B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesService.swift; sourceTree = "<group>"; };
 		B7D588D828A3B7F300A7764B /* SummaryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryContentView.swift; sourceTree = "<group>"; };
 		B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
@@ -343,7 +349,8 @@
 		B7AF8EFB289577A000617364 /* OpenProjectTimeTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B7AF8EFC289577A000617364 /* OpenProjectTimeTrackerTests.swift */,
+				B7C9D4C128ACF32A00EEF694 /* Mocks */,
+				B7C9D4C828ACF55C00EEF694 /* Screens */,
 			);
 			path = OpenProjectTimeTrackerTests;
 			sourceTree = "<group>";
@@ -497,6 +504,32 @@
 				B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B7C9D4C128ACF32A00EEF694 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */,
+				B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */,
+				B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		B7C9D4C828ACF55C00EEF694 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4C928ACF56100EEF694 /* Launch */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B7C9D4C928ACF56100EEF694 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4CA28ACF57500EEF694 /* LaunchModelTests.swift */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		B7D588D728A3B7A600A7764B /* Summary */ = {
@@ -844,7 +877,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7AF8EFD289577A000617364 /* OpenProjectTimeTrackerTests.swift in Sources */,
+				B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */,
+				B7C9D4C728ACF52E00EEF694 /* TokenStorageMock.swift in Sources */,
+				B7C9D4C528ACF4DC00EEF694 /* UserServiceMock.swift in Sources */,
+				B7C9D4C328ACF3BE00EEF694 /* RefreshServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -60,6 +60,8 @@
 		B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */; };
 		B7C5BA4B289D5F66000A10D7 /* TaskListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */; };
 		B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */; };
+		B7C9D4BB28ACE10600EEF694 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */; };
+		B7C9D4BD28ACE10F00EEF694 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */; };
 		B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */; };
 		B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D828A3B7F300A7764B /* SummaryContentView.swift */; };
 		B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */; };
@@ -174,6 +176,8 @@
 		B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCell.swift; sourceTree = "<group>"; };
 		B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesService.swift; sourceTree = "<group>"; };
 		B7D588D828A3B7F300A7764B /* SummaryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryContentView.swift; sourceTree = "<group>"; };
 		B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +271,7 @@
 		B743E1B12897C21E00FE944A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B77C128E28A28B22004F8988 /* OpenProjectModels */,
+				B7C5BA44289D41AF000A10D7 /* NetworkError.swift */,
 				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
 				B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */,
 				B7B18BFE289C048900545968 /* OpenProjectService.swift */,
@@ -292,13 +296,6 @@
 				B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */,
 			);
 			path = Storages;
-			sourceTree = "<group>";
-		};
-		B77C128E28A28B22004F8988 /* OpenProjectModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OpenProjectModels;
 			sourceTree = "<group>";
 		};
 		B77C128F28A299CC004F8988 /* TaskList */ = {
@@ -422,6 +419,8 @@
 				B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */,
 				B7AF8F202895880B00617364 /* AuthorizationContentView.swift */,
 				B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */,
+				B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */,
+				B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -459,7 +458,6 @@
 				B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */,
 				B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */,
 				B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */,
-				B7C5BA44289D41AF000A10D7 /* NetworkError.swift */,
 				B7F9A31928AA5FF000F694C5 /* WorkPackages */,
 				B7F9A32228AA635F00F694C5 /* UserData */,
 				B7F9A32928AA656700F694C5 /* TimeEntries */,
@@ -790,6 +788,7 @@
 				B7C5BA31289D06E4000A10D7 /* TimerContentView.swift in Sources */,
 				B7F9A34228AA70CF00F694C5 /* Comment.swift in Sources */,
 				B7F9A35C28AB9D2D00F694C5 /* WorkPackageRequest.swift in Sources */,
+				B7C9D4BB28ACE10600EEF694 /* AuthorizationPresenter.swift in Sources */,
 				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,
 				B7F9A34D28AB835200F694C5 /* TaskListDataProvider.swift in Sources */,
 				B7F9A36928ABD72100F694C5 /* LaunchPresenter.swift in Sources */,
@@ -834,6 +833,7 @@
 				B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */,
 				B7C5BA35289D13B0000A10D7 /* TimerModel.swift in Sources */,
 				B7F9A31428AA5C1100F694C5 /* ParserProtocol.swift in Sources */,
+				B7C9D4BD28ACE10F00EEF694 /* AuthorizationModel.swift in Sources */,
 				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
 				B7C5BA47289D5118000A10D7 /* Task.swift in Sources */,
 				B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */,

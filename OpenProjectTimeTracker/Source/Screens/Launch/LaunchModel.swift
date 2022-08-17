@@ -47,12 +47,10 @@ final class LaunchModel: LaunchModelProtocol {
     func checkAuthorization(_ completion: @escaping (State) -> Void) {
         Logger.log("Starting authorization check flow")
         if let token = tokenStorage.token {
-            refreshService.refresh(token) { [weak self] result in
-                guard let self = self else { return }
+            refreshService.refresh(token) { result in
                 switch result {
-                case .success(let token):
+                case .success(_):
                     Logger.log("Status: authorized")
-                    self.tokenStorage.token = token
                     completion(.authorized)
                 case .failure(let error):
                     Logger.log("Status: token refreshing failed: \(error)")
@@ -71,6 +69,7 @@ final class LaunchModel: LaunchModelProtocol {
     }
     
     func getUserID(_ completion: @escaping (Int?) -> Void) {
+        Logger.log("Requesting user ID")
         userService.getUserID() { result in
             switch result {
             case .failure(let error):

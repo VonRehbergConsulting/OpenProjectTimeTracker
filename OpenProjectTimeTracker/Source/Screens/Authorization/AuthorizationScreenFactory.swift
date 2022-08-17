@@ -17,12 +17,16 @@ class AuthorizationScreenFactory: AuthorizationScreenFactoryProtocol {
     
     // MARK: - Properties
     
-    var service: AuthorizationServiceProtocol
+    private let authorizationService: AuthorizationServiceProtocol
+    private let userService: UserServiceProtocol
     
     // MARK: - Lifecycle
     
-    init(service: AuthorizationServiceProtocol) {
-        self.service = service
+    init(authorizationService: AuthorizationServiceProtocol,
+         userService: UserServiceProtocol
+    ) {
+        self.authorizationService = authorizationService
+        self.userService = userService
     }
     
     // MARK: - AuthorizationScreenFactory
@@ -30,8 +34,8 @@ class AuthorizationScreenFactory: AuthorizationScreenFactoryProtocol {
     func createAuthorizationScreen() -> AuthorizationViewController {
         let viewController = AuthorizationViewController()
         
-        viewController.authorizationService = service
-        service.viewController = viewController
+        viewController.authorizationService = authorizationService
+        authorizationService.viewController = viewController
         
         return viewController
     }

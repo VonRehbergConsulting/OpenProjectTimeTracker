@@ -67,7 +67,10 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     }
     
     func createAuthorizationCoordinator() -> AuthorizationCoordinator {
-        let screenFactory = AuthorizationScreenFactory(service: authorizationService)
+        let userService = UserService(service: requestService, requestFactory: UserDataRequestFactory())
+        let screenFactory = AuthorizationScreenFactory(authorizationService: authorizationService,
+                                                       userService: userService
+        )
         let coordinator = AuthorizationCoordinator(router: router,
                                                    screenFactory: screenFactory)
         return coordinator

@@ -44,6 +44,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
     // MARK: - Properties
     
     private let apiKey: APIKey
+    private let tokenStorage: TokenStorageProtocol
     
     private lazy var oauth2swift: OAuth2Swift = {
         let oauth2swift = OAuth2Swift(apiKey)
@@ -57,8 +58,6 @@ class OpenProjectService: AuthorizationServiceProtocol,
         
         return oauth2swift
     }()
-    
-    let tokenStorage: TokenStorageProtocol
     
     weak var viewController: UIViewController?
     
@@ -88,19 +87,17 @@ class OpenProjectService: AuthorizationServiceProtocol,
                               state: "",
                               codeChallenge: codeChallenge,
                               codeChallengeMethod: "S256",
-                              codeVerifier: codeVerifier
-        ) { result in
+                              codeVerifier: codeVerifier) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let (credential, _, _)):
                 let token = AuthorizationToken(
                     oauthToken: credential.oauthToken,
                     refreshToken: credential.oauthRefreshToken
                 )
-                Logger.log(event: .success, "Authorization succeded")
+                self.tokenStorage.token = token
                 completion(.success(token))
             case .failure(let error):
-                Logger.log(event: .failure, "Authorization failed: " + error.localizedDescription)
-                Logger.log(event: .failure, error.errorUserInfo)
                 completion(.failure(error))
             }
         }
@@ -109,26 +106,21 @@ class OpenProjectService: AuthorizationServiceProtocol,
     // MARK: - RefreshTokenProtocol
     
     func refresh(_ token: AuthorizationToken, completion: @escaping (Result<AuthorizationToken, Error>) -> Void) {
-        oauth2swift.renewAccessToken(withRefreshToken: token.refreshToken) { result in
+        oauth2swift.renewAccessToken(withRefreshToken: token.refreshToken) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let (credential, _, _)):
                 let token = AuthorizationToken(
                     oauthToken: credential.oauthToken,
                     refreshToken: credential.oauthRefreshToken
                 )
-                Logger.log(event: .success, "Token refresh succeded")
+                self.tokenStorage.token = token
                 completion(.success(token))
             case .failure(let error):
-                Logger.log(event: .failure, "Token refresh failed: " + error.localizedDescription)
-                if let errorCode = (error.errorUserInfo["error"] as? NSError)?.code {
-                    switch errorCode {
-                    case -1004, -1001, -1005, 503, 500:
-                        completion(.failure(NetworkError.noConnection))
-                    case 400:
-                        completion(.failure(NetworkError.unanthorized))
-                    default:
-                        completion(.failure(error))
-                    }
+                if let swiftError = error.errorUserInfo["error"] as? NSError,
+                   self.isUnauthorizedError(swiftError)
+                {
+                    completion(.failure(NetworkError.unanthorized))
                 } else {
                     completion(.failure(error))
                 }
@@ -148,21 +140,24 @@ class OpenProjectService: AuthorizationServiceProtocol,
         case .patch:
             oauthMethod = .PATCH
         }
-        // TODO: implement error handling on token renewal
         oauth2swift.startAuthorizedRequest(requestConfig.request.url,
                                            method: oauthMethod,
                                            parameters: requestConfig.request.parameters,
                                            headers: requestConfig.request.headers,
                                            body: requestConfig.request.body,
                                            onTokenRenewal: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let credentials):
-                self?.tokenStorage.token = AuthorizationToken(oauthToken: credentials.oauthToken, refreshToken: credentials.oauthRefreshToken)
+                Logger.log("Token refreshed")
+                self.tokenStorage.token = AuthorizationToken(oauthToken: credentials.oauthToken, refreshToken: credentials.oauthRefreshToken)
             case .failure(_):
                 Logger.log(event: .warning, "Cannot refresh token")
+                self.tokenStorage.token = nil
             }
 
-        }, completionHandler: { result in
+        }, completionHandler: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let (response)):
                 if let parsedData = requestConfig.parser.parse(response.data) {
@@ -171,8 +166,25 @@ class OpenProjectService: AuthorizationServiceProtocol,
                     completion(.failure(NetworkError.parsingError))
                 }
             case .failure(let error):
-                completion(.failure(error))
+                if let swiftError = error.errorUserInfo["error"] as? Error,
+                   self.isUnauthorizedError(swiftError) {
+                    self.tokenStorage.token = nil
+                    completion(.failure(NetworkError.unanthorized))
+                } else {
+                    completion(.failure(error))
+                }
             }
         })
+    }
+    
+    // MARK: - Private helpers
+    
+    private func isUnauthorizedError(_ error: Error) -> Bool {
+        let error = error as NSError
+        if error.code == 400 {
+            return true
+        } else {
+            return false
+        }
     }
 }

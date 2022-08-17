@@ -8,7 +8,11 @@
 import UIKit
 import OAuthSwift
 
-final class AuthorizationViewController: UIViewController {
+protocol AuthorizationViewProrocol: AnyObject {
+    
+}
+
+final class AuthorizationViewController: UIViewController, AuthorizationViewProrocol {
     
     // MARK: - Properties
     

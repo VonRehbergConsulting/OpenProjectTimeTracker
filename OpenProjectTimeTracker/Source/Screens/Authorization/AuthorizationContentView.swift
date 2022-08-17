@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AuthorizationContentView: UIView {
+class AuthorizationContentView: UIView {
     
     // MARK: - Subviews
     

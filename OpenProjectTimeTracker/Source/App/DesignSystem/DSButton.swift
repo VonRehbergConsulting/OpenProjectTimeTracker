@@ -9,6 +9,11 @@ import UIKit
 
 class DSButton: UIButton {
     
+    // MARK: Constants
+    
+    var heightConstant: CGFloat { 44 }
+    var cornerRadiusConstant: CGFloat { 12 }
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -22,8 +27,8 @@ class DSButton: UIButton {
     
     private func setup() {
         backgroundColor = Colors.brand
-        layer.cornerRadius = 12
+        layer.cornerRadius = cornerRadiusConstant
         clipsToBounds = true
-        heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+        heightAnchor.constraint(greaterThanOrEqualToConstant: heightConstant).isActive = true
     }
 }

@@ -93,6 +93,12 @@
 		B7F9A35828AB955800F694C5 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A35728AB955800F694C5 /* DateComponents.swift */; };
 		B7F9A35C28AB9D2D00F694C5 /* WorkPackageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A35B28AB9D2D00F694C5 /* WorkPackageRequest.swift */; };
 		B7F9A35E28ABA1BA00F694C5 /* WorkPackageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A35D28ABA1BA00F694C5 /* WorkPackageParser.swift */; };
+		B7F9A36128ABD02600F694C5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36028ABD02600F694C5 /* LaunchViewController.swift */; };
+		B7F9A36328ABD07F00F694C5 /* LaunchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36228ABD07F00F694C5 /* LaunchContentView.swift */; };
+		B7F9A36528ABD28500F694C5 /* DSSlimButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */; };
+		B7F9A36728ABD64300F694C5 /* LaunchScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36628ABD64300F694C5 /* LaunchScreenFactory.swift */; };
+		B7F9A36928ABD72100F694C5 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36828ABD72100F694C5 /* LaunchPresenter.swift */; };
+		B7F9A36B28ABD72800F694C5 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36A28ABD72800F694C5 /* LaunchModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +206,12 @@
 		B7F9A35728AB955800F694C5 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
 		B7F9A35B28AB9D2D00F694C5 /* WorkPackageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackageRequest.swift; sourceTree = "<group>"; };
 		B7F9A35D28ABA1BA00F694C5 /* WorkPackageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackageParser.swift; sourceTree = "<group>"; };
+		B7F9A36028ABD02600F694C5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B7F9A36228ABD07F00F694C5 /* LaunchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchContentView.swift; sourceTree = "<group>"; };
+		B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSlimButton.swift; sourceTree = "<group>"; };
+		B7F9A36628ABD64300F694C5 /* LaunchScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFactory.swift; sourceTree = "<group>"; };
+		B7F9A36828ABD72100F694C5 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		B7F9A36A28ABD72800F694C5 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
 		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -397,6 +409,7 @@
 		B7AF8F192895798C00617364 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B7F9A35F28ABD01900F694C5 /* Launch */,
 				B7AF8F1A2895799700617364 /* Authorization */,
 				B7C5BA2A289D0692000A10D7 /* Timer */,
 			);
@@ -431,6 +444,7 @@
 			children = (
 				B7C5BA38289D2E2E000A10D7 /* Colors.swift */,
 				B7C5BA36289D2DB8000A10D7 /* DSButton.swift */,
+				B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */,
 				B77C129A28A2AFD5004F8988 /* ShadowView.swift */,
 				B74FC52128A63667001791B1 /* DSTextField.swift */,
 				B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */,
@@ -588,6 +602,18 @@
 			path = WorkPackage;
 			sourceTree = "<group>";
 		};
+		B7F9A35F28ABD01900F694C5 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A36628ABD64300F694C5 /* LaunchScreenFactory.swift */,
+				B7F9A36228ABD07F00F694C5 /* LaunchContentView.swift */,
+				B7F9A36028ABD02600F694C5 /* LaunchViewController.swift */,
+				B7F9A36828ABD72100F694C5 /* LaunchPresenter.swift */,
+				B7F9A36A28ABD72800F694C5 /* LaunchModel.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -741,6 +767,7 @@
 				B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */,
 				B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */,
 				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
+				B7F9A36128ABD02600F694C5 /* LaunchViewController.swift in Sources */,
 				B7F9A32B28AA65B300F694C5 /* TimeEntriesCreateRequest.swift in Sources */,
 				B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */,
 				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
@@ -753,7 +780,9 @@
 				B7F9A33328AA693D00F694C5 /* TimeEntriesListRequest.swift in Sources */,
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7F9A33E28AA6F7500F694C5 /* TimeEntryFormatter.swift in Sources */,
+				B7F9A36B28ABD72800F694C5 /* LaunchModel.swift in Sources */,
 				B7F9A32F28AA66DE00F694C5 /* EmptyParser.swift in Sources */,
+				B7F9A36728ABD64300F694C5 /* LaunchScreenFactory.swift in Sources */,
 				B7F9A35E28ABA1BA00F694C5 /* WorkPackageParser.swift in Sources */,
 				B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */,
 				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
@@ -763,7 +792,9 @@
 				B7F9A35C28AB9D2D00F694C5 /* WorkPackageRequest.swift in Sources */,
 				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,
 				B7F9A34D28AB835200F694C5 /* TaskListDataProvider.swift in Sources */,
+				B7F9A36928ABD72100F694C5 /* LaunchPresenter.swift in Sources */,
 				B7C5BA2F289D06DD000A10D7 /* TimerViewController.swift in Sources */,
+				B7F9A36528ABD28500F694C5 /* DSSlimButton.swift in Sources */,
 				B7F9A30E28AA4E0900F694C5 /* InfiniteTableView.swift in Sources */,
 				B7F9A31228AA5B9700F694C5 /* RequestProtocol.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
@@ -786,6 +817,7 @@
 				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
 				B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */,
 				B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */,
+				B7F9A36328ABD07F00F694C5 /* LaunchContentView.swift in Sources */,
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,

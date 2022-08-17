@@ -9,6 +9,7 @@ import Foundation
 
 protocol TimerDataStorageProtocol: AnyObject {
     
+    var userID: Int? { get set }
     var timeEntryID: Int? { get set }
     var task: Task? { get set }
     var startTime: Date? { get set }
@@ -21,12 +22,18 @@ protocol TimerDataStorageProtocol: AnyObject {
 
 final class TimerDataStorage: TimerDataStorageProtocol {
     
+    private let userIDKey = "userID"
     private let timeEntryIDKey = "timeEntryID"
     private let taskKey = "currentTask"
     private let startTimeKey = "startTime"
     private let stopTimeKey = "stopTime"
     private let isActiveKey = "isTimerActive"
     private let commentKey = "commentKey"
+    
+    var userID: Int? {
+        get { object(forKey: userIDKey) as? Int }
+        set { store(newValue, forKey: userIDKey) }
+    }
     
     var timeEntryID: Int? {
         get { object(forKey: timeEntryIDKey) as? Int }

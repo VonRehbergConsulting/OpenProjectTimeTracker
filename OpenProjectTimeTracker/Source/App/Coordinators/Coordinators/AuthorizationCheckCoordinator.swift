@@ -7,30 +7,34 @@
 
 import Foundation
 
-protocol AuthorizationCheckOutput {
-    var finishFlow: (() -> Void)? { get set}
+protocol AuthorizationCheckCoordinatorOutput {
+    var finishFlow: (() -> Void)? { get set }
 }
 
-protocol AuthorizationCheckProtocol {
+protocol AuthorizationCheckCoordinatorProtocol {
     
 }
 
 final class AuthorizationCheckCoordinator: Coordinator,
-                                           AuthorizationCheckProtocol,
-                                           AuthorizationCheckOutput {
+                                           AuthorizationCheckCoordinatorProtocol,
+                                           AuthorizationCheckCoordinatorOutput {
     
     // MARK: - Properties
     
-    private let service: RefreshTokenServiceProtocol
+    private let factory: LaunchScreenFactoryProtocol
+    private let router: CoordinatorRouterProtocol
     private let tokenStorage: TokenStorageProtocol
     private let timerDataStorage: TimerDataStorageProtocol
     
     // MARK: - Lifecycle
     
-    init(service: RefreshTokenServiceProtocol,
+    init(factory: LaunchScreenFactoryProtocol,
+         router: CoordinatorRouterProtocol,
          tokenStorage: TokenStorageProtocol,
-         timerDataStorage: TimerDataStorageProtocol) {
-        self.service = service
+         timerDataStorage: TimerDataStorageProtocol
+    ) {
+        self.factory = factory
+        self.router = router
         self.tokenStorage = tokenStorage
         self.timerDataStorage = timerDataStorage
     }
@@ -42,26 +46,17 @@ final class AuthorizationCheckCoordinator: Coordinator,
     // MARK: - Coordinator
     
     func start() {
-        Logger.log("Starting authorization check flow")
-        if let token = tokenStorage.token {
-            service.refresh(token) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let token):
-                    Logger.log("Status: authorized")
-                    self.tokenStorage.token = token
-                    self.finishFlow?()
-                case .failure(_):
-                    Logger.log("Status: token refreshing failed")
-                    self.clearData()
-                    self.finishFlow?()
-                }
+        let viewController = factory.createLaunchScreen()
+        viewController.finishFlow = { [weak self] userID in
+            guard let self = self else { return }
+            if let userID = userID {
+                self.timerDataStorage.userID = userID
+            } else {
+                self.clearData()
             }
-        } else {
-            Logger.log("Status: anauthorized")
-            self.clearData()
-            finishFlow?()
+            self.finishFlow?()
         }
+        router.transition(to: viewController)
     }
     
     // MARK: - Private helpers

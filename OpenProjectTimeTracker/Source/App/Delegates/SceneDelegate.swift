@@ -43,7 +43,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         appCoordinator = AppCoordinator(router: router,
                                         coordinatorFactory: factory,
-                                        tokenStorage: tokenStorage
+                                        tokenStorage: tokenStorage,
+                                        timerDataStorage: timerDataStorage
         )
         appCoordinator?.start()
     }

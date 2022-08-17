@@ -15,6 +15,7 @@ class AppCoordinator: Coordinator {
     private var childCoordinators: [Coordinator] = []
     private let router: CoordinatorRouterProtocol
     private let tokenStorage: TokenStorageProtocol
+    private let timerDataStorage: TimerDataStorageProtocol
     
     private var isJustStarted = true
     
@@ -22,10 +23,13 @@ class AppCoordinator: Coordinator {
     
     init(router: CoordinatorRouterProtocol,
          coordinatorFactory: CoordinatorFactoryProtocol,
-         tokenStorage: TokenStorageProtocol) {
+         tokenStorage: TokenStorageProtocol,
+         timerDataStorage: TimerDataStorageProtocol
+    ) {
         self.router = router
         self.coordinatorFactory = coordinatorFactory
         self.tokenStorage = tokenStorage
+        self.timerDataStorage = timerDataStorage
     }
     
     // MARK: - Coordinator
@@ -56,7 +60,7 @@ class AppCoordinator: Coordinator {
     }
     
     private func startFlow() {
-        if tokenStorage.token == nil {
+        if tokenStorage.token == nil || timerDataStorage.userID == nil {
             startAuthorizationFlow()
         } else {
             startTimerFlow()

@@ -120,7 +120,18 @@ class OpenProjectService: AuthorizationServiceProtocol,
                 completion(.success(token))
             case .failure(let error):
                 Logger.log(event: .failure, "Token refresh failed: " + error.localizedDescription)
-                completion(.failure(error))
+                if let errorCode = (error.errorUserInfo["error"] as? NSError)?.code {
+                    switch errorCode {
+                    case -1004, -1001, -1005, 503, 500:
+                        completion(.failure(NetworkError.noConnection))
+                    case 400:
+                        completion(.failure(NetworkError.unanthorized))
+                    default:
+                        completion(.failure(error))
+                    }
+                } else {
+                    completion(.failure(error))
+                }
             }
         }
     }

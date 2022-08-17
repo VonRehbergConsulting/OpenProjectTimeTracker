@@ -50,7 +50,20 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     // MARK: - CoordinatorFactoryProtocol
     
     func createAuthorizationCheckCoordinator() -> AuthorizationCheckCoordinator {
-        AuthorizationCheckCoordinator(service: refreshService, tokenStorage: tokenStorage, timerDataStorage: timerDataStorage)
+        let userService = UserService(service: requestService, requestFactory: UserDataRequestFactory())
+        let screenFactory = LaunchScreenFactory(
+            refreshService: refreshService,
+            userService: userService,
+            tokenStorage: tokenStorage,
+            timerDataStorage: timerDataStorage
+        )
+        let coordinator = AuthorizationCheckCoordinator(
+            factory: screenFactory,
+            router: router,
+            tokenStorage: tokenStorage,
+            timerDataStorage: timerDataStorage
+        )
+        return coordinator
     }
     
     func createAuthorizationCoordinator() -> AuthorizationCoordinator {

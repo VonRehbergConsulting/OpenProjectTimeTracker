@@ -45,7 +45,6 @@ final class LaunchModel: LaunchModelProtocol {
     // MARK: - LaunchModelProtocol
     
     func checkAuthorization(_ completion: @escaping (State) -> Void) {
-        Logger.log("Starting authorization check flow")
         if let token = tokenStorage.token {
             refreshService.refresh(token) { result in
                 switch result {

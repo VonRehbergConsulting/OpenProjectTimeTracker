@@ -99,7 +99,7 @@ final class SummaryContentView: UIView {
     }
     
     private func setup() {
-        backgroundColor = .white
+        backgroundColor = Colors.background
         addSubview(scrollView)
         addSubview(saveButton)
         scrollView.addSubview(stackView)

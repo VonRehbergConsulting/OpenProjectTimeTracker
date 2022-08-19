@@ -9,10 +9,32 @@ import UIKit
 
 class DSButton: UIButton {
     
+    // MARK: - Style
+    
+    enum Style {
+        case normal
+        case inactive
+    }
+    
     // MARK: Constants
     
     var heightConstant: CGFloat { 44 }
     var cornerRadiusConstant: CGFloat { 12 }
+    
+    // MARK: - Properties
+    
+    var style: Style = .normal {
+        didSet {
+            switch style {
+            case .normal:
+                backgroundColor = Colors.secondary
+                setTitleColor(Colors.brand, for: .normal)
+            case .inactive:
+                backgroundColor = Colors.inactive
+                setTitleColor(Colors.background, for: .normal)
+            }
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -26,7 +48,8 @@ class DSButton: UIButton {
     }
     
     private func setup() {
-        backgroundColor = Colors.brand
+        backgroundColor = Colors.secondary
+        setTitleColor(Colors.brand, for: .normal)
         layer.cornerRadius = cornerRadiusConstant
         clipsToBounds = true
         heightAnchor.constraint(greaterThanOrEqualToConstant: heightConstant).isActive = true

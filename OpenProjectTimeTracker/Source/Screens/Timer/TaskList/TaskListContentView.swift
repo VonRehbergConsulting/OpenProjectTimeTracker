@@ -53,7 +53,7 @@ final class TaskListContentView: UIView {
     }
     
     private func setup() {
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = Colors.groupedBackground
         addSubview(tableView)
         tableView.attachToSuperview()
         

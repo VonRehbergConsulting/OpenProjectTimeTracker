@@ -19,13 +19,20 @@ final class TimerContentView: UIView {
     // MARK: - Constants
     
     private struct Constants {
-        static let timerInset: CGFloat = 20
-        static let controlsInset: CGFloat = 28
-        static let controlsSpacing: CGFloat = 48
+        static let topInset: CGFloat = -80
+        static let timerInset: CGFloat = 40
+        static let controlsInset: CGFloat = 20
         static let edgeInsets: CGFloat = 20
+        static let buttonWidthMultiplier: CGFloat = 0.4
     }
     
     // MARK: - Subviews
+    
+    private lazy var elementsView: UIView = {
+        let view = UIView().disableMask()
+        view.backgroundColor = .clear
+        return view
+    }()
     
     private lazy var taskDetails: TaskDetailView = {
         let view = TaskDetailView().disableMask()
@@ -34,14 +41,15 @@ final class TimerContentView: UIView {
     
     private lazy var timerView: TimerView = {
         let timerView = TimerView().disableMask()
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(timerViewOnTap))
+        timerView.addGestureRecognizer(gestureRecognizer)
         return timerView
     }()
     
     private lazy var controlsStackView: UIStackView = {
         let stackView = UIStackView().disableMask()
         stackView.axis = .horizontal
-        stackView.spacing = Constants.controlsSpacing
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         
         stackView.addArrangedSubview(startButton)
         stackView.addArrangedSubview(finishButton)
@@ -51,7 +59,6 @@ final class TimerContentView: UIView {
     private lazy var startButton: DSButton = {
         let button = DSButton().disableMask()
         button.setTitle("Start", for: .normal)
-        button.backgroundColor = Colors.start
         button.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
         return button
     }()
@@ -59,17 +66,18 @@ final class TimerContentView: UIView {
     private lazy var finishButton: DSButton = {
         let button = DSButton().disableMask()
         button.setTitle("Finish", for: .normal)
-        button.backgroundColor = Colors.inactive
         button.addTarget(self, action: #selector(finishButtonOnTap), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Properties
     
+    
     var taskDetailTapAction: (() -> Void)? {
         get { taskDetails.tapAction }
         set { taskDetails.tapAction = newValue }
     }
+    var timerTapAction: (() -> Void)?
     var startButtonAction: (() -> Void)?
     var finishButtonAction: (() -> Void)?
     
@@ -92,24 +100,49 @@ final class TimerContentView: UIView {
     private func setup() {
         backgroundColor = .systemBackground
         
-        addSubview(taskDetails)
-        addSubview(timerView)
-        addSubview(controlsStackView)
+        addSubview(elementsView)
+        elementsView.addSubview(taskDetails)
+        elementsView.addSubview(timerView)
+        elementsView.addSubview(controlsStackView)
         
         NSLayoutConstraint.activate([
-            taskDetails.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            taskDetails.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInsets),
-            taskDetails.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInsets),
+            elementsView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            elementsView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: Constants.topInset),
+            elementsView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor),
             
-            timerView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: -Constants.edgeInsets * 2),
-            timerView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            timerView.heightAnchor.constraint(greaterThanOrEqualTo: taskDetails.heightAnchor),
-            timerView.topAnchor.constraint(equalTo: taskDetails.bottomAnchor, constant: Constants.timerInset),
+            timerView.topAnchor.constraint(equalTo: elementsView.topAnchor),
+            timerView.centerXAnchor.constraint(equalTo: elementsView.centerXAnchor),
+            timerView.widthAnchor.constraint(equalTo: elementsView.widthAnchor, constant: -Constants.edgeInsets * 2),
+            timerView.heightAnchor.constraint(greaterThanOrEqualTo: timerView.widthAnchor, multiplier: 0.25),
             
-            controlsStackView.topAnchor.constraint(equalTo: timerView.bottomAnchor, constant: Constants.controlsInset),
-            controlsStackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInsets),
-            controlsStackView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInsets),
+            taskDetails.topAnchor.constraint(equalTo: timerView.bottomAnchor),
+            taskDetails.leftAnchor.constraint(equalTo: elementsView.leftAnchor, constant: Constants.edgeInsets),
+            taskDetails.rightAnchor.constraint(equalTo: elementsView.rightAnchor, constant: -Constants.edgeInsets),
+            
+            startButton.widthAnchor.constraint(equalTo: elementsView.widthAnchor, multiplier: Constants.buttonWidthMultiplier),
+            finishButton.widthAnchor.constraint(equalTo: startButton.widthAnchor),
+            controlsStackView.topAnchor.constraint(equalTo: taskDetails.bottomAnchor, constant: Constants.controlsInset),
+            controlsStackView.centerXAnchor.constraint(equalTo: elementsView.centerXAnchor),
+            controlsStackView.widthAnchor.constraint(equalTo: taskDetails.widthAnchor),
+            controlsStackView.bottomAnchor.constraint(equalTo: elementsView.bottomAnchor)
         ])
+        
+//        NSLayoutConstraint.activate([
+//            taskDetails.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.topInset),
+//            taskDetails.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: Constants.edgeInsets),
+//            taskDetails.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -Constants.edgeInsets),
+//
+//            timerView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: -Constants.edgeInsets * 4),
+//            timerView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+//            timerView.heightAnchor.constraint(greaterThanOrEqualTo: taskDetails.heightAnchor),
+//            timerView.topAnchor.constraint(equalTo: taskDetails.bottomAnchor, constant: Constants.timerInset),
+//
+//            startButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: Constants.buttonWidthMultiplier),
+//            finishButton.widthAnchor.constraint(equalTo: startButton.widthAnchor),
+//            controlsStackView.topAnchor.constraint(equalTo: timerView.bottomAnchor, constant: Constants.controlsInset),
+//            controlsStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+//            controlsStackView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: Constants.controlsStackWidthMultiplier),
+//        ])
     }
     
     // MARK: - Public methods
@@ -128,21 +161,21 @@ final class TimerContentView: UIView {
         case .taskNotSelected:
             timerView.text = "00:00:00"
             startButton.setTitle("Start", for: .normal)
-            startButton.backgroundColor = Colors.inactive
-            finishButton.backgroundColor = Colors.inactive
+            startButton.style = .inactive
+            finishButton.style = .inactive
         case .setUp:
             timerView.text = "00:00:00"
             startButton.setTitle("Start", for: .normal)
-            startButton.backgroundColor = Colors.start
-            finishButton.backgroundColor = Colors.inactive
+            startButton.style = .normal
+            finishButton.style = .inactive
         case .active:
             startButton.setTitle("Pause", for: .normal)
-            startButton.backgroundColor = Colors.pause
-            finishButton.backgroundColor = Colors.stop
+            startButton.style = .normal
+            finishButton.style = .normal
         case .inactive:
             startButton.setTitle("Resume", for: .normal)
-            startButton.backgroundColor = Colors.start
-            finishButton.backgroundColor = Colors.stop
+            startButton.style = .normal
+            finishButton.style = .normal
         }
     }
     
@@ -154,5 +187,9 @@ final class TimerContentView: UIView {
     
     @objc private func finishButtonOnTap() {
         finishButtonAction?()
+    }
+    
+    @objc private func timerViewOnTap() {
+        timerTapAction?()
     }
 }

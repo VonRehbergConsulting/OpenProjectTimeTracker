@@ -36,7 +36,7 @@ class DSTextField: UIView, UITextFieldDelegate {
     
     private lazy var underlineLayer: CALayer = {
         var underlineLayer = CALayer()
-        underlineLayer.backgroundColor = Colors.inactive.cgColor
+        underlineLayer.backgroundColor = Colors.lightGray.cgColor
         self.layer.addSublayer(underlineLayer)
         return underlineLayer
     }()

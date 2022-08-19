@@ -20,8 +20,8 @@ final class TaskDetailView: UIView
     
     // MARK: - Subviews
     
-    private lazy var emptyLabel: UILabel = {
-        let label = UILabel().disableMask()
+    private lazy var emptyLabel: DSLabel = {
+        let label = DSLabel().disableMask()
         label.text = "Press to select task"
         label.font = .systemFont(ofSize: 20)
         label.textAlignment = .center
@@ -35,29 +35,21 @@ final class TaskDetailView: UIView
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(projectLabel)
-        stackView.addArrangedSubview(priorityLabel)
-        stackView.addArrangedSubview(statusLabel)
         return stackView
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel().disableMask()
+    private lazy var titleLabel: DSLabel = {
+        let label = DSLabel().disableMask()
         label.font = .systemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
     
-    private lazy var projectLabel: UILabel = {
-        let label = UILabel().disableMask()
-        return label
-    }()
-    
-    private lazy var priorityLabel: UILabel = {
-        let label = UILabel().disableMask()
-        return label
-    }()
-    
-    private lazy var statusLabel: UILabel = {
-        let label = UILabel().disableMask()
+    private lazy var projectLabel: DSLabel = {
+        let label = DSLabel().disableMask()
+        label.textAlignment = .center
+        label.textColor = .lightGray
         return label
     }()
     
@@ -77,7 +69,7 @@ final class TaskDetailView: UIView
     }
     
     private func setup() {
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = .clear
         layer.cornerRadius = 12
         addSubview(labelsStack)
         addSubview(emptyLabel)
@@ -97,9 +89,7 @@ final class TaskDetailView: UIView
     func updateData(_ task: Task?) {
         if let task = task {
             titleLabel.text = task.subject
-            projectLabel.text = "Project: \(task.projectTitle ?? Constants.emptyField)"
-            priorityLabel.text = "Priority: \(task.prioriry ?? Constants.emptyField)"
-            statusLabel.text = "Status: \(task.status ?? Constants.emptyField)"
+            projectLabel.text = task.projectTitle ?? Constants.emptyField
         }
         setVisibility(isEmpty: task == nil)
     }
@@ -117,8 +107,6 @@ final class TaskDetailView: UIView
         if isEmpty {
             titleLabel.text = " "
             projectLabel.text = " "
-            priorityLabel.text = " "
-            statusLabel.text = " "
         }
     }
 }

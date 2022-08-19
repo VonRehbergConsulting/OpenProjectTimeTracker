@@ -13,7 +13,7 @@ final class TimerView: UIView {
     
     private lazy var label: UILabel = {
         let label = UILabel().disableMask()
-        label.font = .monospacedSystemFont(ofSize: 60, weight: .regular)
+        label.font = .monospacedDigitSystemFont(ofSize: 60, weight: .thin)
         label.textAlignment = .center
         label.numberOfLines = 1
         return label

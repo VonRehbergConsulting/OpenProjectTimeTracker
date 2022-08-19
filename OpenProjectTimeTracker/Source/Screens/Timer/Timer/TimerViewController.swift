@@ -38,6 +38,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         contentView?.taskDetailTapAction = { [weak self] in
             self?.taskDetailTapAction()
         }
+        contentView?.timerTapAction = contentView?.taskDetailTapAction
         contentView?.startButtonAction = { [weak self] in
             self?.timerTapAction()
         }

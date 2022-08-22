@@ -24,7 +24,7 @@ final class TaskListDataProvider: TaskListDataProviderProtocol {
     // MARK: - Properties
     
     private let userID: Int
-    private let service: TasksServiceProtocol
+    private let service: TaskServiceProtocol
     
     private var tasks = [Task]()
     private var isLoading = false
@@ -35,7 +35,7 @@ final class TaskListDataProvider: TaskListDataProviderProtocol {
     
     // MARK: -  Lifecycle
     
-    init(userID: Int, service: TasksServiceProtocol) {
+    init(userID: Int, service: TaskServiceProtocol) {
         self.userID = userID
         self.service = service
     }

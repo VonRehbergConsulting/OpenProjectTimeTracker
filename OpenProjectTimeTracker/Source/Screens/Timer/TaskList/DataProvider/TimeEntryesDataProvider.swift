@@ -1,5 +1,5 @@
 //
-//  TimeEntryesDataProvider.swift
+//  TimeEntriesDataProvider.swift
 //  OpenProjectTimeTracker
 //
 //  Created by Denis Shtangey on 16.08.22.

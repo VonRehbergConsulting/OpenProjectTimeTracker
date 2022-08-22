@@ -23,6 +23,22 @@
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
 		B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */; };
 		B74FC52228A63667001791B1 /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC52128A63667001791B1 /* DSTextField.swift */; };
+		B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9728B377960067672E /* AuthorizationModelTests.swift */; };
+		B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */; };
+		B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */; };
+		B770FEA028B37D640067672E /* AuthorizationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9F28B37D640067672E /* AuthorizationPresenterTests.swift */; };
+		B770FEA428B3818D0067672E /* TimeEntriesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEA328B3818D0067672E /* TimeEntriesServiceMock.swift */; };
+		B770FEA628B382590067672E /* SummaryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEA528B382590067672E /* SummaryModelTests.swift */; };
+		B770FEA828B385750067672E /* TimerDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEA728B385750067672E /* TimerDataStorageMock.swift */; };
+		B770FEAB28B386300067672E /* TimerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEAA28B386300067672E /* TimerModelTests.swift */; };
+		B770FEAE28B389110067672E /* TimerModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEAD28B389110067672E /* TimerModelMock.swift */; };
+		B770FEB028B389420067672E /* TimerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEAF28B389420067672E /* TimerPresenterTests.swift */; };
+		B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB228B39D400067672E /* TaskServiceMock.swift */; };
+		B770FEB528B39E300067672E /* TaskListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB428B39E300067672E /* TaskListDataProviderTests.swift */; };
+		B770FEB728B3A7100067672E /* TimeEntriesDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB628B3A7100067672E /* TimeEntriesDataProviderTests.swift */; };
+		B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */; };
+		B770FEBC28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */; };
+		B770FEBE28B3B0BC0067672E /* TaskListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */; };
 		B7730EF528AF828D00597FA6 /* DSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7730EF428AF828D00597FA6 /* DSLabel.swift */; };
 		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
 		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
@@ -53,7 +69,7 @@
 		B7C5BA35289D13B0000A10D7 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA34289D13B0000A10D7 /* TimerModel.swift */; };
 		B7C5BA37289D2DB8000A10D7 /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA36289D2DB8000A10D7 /* DSButton.swift */; };
 		B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA38289D2E2E000A10D7 /* Colors.swift */; };
-		B7C5BA43289D3E9E000A10D7 /* TasksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA42289D3E9E000A10D7 /* TasksService.swift */; };
+		B7C5BA43289D3E9E000A10D7 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA42289D3E9E000A10D7 /* TaskService.swift */; };
 		B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA44289D41AF000A10D7 /* NetworkError.swift */; };
 		B7C5BA47289D5118000A10D7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA46289D5118000A10D7 /* Task.swift */; };
 		B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */; };
@@ -140,6 +156,22 @@
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorage.swift; sourceTree = "<group>"; };
 		B74FC52128A63667001791B1 /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
+		B770FE9728B377960067672E /* AuthorizationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelTests.swift; sourceTree = "<group>"; };
+		B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceMock.swift; sourceTree = "<group>"; };
+		B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelMock.swift; sourceTree = "<group>"; };
+		B770FE9F28B37D640067672E /* AuthorizationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterTests.swift; sourceTree = "<group>"; };
+		B770FEA328B3818D0067672E /* TimeEntriesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesServiceMock.swift; sourceTree = "<group>"; };
+		B770FEA528B382590067672E /* SummaryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModelTests.swift; sourceTree = "<group>"; };
+		B770FEA728B385750067672E /* TimerDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorageMock.swift; sourceTree = "<group>"; };
+		B770FEAA28B386300067672E /* TimerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModelTests.swift; sourceTree = "<group>"; };
+		B770FEAD28B389110067672E /* TimerModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModelMock.swift; sourceTree = "<group>"; };
+		B770FEAF28B389420067672E /* TimerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenterTests.swift; sourceTree = "<group>"; };
+		B770FEB228B39D400067672E /* TaskServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceMock.swift; sourceTree = "<group>"; };
+		B770FEB428B39E300067672E /* TaskListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderTests.swift; sourceTree = "<group>"; };
+		B770FEB628B3A7100067672E /* TimeEntriesDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesDataProviderTests.swift; sourceTree = "<group>"; };
+		B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderMock.swift; sourceTree = "<group>"; };
+		B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesDataProviderMock.swift; sourceTree = "<group>"; };
+		B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModelTests.swift; sourceTree = "<group>"; };
 		B7730EF428AF828D00597FA6 /* DSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLabel.swift; sourceTree = "<group>"; };
 		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
 		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +204,7 @@
 		B7C5BA34289D13B0000A10D7 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		B7C5BA36289D2DB8000A10D7 /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
 		B7C5BA38289D2E2E000A10D7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		B7C5BA42289D3E9E000A10D7 /* TasksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksService.swift; sourceTree = "<group>"; };
+		B7C5BA42289D3E9E000A10D7 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		B7C5BA44289D41AF000A10D7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B7C5BA46289D5118000A10D7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
@@ -304,6 +336,92 @@
 			path = Storages;
 			sourceTree = "<group>";
 		};
+		B770FE9628B3778A0067672E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B770FE9C28B37CF00067672E /* Mock */,
+				B770FE9728B377960067672E /* AuthorizationModelTests.swift */,
+				B770FE9F28B37D640067672E /* AuthorizationPresenterTests.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B770FE9B28B37CDD0067672E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */,
+				B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */,
+				B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */,
+				B770FEA328B3818D0067672E /* TimeEntriesServiceMock.swift */,
+				B770FEB228B39D400067672E /* TaskServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B770FE9C28B37CF00067672E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B770FEA128B381480067672E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEA928B3861F0067672E /* Timer */,
+				B770FEB128B39D200067672E /* TaskList */,
+				B770FEA228B381530067672E /* Summary */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B770FEA228B381530067672E /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEA528B382590067672E /* SummaryModelTests.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		B770FEA928B3861F0067672E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEAC28B389090067672E /* Mock */,
+				B770FEAF28B389420067672E /* TimerPresenterTests.swift */,
+				B770FEAA28B386300067672E /* TimerModelTests.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B770FEAC28B389090067672E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEAD28B389110067672E /* TimerModelMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B770FEB128B39D200067672E /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEB828B3AE9D0067672E /* Mock */,
+				B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */,
+				B770FEB428B39E300067672E /* TaskListDataProviderTests.swift */,
+				B770FEB628B3A7100067672E /* TimeEntriesDataProviderTests.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		B770FEB828B3AE9D0067672E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */,
+				B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		B77C128F28A299CC004F8988 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,7 +467,7 @@
 		B7AF8EFB289577A000617364 /* OpenProjectTimeTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B7C9D4C128ACF32A00EEF694 /* Mocks */,
+				B7C9D4C128ACF32A00EEF694 /* Mock */,
 				B7C9D4C828ACF55C00EEF694 /* Screens */,
 			);
 			path = OpenProjectTimeTrackerTests;
@@ -506,20 +624,22 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		B7C9D4C128ACF32A00EEF694 /* Mocks */ = {
+		B7C9D4C128ACF32A00EEF694 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */,
-				B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */,
+				B770FE9B28B37CDD0067672E /* Services */,
 				B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */,
+				B770FEA728B385750067672E /* TimerDataStorageMock.swift */,
 			);
-			path = Mocks;
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		B7C9D4C828ACF55C00EEF694 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				B7C9D4C928ACF56100EEF694 /* Launch */,
+				B770FE9628B3778A0067672E /* Authorization */,
+				B770FEA128B381480067672E /* Timer */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -549,7 +669,7 @@
 				B7F9A35A28AB9D1700F694C5 /* WorkPackage */,
 				B7F9A35928AB9D0C00F694C5 /* List */,
 				B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */,
-				B7C5BA42289D3E9E000A10D7 /* TasksService.swift */,
+				B7C5BA42289D3E9E000A10D7 /* TaskService.swift */,
 			);
 			path = WorkPackages;
 			sourceTree = "<group>";
@@ -793,7 +913,7 @@
 				B7C5BA2C289D06AD000A10D7 /* TimerScreenFactory.swift in Sources */,
 				B7F9A31B28AA605900F694C5 /* WorkPackagesRequest.swift in Sources */,
 				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
-				B7C5BA43289D3E9E000A10D7 /* TasksService.swift in Sources */,
+				B7C5BA43289D3E9E000A10D7 /* TaskService.swift in Sources */,
 				B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */,
 				B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */,
 				B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */,
@@ -877,9 +997,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B770FEB728B3A7100067672E /* TimeEntriesDataProviderTests.swift in Sources */,
+				B770FEAE28B389110067672E /* TimerModelMock.swift in Sources */,
+				B770FEB528B39E300067672E /* TaskListDataProviderTests.swift in Sources */,
+				B770FEA028B37D640067672E /* AuthorizationPresenterTests.swift in Sources */,
+				B770FEA428B3818D0067672E /* TimeEntriesServiceMock.swift in Sources */,
+				B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */,
+				B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */,
 				B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */,
+				B770FEB028B389420067672E /* TimerPresenterTests.swift in Sources */,
+				B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */,
 				B7C9D4C728ACF52E00EEF694 /* TokenStorageMock.swift in Sources */,
 				B7C9D4C528ACF4DC00EEF694 /* UserServiceMock.swift in Sources */,
+				B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */,
+				B770FEA828B385750067672E /* TimerDataStorageMock.swift in Sources */,
+				B770FEBC28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift in Sources */,
+				B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */,
+				B770FEAB28B386300067672E /* TimerModelTests.swift in Sources */,
+				B770FEA628B382590067672E /* SummaryModelTests.swift in Sources */,
+				B770FEBE28B3B0BC0067672E /* TaskListModelTests.swift in Sources */,
 				B7C9D4C328ACF3BE00EEF694 /* RefreshServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

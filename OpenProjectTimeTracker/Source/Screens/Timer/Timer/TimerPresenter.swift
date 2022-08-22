@@ -40,10 +40,8 @@ final class TimerPresenter: TimerPresenterProtocol {
     
     // MARK: - TimerPresenterProtocol
     
-    var isActive: Bool? {
-        get { model?.isActive }
-        set { model?.isActive = newValue }
-    }
+    var isActive: Bool? { model?.isActive }
+    
     var timeEntryID: Int? {
         get { model?.timeEntryID }
         set { model?.timeEntryID = newValue }
@@ -74,11 +72,11 @@ final class TimerPresenter: TimerPresenterProtocol {
     }
     
     func setTimeEntry(_ timeEntry: TimeEntryListModel) {
-        timeEntryID = timeEntry.id
         guard var model = model else {
             Logger.log(event: .error, "Can't find model")
             return
         }
+        timeEntryID = timeEntry.id
         comment = timeEntry.comment
         model.stopTime = Date()
         let components = DateComponents(
@@ -100,7 +98,6 @@ final class TimerPresenter: TimerPresenterProtocol {
             if model.startTime == nil {
                 model.startTime = Date()
             }
-            isActive = true
         }
     }
     
@@ -109,14 +106,12 @@ final class TimerPresenter: TimerPresenterProtocol {
             Logger.log(event: .error, "Can't find model")
             return
         }
-        isActive = false
         if model.stopTime == nil {
             model.stopTime = Date()
         }
     }
     
     func resetTimer() {
-        isActive = false
         model?.startTime = nil
         model?.stopTime = nil
         model?.timeEntryID = nil
@@ -135,6 +130,5 @@ final class TimerPresenter: TimerPresenterProtocol {
         let pauseInterval = Date() - stopTime
         model.startTime = startTime.addingTimeInterval(pauseInterval)
         model.stopTime = nil
-        isActive = true
     }
 }

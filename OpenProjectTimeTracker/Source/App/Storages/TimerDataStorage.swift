@@ -14,7 +14,6 @@ protocol TimerDataStorageProtocol: AnyObject {
     var task: Task? { get set }
     var startTime: Date? { get set }
     var stopTime: Date? { get set }
-    var isActive: Bool? { get set }
     var comment: String? { get set }
     
     func clear()
@@ -27,7 +26,6 @@ final class TimerDataStorage: TimerDataStorageProtocol {
     private let taskKey = "currentTask"
     private let startTimeKey = "startTime"
     private let stopTimeKey = "stopTime"
-    private let isActiveKey = "isTimerActive"
     private let commentKey = "commentKey"
     
     var userID: Int? {
@@ -62,10 +60,6 @@ final class TimerDataStorage: TimerDataStorageProtocol {
         get { object(forKey: stopTimeKey) as? Date }
         set { store(newValue, forKey: stopTimeKey) }
     }
-    var isActive: Bool? {
-        get { object(forKey: isActiveKey) as? Bool }
-        set { store(newValue, forKey: isActiveKey) }
-    }
     var comment: String? {
         get { object(forKey: commentKey) as? String }
         set { store(newValue, forKey: commentKey) }
@@ -75,7 +69,6 @@ final class TimerDataStorage: TimerDataStorageProtocol {
         task = nil
         startTime = nil
         stopTime = nil
-        isActive = nil
         timeEntryID = nil
         comment = nil
     }

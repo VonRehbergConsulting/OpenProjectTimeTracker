@@ -10,7 +10,7 @@ import Foundation
 protocol TimerModelProtocol {
     
     var task: Task? { get set }
-    var isActive: Bool? { get set }
+    var isActive: Bool { get }
     var timeEntryID: Int? { get set }
     var comment: String? { get set }
     
@@ -37,9 +37,13 @@ final class TimerModel: TimerModelProtocol {
     
     // MARK: - TimerModelProtocol
     
-    var isActive: Bool? {
-        get { storage.isActive }
-        set { storage.isActive = newValue }
+    var isActive: Bool {
+        guard startTime != nil else { return false }
+        if stopTime == nil {
+            return true
+        } else {
+            return false
+        }
     }
     var task: Task? {
         get { storage.task }
@@ -66,7 +70,6 @@ final class TimerModel: TimerModelProtocol {
     
     private func initialDataCheck() {
         guard let startTime = startTime,
-              isActive != nil,
               task != nil
         else {
             storage.clear()

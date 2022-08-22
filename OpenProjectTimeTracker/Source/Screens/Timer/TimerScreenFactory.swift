@@ -59,7 +59,7 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
         let presenter = TaskListPresenter()
         
         let workPackagesRequestFactory = WorkPackagesRequestFactory()
-        let taskService = TasksService(service: service, requestFactory: workPackagesRequestFactory)
+        let taskService = TaskService(service: service, requestFactory: workPackagesRequestFactory)
         let taskListDataProvider = TaskListDataProvider(userID: userID, service: taskService)
         
         let timeEntriesRequestFacrory = TimeEntriesRequestFactory()

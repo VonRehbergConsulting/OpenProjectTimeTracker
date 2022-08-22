@@ -1,5 +1,5 @@
 //
-//  TasksService.swift
+//  TaskService.swift
 //  OpenProjectTimeTracker
 //
 //  Created by Denis Shtangey on 05.08.22.
@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol TasksServiceProtocol {
+protocol TaskServiceProtocol {
     
     func task(id: Int, _ completion: @escaping (Result<Task, Error>) -> Void)
     
     func list(userID: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void)
 }
 
-final class TasksService: TasksServiceProtocol {
+final class TaskService: TaskServiceProtocol {
     
     private let pageSize = 20
     

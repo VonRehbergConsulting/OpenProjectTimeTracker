@@ -5,6 +5,12 @@
 //  Created by Denis Shtangey on 09.08.22.
 //
 
+// Arrange
+
+// Act
+
+// Assert
+
 import Foundation
 
 protocol TaskListModelProtocol {

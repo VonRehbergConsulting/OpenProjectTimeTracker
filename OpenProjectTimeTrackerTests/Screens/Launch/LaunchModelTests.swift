@@ -119,6 +119,6 @@ final class LaunchModelTests: XCTestCase {
         }
         
         // Assert
-        XCTAssertEqual(userID, nil)
+        XCTAssertNil(userID)
     }
 }

@@ -36,8 +36,4 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             }
         }
     }
-    
-    func getUserID(_ completion: @escaping (Int?) -> Void) {
-        model?.getUserID(completion)
-    }
 }

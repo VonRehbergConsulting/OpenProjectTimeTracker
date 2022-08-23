@@ -8,7 +8,6 @@ jobs:
         matrix:
             project: ['OpenProjectTimeTracker.xcodeproj']
             scheme: ['OpenProjectTimeTracker']
-            destination: ['platform=iOS Simulator,name=iPhone 13,OS=15.2']
 
     steps:
       - name: Checkout repository
@@ -49,4 +48,4 @@ jobs:
          
       - name: Test app
         run: |
-          xcodebuild test -project ${{ matrix.project }}  -scheme ${{ matrix.scheme }} -destination ${{ matrix.destination }}
+          xcodebuild test -project ${{ matrix.project }}  -scheme ${{ matrix.scheme }} -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'

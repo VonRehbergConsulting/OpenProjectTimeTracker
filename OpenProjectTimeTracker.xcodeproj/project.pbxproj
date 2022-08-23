@@ -17,7 +17,6 @@
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
 		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
-		B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = B743E1B82897D94400FE944A /* OpenProjectKey.plist */; };
 		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
 		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
@@ -150,7 +149,6 @@
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
 		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
-		B743E1B82897D94400FE944A /* OpenProjectKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OpenProjectKey.plist; sourceTree = "<group>"; };
 		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
@@ -487,7 +485,6 @@
 			children = (
 				B7AF8EEE289577A000617364 /* Assets.xcassets */,
 				B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */,
-				B743E1B82897D94400FE944A /* OpenProjectKey.plist */,
 				B7F9D29B2898349C00906BCB /* Info.plist */,
 				B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */,
 			);
@@ -877,7 +874,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B743E1B92897D94400FE944A /* OpenProjectKey.plist in Resources */,
 				B7AF8EF2289577A000617364 /* LaunchScreen.storyboard in Resources */,
 				B7B18BF9289BF9EC00545968 /* OpenProjectEndpoints.plist in Resources */,
 				B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */,
@@ -1106,7 +1102,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1160,7 +1156,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1176,9 +1172,41 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 383J7R89WY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "iPhone XR Time tracker profile";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B7AF8F0E289577A000617364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y8YBRN8X3W;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
@@ -1200,37 +1228,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
-		};
-		B7AF8F0E289577A000617364 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y8YBRN8X3W;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
 			name = Release;
 		};
 		B7AF8F10289577A000617364 /* Debug */ = {
@@ -1242,7 +1239,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8YBRN8X3W;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1262,7 +1259,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y8YBRN8X3W;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

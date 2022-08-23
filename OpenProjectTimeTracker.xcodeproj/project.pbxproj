@@ -170,6 +170,7 @@
 		B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderMock.swift; sourceTree = "<group>"; };
 		B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesDataProviderMock.swift; sourceTree = "<group>"; };
 		B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModelTests.swift; sourceTree = "<group>"; };
+		B770FEBF28B4FABB0067672E /* OpenProjectAPI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OpenProjectAPI.xcconfig; sourceTree = "<group>"; };
 		B7730EF428AF828D00597FA6 /* DSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLabel.swift; sourceTree = "<group>"; };
 		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
 		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -487,6 +488,7 @@
 				B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */,
 				B7F9D29B2898349C00906BCB /* Info.plist */,
 				B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */,
+				B770FEBF28B4FABB0067672E /* OpenProjectAPI.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1168,6 +1170,7 @@
 		};
 		B7AF8F0D289577A000617364 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B770FEBF28B4FABB0067672E /* OpenProjectAPI.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

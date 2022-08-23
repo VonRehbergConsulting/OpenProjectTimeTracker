@@ -4,10 +4,6 @@ on: push
 jobs:
   build_and_test_with_signing:
     runs-on: macos-latest
-    strategy:
-        matrix:
-            project: ['OpenProjectTimeTracker.xcodeproj']
-            scheme: ['OpenProjectTimeTracker']
 
     steps:
       - name: Checkout repository
@@ -44,8 +40,8 @@ jobs:
           
       - name: Build app
         run: |
-         xcodebuild clean build -project ${{ matrix.project }}  -scheme ${{ matrix.scheme }} -destination ${{ matrix.destination }}
+         xcodebuild clean build -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker"
          
       - name: Test app
         run: |
-          xcodebuild test -project ${{ matrix.project }}  -scheme ${{ matrix.scheme }} -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+          xcodebuild test -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'

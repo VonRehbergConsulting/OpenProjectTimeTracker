@@ -43,11 +43,10 @@ class OpenProjectService: AuthorizationServiceProtocol,
     
     // MARK: - Properties
     
-    private let apiKey: APIKey
     private let tokenStorage: TokenStorageProtocol
     
     private lazy var oauth2swift: OAuth2Swift = {
-        let oauth2swift = OAuth2Swift(apiKey)
+        let oauth2swift = OAuth2Swift.openProject
         
         if let viewController = viewController {
             let handler = SafariURLHandler(viewController: viewController, oauthSwift: oauth2swift)
@@ -63,9 +62,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
     
     // MARK: - Lifecycle
     
-    init(apiKey: APIKey,
-         tokenStorage: TokenStorageProtocol) {
-        self.apiKey = apiKey
+    init(tokenStorage: TokenStorageProtocol) {
         self.tokenStorage = tokenStorage
     }
     

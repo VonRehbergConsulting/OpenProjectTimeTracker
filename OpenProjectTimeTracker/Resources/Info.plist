@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>OPEN_PROJECT_API_URL</key>
+	<string>$(OPEN_PROJECT_API_URL)</string>
+	<key>OPEN_PROJECT_TOKEN_URL</key>
+	<string>$(OPEN_PROJECT_TOKEN_URL)</string>
+	<key>OPEN_PROJECT_AUTHORIZE_URL</key>
+	<string>$(OPEN_PROJECT_AUTHORIZE_URL)</string>
+	<key>OPEN_PROJECT_CONSUMER_KEY</key>
+	<string>$(OPEN_PROJECT_CONSUMER_KEY)</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleURLTypes</key>

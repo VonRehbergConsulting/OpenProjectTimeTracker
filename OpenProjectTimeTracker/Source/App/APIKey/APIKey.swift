@@ -7,23 +7,34 @@
 
 import Foundation
 
-struct APIKey: Codable {
+struct APIKey {
     
-    let consumerKey: String
-    let authorizeURL: String
-    let tokenURL: String
-    
-    static var zero: APIKey {
-        return .init(consumerKey: "", authorizeURL: "http://localhost", tokenURL: "http://localhost")
-    }
-    
-    static var openProject: APIKey {
-        if let key  = PlistReader<APIKey>().read(from: "OpenProjectKey") {
-            return key
+    static var consumerKey = Bundle.main.object(forInfoDictionaryKey: "OPEN_PROJECT_CONSUMER_KEY") as? String ?? ""
+    static var authorizeURL: String = {
+        if let authorizeURL = Bundle.main.object(forInfoDictionaryKey: "OPEN_PROJECT_AUTHORIZE_URL") as? String {
+            return fixURLCharacters(authorizeURL)
         } else {
-            Logger.log(event: .error, "Can't read Open Project API key")
-            return .zero
+            return "http://localhost"
         }
-    }
+    }()
+    static var tokenURL: String = {
+        if let tokenURL = Bundle.main.object(forInfoDictionaryKey: "OPEN_PROJECT_TOKEN_URL") as? String {
+            return fixURLCharacters(tokenURL)
+        } else {
+            return "http://localhost"
+        }
+    }()
+    static var apiURL: String = {
+        if let apiURL = Bundle.main.object(forInfoDictionaryKey: "OPEN_PROJECT_API_URL") as? String {
+            return fixURLCharacters(apiURL)
+        } else {
+            return "http://localhost"
+        }
+    }()
     
+    // MARK: - Private helpers
+    
+    static func fixURLCharacters(_ url: String) -> String {
+        return url.replacingOccurrences(of: "|", with: "/")
+    }
 }

@@ -12,11 +12,12 @@ enum OpenProjectEndpoints {
     // MARK: - Plist struct
     
     private struct EndpointPlist: Codable {
-        var baseURL: String
         var userData: String
         var tasks: String
         var timeEntries: String
     }
+    
+    // MARK: - Cases
     
     case userData
     case tasks
@@ -27,7 +28,7 @@ enum OpenProjectEndpoints {
             Logger.log(event: .error, "Can't find API endpoints")
             return ""
         }
-        var reference = result.baseURL
+        var reference = APIKey.apiURL
         switch self {
         case .userData:
             reference += result.userData

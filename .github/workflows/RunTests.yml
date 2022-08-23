@@ -5,10 +5,10 @@ jobs:
   build_and_test_with_signing:
     runs-on: macos-latest
     strategy:
-    matrix:
-        project: 'OpenProjectTimeTracker.xcodeproj'
-        scheme: 'OpenProjectTimeTracker'
-        destination: 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+        matrix:
+            project: 'OpenProjectTimeTracker.xcodeproj'
+            scheme: 'OpenProjectTimeTracker'
+            destination: 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
 
     steps:
       - name: Checkout repository

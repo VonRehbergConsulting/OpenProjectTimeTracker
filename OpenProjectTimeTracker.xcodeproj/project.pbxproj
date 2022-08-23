@@ -1056,7 +1056,6 @@
 /* Begin XCBuildConfiguration section */
 		B7AF8F0A289577A000617364 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B770FEBF28B4FABB0067672E /* OpenProjectAPI.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

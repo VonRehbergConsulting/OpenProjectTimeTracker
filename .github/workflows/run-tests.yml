@@ -51,3 +51,25 @@ jobs:
       - name: Test app
         run: |
           xcodebuild test -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+
+      - name: Success badge
+        if: success()
+        uses: schneegans/dynamic-badges-action@v1.4.0
+        with:
+            auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
+            gistID: ${{ secrets.GIST_ID }}
+            filename: TimeTrackerShields.json
+            label: Build
+            message: success
+            color: brightgreen
+            
+      - name: Failure badge
+        if: failure()
+        uses: schneegans/dynamic-badges-action@v1.4.0
+        with:
+            auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
+            gistID: ${{ secrets.GIST_ID }}
+            filename: TimeTrackerShields.json
+            label: Build
+            message: failure
+            color: red

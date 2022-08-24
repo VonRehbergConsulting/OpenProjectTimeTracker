@@ -47,13 +47,15 @@ jobs:
       - name: Build app
         run: |
          xcodebuild clean build -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+         echo "build_success=true" >> $GITHUB_ENV
          
       - name: Test app
         run: |
-          xcodebuild test -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+         xcodebuild test -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+         echo "test_success=true" >> $GITHUB_ENV
 
-      - name: Success badge
-        if: success()
+      - name: Build success badge
+        if: ${{ env.build_success }}
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
@@ -63,8 +65,8 @@ jobs:
             message: success
             color: brightgreen
             
-      - name: Failure badge
-        if: failure()
+      - name: Build failure badge
+        if: ${{ ! env.build_success }}
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}

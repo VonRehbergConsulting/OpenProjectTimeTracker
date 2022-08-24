@@ -9,15 +9,16 @@ import OAuthSwift
 
 extension OAuth2Swift {
     
-    convenience init(_ apiKey: APIKey) {
-        self.init(
-            consumerKey: apiKey.consumerKey,
+    static var openProject: OAuth2Swift {
+        let oauth2swift = OAuth2Swift(
+            consumerKey: APIKey.consumerKey,
             consumerSecret: "",
-            authorizeUrl: apiKey.authorizeURL,
-            accessTokenUrl: apiKey.tokenURL,
+            authorizeUrl: APIKey.authorizeURL,
+            accessTokenUrl: APIKey.tokenURL,
             responseType: "code",
             contentType: ""
         )
-        allowMissingStateCheck = true
+        oauth2swift.allowMissingStateCheck = true
+        return oauth2swift
     }
 }

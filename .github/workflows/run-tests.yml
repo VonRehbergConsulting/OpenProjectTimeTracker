@@ -9,6 +9,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         
+      - name: Create config file
+        run: |
+          touch OpenProjectAPI.xcconfig
+          echo OPEN_PROJECT_CONSUMER_KEY="key" >> OpenProjectAPI.xcconfig
+          cat OpenProjectAPI.xcconfig
+        
       - name: Install the Apple certificate and provisioning profile
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
@@ -40,7 +46,7 @@ jobs:
           
       - name: Build app
         run: |
-         xcodebuild clean build -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker"
+         xcodebuild clean build -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
          
       - name: Test app
         run: |

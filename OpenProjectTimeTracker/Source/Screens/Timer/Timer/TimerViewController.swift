@@ -143,8 +143,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         guard presenter?.timeSpent != nil else { return }
         stopTimer()
         guard let presenter = presenter,
-              let components = presenter.timeSpent,
-              let date = components.date,
+              let timeSpent = presenter.timeSpent,
               let task = presenter.task
         else {
             Logger.log(event: .error, "Can't get data")
@@ -155,7 +154,7 @@ final class TimerViewController: UIViewController, TimerViewProtocol {
         coordinator?.routeToSummary(timeEntryID: timeEntryID,
                                     taskHref: task.selfHref,
                                     projectHref: task.projectHref,
-                                    timeSpent: date,
+                                    timeSpent: timeSpent,
                                     taskTitle: task.subject,
                                     projectTitle: task.projectTitle,
                                     comment: comment

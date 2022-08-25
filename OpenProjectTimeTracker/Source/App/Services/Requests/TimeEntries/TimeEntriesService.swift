@@ -14,13 +14,13 @@ protocol TimeEntriesServiceProtocol {
     func create(userID: Int,
                 projectHref: String,
                 workPackageHref: String,
-                duration: Date,
+                duration: DateComponents,
                 date: Date,
                 comment: String?,
                 _ completion: @escaping ((Bool) -> Void))
     
     func update(id: Int,
-                duration: Date,
+                duration: DateComponents,
                 comment: String?,
                 _ completion: @escaping ((Bool) -> Void))
 }
@@ -51,7 +51,7 @@ final class TimeEntriesService: TimeEntriesServiceProtocol {
     func create(userID: Int,
                 projectHref: String,
                 workPackageHref: String,
-                duration: Date,
+                duration: DateComponents,
                 date: Date,
                 comment: String?,
                 _ completion: @escaping ((Bool) -> Void)) {
@@ -66,7 +66,7 @@ final class TimeEntriesService: TimeEntriesServiceProtocol {
         }
     }
     
-    func update(id: Int, duration: Date, comment: String?, _ completion: @escaping ((Bool) -> Void)) {
+    func update(id: Int, duration: DateComponents, comment: String?, _ completion: @escaping ((Bool) -> Void)) {
         let requestConfig = requestFactory.createTimeEntriesUpdateRequestConfig(id: id, duration: duration, comment: comment)
         service.send(requestConfig: requestConfig) { result in
             switch result {

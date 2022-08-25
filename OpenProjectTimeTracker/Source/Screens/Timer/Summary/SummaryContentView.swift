@@ -59,6 +59,9 @@ final class SummaryContentView: UIView {
         let textField = DSTextField().disableMask()
         textField.caption = Constants.timeLabel
         textField.isEnabled = false
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(timeTextFieldOnTap))
+        textField.addGestureRecognizer(gestureRecognizer)
         return textField
     }()
     
@@ -78,7 +81,23 @@ final class SummaryContentView: UIView {
         return button
     }()
     
+    private lazy var timePicker: DSTimePicker = {
+        let picker = DSTimePicker().disableMask()
+        picker.valueChangedCompletion = { [weak self] in
+            guard let self = self else { return }
+            self.setTimeLabel(self.currentPickerTime)
+        }
+        return picker
+    }()
+    
     // MARK: - Properties
+    
+    var currentPickerTime: DateComponents {
+        var components = DateComponents()
+        components.hour = timePicker.hours
+        components.minute = timePicker.minutes
+        return components
+    }
     
     var saveButtonAction: (() -> Void)?
     
@@ -123,18 +142,40 @@ final class SummaryContentView: UIView {
     
     func setData(taskTitle: String?,
                  projectTitle: String?,
-                 timeSpent: String?,
+                 timeSpent: DateComponents?,
                  comment: String?
     ) {
         taskTextField.text = taskTitle ?? ""
         projectTextField.text = projectTitle ?? ""
-        timeTextField.text = timeSpent ?? ""
+        if let timeSpent = timeSpent {
+            setTimeLabel(timeSpent)
+            let hours = timeSpent.hour ?? 0
+            let minutes = timeSpent.minute ?? 0
+            timePicker.selectRow(hours, inComponent: 0, animated: true)
+            timePicker.selectRow(minutes, inComponent: 1, animated: true)
+        } else {
+            timeTextField.text = nil
+        }
         commentTextField.text = comment
     }
     
     // MARK: - Actions
     
+    @objc private func timeTextFieldOnTap() {
+        if stackView.subviews.contains(timePicker) {
+            timePicker.removeFromSuperview()
+        } else {
+            stackView.insertArrangedSubview(timePicker, at: 3)
+        }
+    }
+    
     @objc private func saveButtonOnTap() {
         saveButtonAction?()
+    }
+    
+    // MARK: - Private helpers
+    
+    private func setTimeLabel(_ components: DateComponents) {
+        timeTextField.text = components.shortClockTime
     }
 }

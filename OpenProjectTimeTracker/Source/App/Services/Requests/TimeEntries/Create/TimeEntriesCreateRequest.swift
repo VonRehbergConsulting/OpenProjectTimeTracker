@@ -35,7 +35,7 @@ struct TimeEntriesCreateRequest: RequestProtocol {
         init(userID: Int,
              taskHref: String,
              projectHref: String,
-             timeSpent: Date,
+             timeSpent: DateComponents,
              date: Date,
              comment: String?) {
             user = User(id: String(userID))
@@ -60,7 +60,7 @@ struct TimeEntriesCreateRequest: RequestProtocol {
     init(userID: Int,
          projectHref: String,
          workPackageHref: String,
-         duration: Date,
+         duration: DateComponents,
          date: Date,
          comment: String?
     ) {

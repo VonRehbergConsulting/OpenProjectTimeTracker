@@ -38,6 +38,7 @@
 		B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */; };
 		B770FEBC28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */; };
 		B770FEBE28B3B0BC0067672E /* TaskListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */; };
+		B771C7E028B7B1B500208EA3 /* DSTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771C7DF28B7B1B500208EA3 /* DSTimePicker.swift */; };
 		B7730EF528AF828D00597FA6 /* DSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7730EF428AF828D00597FA6 /* DSLabel.swift */; };
 		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
 		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
@@ -171,6 +172,7 @@
 		B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesDataProviderMock.swift; sourceTree = "<group>"; };
 		B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModelTests.swift; sourceTree = "<group>"; };
 		B770FEBF28B4FABB0067672E /* OpenProjectAPI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OpenProjectAPI.xcconfig; sourceTree = "<group>"; };
+		B771C7DF28B7B1B500208EA3 /* DSTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTimePicker.swift; sourceTree = "<group>"; };
 		B7730EF428AF828D00597FA6 /* DSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLabel.swift; sourceTree = "<group>"; };
 		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
 		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 				B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */,
 				B7730EF428AF828D00597FA6 /* DSLabel.swift */,
 				B74FC52128A63667001791B1 /* DSTextField.swift */,
+				B771C7DF28B7B1B500208EA3 /* DSTimePicker.swift */,
 				B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */,
 				B7C5BA4E289D5FA3000A10D7 /* Cells */,
 			);
@@ -950,6 +953,7 @@
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
 				B7F9A33928AA6C0100F694C5 /* TimeEntryListModel.swift in Sources */,
 				B7F9A34028AA6FE100F694C5 /* TimeEntryUpdateRequest.swift in Sources */,
+				B771C7E028B7B1B500208EA3 /* DSTimePicker.swift in Sources */,
 				B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */,
 				B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */,
 				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,

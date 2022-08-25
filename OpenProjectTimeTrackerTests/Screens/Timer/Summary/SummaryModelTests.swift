@@ -30,7 +30,7 @@ final class SummaryModelTests: XCTestCase {
                              userID: 5,
                              taskHref: "task",
                              projectHref: "project",
-                             timeSpent: Date(),
+                             timeSpent: DateComponents(),
                              taskTitle: "title",
                              projectTitle: "projectTitle",
                              comment: "comment"
@@ -54,7 +54,7 @@ final class SummaryModelTests: XCTestCase {
                              userID: 5,
                              taskHref: "task",
                              projectHref: "project",
-                             timeSpent: Date(),
+                             timeSpent: DateComponents(),
                              taskTitle: "title",
                              projectTitle: "projectTitle",
                              comment: "comment"
@@ -78,7 +78,7 @@ final class SummaryModelTests: XCTestCase {
                              userID: 5,
                              taskHref: "task",
                              projectHref: "project",
-                             timeSpent: Date(),
+                             timeSpent: DateComponents(),
                              taskTitle: "title",
                              projectTitle: "projectTitle",
                              comment: "comment"
@@ -102,7 +102,7 @@ final class SummaryModelTests: XCTestCase {
                              userID: 5,
                              taskHref: "task",
                              projectHref: "project",
-                             timeSpent: Date(),
+                             timeSpent: DateComponents(),
                              taskTitle: "title",
                              projectTitle: "projectTitle",
                              comment: "comment"

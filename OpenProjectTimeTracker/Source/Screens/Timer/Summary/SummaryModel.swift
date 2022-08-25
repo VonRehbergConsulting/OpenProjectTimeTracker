@@ -11,7 +11,7 @@ protocol SummaryModelProtocol: AnyObject {
     
     var taskTitle: String? { get }
     var projectTitle: String? { get }
-    var timeSpent: Date { get }
+    var timeSpent: DateComponents { get set }
     var comment: String? { get set }
     
     func saveTimeEntry(_ completion: @escaping (Bool) -> Void)
@@ -28,7 +28,7 @@ final class SummaryModel: SummaryModelProtocol {
     private let userID: Int
     private let taskHref: String
     private let projectHref: String
-    let timeSpent: Date
+    var timeSpent: DateComponents
     var comment: String?
     
     let taskTitle: String?
@@ -41,7 +41,7 @@ final class SummaryModel: SummaryModelProtocol {
          userID: Int,
          taskHref: String,
          projectHref: String,
-         timeSpent: Date,
+         timeSpent: DateComponents,
          taskTitle: String?,
          projectTitle: String?,
          comment: String?) {
@@ -54,6 +54,8 @@ final class SummaryModel: SummaryModelProtocol {
         self.taskTitle = taskTitle
         self.projectTitle = projectTitle
         self.comment = comment
+        
+        self.timeSpent.second = nil
     }
     
     // MARK: - SummaryModelProtocol

@@ -11,7 +11,7 @@ protocol SummaryPresenterProtocol: AnyObject {
     
     var taskTitle: String? { get }
     var projectTitle: String? { get }
-    var timeSpent: String? { get }
+    var timeSpent: DateComponents? { get set }
     var comment: String? { get set }
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void)
@@ -28,9 +28,12 @@ final class SummaryPresenter: SummaryPresenterProtocol {
     
     var taskTitle: String? { model?.taskTitle }
     var projectTitle: String? { model?.projectTitle }
-    var timeSpent: String? {
-        guard let time = model?.timeSpent else { return nil }
-        return convertDuration(time)
+    var timeSpent: DateComponents? {
+        get { model?.timeSpent }
+        set {
+            if let newValue = newValue { model?.timeSpent = newValue }
+            else { Logger.log(event: .warning, "Trying to set empty element") }
+        }
     }
     var comment: String? {
         get { model?.comment }
@@ -39,13 +42,5 @@ final class SummaryPresenter: SummaryPresenterProtocol {
     
     func createTimeEntry(_ completion: @escaping (Bool) -> Void) {
         model?.saveTimeEntry(completion)
-    }
-    
-    // MARK: - Private helpers
-    
-    private func convertDuration(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss"
-        return dateFormatter.string(from: date)
     }
 }

@@ -19,6 +19,10 @@ final class TimeEntryFormatter {
     static func formatDuration(_ date: Date) -> String {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        return formatDuration(components)
+    }
+    
+    static func formatDuration(_ components: DateComponents) -> String {
         var result = "PT"
         if let hours = components.hour {
             result.append("\(hours)H")

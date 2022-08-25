@@ -14,12 +14,12 @@ protocol TimeEntriesRequestFactoryProtocol {
     func createTimeEnrtiesCreateRequestConfig(userID: Int,
                                               projectHref: String,
                                               workPackageHref: String,
-                                              duration: Date,
+                                              duration: DateComponents,
                                               date: Date,
                                               comment: String?
     ) -> RequestConfig<EmptyParser>
     
-    func createTimeEntriesUpdateRequestConfig(id: Int, duration: Date, comment: String?) -> RequestConfig<EmptyParser>
+    func createTimeEntriesUpdateRequestConfig(id: Int, duration: DateComponents, comment: String?) -> RequestConfig<EmptyParser>
 }
 
 final class TimeEntriesRequestFactory: TimeEntriesRequestFactoryProtocol {
@@ -34,7 +34,7 @@ final class TimeEntriesRequestFactory: TimeEntriesRequestFactoryProtocol {
         userID: Int,
         projectHref: String,
         workPackageHref: String,
-        duration: Date,
+        duration: DateComponents,
         date: Date,
         comment: String?
     ) -> RequestConfig<EmptyParser> {
@@ -43,7 +43,7 @@ final class TimeEntriesRequestFactory: TimeEntriesRequestFactoryProtocol {
         return RequestConfig(request: request, parser: parser)
     }
     
-    func createTimeEntriesUpdateRequestConfig(id: Int, duration: Date, comment: String?) -> RequestConfig<EmptyParser> {
+    func createTimeEntriesUpdateRequestConfig(id: Int, duration: DateComponents, comment: String?) -> RequestConfig<EmptyParser> {
         let request = TimeEntryUpdateRequest(id: id, duration: duration, comment: comment)
         let parser = EmptyParser()
         return RequestConfig(request: request, parser: parser)

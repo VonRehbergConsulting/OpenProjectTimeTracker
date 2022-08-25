@@ -58,8 +58,8 @@ final class TaskListPresenter: TaskListPresenterProtocol {
             guard let timeEntry = model?.timeEntry(at: indexPath.row) else { return nil }
             let title = timeEntry.workPackageTitle
             let subtitle = timeEntry.projectTitle
-            var content = "\(timeEntry.comment ?? "-")"
-            if content.isEmpty { content = "-" }
+            var content = "\(timeEntry.comment ?? "")"
+            if content.isEmpty { content = "No comment" }
             let detail = "\(timeEntry.timeSpent.clockTime)"
             let item = TaskListCell.Configuration(title: title, subtitle: subtitle, content: content, detail: detail)
             return item

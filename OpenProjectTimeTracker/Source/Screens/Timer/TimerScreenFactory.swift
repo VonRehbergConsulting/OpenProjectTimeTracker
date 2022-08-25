@@ -17,7 +17,7 @@ protocol TimerScreenFactoryProtocol {
                              userID: Int,
                              taskHref: String,
                              projectHref: String,
-                             timeSpent: Date,
+                             timeSpent: DateComponents,
                              taskTitle: String?,
                              projectTitle: String?,
                              comment: String?
@@ -80,7 +80,7 @@ final class TimerScreenFactory: TimerScreenFactoryProtocol {
                              userID: Int,
                              taskHref: String,
                              projectHref: String,
-                             timeSpent: Date,
+                             timeSpent: DateComponents,
                              taskTitle: String?,
                              projectTitle: String?,
                              comment: String?

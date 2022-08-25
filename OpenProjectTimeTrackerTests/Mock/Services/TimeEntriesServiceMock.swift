@@ -17,13 +17,13 @@ final class TimeEntriesServiceMock: TimeEntriesServiceProtocol {
     }
     
     var createStub: Bool?
-    func create(userID: Int, projectHref: String, workPackageHref: String, duration: Date, date: Date, comment: String?, _ completion: @escaping ((Bool) -> Void)) {
+    func create(userID: Int, projectHref: String, workPackageHref: String, duration: DateComponents, date: Date, comment: String?, _ completion: @escaping ((Bool) -> Void)) {
         guard  let createStub = createStub else { return }
         completion(createStub)
     }
     
     var updateStub: Bool?
-    func update(id: Int, duration: Date, comment: String?, _ completion: @escaping ((Bool) -> Void)) {
+    func update(id: Int, duration: DateComponents, comment: String?, _ completion: @escaping ((Bool) -> Void)) {
         guard let updateStub = updateStub else { return }
         completion(updateStub)
     }

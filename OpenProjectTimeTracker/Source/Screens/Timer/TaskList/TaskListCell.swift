@@ -12,54 +12,81 @@ class TaskListCell: UITableViewCell, ConfigurableCell {
     // MARK: - Constants
     
     private struct Constants {
-        static let edgeInset: CGFloat = 8
+        static let edgeInset: CGFloat = 12
         static let stackViewSpacing: CGFloat = 4
     }
     
     // MARK: - Subviews
     
-    private lazy var stackView: UIStackView = {
+    private lazy var verticalStackView: UIStackView = {
         let stackView = UIStackView().disableMask()
-        stackView.spacing = Constants.stackViewSpacing
         stackView.axis = .vertical
+        stackView.spacing = Constants.stackViewSpacing
         
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(secondLabel)
-        stackView.addArrangedSubview(thirdLabel)
-        stackView.addArrangedSubview(fourthLabel)
+        stackView.addArrangedSubview(subtitleLabel)
+        stackView.addArrangedSubview(horisontalStackView)
+        
+        return stackView
+    }()
+    
+    private lazy var horisontalStackView: UIStackView = {
+        let stackView = UIStackView().disableMask()
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.axis = .horizontal
+        stackView.spacing = Constants.stackViewSpacing
+        
+        stackView.addArrangedSubview(contentLabel)
+        stackView.addArrangedSubview(detailLabel)
         
         return stackView
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel().disableMask()
-        label.font = .systemFont(ofSize: 20)
         return label
     }()
     
-    let secondLabel = TaskListCell.defaultLabel
-    let thirdLabel = TaskListCell.defaultLabel
-    let fourthLabel = TaskListCell.defaultLabel
+    private lazy var subtitleLabel: UILabel = {
+        let label = UILabel().disableMask()
+        label.font = .systemFont(ofSize: 14)
+        label.layer.cornerRadius = 8
+        return label
+    }()
     
-    private static var defaultLabel: UILabel {
-        return UILabel().disableMask()
-    }
+    private lazy var contentLabel: UILabel = {
+        let label = UILabel().disableMask()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .darkGray
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        return label
+    }()
+    
+    private lazy var detailLabel: UILabel = {
+        let label = UILabel().disableMask()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .darkGray
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return label
+    }()
+    
     
     // MARK: - Configuration model
     
     struct Configuration {
         var title: String
-        var secondLine: String
-        var thirdLine: String
-        var fourthLine: String
+        var subtitle: String
+        var content: String
+        var detail: String
     }
     
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(stackView)
-        stackView.attachToSuperview(inset: Constants.edgeInset)
+        addSubview(verticalStackView)
+        verticalStackView.attachToSuperview(inset: Constants.edgeInset)
     }
     
     required init?(coder: NSCoder) {
@@ -72,8 +99,8 @@ class TaskListCell: UITableViewCell, ConfigurableCell {
     
     func configure(_ item: Configuration, at indexPath: IndexPath) {
         titleLabel.text = item.title
-        secondLabel.text = item.secondLine
-        thirdLabel.text = item.thirdLine
-        fourthLabel.text = item.fourthLine
+        subtitleLabel.text = item.subtitle
+        contentLabel.text = item.content
+        detailLabel.text = item.detail
     }
 }

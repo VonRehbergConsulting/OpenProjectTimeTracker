@@ -49,18 +49,19 @@ final class TaskListPresenter: TaskListPresenterProtocol {
         case .task:
             guard let task = model?.task(at: indexPath.row) else { return nil }
             let title = task.subject
-            let secondLine = task.projectTitle ?? ""
-            let thirdLine = "Priority: \(task.prioriry ?? "")"
-            let fourthLine = "Status: \(task.status ?? "")"
-            let item = TaskListCell.Configuration(title: title, secondLine: secondLine, thirdLine: thirdLine, fourthLine: fourthLine)
+            let subtitle = task.projectTitle ?? ""
+            let content = "Priority: \(task.prioriry ?? "")"
+            let detail = "\(task.status ?? "")"
+            let item = TaskListCell.Configuration(title: title, subtitle: subtitle, content: content, detail: detail)
             return item
         case .timeEntry:
             guard let timeEntry = model?.timeEntry(at: indexPath.row) else { return nil }
             let title = timeEntry.workPackageTitle
-            let secondLine = timeEntry.projectTitle
-            let thirdLine = "Time spent: \(timeEntry.timeSpent.clockTime)"
-            let fourthLine = "Comment: \(timeEntry.comment ?? "-")"
-            let item = TaskListCell.Configuration(title: title, secondLine: secondLine, thirdLine: thirdLine, fourthLine: fourthLine)
+            let subtitle = timeEntry.projectTitle
+            var content = "\(timeEntry.comment ?? "-")"
+            if content.isEmpty { content = "-" }
+            let detail = "\(timeEntry.timeSpent.clockTime)"
+            let item = TaskListCell.Configuration(title: title, subtitle: subtitle, content: content, detail: detail)
             return item
         }
     }

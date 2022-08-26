@@ -55,7 +55,7 @@ jobs:
       - name: Build success badge for develop
         if: |
             ${{ env.build_success &&
-            ${GITHUB_REF##*/} == "develop" }}
+            env.github_ref#refs/heads/ == "develop" }}
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
@@ -68,7 +68,7 @@ jobs:
       - name: Build failure badge for develop
         if: |
             ${{ !env.build_success &&
-            ${GITHUB_REF##*/} == "develop" }}
+            env.github_ref#refs/heads/ == "develop" }}
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}

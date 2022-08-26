@@ -46,11 +46,13 @@ jobs:
           
       - name: Build app
         run: |
-         echo "build_success=true" >> $GITHUB_ENV
+          xcodebuild clean build -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+          echo "build_success=true" >> $GITHUB_ENV
          
       - name: Test app
         run: |
-         echo "test_success=true" >> $GITHUB_ENV
+          xcodebuild test -project "OpenProjectTimeTracker.xcodeproj" -scheme "OpenProjectTimeTracker" -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+          echo "test_success=true" >> $GITHUB_ENV
 
       - name: Get branch name
         id: branch-name
@@ -59,7 +61,7 @@ jobs:
       - name: Build success badge for develop
         if: |
             env.build_success &&
-            steps.branch-name.outputs.current_branch == 'action-badges'
+            steps.branch-name.outputs.current_branch == 'develop'
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
@@ -72,7 +74,7 @@ jobs:
       - name: Build failure badge for develop
         if: |
             ! env.build_success &&
-            steps.branch-name.outputs.current_branch == 'action-badges'
+            steps.branch-name.outputs.current_branch == 'develop'
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}

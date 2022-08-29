@@ -72,8 +72,7 @@ final class TimeEntriesService: TimeEntriesServiceProtocol {
             switch result {
             case .success(_):
                 completion(true)
-            case .failure(let error):
-                print(error)
+            case .failure(_):
                 completion(false)
             }
         }

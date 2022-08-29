@@ -36,14 +36,7 @@ final class TaskService: TaskServiceProtocol {
     
     func task(id: Int, _ completion: @escaping (Result<Task, Error>) -> Void) {
         let requestConfig = requestFactory.createWorkPackageRequestConfig(id: id)
-        service.send(requestConfig: requestConfig) { result in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let task):
-                completion(.success(task))
-            }
-        }
+        service.send(requestConfig: requestConfig, completion)
     }
     
     func list(userID: Int, page: Int, _ completion: @escaping (Result<[Task], Error>) -> Void) {

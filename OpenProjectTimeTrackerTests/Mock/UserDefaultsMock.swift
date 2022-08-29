@@ -15,6 +15,6 @@ final class UserDefaultsMock: UserDefaultsProtocol {
         storage[defaultName] = value
     }
     func object(forKey defaultName: String) -> Any? {
-        storage[defaultName]
+        storage[defaultName] ?? nil
     }
 }

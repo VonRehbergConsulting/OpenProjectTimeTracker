@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -28,10 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
         
-        let router = CoordinatorRouter(window: window!)
+        let navigationController = UINavigationController()
+        let router = CoordinatorRouter(window: window!, navigationController: navigationController)
         let tokenStorage = TokenStorage()
         let timerDataStorage = TimerDataStorage()
-        let service = OpenProjectService(tokenStorage: tokenStorage)
+        let oauth2swift = OAuth2Swift(viewController: navigationController)
+        let service = OpenProjectService(tokenStorage: tokenStorage, oauth2swift: oauth2swift)
         let factory = CoordinatorFactory(
             router: router,
             tokenStorage: tokenStorage,

@@ -21,18 +21,21 @@ class CoordinatorRouter: CoordinatorRouterProtocol {
     // MARK: - Propertie
     
     private let window: UIWindow
-    private var navigationController: UINavigationController = .init()
+    private let navigationController: UINavigationController
     
     // MARK: - Lifecycle
     
-    init(window: UIWindow) {
+    init(window: UIWindow,
+         navigationController: UINavigationController
+    ) {
         self.window = window
+        self.navigationController = navigationController
     }
     
     // MARK: - CoordinatorRouterProtocol
     
     func transition(to viewController: UIViewController) {
-        navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.viewControllers = [viewController]
         navigationController.navigationBar.isHidden = false
         
         window.rootViewController = navigationController

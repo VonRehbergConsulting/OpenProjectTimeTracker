@@ -5,12 +5,26 @@
 //  Created by Denis Shtangey on 04.08.22.
 //
 
+import Foundation
 import OAuthSwift
+import UIKit
 
-extension OAuth2Swift {
+protocol OAuth2SwiftProtocol {
     
-    static var openProject: OAuth2Swift {
-        let oauth2swift = OAuth2Swift(
+    @discardableResult
+    func authorize(withCallbackURL url: URLConvertible, scope: String, state: String, codeChallenge: String, codeChallengeMethod: String, codeVerifier: String, parameters: OAuthSwift.Parameters, headers: OAuthSwift.Headers?, completionHandler completion: @escaping OAuthSwift.TokenCompletionHandler) -> OAuthSwiftRequestHandle?
+    
+    @discardableResult
+    func renewAccessToken(withRefreshToken refreshToken: String, parameters: OAuthSwift.Parameters?, headers: OAuthSwift.Headers?, completionHandler completion: @escaping OAuthSwift.TokenCompletionHandler) -> OAuthSwiftRequestHandle?
+    
+    @discardableResult
+    func startAuthorizedRequest(_ url: URLConvertible, method: OAuthSwiftHTTPRequest.Method, parameters: OAuthSwift.Parameters, headers: OAuthSwift.Headers?, renewHeaders: OAuthSwift.Headers?, body: Data?, onTokenRenewal: OAuthSwift.TokenRenewedHandler?, completionHandler completion: @escaping OAuthSwiftHTTPRequest.CompletionHandler) -> OAuthSwiftRequestHandle?
+}
+
+extension OAuth2Swift: OAuth2SwiftProtocol {
+    
+    convenience init(viewController: UIViewController) {
+        self.init(
             consumerKey: APIKey.consumerKey,
             consumerSecret: "",
             authorizeUrl: APIKey.authorizeURL,
@@ -18,7 +32,8 @@ extension OAuth2Swift {
             responseType: "code",
             contentType: ""
         )
-        oauth2swift.allowMissingStateCheck = true
-        return oauth2swift
+        allowMissingStateCheck = true
+        let handler = SafariURLHandler(viewController: viewController, oauthSwift: self)
+        authorizeURLHandler = handler
     }
 }

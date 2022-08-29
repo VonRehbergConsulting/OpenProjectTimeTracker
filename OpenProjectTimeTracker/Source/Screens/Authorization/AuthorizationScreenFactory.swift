@@ -41,8 +41,6 @@ class AuthorizationScreenFactory: AuthorizationScreenFactoryProtocol {
         presenter.model = model
         model.presenter = presenter
         
-        authorizationService.viewController = viewController
-        
         return viewController
     }
 }

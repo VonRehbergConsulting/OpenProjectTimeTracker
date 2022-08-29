@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AuthorizationToken: Codable {
+struct AuthorizationToken: Codable, Equatable {
     
     var oauthToken: String
     var refreshToken: String

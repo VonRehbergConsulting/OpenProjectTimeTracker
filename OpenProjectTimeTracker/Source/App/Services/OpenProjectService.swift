@@ -12,8 +12,6 @@ import UIKit
 
 protocol AuthorizationServiceProtocol: AnyObject {
     
-    var viewController: UIViewController? { get set }
-    
     func authorize(_ completion: @escaping ((Result<AuthorizationToken, Error>) -> Void))
 }
 
@@ -44,26 +42,15 @@ class OpenProjectService: AuthorizationServiceProtocol,
     // MARK: - Properties
     
     private let tokenStorage: TokenStorageProtocol
-    
-    private lazy var oauth2swift: OAuth2Swift = {
-        let oauth2swift = OAuth2Swift.openProject
-        
-        if let viewController = viewController {
-            let handler = SafariURLHandler(viewController: viewController, oauthSwift: oauth2swift)
-            oauth2swift.authorizeURLHandler = handler
-        } else {
-            Logger.log(event: .warning, "Can't find view controller for authorization service")
-        }
-        
-        return oauth2swift
-    }()
-    
-    weak var viewController: UIViewController?
+    private let oauth2swift: OAuth2SwiftProtocol
     
     // MARK: - Lifecycle
     
-    init(tokenStorage: TokenStorageProtocol) {
+    init(tokenStorage: TokenStorageProtocol,
+         oauth2swift: OAuth2SwiftProtocol
+    ) {
         self.tokenStorage = tokenStorage
+        self.oauth2swift = oauth2swift
     }
     
     // MARK: - AuthorizationServiceProtocol
@@ -79,12 +66,16 @@ class OpenProjectService: AuthorizationServiceProtocol,
             return
         }
         
-        oauth2swift.authorize(withCallbackURL: "openprojecttimetracker://oauth-callback",
-                              scope: "api_v3",
-                              state: "",
-                              codeChallenge: codeChallenge,
-                              codeChallengeMethod: "S256",
-                              codeVerifier: codeVerifier) { [weak self] result in
+        oauth2swift.authorize(
+            withCallbackURL: "openprojecttimetracker://oauth-callback",
+            scope: "api_v3",
+            state: "",
+            codeChallenge: codeChallenge,
+            codeChallengeMethod: "S256",
+            codeVerifier: codeVerifier,
+            parameters: [:],
+            headers: nil
+        ) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let (credential, _, _)):
@@ -103,7 +94,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
     // MARK: - RefreshTokenProtocol
     
     func refresh(_ token: AuthorizationToken, completion: @escaping (Result<AuthorizationToken, Error>) -> Void) {
-        oauth2swift.renewAccessToken(withRefreshToken: token.refreshToken) { [weak self] result in
+        oauth2swift.renewAccessToken(withRefreshToken: token.refreshToken, parameters: nil, headers: nil) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let (credential, _, _)):
@@ -142,6 +133,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
                                            method: oauthMethod,
                                            parameters: requestConfig.request.parameters,
                                            headers: requestConfig.request.headers,
+                                           renewHeaders: nil,
                                            body: requestConfig.request.body,
                                            onTokenRenewal: { [weak self] result in
             guard let self = self else { return }

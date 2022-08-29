@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         let router = CoordinatorRouter(window: window!, navigationController: navigationController)
         let tokenStorage = TokenStorage()
-        let timerDataStorage = TimerDataStorage()
+        let timerDataStorage = TimerDataStorage(userDefaultsProtocol: UserDefaults.standard)
         let oauth2swift = OAuth2Swift(viewController: navigationController)
         let service = OpenProjectService(tokenStorage: tokenStorage, oauth2swift: oauth2swift)
         let factory = CoordinatorFactory(

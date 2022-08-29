@@ -21,12 +21,24 @@ protocol TimerDataStorageProtocol: AnyObject {
 
 final class TimerDataStorage: TimerDataStorageProtocol {
     
+    // MARK: - Properties
+    
+    private let userDefaultsProtocol: UserDefaultsProtocol
+    
     private let userIDKey = "userID"
     private let timeEntryIDKey = "timeEntryID"
     private let taskKey = "currentTask"
     private let startTimeKey = "startTime"
     private let stopTimeKey = "stopTime"
     private let commentKey = "commentKey"
+    
+    // MARK: - Lifecycle
+    
+    init(userDefaultsProtocol: UserDefaultsProtocol) {
+        self.userDefaultsProtocol = userDefaultsProtocol
+    }
+    
+    // MARK: - TimerDataStorageProtocol
     
     var userID: Int? {
         get { object(forKey: userIDKey) as? Int }
@@ -66,6 +78,7 @@ final class TimerDataStorage: TimerDataStorageProtocol {
     }
     
     func clear() {
+        userID = nil
         task = nil
         startTime = nil
         stopTime = nil

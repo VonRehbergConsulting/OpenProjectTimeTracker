@@ -24,6 +24,9 @@
 		B735EB6928BCDCAB00B1E515 /* TaskServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6828BCDCAB00B1E515 /* TaskServiceTests.swift */; };
 		B735EB6B28BCE1E500B1E515 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6A28BCE1E500B1E515 /* UserServiceTests.swift */; };
 		B735EB6D28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6C28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift */; };
+		B735EB6F28BCE5E300B1E515 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */; };
+		B735EB7128BCE77A00B1E515 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */; };
+		B735EB7428BCE7F200B1E515 /* TimerDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
 		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
@@ -167,6 +170,9 @@
 		B735EB6828BCDCAB00B1E515 /* TaskServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceTests.swift; sourceTree = "<group>"; };
 		B735EB6A28BCE1E500B1E515 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
 		B735EB6C28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesServiceTests.swift; sourceTree = "<group>"; };
+		B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
+		B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorageTests.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
 		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
@@ -355,6 +361,14 @@
 			path = OAuth2Swift;
 			sourceTree = "<group>";
 		};
+		B735EB7228BCE7E000B1E515 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		B743E1B12897C21E00FE944A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,9 +534,10 @@
 		B7AF8EFB289577A000617364 /* OpenProjectTimeTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B735EB5728BCB62D00B1E515 /* Extensions */,
 				B7C9D4C128ACF32A00EEF694 /* Mock */,
+				B735EB5728BCB62D00B1E515 /* Extensions */,
 				B735EB5428BCB37D00B1E515 /* Services */,
+				B735EB7228BCE7E000B1E515 /* Storage */,
 				B7C9D4C828ACF55C00EEF694 /* Screens */,
 			);
 			path = OpenProjectTimeTrackerTests;
@@ -613,6 +628,7 @@
 				B7D588E428A3F73000A7764B /* Date.swift */,
 				B7F9A30A28AA32F600F694C5 /* UIFont.swift */,
 				B7F9A35728AB955800F694C5 /* DateComponents.swift */,
+				B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -686,6 +702,7 @@
 				B770FE9B28B37CDD0067672E /* Services */,
 				B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */,
 				B770FEA728B385750067672E /* TimerDataStorageMock.swift */,
+				B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1033,6 +1050,7 @@
 				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
 				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
 				B7F9A33128AA67D100F694C5 /* TimeEntriesRequestFactory.swift in Sources */,
+				B735EB6F28BCE5E300B1E515 /* UserDefaults.swift in Sources */,
 				B7F9A35828AB955800F694C5 /* DateComponents.swift in Sources */,
 				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
 				B74FC52228A63667001791B1 /* DSTextField.swift in Sources */,
@@ -1058,6 +1076,7 @@
 				B770FEAE28B389110067672E /* TimerModelMock.swift in Sources */,
 				B770FEB528B39E300067672E /* TaskListDataProviderTests.swift in Sources */,
 				B770FEA028B37D640067672E /* AuthorizationPresenterTests.swift in Sources */,
+				B735EB7128BCE77A00B1E515 /* UserDefaultsMock.swift in Sources */,
 				B770FEA428B3818D0067672E /* TimeEntriesServiceMock.swift in Sources */,
 				B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */,
 				B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */,
@@ -1077,6 +1096,7 @@
 				B770FEA828B385750067672E /* TimerDataStorageMock.swift in Sources */,
 				B735EB5628BCB3A200B1E515 /* OpenProjectServiceTests.swift in Sources */,
 				B770FEBC28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift in Sources */,
+				B735EB7428BCE7F200B1E515 /* TimerDataStorageTests.swift in Sources */,
 				B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */,
 				B770FEAB28B386300067672E /* TimerModelTests.swift in Sources */,
 				B770FEA628B382590067672E /* SummaryModelTests.swift in Sources */,

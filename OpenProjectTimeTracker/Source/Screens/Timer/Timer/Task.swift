@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Task: Codable {
+struct Task: Codable, Equatable {
     
     var selfHref: String
     var subject: String

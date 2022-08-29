@@ -19,6 +19,7 @@
 		B735EB5928BCB63600B1E515 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5828BCB63600B1E515 /* XCTestCase.swift */; };
 		B735EB5C28BCBE8000B1E515 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5B28BCBE8000B1E515 /* RequestMock.swift */; };
 		B735EB5E28BCBEBF00B1E515 /* ParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5D28BCBEBF00B1E515 /* ParserMock.swift */; };
+		B735EB6528BCC92500B1E515 /* ParsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6428BCC92500B1E515 /* ParsersTests.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
 		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
@@ -157,6 +158,7 @@
 		B735EB5828BCB63600B1E515 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		B735EB5B28BCBE8000B1E515 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		B735EB5D28BCBEBF00B1E515 /* ParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserMock.swift; sourceTree = "<group>"; };
+		B735EB6428BCC92500B1E515 /* ParsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsersTests.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
 		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		B735EB5428BCB37D00B1E515 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B735EB6428BCC92500B1E515 /* ParsersTests.swift */,
 				B735EB5528BCB3A200B1E515 /* OpenProjectServiceTests.swift */,
 			);
 			path = Services;
@@ -1038,6 +1041,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B735EB6528BCC92500B1E515 /* ParsersTests.swift in Sources */,
 				B770FEB728B3A7100067672E /* TimeEntriesDataProviderTests.swift in Sources */,
 				B770FEAE28B389110067672E /* TimerModelMock.swift in Sources */,
 				B770FEB528B39E300067672E /* TaskListDataProviderTests.swift in Sources */,

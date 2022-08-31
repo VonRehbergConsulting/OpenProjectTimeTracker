@@ -11,13 +11,15 @@ class AppCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    private var coordinatorFactory: CoordinatorFactoryProtocol
+    private let coordinatorFactory: CoordinatorFactoryProtocol
     private var childCoordinators: [Coordinator] = []
     private let router: CoordinatorRouterProtocol
     private let tokenStorage: TokenStorageProtocol
     private let timerDataStorage: TimerDataStorageProtocol
     
     private var isJustStarted = true
+    
+    var finishFlow: (() -> Void)?
     
     // MARK: - Lifecycle
     

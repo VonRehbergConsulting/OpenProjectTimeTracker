@@ -7,17 +7,11 @@
 
 import UIKit
 
-protocol AuthorizationCoordinatorOutput {
-    
-    var finishFlow: (() -> Void)? { get set }
-}
-
 protocol AuthorizationCoordinatorProtocol: AnyObject {
     
 }
 
 class AuthorizationCoordinator: Coordinator,
-                                AuthorizationCoordinatorOutput,
                                 AuthorizationCoordinatorProtocol {
     
     // MARK: - Properties

@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol TimerCoordinatorOutput {
-    var finishFlow: (() -> Void)? { get set }
-}
-
 protocol TimerCoordinatorProtocol: AnyObject {
     
     func handleAuthorizationError()
@@ -28,8 +24,7 @@ protocol TimerCoordinatorProtocol: AnyObject {
 }
 
 class TimerCoordinator: Coordinator,
-                        TimerCoordinatorProtocol,
-                        TimerCoordinatorOutput {
+                        TimerCoordinatorProtocol {
     
     // MARK: - Properties
     
@@ -67,7 +62,7 @@ class TimerCoordinator: Coordinator,
     // MARK: - TimerCoordinatorProtocol
     
     func handleAuthorizationError() {
-        timerDataStorage.clear()
+        timerDataStorage.clearTaskData()
         finishFlow?()
     }
     

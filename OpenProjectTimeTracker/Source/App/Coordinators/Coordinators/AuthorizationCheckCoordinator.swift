@@ -7,17 +7,12 @@
 
 import Foundation
 
-protocol AuthorizationCheckCoordinatorOutput {
-    var finishFlow: (() -> Void)? { get set }
-}
-
 protocol AuthorizationCheckCoordinatorProtocol {
     
 }
 
 final class AuthorizationCheckCoordinator: Coordinator,
-                                           AuthorizationCheckCoordinatorProtocol,
-                                           AuthorizationCheckCoordinatorOutput {
+                                           AuthorizationCheckCoordinatorProtocol {
     
     // MARK: - Properties
     
@@ -64,6 +59,6 @@ final class AuthorizationCheckCoordinator: Coordinator,
     
     private func clearData() {
         tokenStorage.token = nil
-        timerDataStorage.clear()
+        timerDataStorage.clearTaskData()
     }
 }

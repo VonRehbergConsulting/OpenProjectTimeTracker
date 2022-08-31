@@ -9,11 +9,11 @@ import UIKit
 
 protocol CoordinatorFactoryProtocol {
     
-    func createAuthorizationCheckCoordinator() -> AuthorizationCheckCoordinator
+    func createAuthorizationCheckCoordinator() -> Coordinator
     
-    func createAuthorizationCoordinator() -> AuthorizationCoordinator
+    func createAuthorizationCoordinator() -> Coordinator
     
-    func createProjectsCoordinator() -> TimerCoordinator
+    func createProjectsCoordinator() -> Coordinator
     
 }
 
@@ -49,7 +49,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     
     // MARK: - CoordinatorFactoryProtocol
     
-    func createAuthorizationCheckCoordinator() -> AuthorizationCheckCoordinator {
+    func createAuthorizationCheckCoordinator() -> Coordinator {
         let userService = UserService(service: requestService, requestFactory: UserDataRequestFactory())
         let screenFactory = LaunchScreenFactory(
             refreshService: refreshService,
@@ -66,7 +66,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
         return coordinator
     }
     
-    func createAuthorizationCoordinator() -> AuthorizationCoordinator {
+    func createAuthorizationCoordinator() -> Coordinator {
         let userService = UserService(service: requestService, requestFactory: UserDataRequestFactory())
         let screenFactory = AuthorizationScreenFactory(authorizationService: authorizationService,
                                                        userService: userService
@@ -78,7 +78,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
         return coordinator
     }
     
-    func createProjectsCoordinator() -> TimerCoordinator {
+    func createProjectsCoordinator() -> Coordinator {
         let screenFactory = TimerScreenFactory(service: requestService, timerDataStorage: timerDataStorage)
         let coordinator = TimerCoordinator(screenFactory: screenFactory, router: router, timerDataStorage: timerDataStorage)
         return coordinator

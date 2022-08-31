@@ -72,13 +72,13 @@ final class TimerModel: TimerModelProtocol {
         guard let startTime = startTime,
               task != nil
         else {
-            storage.clear()
+            storage.clearTaskData()
             return
         }
         let acceptableTimeInterval: TimeInterval = 36000
         let timeSinceStart = Date().timeIntervalSince(startTime)
         guard timeSinceStart < acceptableTimeInterval else {
-            storage.clear()
+            storage.clearTaskData()
             return
         }
     }

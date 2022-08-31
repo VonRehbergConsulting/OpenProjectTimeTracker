@@ -36,7 +36,7 @@ final class TimerDataStorageTests: XCTestCase {
         storage.comment = "comment"
         
         // Assert
-        XCTAssertEqual(storage.userID, 5)
+        XCTAssertEqual(storage.userID, 4)
         XCTAssertEqual(storage.timeEntryID, 5)
         XCTAssertEqual(storage.task, task)
         XCTAssertEqual(storage.startTime, startTime)

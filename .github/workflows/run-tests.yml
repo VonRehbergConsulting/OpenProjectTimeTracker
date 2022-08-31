@@ -36,7 +36,7 @@ jobs:
         uses: tj-actions/branch-names@v5.5
         
       - name: Create coverage badge for develop
-        run: echo '${{ fromJson(env.COVERAGE_REPORT).coverage }}'
+        run: echo '${{ fromJson(env.COVERAGE_REPORT).coverage * 100 }}'
 
       - name: Build success badge for develop
         if: |

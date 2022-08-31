@@ -1,5 +1,5 @@
 //
-//  AuthorizationCheckCoordinator.swift
+//  AuthorizationCheckCoordinatorTests.swift
 //  OpenProjectTimeTrackerTests
 //
 //  Created by Denis Shtangey on 29.08.22.

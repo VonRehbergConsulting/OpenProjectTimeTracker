@@ -28,7 +28,7 @@
 		B735EB7128BCE77A00B1E515 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */; };
 		B735EB7428BCE7F200B1E515 /* TimerDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */; };
 		B735EB7628BCF7D600B1E515 /* CoordinatorRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */; };
-		B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinator.swift */; };
+		B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */; };
 		B735EB7C28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
@@ -177,7 +177,7 @@
 		B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
 		B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorageTests.swift; sourceTree = "<group>"; };
 		B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouterMock.swift; sourceTree = "<group>"; };
-		B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCheckCoordinator.swift; sourceTree = "<group>"; };
+		B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCheckCoordinatorTests.swift; sourceTree = "<group>"; };
 		B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFactoryMock.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 		B735EB7728BCF83E00B1E515 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinator.swift */,
+				B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1103,7 +1103,7 @@
 				B770FEA028B37D640067672E /* AuthorizationPresenterTests.swift in Sources */,
 				B735EB7128BCE77A00B1E515 /* UserDefaultsMock.swift in Sources */,
 				B770FEA428B3818D0067672E /* TimeEntriesServiceMock.swift in Sources */,
-				B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinator.swift in Sources */,
+				B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift in Sources */,
 				B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */,
 				B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */,
 				B735EB6928BCDCAB00B1E515 /* TaskServiceTests.swift in Sources */,

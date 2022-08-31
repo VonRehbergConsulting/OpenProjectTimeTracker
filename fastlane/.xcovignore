@@ -1,0 +1,3 @@
+# Exclude all view controllers and views
+- .*View.swift
+- .*ViewController.swift

@@ -25,7 +25,7 @@ final class TimerDataStorageTests: XCTestCase {
     
     func testStorage() {
         // Arrange
-        let task = Task(selfHref: "qwe", subject: "asd", projectHref: "zxc")
+        let task = Task(selfHref: "qwe", subject: "Name from storage test", projectHref: "zxc")
         let startTime = Date()
         let stopTime = Date().addingTimeInterval(4000)
         storage.userID = 4
@@ -57,10 +57,10 @@ final class TimerDataStorageTests: XCTestCase {
         storage.comment = "comment"
         
         // Act
-        storage.clear()
+        storage.clearTaskData()
         
         // Assert
-        XCTAssertNil(storage.userID)
+        XCTAssertEqual(storage.userID, 4)
         XCTAssertNil(storage.timeEntryID)
         XCTAssertNil(storage.task)
         XCTAssertNil(storage.startTime)

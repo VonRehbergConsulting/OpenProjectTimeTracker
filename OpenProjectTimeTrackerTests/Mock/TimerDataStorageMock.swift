@@ -18,7 +18,7 @@ final class TimerDataStorageMock: TimerDataStorageProtocol {
     var comment: String?
     
     var clearStub: (() -> Void)?
-    func clear() {
+    func clearTaskData() {
         clearStub?()
     }
 }

@@ -16,7 +16,7 @@ protocol TimerDataStorageProtocol: AnyObject {
     var stopTime: Date? { get set }
     var comment: String? { get set }
     
-    func clear()
+    func clearTaskData()
 }
 
 final class TimerDataStorage: TimerDataStorageProtocol {
@@ -77,8 +77,7 @@ final class TimerDataStorage: TimerDataStorageProtocol {
         set { store(newValue, forKey: commentKey) }
     }
     
-    func clear() {
-        userID = nil
+    func clearTaskData() {
         task = nil
         startTime = nil
         stopTime = nil
@@ -89,10 +88,10 @@ final class TimerDataStorage: TimerDataStorageProtocol {
     // MARK: - Private helpers
     
     private func store(_ value: Any?, forKey key: String) {
-        UserDefaults.standard.set(value, forKey: key)
+        userDefaultsProtocol.set(value, forKey: key)
     }
     
     private func object(forKey key: String) -> Any? {
-        UserDefaults.standard.object(forKey: key)
+        userDefaultsProtocol.object(forKey: key)
     }
 }

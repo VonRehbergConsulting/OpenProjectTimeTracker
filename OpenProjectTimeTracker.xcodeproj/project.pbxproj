@@ -30,6 +30,8 @@
 		B735EB7628BCF7D600B1E515 /* CoordinatorRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */; };
 		B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */; };
 		B735EB7C28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */; };
+		B735EB7E28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7D28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift */; };
+		B735EB8028BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7F28BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift */; };
 		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
 		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
 		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
@@ -179,6 +181,8 @@
 		B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouterMock.swift; sourceTree = "<group>"; };
 		B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCheckCoordinatorTests.swift; sourceTree = "<group>"; };
 		B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFactoryMock.swift; sourceTree = "<group>"; };
+		B735EB7D28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinatorTests.swift; sourceTree = "<group>"; };
+		B735EB7F28BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactoryMock.swift; sourceTree = "<group>"; };
 		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
 		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */,
+				B735EB7D28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */,
+				B735EB7F28BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift */,
 			);
 			path = ScreenFactories;
 			sourceTree = "<group>";
@@ -1107,6 +1113,7 @@
 				B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */,
 				B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */,
 				B735EB6928BCDCAB00B1E515 /* TaskServiceTests.swift in Sources */,
+				B735EB8028BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift in Sources */,
 				B735EB5C28BCBE8000B1E515 /* RequestMock.swift in Sources */,
 				B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */,
 				B770FEB028B389420067672E /* TimerPresenterTests.swift in Sources */,
@@ -1118,6 +1125,7 @@
 				B735EB6B28BCE1E500B1E515 /* UserServiceTests.swift in Sources */,
 				B735EB5E28BCBEBF00B1E515 /* ParserMock.swift in Sources */,
 				B735EB6728BCDA5000B1E515 /* RequestServiceMock.swift in Sources */,
+				B735EB7E28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift in Sources */,
 				B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */,
 				B735EB5928BCB63600B1E515 /* XCTestCase.swift in Sources */,
 				B770FEA828B385750067672E /* TimerDataStorageMock.swift in Sources */,

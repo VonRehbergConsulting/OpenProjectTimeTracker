@@ -24,11 +24,19 @@ jobs:
             echo "tests_success=true" >> $GITHUB_ENV
             
       - name: Count coverage
-        run: bundle exec fastlane covCount
-  
+        run: |
+            bundle exec fastlane covCount
+            
+            echo 'COVERAGE_REPORT<<EOF' >> $GITHUB_ENV
+            cat ./xcov_output/report.json >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
+
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5.5
+        
+      - name: Create coverage badge for develop
+        run: echo '${{ fromJson(env.COVERAGE_REPORT).coverage }}'
 
       - name: Build success badge for develop
         if: |

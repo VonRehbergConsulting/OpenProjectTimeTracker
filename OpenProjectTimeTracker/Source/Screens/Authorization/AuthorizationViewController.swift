@@ -35,14 +35,12 @@ final class AuthorizationViewController: UIViewController, AuthorizationViewPror
             guard let self = self,
                 let presenter = self.presenter
             else { return }
-            self.contentView?.isLoginButtonEnabled = false
             presenter.authorize() { [weak self] userID in
                 guard let self = self else { return }
                 if let userID = userID {
                     self.finishFlow?(userID)
                 } else {
                     self.showAlert(title: "Authorization error", message: "Please, try again later")
-                    self.contentView?.isLoginButtonEnabled = true
                 }
             }
         }   

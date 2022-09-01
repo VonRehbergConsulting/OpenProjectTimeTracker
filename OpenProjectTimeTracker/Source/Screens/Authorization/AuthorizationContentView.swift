@@ -27,10 +27,6 @@ class AuthorizationContentView: UIView {
     // MARK: - Properties
     
     var loginButtonAction: (() -> Void)?
-    var isLoginButtonEnabled: Bool {
-        get { loginButton.isEnabled }
-        set { loginButton.isEnabled = newValue }
-    }
     
     // MARK: - Lifecycle
     

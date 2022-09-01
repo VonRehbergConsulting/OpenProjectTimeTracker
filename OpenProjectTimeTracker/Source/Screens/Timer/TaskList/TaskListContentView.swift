@@ -19,7 +19,7 @@ final class TaskListContentView: UIView {
     // MARK: - Subviews
     
     private lazy var segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: ["Tasks", "Time entries"]).disableMask()
+        let segmentedControl = UISegmentedControl(items: ["Tasks", "Recent work"]).disableMask()
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControllChangedValue), for: .valueChanged)
         return segmentedControl
@@ -40,6 +40,11 @@ final class TaskListContentView: UIView {
     }
     
     var segmentedControlAction: ((Int) -> Void)?
+    
+    var tableViewContentInset: UIEdgeInsets {
+        get { tableView.contentInset }
+        set { tableView.contentInset = newValue }
+    }
     
     // MARK: - Lifecycle
     

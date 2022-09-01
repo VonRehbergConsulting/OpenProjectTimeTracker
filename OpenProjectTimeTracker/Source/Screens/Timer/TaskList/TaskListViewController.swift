@@ -46,6 +46,27 @@ final class TaskListViewController: UIViewController,
         loadFirstPage()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        super.viewWillDisappear(animated)
+    }
+    
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -132,5 +153,17 @@ final class TaskListViewController: UIViewController,
             self?.contentView?.finishLoading(indexPaths)
             self?.isLoading = false
         }
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            Logger.log(event: .warning, "Can't get notification info")
+            return
+        }
+        contentView?.tableViewContentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        contentView?.tableViewContentInset.bottom = 0
     }
 }

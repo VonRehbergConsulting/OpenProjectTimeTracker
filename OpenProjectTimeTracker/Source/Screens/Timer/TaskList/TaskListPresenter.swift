@@ -60,7 +60,7 @@ final class TaskListPresenter: TaskListPresenterProtocol {
             let subtitle = timeEntry.projectTitle
             var content = "\(timeEntry.comment ?? "")"
             if content.isEmpty { content = "No comment" }
-            let detail = "\(timeEntry.timeSpent.clockTime)"
+            let detail = "\(timeEntry.timeSpent.shortClockTime)"
             let item = TaskListCell.Configuration(title: title, subtitle: subtitle, content: content, detail: detail)
             return item
         }

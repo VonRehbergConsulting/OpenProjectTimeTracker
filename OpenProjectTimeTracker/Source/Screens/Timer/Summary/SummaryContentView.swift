@@ -83,6 +83,7 @@ final class SummaryContentView: UIView {
     
     private lazy var timePicker: DSTimePicker = {
         let picker = DSTimePicker().disableMask()
+        picker.alpha = 0.0
         picker.valueChangedCompletion = { [weak self] in
             guard let self = self else { return }
             self.setTimeLabel(self.currentPickerTime)
@@ -164,8 +165,19 @@ final class SummaryContentView: UIView {
     @objc private func timeTextFieldOnTap() {
         if stackView.subviews.contains(timePicker) {
             timePicker.removeFromSuperview()
+            UIView.animate(withDuration: 0.25, animations: { [weak self] in
+                self?.layoutIfNeeded()
+                self?.timePicker.alpha = 0.0
+            })
         } else {
+            timePicker.alpha = 0.0
             stackView.insertArrangedSubview(timePicker, at: 3)
+            UIView.animate(withDuration: 0.25, animations: { [weak self] in
+                self?.layoutIfNeeded()
+            })
+            UIView.animate(withDuration: 0.2, delay: 0.1, animations: { [weak self] in
+                self?.timePicker.alpha = 1.0
+            })
         }
     }
     

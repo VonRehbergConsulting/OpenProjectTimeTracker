@@ -25,12 +25,13 @@ end
 
 platform :ios do
   desc "Count coverage"
-  lane :covCount do
+  lane :coverage do
     xcov(
         project: "OpenProjectTimeTracker.xcodeproj",
         scheme: "OpenProjectTimeTracker",
         output_directory: "xcov_output",
-	json_report: true
+	json_report: false,
+	html_report: false
     )
   end
 end

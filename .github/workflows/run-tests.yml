@@ -22,7 +22,11 @@ jobs:
         run: |
             bundle exec fastlane tests
             echo "tests_success=true" >> $GITHUB_ENV
-  
+            
+      - name: Count coverage
+        run: |
+            bundle exec fastlane coverage
+
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5.5

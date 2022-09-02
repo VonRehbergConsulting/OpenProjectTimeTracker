@@ -16,9 +16,22 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Run unit testsr"
+  desc "Run unit tests"
   lane :tests do
     run_tests(device: "iPhone 13",
             scheme: "OpenProjectTimeTracker")
+  end
+end
+
+platform :ios do
+  desc "Count coverage"
+  lane :coverage do
+    xcov(
+        project: "OpenProjectTimeTracker.xcodeproj",
+        scheme: "OpenProjectTimeTracker",
+        output_directory: "xcov_output",
+	json_report: false,
+	html_report: false
+    )
   end
 end

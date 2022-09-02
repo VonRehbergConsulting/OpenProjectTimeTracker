@@ -136,3 +136,7 @@ iOSInjectionProject/
 
 # API key file
 OpenProjectAPI.xcconfig
+
+# fastlane
+xcov_output/
+fastlane/README.md

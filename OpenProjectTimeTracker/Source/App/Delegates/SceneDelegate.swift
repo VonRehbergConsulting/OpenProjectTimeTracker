@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var appCoordinator: AppCoordinator?
     
-    lazy var urlHandler = URLHandler()
+    lazy var urlHandler = URLHandler<OAuthSwift>()
 
     // MARK: - Lifecycle
     

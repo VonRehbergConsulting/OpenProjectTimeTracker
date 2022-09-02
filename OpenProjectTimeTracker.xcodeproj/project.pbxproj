@@ -14,7 +14,7 @@
 		B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283C289A8969008C2699 /* TimerCoordinator.swift */; };
 		B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283E289A8F11008C2699 /* CoordinatorRouter.swift */; };
 		B7252841289A9993008C2699 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252840289A9993008C2699 /* TokenStorage.swift */; };
-		B735EB5328BCB1B800B1E515 /* OAuth2SwiftProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5228BCB1B800B1E515 /* OAuth2SwiftProtocolMock.swift */; };
+		B735EB5328BCB1B800B1E515 /* OAuth2SwiftMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5228BCB1B800B1E515 /* OAuth2SwiftMock.swift */; };
 		B735EB5628BCB3A200B1E515 /* OpenProjectServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5528BCB3A200B1E515 /* OpenProjectServiceTests.swift */; };
 		B735EB5928BCB63600B1E515 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5828BCB63600B1E515 /* XCTestCase.swift */; };
 		B735EB5C28BCBE8000B1E515 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5B28BCBE8000B1E515 /* RequestMock.swift */; };
@@ -99,6 +99,9 @@
 		B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */; };
 		B7C5BA4B289D5F66000A10D7 /* TaskListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */; };
 		B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */; };
+		B7C680AC28C1FED7001CB41A /* URLHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C680AB28C1FED7001CB41A /* URLHandlerTests.swift */; };
+		B7C680AE28C1FF7F001CB41A /* OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C680AD28C1FF7F001CB41A /* OAuthSwift.swift */; };
+		B7C680B028C20096001CB41A /* OAuthSwiftMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C680AF28C20096001CB41A /* OAuthSwiftMock.swift */; };
 		B7C9D4BB28ACE10600EEF694 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */; };
 		B7C9D4BD28ACE10F00EEF694 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */; };
 		B7C9D4C328ACF3BE00EEF694 /* RefreshServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */; };
@@ -171,7 +174,7 @@
 		B725283C289A8969008C2699 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		B725283E289A8F11008C2699 /* CoordinatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouter.swift; sourceTree = "<group>"; };
 		B7252840289A9993008C2699 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
-		B735EB5228BCB1B800B1E515 /* OAuth2SwiftProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2SwiftProtocolMock.swift; sourceTree = "<group>"; };
+		B735EB5228BCB1B800B1E515 /* OAuth2SwiftMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2SwiftMock.swift; sourceTree = "<group>"; };
 		B735EB5528BCB3A200B1E515 /* OpenProjectServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectServiceTests.swift; sourceTree = "<group>"; };
 		B735EB5828BCB63600B1E515 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		B735EB5B28BCBE8000B1E515 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
@@ -259,6 +262,9 @@
 		B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCell.swift; sourceTree = "<group>"; };
 		B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		B7C680AB28C1FED7001CB41A /* URLHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandlerTests.swift; sourceTree = "<group>"; };
+		B7C680AD28C1FF7F001CB41A /* OAuthSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthSwift.swift; sourceTree = "<group>"; };
+		B7C680AF28C20096001CB41A /* OAuthSwiftMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthSwiftMock.swift; sourceTree = "<group>"; };
 		B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshServiceMock.swift; sourceTree = "<group>"; };
@@ -378,7 +384,8 @@
 		B735EB5A28BCB92100B1E515 /* OAuth2Swift */ = {
 			isa = PBXGroup;
 			children = (
-				B735EB5228BCB1B800B1E515 /* OAuth2SwiftProtocolMock.swift */,
+				B7C680AF28C20096001CB41A /* OAuthSwiftMock.swift */,
+				B735EB5228BCB1B800B1E515 /* OAuth2SwiftMock.swift */,
 			);
 			path = OAuth2Swift;
 			sourceTree = "<group>";
@@ -594,6 +601,7 @@
 				B735EB7228BCE7E000B1E515 /* Storage */,
 				B7C9D4C828ACF55C00EEF694 /* Screens */,
 				B735EB8E28C1FAF400B1E515 /* TimeEntryFormatterTests.swift */,
+				B7C680AB28C1FED7001CB41A /* URLHandlerTests.swift */,
 			);
 			path = OpenProjectTimeTrackerTests;
 			sourceTree = "<group>";
@@ -679,6 +687,7 @@
 			children = (
 				B7AF8F2A2895A83B00617364 /* UIView.swift */,
 				B743E1C52897E91200FE944A /* Alert.swift */,
+				B7C680AD28C1FF7F001CB41A /* OAuthSwift.swift */,
 				B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */,
 				B7D588E428A3F73000A7764B /* Date.swift */,
 				B7F9A30A28AA32F600F694C5 /* UIFont.swift */,
@@ -1035,6 +1044,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77C129928A29BB6004F8988 /* TaskDetailView.swift in Sources */,
+				B7C680AE28C1FF7F001CB41A /* OAuthSwift.swift in Sources */,
 				B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */,
 				B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */,
 				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
@@ -1145,7 +1155,7 @@
 				B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */,
 				B735EB8F28C1FAF400B1E515 /* TimeEntryFormatterTests.swift in Sources */,
 				B770FEB028B389420067672E /* TimerPresenterTests.swift in Sources */,
-				B735EB5328BCB1B800B1E515 /* OAuth2SwiftProtocolMock.swift in Sources */,
+				B735EB5328BCB1B800B1E515 /* OAuth2SwiftMock.swift in Sources */,
 				B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */,
 				B7C9D4C728ACF52E00EEF694 /* TokenStorageMock.swift in Sources */,
 				B7C9D4C528ACF4DC00EEF694 /* UserServiceMock.swift in Sources */,
@@ -1155,7 +1165,9 @@
 				B735EB6B28BCE1E500B1E515 /* UserServiceTests.swift in Sources */,
 				B735EB8928BF62C900B1E515 /* CoordinatorMock.swift in Sources */,
 				B735EB5E28BCBEBF00B1E515 /* ParserMock.swift in Sources */,
+				B7C680B028C20096001CB41A /* OAuthSwiftMock.swift in Sources */,
 				B735EB6728BCDA5000B1E515 /* RequestServiceMock.swift in Sources */,
+				B7C680AC28C1FED7001CB41A /* URLHandlerTests.swift in Sources */,
 				B735EB7E28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift in Sources */,
 				B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */,
 				B735EB5928BCB63600B1E515 /* XCTestCase.swift in Sources */,

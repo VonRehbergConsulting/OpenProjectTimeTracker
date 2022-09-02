@@ -1,5 +1,5 @@
 //
-//  OAuth2SwiftProtocolMock.swift
+//  OAuth2SwiftMock.swift
 //  OpenProjectTimeTrackerTests
 //
 //  Created by Denis Shtangey on 29.08.22.
@@ -9,7 +9,7 @@
 import OAuthSwift
 import Foundation
 
-final class OAuth2SwiftProtocolMock: OAuth2SwiftProtocol {
+final class OAuth2SwiftMock: OAuth2SwiftProtocol {
     
     var authorizeStub: Result<OAuthSwift.TokenSuccess, OAuthSwiftError>?
     func authorize(withCallbackURL url:  URLConvertible, scope: String, state: String, codeChallenge: String, codeChallengeMethod: String, codeVerifier: String, parameters: OAuthSwift.Parameters, headers: OAuthSwift.Headers?, completionHandler completion: @escaping OAuthSwift.TokenCompletionHandler) -> OAuthSwiftRequestHandle? {

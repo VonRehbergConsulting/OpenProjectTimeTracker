@@ -13,7 +13,9 @@ protocol URLHandlerProtocol {
     func handle(_ url: URL)
 }
 
-class URLHandler: URLHandlerProtocol {
+class URLHandler<OAuth: OAuthSwiftProtocol>: URLHandlerProtocol {
+    
+    // MARK: - URLHandlerProtocol
     
     func handle(_ url: URL) {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
@@ -28,7 +30,7 @@ class URLHandler: URLHandlerProtocol {
 
         switch host {
         case "oauth-callback":
-            OAuthSwift.handle(url: url)
+            OAuth.handle(url: url)
         default:
             Logger.log(event: .warning, "Deeplink was not handled")
         }

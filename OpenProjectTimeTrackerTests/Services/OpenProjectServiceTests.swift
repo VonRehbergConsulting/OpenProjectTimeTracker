@@ -12,11 +12,11 @@ import XCTest
 final class OpenProjectServiceTests: XCTestCase {
     
     var service: OpenProjectService!
-    var oauth2swift: OAuth2SwiftProtocolMock!
+    var oauth2swift: OAuth2SwiftMock!
     var tokenStorage: TokenStorageMock!
     
     override func setUp() {
-        oauth2swift = OAuth2SwiftProtocolMock()
+        oauth2swift = OAuth2SwiftMock()
         tokenStorage = TokenStorageMock()
         service = OpenProjectService(tokenStorage: tokenStorage, oauth2swift: oauth2swift)
     }

@@ -163,7 +163,7 @@ final class SummaryContentView: UIView {
     // MARK: - Actions
     
     @objc private func timeTextFieldOnTap() {
-        commentTextField.resignFirstResponder()
+        let _ = commentTextField.resignFirstResponder()
         if stackView.subviews.contains(timePicker) {
             timePicker.removeFromSuperview()
             UIView.animate(withDuration: 0.25, animations: { [weak self] in

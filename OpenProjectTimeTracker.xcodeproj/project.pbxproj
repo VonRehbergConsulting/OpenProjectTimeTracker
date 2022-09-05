@@ -1,0 +1,1553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B7252835289A61BA008C2699 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252834289A61BA008C2699 /* Coordinator.swift */; };
+		B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */; };
+		B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252838289A695A008C2699 /* CoordinatorFactory.swift */; };
+		B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283A289A69C8008C2699 /* AppCoordinator.swift */; };
+		B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283C289A8969008C2699 /* TimerCoordinator.swift */; };
+		B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725283E289A8F11008C2699 /* CoordinatorRouter.swift */; };
+		B7252841289A9993008C2699 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7252840289A9993008C2699 /* TokenStorage.swift */; };
+		B735EB5328BCB1B800B1E515 /* OAuth2SwiftMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5228BCB1B800B1E515 /* OAuth2SwiftMock.swift */; };
+		B735EB5628BCB3A200B1E515 /* OpenProjectServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5528BCB3A200B1E515 /* OpenProjectServiceTests.swift */; };
+		B735EB5928BCB63600B1E515 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5828BCB63600B1E515 /* XCTestCase.swift */; };
+		B735EB5C28BCBE8000B1E515 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5B28BCBE8000B1E515 /* RequestMock.swift */; };
+		B735EB5E28BCBEBF00B1E515 /* ParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB5D28BCBEBF00B1E515 /* ParserMock.swift */; };
+		B735EB6528BCC92500B1E515 /* ParsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6428BCC92500B1E515 /* ParsersTests.swift */; };
+		B735EB6728BCDA5000B1E515 /* RequestServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6628BCDA5000B1E515 /* RequestServiceMock.swift */; };
+		B735EB6928BCDCAB00B1E515 /* TaskServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6828BCDCAB00B1E515 /* TaskServiceTests.swift */; };
+		B735EB6B28BCE1E500B1E515 /* UserServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6A28BCE1E500B1E515 /* UserServiceTests.swift */; };
+		B735EB6D28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6C28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift */; };
+		B735EB6F28BCE5E300B1E515 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */; };
+		B735EB7128BCE77A00B1E515 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */; };
+		B735EB7428BCE7F200B1E515 /* TimerDataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */; };
+		B735EB7628BCF7D600B1E515 /* CoordinatorRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */; };
+		B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */; };
+		B735EB7C28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */; };
+		B735EB7E28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7D28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift */; };
+		B735EB8028BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB7F28BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift */; };
+		B735EB8228BF4D8400B1E515 /* TimerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB8128BF4D8400B1E515 /* TimerCoordinatorTests.swift */; };
+		B735EB8428BF4DAB00B1E515 /* TimerScreenFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB8328BF4DAB00B1E515 /* TimerScreenFactoryMock.swift */; };
+		B735EB8928BF62C900B1E515 /* CoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB8828BF62C900B1E515 /* CoordinatorMock.swift */; };
+		B735EB8B28BF654B00B1E515 /* CoordinatorFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB8A28BF654B00B1E515 /* CoordinatorFactoryMock.swift */; };
+		B735EB8D28BF668A00B1E515 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB8C28BF668A00B1E515 /* AppCoordinatorTests.swift */; };
+		B735EB8F28C1FAF400B1E515 /* TimeEntryFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B735EB8E28C1FAF400B1E515 /* TimeEntryFormatterTests.swift */; };
+		B743E1AE2897B85E00FE944A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1AD2897B85E00FE944A /* Logger.swift */; };
+		B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B32897C24500FE944A /* AuthorizationToken.swift */; };
+		B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */; };
+		B743E1C42897E1B400FE944A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C32897E1B400FE944A /* APIKey.swift */; };
+		B743E1C62897E91200FE944A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C52897E91200FE944A /* Alert.swift */; };
+		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
+		B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */; };
+		B74FC52228A63667001791B1 /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC52128A63667001791B1 /* DSTextField.swift */; };
+		B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9728B377960067672E /* AuthorizationModelTests.swift */; };
+		B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */; };
+		B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */; };
+		B770FEA028B37D640067672E /* AuthorizationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9F28B37D640067672E /* AuthorizationPresenterTests.swift */; };
+		B770FEA428B3818D0067672E /* TimeEntriesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEA328B3818D0067672E /* TimeEntriesServiceMock.swift */; };
+		B770FEA628B382590067672E /* SummaryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEA528B382590067672E /* SummaryModelTests.swift */; };
+		B770FEA828B385750067672E /* TimerDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEA728B385750067672E /* TimerDataStorageMock.swift */; };
+		B770FEAB28B386300067672E /* TimerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEAA28B386300067672E /* TimerModelTests.swift */; };
+		B770FEAE28B389110067672E /* TimerModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEAD28B389110067672E /* TimerModelMock.swift */; };
+		B770FEB028B389420067672E /* TimerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEAF28B389420067672E /* TimerPresenterTests.swift */; };
+		B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB228B39D400067672E /* TaskServiceMock.swift */; };
+		B770FEB528B39E300067672E /* TaskListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB428B39E300067672E /* TaskListDataProviderTests.swift */; };
+		B770FEB728B3A7100067672E /* TimeEntriesDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB628B3A7100067672E /* TimeEntriesDataProviderTests.swift */; };
+		B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */; };
+		B770FEBC28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */; };
+		B770FEBE28B3B0BC0067672E /* TaskListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */; };
+		B771C7E028B7B1B500208EA3 /* DSTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771C7DF28B7B1B500208EA3 /* DSTimePicker.swift */; };
+		B7730EF528AF828D00597FA6 /* DSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7730EF428AF828D00597FA6 /* DSLabel.swift */; };
+		B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129028A29A2F004F8988 /* TaskListContentView.swift */; };
+		B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129228A29A38004F8988 /* TaskListViewController.swift */; };
+		B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129428A29A40004F8988 /* TaskListPresenter.swift */; };
+		B77C129728A29A48004F8988 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129628A29A48004F8988 /* TaskListModel.swift */; };
+		B77C129928A29BB6004F8988 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77C129828A29BB6004F8988 /* TaskDetailView.swift */; };
+		B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE52895779F00617364 /* AppDelegate.swift */; };
+		B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8EE72895779F00617364 /* SceneDelegate.swift */; };
+		B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EEE289577A000617364 /* Assets.xcassets */; };
+		B7AF8EF2289577A000617364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */; };
+		B7AF8F07289577A000617364 /* OpenProjectTimeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */; };
+		B7AF8F09289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */; };
+		B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */; };
+		B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F202895880B00617364 /* AuthorizationContentView.swift */; };
+		B7AF8F2828958E8100617364 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7AF8F2728958E8100617364 /* OAuthSwift */; };
+		B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AF8F2A2895A83B00617364 /* UIView.swift */; };
+		B7B18BF5289BF5B000545968 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BF4289BF5B000545968 /* UserService.swift */; };
+		B7B18BF7289BF7EE00545968 /* OAuth2Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */; };
+		B7B18BF9289BF9EC00545968 /* OpenProjectEndpoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */; };
+		B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */; };
+		B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BFC289BFB3A00545968 /* PlistReader.swift */; };
+		B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18BFE289C048900545968 /* OpenProjectService.swift */; };
+		B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */; };
+		B7C5BA2C289D06AD000A10D7 /* TimerScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA2B289D06AD000A10D7 /* TimerScreenFactory.swift */; };
+		B7C5BA2F289D06DD000A10D7 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */; };
+		B7C5BA31289D06E4000A10D7 /* TimerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */; };
+		B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA32289D13A8000A10D7 /* TimerPresenter.swift */; };
+		B7C5BA35289D13B0000A10D7 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA34289D13B0000A10D7 /* TimerModel.swift */; };
+		B7C5BA37289D2DB8000A10D7 /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA36289D2DB8000A10D7 /* DSButton.swift */; };
+		B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA38289D2E2E000A10D7 /* Colors.swift */; };
+		B7C5BA43289D3E9E000A10D7 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA42289D3E9E000A10D7 /* TaskService.swift */; };
+		B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA44289D41AF000A10D7 /* NetworkError.swift */; };
+		B7C5BA47289D5118000A10D7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA46289D5118000A10D7 /* Task.swift */; };
+		B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */; };
+		B7C5BA4B289D5F66000A10D7 /* TaskListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */; };
+		B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */; };
+		B7C680AC28C1FED7001CB41A /* URLHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C680AB28C1FED7001CB41A /* URLHandlerTests.swift */; };
+		B7C680AE28C1FF7F001CB41A /* OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C680AD28C1FF7F001CB41A /* OAuthSwift.swift */; };
+		B7C680B028C20096001CB41A /* OAuthSwiftMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C680AF28C20096001CB41A /* OAuthSwiftMock.swift */; };
+		B7C9D4BB28ACE10600EEF694 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */; };
+		B7C9D4BD28ACE10F00EEF694 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */; };
+		B7C9D4C328ACF3BE00EEF694 /* RefreshServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */; };
+		B7C9D4C528ACF4DC00EEF694 /* UserServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */; };
+		B7C9D4C728ACF52E00EEF694 /* TokenStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */; };
+		B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C9D4CA28ACF57500EEF694 /* LaunchModelTests.swift */; };
+		B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */; };
+		B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588D828A3B7F300A7764B /* SummaryContentView.swift */; };
+		B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */; };
+		B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */; };
+		B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588DE28A3B80B00A7764B /* SummaryModel.swift */; };
+		B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E028A3E5FB00A7764B /* TimerView.swift */; };
+		B7D588E528A3F73000A7764B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D588E428A3F73000A7764B /* Date.swift */; };
+		B7F9A30B28AA32F600F694C5 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A30A28AA32F600F694C5 /* UIFont.swift */; };
+		B7F9A30E28AA4E0900F694C5 /* InfiniteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */; };
+		B7F9A31228AA5B9700F694C5 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */; };
+		B7F9A31428AA5C1100F694C5 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */; };
+		B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */; };
+		B7F9A31B28AA605900F694C5 /* WorkPackagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31A28AA605900F694C5 /* WorkPackagesRequest.swift */; };
+		B7F9A31D28AA615F00F694C5 /* WorkPackagesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31C28AA615F00F694C5 /* WorkPackagesParser.swift */; };
+		B7F9A31F28AA61F000F694C5 /* WorkPackagesRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */; };
+		B7F9A32428AA636C00F694C5 /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32328AA636C00F694C5 /* UserDataRequest.swift */; };
+		B7F9A32628AA63AB00F694C5 /* UserDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32528AA63AB00F694C5 /* UserDataParser.swift */; };
+		B7F9A32828AA641300F694C5 /* UserDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32728AA641300F694C5 /* UserDataRequestFactory.swift */; };
+		B7F9A32B28AA65B300F694C5 /* TimeEntriesCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32A28AA65B300F694C5 /* TimeEntriesCreateRequest.swift */; };
+		B7F9A32F28AA66DE00F694C5 /* EmptyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A32E28AA66DE00F694C5 /* EmptyParser.swift */; };
+		B7F9A33128AA67D100F694C5 /* TimeEntriesRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33028AA67D100F694C5 /* TimeEntriesRequestFactory.swift */; };
+		B7F9A33328AA693D00F694C5 /* TimeEntriesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33228AA693D00F694C5 /* TimeEntriesListRequest.swift */; };
+		B7F9A33528AA69F700F694C5 /* TimeEntriesListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33428AA69F700F694C5 /* TimeEntriesListParser.swift */; };
+		B7F9A33928AA6C0100F694C5 /* TimeEntryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33828AA6C0100F694C5 /* TimeEntryListModel.swift */; };
+		B7F9A33E28AA6F7500F694C5 /* TimeEntryFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33D28AA6F7500F694C5 /* TimeEntryFormatter.swift */; };
+		B7F9A34028AA6FE100F694C5 /* TimeEntryUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A33F28AA6FE100F694C5 /* TimeEntryUpdateRequest.swift */; };
+		B7F9A34228AA70CF00F694C5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A34128AA70CF00F694C5 /* Comment.swift */; };
+		B7F9A34D28AB835200F694C5 /* TaskListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A34C28AB835200F694C5 /* TaskListDataProvider.swift */; };
+		B7F9A34F28AB835C00F694C5 /* TimeEntryesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A34E28AB835C00F694C5 /* TimeEntryesDataProvider.swift */; };
+		B7F9A35628AB942400F694C5 /* Swift-ISO8601-DurationParser in Frameworks */ = {isa = PBXBuildFile; productRef = B7F9A35528AB942400F694C5 /* Swift-ISO8601-DurationParser */; };
+		B7F9A35828AB955800F694C5 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A35728AB955800F694C5 /* DateComponents.swift */; };
+		B7F9A35C28AB9D2D00F694C5 /* WorkPackageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A35B28AB9D2D00F694C5 /* WorkPackageRequest.swift */; };
+		B7F9A35E28ABA1BA00F694C5 /* WorkPackageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A35D28ABA1BA00F694C5 /* WorkPackageParser.swift */; };
+		B7F9A36128ABD02600F694C5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36028ABD02600F694C5 /* LaunchViewController.swift */; };
+		B7F9A36328ABD07F00F694C5 /* LaunchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36228ABD07F00F694C5 /* LaunchContentView.swift */; };
+		B7F9A36528ABD28500F694C5 /* DSSlimButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */; };
+		B7F9A36728ABD64300F694C5 /* LaunchScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36628ABD64300F694C5 /* LaunchScreenFactory.swift */; };
+		B7F9A36928ABD72100F694C5 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36828ABD72100F694C5 /* LaunchPresenter.swift */; };
+		B7F9A36B28ABD72800F694C5 /* LaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9A36A28ABD72800F694C5 /* LaunchModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7AF8EF9289577A000617364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AF8EDA2895779F00617364 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7AF8EE12895779F00617364;
+			remoteInfo = OpenProjectTimeTracker;
+		};
+		B7AF8F03289577A000617364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AF8EDA2895779F00617364 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7AF8EE12895779F00617364;
+			remoteInfo = OpenProjectTimeTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B7252834289A61BA008C2699 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		B7252838289A695A008C2699 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		B725283A289A69C8008C2699 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B725283C289A8969008C2699 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
+		B725283E289A8F11008C2699 /* CoordinatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouter.swift; sourceTree = "<group>"; };
+		B7252840289A9993008C2699 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		B735EB5228BCB1B800B1E515 /* OAuth2SwiftMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2SwiftMock.swift; sourceTree = "<group>"; };
+		B735EB5528BCB3A200B1E515 /* OpenProjectServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectServiceTests.swift; sourceTree = "<group>"; };
+		B735EB5828BCB63600B1E515 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		B735EB5B28BCBE8000B1E515 /* RequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
+		B735EB5D28BCBEBF00B1E515 /* ParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserMock.swift; sourceTree = "<group>"; };
+		B735EB6428BCC92500B1E515 /* ParsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsersTests.swift; sourceTree = "<group>"; };
+		B735EB6628BCDA5000B1E515 /* RequestServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceMock.swift; sourceTree = "<group>"; };
+		B735EB6828BCDCAB00B1E515 /* TaskServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceTests.swift; sourceTree = "<group>"; };
+		B735EB6A28BCE1E500B1E515 /* UserServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceTests.swift; sourceTree = "<group>"; };
+		B735EB6C28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesServiceTests.swift; sourceTree = "<group>"; };
+		B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
+		B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorageTests.swift; sourceTree = "<group>"; };
+		B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorRouterMock.swift; sourceTree = "<group>"; };
+		B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCheckCoordinatorTests.swift; sourceTree = "<group>"; };
+		B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFactoryMock.swift; sourceTree = "<group>"; };
+		B735EB7D28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinatorTests.swift; sourceTree = "<group>"; };
+		B735EB7F28BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactoryMock.swift; sourceTree = "<group>"; };
+		B735EB8128BF4D8400B1E515 /* TimerCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinatorTests.swift; sourceTree = "<group>"; };
+		B735EB8328BF4DAB00B1E515 /* TimerScreenFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScreenFactoryMock.swift; sourceTree = "<group>"; };
+		B735EB8828BF62C900B1E515 /* CoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMock.swift; sourceTree = "<group>"; };
+		B735EB8A28BF654B00B1E515 /* CoordinatorFactoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryMock.swift; sourceTree = "<group>"; };
+		B735EB8C28BF668A00B1E515 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		B735EB8E28C1FAF400B1E515 /* TimeEntryFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryFormatterTests.swift; sourceTree = "<group>"; };
+		B743E1AD2897B85E00FE944A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		B743E1B32897C24500FE944A /* AuthorizationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationToken.swift; sourceTree = "<group>"; };
+		B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreenFactory.swift; sourceTree = "<group>"; };
+		B743E1C32897E1B400FE944A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		B743E1C52897E91200FE944A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorage.swift; sourceTree = "<group>"; };
+		B74FC52128A63667001791B1 /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
+		B770FE9728B377960067672E /* AuthorizationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelTests.swift; sourceTree = "<group>"; };
+		B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceMock.swift; sourceTree = "<group>"; };
+		B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelMock.swift; sourceTree = "<group>"; };
+		B770FE9F28B37D640067672E /* AuthorizationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterTests.swift; sourceTree = "<group>"; };
+		B770FEA328B3818D0067672E /* TimeEntriesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesServiceMock.swift; sourceTree = "<group>"; };
+		B770FEA528B382590067672E /* SummaryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModelTests.swift; sourceTree = "<group>"; };
+		B770FEA728B385750067672E /* TimerDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorageMock.swift; sourceTree = "<group>"; };
+		B770FEAA28B386300067672E /* TimerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModelTests.swift; sourceTree = "<group>"; };
+		B770FEAD28B389110067672E /* TimerModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModelMock.swift; sourceTree = "<group>"; };
+		B770FEAF28B389420067672E /* TimerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenterTests.swift; sourceTree = "<group>"; };
+		B770FEB228B39D400067672E /* TaskServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceMock.swift; sourceTree = "<group>"; };
+		B770FEB428B39E300067672E /* TaskListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderTests.swift; sourceTree = "<group>"; };
+		B770FEB628B3A7100067672E /* TimeEntriesDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesDataProviderTests.swift; sourceTree = "<group>"; };
+		B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderMock.swift; sourceTree = "<group>"; };
+		B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesDataProviderMock.swift; sourceTree = "<group>"; };
+		B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModelTests.swift; sourceTree = "<group>"; };
+		B771C7DF28B7B1B500208EA3 /* DSTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTimePicker.swift; sourceTree = "<group>"; };
+		B7730EF428AF828D00597FA6 /* DSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLabel.swift; sourceTree = "<group>"; };
+		B77C129028A29A2F004F8988 /* TaskListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListContentView.swift; sourceTree = "<group>"; };
+		B77C129228A29A38004F8988 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		B77C129428A29A40004F8988 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
+		B77C129628A29A48004F8988 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
+		B77C129828A29BB6004F8988 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenProjectTimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AF8EE52895779F00617364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7AF8EE72895779F00617364 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B7AF8EEE289577A000617364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7AF8EF1289577A000617364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B7AF8EF8289577A000617364 /* OpenProjectTimeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenProjectTimeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AF8F02289577A000617364 /* OpenProjectTimeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenProjectTimeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerUITests.swift; sourceTree = "<group>"; };
+		B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectTimeTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		B7AF8F202895880B00617364 /* AuthorizationContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContentView.swift; sourceTree = "<group>"; };
+		B7AF8F2A2895A83B00617364 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B7B18BF4289BF5B000545968 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Swift.swift; sourceTree = "<group>"; };
+		B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OpenProjectEndpoints.plist; sourceTree = "<group>"; };
+		B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectEndpoints.swift; sourceTree = "<group>"; };
+		B7B18BFC289BFB3A00545968 /* PlistReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistReader.swift; sourceTree = "<group>"; };
+		B7B18BFE289C048900545968 /* OpenProjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectService.swift; sourceTree = "<group>"; };
+		B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCheckCoordinator.swift; sourceTree = "<group>"; };
+		B7C5BA2B289D06AD000A10D7 /* TimerScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerScreenFactory.swift; sourceTree = "<group>"; };
+		B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerContentView.swift; sourceTree = "<group>"; };
+		B7C5BA32289D13A8000A10D7 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
+		B7C5BA34289D13B0000A10D7 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		B7C5BA36289D2DB8000A10D7 /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
+		B7C5BA38289D2E2E000A10D7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B7C5BA42289D3E9E000A10D7 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		B7C5BA44289D41AF000A10D7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B7C5BA46289D5118000A10D7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCell.swift; sourceTree = "<group>"; };
+		B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		B7C680AB28C1FED7001CB41A /* URLHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandlerTests.swift; sourceTree = "<group>"; };
+		B7C680AD28C1FF7F001CB41A /* OAuthSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthSwift.swift; sourceTree = "<group>"; };
+		B7C680AF28C20096001CB41A /* OAuthSwiftMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthSwiftMock.swift; sourceTree = "<group>"; };
+		B7C680B128C5ED41001CB41A /* OpenProjectAPI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OpenProjectAPI.xcconfig; sourceTree = "<group>"; };
+		B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
+		B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshServiceMock.swift; sourceTree = "<group>"; };
+		B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceMock.swift; sourceTree = "<group>"; };
+		B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageMock.swift; sourceTree = "<group>"; };
+		B7C9D4CA28ACF57500EEF694 /* LaunchModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModelTests.swift; sourceTree = "<group>"; };
+		B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesService.swift; sourceTree = "<group>"; };
+		B7D588D828A3B7F300A7764B /* SummaryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryContentView.swift; sourceTree = "<group>"; };
+		B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryPresenter.swift; sourceTree = "<group>"; };
+		B7D588DE28A3B80B00A7764B /* SummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryModel.swift; sourceTree = "<group>"; };
+		B7D588E028A3E5FB00A7764B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		B7D588E428A3F73000A7764B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B7F9A30A28AA32F600F694C5 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteTableView.swift; sourceTree = "<group>"; };
+		B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
+		B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
+		B7F9A31A28AA605900F694C5 /* WorkPackagesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackagesRequest.swift; sourceTree = "<group>"; };
+		B7F9A31C28AA615F00F694C5 /* WorkPackagesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackagesParser.swift; sourceTree = "<group>"; };
+		B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackagesRequestFactory.swift; sourceTree = "<group>"; };
+		B7F9A32328AA636C00F694C5 /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
+		B7F9A32528AA63AB00F694C5 /* UserDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataParser.swift; sourceTree = "<group>"; };
+		B7F9A32728AA641300F694C5 /* UserDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequestFactory.swift; sourceTree = "<group>"; };
+		B7F9A32A28AA65B300F694C5 /* TimeEntriesCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesCreateRequest.swift; sourceTree = "<group>"; };
+		B7F9A32E28AA66DE00F694C5 /* EmptyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyParser.swift; sourceTree = "<group>"; };
+		B7F9A33028AA67D100F694C5 /* TimeEntriesRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesRequestFactory.swift; sourceTree = "<group>"; };
+		B7F9A33228AA693D00F694C5 /* TimeEntriesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesListRequest.swift; sourceTree = "<group>"; };
+		B7F9A33428AA69F700F694C5 /* TimeEntriesListParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesListParser.swift; sourceTree = "<group>"; };
+		B7F9A33828AA6C0100F694C5 /* TimeEntryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryListModel.swift; sourceTree = "<group>"; };
+		B7F9A33D28AA6F7500F694C5 /* TimeEntryFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryFormatter.swift; sourceTree = "<group>"; };
+		B7F9A33F28AA6FE100F694C5 /* TimeEntryUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryUpdateRequest.swift; sourceTree = "<group>"; };
+		B7F9A34128AA70CF00F694C5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		B7F9A34C28AB835200F694C5 /* TaskListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProvider.swift; sourceTree = "<group>"; };
+		B7F9A34E28AB835C00F694C5 /* TimeEntryesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryesDataProvider.swift; sourceTree = "<group>"; };
+		B7F9A35728AB955800F694C5 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
+		B7F9A35B28AB9D2D00F694C5 /* WorkPackageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackageRequest.swift; sourceTree = "<group>"; };
+		B7F9A35D28ABA1BA00F694C5 /* WorkPackageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPackageParser.swift; sourceTree = "<group>"; };
+		B7F9A36028ABD02600F694C5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B7F9A36228ABD07F00F694C5 /* LaunchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchContentView.swift; sourceTree = "<group>"; };
+		B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSlimButton.swift; sourceTree = "<group>"; };
+		B7F9A36628ABD64300F694C5 /* LaunchScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenFactory.swift; sourceTree = "<group>"; };
+		B7F9A36828ABD72100F694C5 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		B7F9A36A28ABD72800F694C5 /* LaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModel.swift; sourceTree = "<group>"; };
+		B7F9D29B2898349C00906BCB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7AF8EDF2895779F00617364 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7F9A35628AB942400F694C5 /* Swift-ISO8601-DurationParser in Frameworks */,
+				B7AF8F2828958E8100617364 /* OAuthSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AF8EF5289577A000617364 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AF8EFF289577A000617364 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B7252833289A61A1008C2699 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B7252834289A61BA008C2699 /* Coordinator.swift */,
+				B7252838289A695A008C2699 /* CoordinatorFactory.swift */,
+				B725283E289A8F11008C2699 /* CoordinatorRouter.swift */,
+				B725284F289BADF3008C2699 /* Coordinators */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B725284F289BADF3008C2699 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B725283A289A69C8008C2699 /* AppCoordinator.swift */,
+				B7B18C00289C08D400545968 /* AuthorizationCheckCoordinator.swift */,
+				B7252836289A67FD008C2699 /* AuthorizationCoordinator.swift */,
+				B725283C289A8969008C2699 /* TimerCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B735EB5428BCB37D00B1E515 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB6428BCC92500B1E515 /* ParsersTests.swift */,
+				B735EB5528BCB3A200B1E515 /* OpenProjectServiceTests.swift */,
+				B735EB6828BCDCAB00B1E515 /* TaskServiceTests.swift */,
+				B735EB6A28BCE1E500B1E515 /* UserServiceTests.swift */,
+				B735EB6C28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B735EB5728BCB62D00B1E515 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB5828BCB63600B1E515 /* XCTestCase.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B735EB5A28BCB92100B1E515 /* OAuth2Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B7C680AF28C20096001CB41A /* OAuthSwiftMock.swift */,
+				B735EB5228BCB1B800B1E515 /* OAuth2SwiftMock.swift */,
+			);
+			path = OAuth2Swift;
+			sourceTree = "<group>";
+		};
+		B735EB7228BCE7E000B1E515 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB7328BCE7F200B1E515 /* TimerDataStorageTests.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		B735EB7728BCF83E00B1E515 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB8C28BF668A00B1E515 /* AppCoordinatorTests.swift */,
+				B735EB7828BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift */,
+				B735EB7D28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift */,
+				B735EB8128BF4D8400B1E515 /* TimerCoordinatorTests.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B735EB7A28BCF8D400B1E515 /* ScreenFactories */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB7B28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift */,
+				B735EB7F28BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift */,
+				B735EB8328BF4DAB00B1E515 /* TimerScreenFactoryMock.swift */,
+			);
+			path = ScreenFactories;
+			sourceTree = "<group>";
+		};
+		B735EB8528BF543100B1E515 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB7528BCF7D600B1E515 /* CoordinatorRouterMock.swift */,
+				B735EB8828BF62C900B1E515 /* CoordinatorMock.swift */,
+				B735EB8A28BF654B00B1E515 /* CoordinatorFactoryMock.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B743E1B12897C21E00FE944A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5BA44289D41AF000A10D7 /* NetworkError.swift */,
+				B743E1B32897C24500FE944A /* AuthorizationToken.swift */,
+				B7B18BFA289BFA7B00545968 /* OpenProjectEndpoints.swift */,
+				B7B18BFE289C048900545968 /* OpenProjectService.swift */,
+				B7B18BF3289BF5A500545968 /* Requests */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B743E1C22897E19800FE944A /* APIKey */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1C32897E1B400FE944A /* APIKey.swift */,
+			);
+			path = APIKey;
+			sourceTree = "<group>";
+		};
+		B74FC51E28A500D9001791B1 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				B7B18BFC289BFB3A00545968 /* PlistReader.swift */,
+				B7252840289A9993008C2699 /* TokenStorage.swift */,
+				B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		B770FE9628B3778A0067672E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B770FE9C28B37CF00067672E /* Mock */,
+				B770FE9728B377960067672E /* AuthorizationModelTests.swift */,
+				B770FE9F28B37D640067672E /* AuthorizationPresenterTests.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B770FE9B28B37CDD0067672E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB5B28BCBE8000B1E515 /* RequestMock.swift */,
+				B735EB5D28BCBEBF00B1E515 /* ParserMock.swift */,
+				B7C9D4C228ACF3BE00EEF694 /* RefreshServiceMock.swift */,
+				B7C9D4C428ACF4DC00EEF694 /* UserServiceMock.swift */,
+				B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */,
+				B770FEA328B3818D0067672E /* TimeEntriesServiceMock.swift */,
+				B770FEB228B39D400067672E /* TaskServiceMock.swift */,
+				B735EB6628BCDA5000B1E515 /* RequestServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B770FE9C28B37CF00067672E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B770FEA128B381480067672E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEA928B3861F0067672E /* Timer */,
+				B770FEB128B39D200067672E /* TaskList */,
+				B770FEA228B381530067672E /* Summary */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B770FEA228B381530067672E /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEA528B382590067672E /* SummaryModelTests.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		B770FEA928B3861F0067672E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEAC28B389090067672E /* Mock */,
+				B770FEAF28B389420067672E /* TimerPresenterTests.swift */,
+				B770FEAA28B386300067672E /* TimerModelTests.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B770FEAC28B389090067672E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEAD28B389110067672E /* TimerModelMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B770FEB128B39D200067672E /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEB828B3AE9D0067672E /* Mock */,
+				B770FEBD28B3B0BC0067672E /* TaskListModelTests.swift */,
+				B770FEB428B39E300067672E /* TaskListDataProviderTests.swift */,
+				B770FEB628B3A7100067672E /* TimeEntriesDataProviderTests.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		B770FEB828B3AE9D0067672E /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B770FEB928B3AEB00067672E /* TaskListDataProviderMock.swift */,
+				B770FEBB28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B77C128F28A299CC004F8988 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5BA4A289D5F66000A10D7 /* TaskListCell.swift */,
+				B77C129028A29A2F004F8988 /* TaskListContentView.swift */,
+				B77C129228A29A38004F8988 /* TaskListViewController.swift */,
+				B77C129428A29A40004F8988 /* TaskListPresenter.swift */,
+				B77C129628A29A48004F8988 /* TaskListModel.swift */,
+				B7F9A34B28AB834200F694C5 /* DataProvider */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		B7AF8ED92895779F00617364 = {
+			isa = PBXGroup;
+			children = (
+				B7C680B128C5ED41001CB41A /* OpenProjectAPI.xcconfig */,
+				B7AF8EE42895779F00617364 /* OpenProjectTimeTracker */,
+				B7AF8EFB289577A000617364 /* OpenProjectTimeTrackerTests */,
+				B7AF8F05289577A000617364 /* OpenProjectTimeTrackerUITests */,
+				B7AF8EE32895779F00617364 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7AF8EE32895779F00617364 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */,
+				B7AF8EF8289577A000617364 /* OpenProjectTimeTrackerTests.xctest */,
+				B7AF8F02289577A000617364 /* OpenProjectTimeTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7AF8EE42895779F00617364 /* OpenProjectTimeTracker */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8F152895787A00617364 /* Resources */,
+				B7AF8F16289578BE00617364 /* Source */,
+			);
+			path = OpenProjectTimeTracker;
+			sourceTree = "<group>";
+		};
+		B7AF8EFB289577A000617364 /* OpenProjectTimeTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4C128ACF32A00EEF694 /* Mock */,
+				B735EB5728BCB62D00B1E515 /* Extensions */,
+				B735EB7728BCF83E00B1E515 /* Coordinators */,
+				B735EB5428BCB37D00B1E515 /* Services */,
+				B735EB7228BCE7E000B1E515 /* Storage */,
+				B7C9D4C828ACF55C00EEF694 /* Screens */,
+				B735EB8E28C1FAF400B1E515 /* TimeEntryFormatterTests.swift */,
+				B7C680AB28C1FED7001CB41A /* URLHandlerTests.swift */,
+			);
+			path = OpenProjectTimeTrackerTests;
+			sourceTree = "<group>";
+		};
+		B7AF8F05289577A000617364 /* OpenProjectTimeTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8F06289577A000617364 /* OpenProjectTimeTrackerUITests.swift */,
+				B7AF8F08289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift */,
+			);
+			path = OpenProjectTimeTrackerUITests;
+			sourceTree = "<group>";
+		};
+		B7AF8F152895787A00617364 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8EEE289577A000617364 /* Assets.xcassets */,
+				B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */,
+				B7F9D29B2898349C00906BCB /* Info.plist */,
+				B7B18BF8289BF9EC00545968 /* OpenProjectEndpoints.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B7AF8F16289578BE00617364 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8F17289578C500617364 /* App */,
+				B7AF8F192895798C00617364 /* Screens */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B7AF8F17289578C500617364 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1AD2897B85E00FE944A /* Logger.swift */,
+				B743E1C72897EBF100FE944A /* URLHandler.swift */,
+				B7AF8F18289578D500617364 /* Delegates */,
+				B7252833289A61A1008C2699 /* Coordinators */,
+				B7B18BF2289BBDDB00545968 /* DesignSystem */,
+				B7AF8F292895A82E00617364 /* Extensions */,
+				B743E1B12897C21E00FE944A /* Services */,
+				B743E1C22897E19800FE944A /* APIKey */,
+				B74FC51E28A500D9001791B1 /* Storages */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B7AF8F18289578D500617364 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8EE52895779F00617364 /* AppDelegate.swift */,
+				B7AF8EE72895779F00617364 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B7AF8F192895798C00617364 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A35F28ABD01900F694C5 /* Launch */,
+				B7AF8F1A2895799700617364 /* Authorization */,
+				B7C5BA2A289D0692000A10D7 /* Timer */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B7AF8F1A2895799700617364 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B743E1B52897C62A00FE944A /* AuthorizationScreenFactory.swift */,
+				B7AF8F202895880B00617364 /* AuthorizationContentView.swift */,
+				B7AF8F1E289587EE00617364 /* AuthorizationViewController.swift */,
+				B7C9D4BA28ACE10600EEF694 /* AuthorizationPresenter.swift */,
+				B7C9D4BC28ACE10F00EEF694 /* AuthorizationModel.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B7AF8F292895A82E00617364 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B7AF8F2A2895A83B00617364 /* UIView.swift */,
+				B743E1C52897E91200FE944A /* Alert.swift */,
+				B7C680AD28C1FF7F001CB41A /* OAuthSwift.swift */,
+				B7B18BF6289BF7EE00545968 /* OAuth2Swift.swift */,
+				B7D588E428A3F73000A7764B /* Date.swift */,
+				B7F9A30A28AA32F600F694C5 /* UIFont.swift */,
+				B7F9A35728AB955800F694C5 /* DateComponents.swift */,
+				B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B7B18BF2289BBDDB00545968 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5BA38289D2E2E000A10D7 /* Colors.swift */,
+				B7C5BA36289D2DB8000A10D7 /* DSButton.swift */,
+				B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */,
+				B7730EF428AF828D00597FA6 /* DSLabel.swift */,
+				B74FC52128A63667001791B1 /* DSTextField.swift */,
+				B771C7DF28B7B1B500208EA3 /* DSTimePicker.swift */,
+				B7F9A30D28AA4E0900F694C5 /* InfiniteTableView.swift */,
+				B7C5BA4E289D5FA3000A10D7 /* Cells */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		B7B18BF3289BF5A500545968 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A31128AA5B9700F694C5 /* RequestProtocol.swift */,
+				B7F9A31328AA5C1100F694C5 /* ParserProtocol.swift */,
+				B7F9A31728AA5DA300F694C5 /* RequestConfig.swift */,
+				B7F9A31928AA5FF000F694C5 /* WorkPackages */,
+				B7F9A32228AA635F00F694C5 /* UserData */,
+				B7F9A32928AA656700F694C5 /* TimeEntries */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		B7C5BA2A289D0692000A10D7 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5BA2B289D06AD000A10D7 /* TimerScreenFactory.swift */,
+				B7C5BA2D289D06C7000A10D7 /* Timer */,
+				B77C128F28A299CC004F8988 /* TaskList */,
+				B7D588D728A3B7A600A7764B /* Summary */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B7C5BA2D289D06C7000A10D7 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5BA46289D5118000A10D7 /* Task.swift */,
+				B77C129828A29BB6004F8988 /* TaskDetailView.swift */,
+				B7D588E028A3E5FB00A7764B /* TimerView.swift */,
+				B7C5BA30289D06E4000A10D7 /* TimerContentView.swift */,
+				B7C5BA2E289D06DD000A10D7 /* TimerViewController.swift */,
+				B7C5BA32289D13A8000A10D7 /* TimerPresenter.swift */,
+				B7C5BA34289D13B0000A10D7 /* TimerModel.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		B7C5BA4E289D5FA3000A10D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B7C5BA48289D5E93000A10D7 /* ReusableCell.swift */,
+				B7C5BA4C289D5F95000A10D7 /* ConfigurableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B7C9D4C128ACF32A00EEF694 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B735EB8528BF543100B1E515 /* Coordinators */,
+				B735EB7A28BCF8D400B1E515 /* ScreenFactories */,
+				B735EB5A28BCB92100B1E515 /* OAuth2Swift */,
+				B770FE9B28B37CDD0067672E /* Services */,
+				B7C9D4C628ACF52E00EEF694 /* TokenStorageMock.swift */,
+				B770FEA728B385750067672E /* TimerDataStorageMock.swift */,
+				B735EB7028BCE77A00B1E515 /* UserDefaultsMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B7C9D4C828ACF55C00EEF694 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4C928ACF56100EEF694 /* Launch */,
+				B770FE9628B3778A0067672E /* Authorization */,
+				B770FEA128B381480067672E /* Timer */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B7C9D4C928ACF56100EEF694 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B7C9D4CA28ACF57500EEF694 /* LaunchModelTests.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		B7D588D728A3B7A600A7764B /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				B7D588D828A3B7F300A7764B /* SummaryContentView.swift */,
+				B7D588DA28A3B7FC00A7764B /* SummaryViewController.swift */,
+				B7D588DC28A3B80500A7764B /* SummaryPresenter.swift */,
+				B7D588DE28A3B80B00A7764B /* SummaryModel.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		B7F9A31928AA5FF000F694C5 /* WorkPackages */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A35A28AB9D1700F694C5 /* WorkPackage */,
+				B7F9A35928AB9D0C00F694C5 /* List */,
+				B7F9A31E28AA61F000F694C5 /* WorkPackagesRequestFactory.swift */,
+				B7C5BA42289D3E9E000A10D7 /* TaskService.swift */,
+			);
+			path = WorkPackages;
+			sourceTree = "<group>";
+		};
+		B7F9A32228AA635F00F694C5 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A32328AA636C00F694C5 /* UserDataRequest.swift */,
+				B7F9A32528AA63AB00F694C5 /* UserDataParser.swift */,
+				B7F9A32728AA641300F694C5 /* UserDataRequestFactory.swift */,
+				B7B18BF4289BF5B000545968 /* UserService.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		B7F9A32928AA656700F694C5 /* TimeEntries */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A34128AA70CF00F694C5 /* Comment.swift */,
+				B7F9A32E28AA66DE00F694C5 /* EmptyParser.swift */,
+				B7F9A33D28AA6F7500F694C5 /* TimeEntryFormatter.swift */,
+				B7F9A33728AA6B4700F694C5 /* List */,
+				B7F9A33628AA6B4000F694C5 /* Create */,
+				B7F9A33C28AA6F4800F694C5 /* Update */,
+				B7F9A33028AA67D100F694C5 /* TimeEntriesRequestFactory.swift */,
+				B7D588D428A3AEA300A7764B /* TimeEntriesService.swift */,
+			);
+			path = TimeEntries;
+			sourceTree = "<group>";
+		};
+		B7F9A33628AA6B4000F694C5 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A32A28AA65B300F694C5 /* TimeEntriesCreateRequest.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		B7F9A33728AA6B4700F694C5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A33828AA6C0100F694C5 /* TimeEntryListModel.swift */,
+				B7F9A33228AA693D00F694C5 /* TimeEntriesListRequest.swift */,
+				B7F9A33428AA69F700F694C5 /* TimeEntriesListParser.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B7F9A33C28AA6F4800F694C5 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A33F28AA6FE100F694C5 /* TimeEntryUpdateRequest.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		B7F9A34B28AB834200F694C5 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A34C28AB835200F694C5 /* TaskListDataProvider.swift */,
+				B7F9A34E28AB835C00F694C5 /* TimeEntryesDataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		B7F9A35928AB9D0C00F694C5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A31A28AA605900F694C5 /* WorkPackagesRequest.swift */,
+				B7F9A31C28AA615F00F694C5 /* WorkPackagesParser.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		B7F9A35A28AB9D1700F694C5 /* WorkPackage */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A35B28AB9D2D00F694C5 /* WorkPackageRequest.swift */,
+				B7F9A35D28ABA1BA00F694C5 /* WorkPackageParser.swift */,
+			);
+			path = WorkPackage;
+			sourceTree = "<group>";
+		};
+		B7F9A35F28ABD01900F694C5 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B7F9A36628ABD64300F694C5 /* LaunchScreenFactory.swift */,
+				B7F9A36228ABD07F00F694C5 /* LaunchContentView.swift */,
+				B7F9A36028ABD02600F694C5 /* LaunchViewController.swift */,
+				B7F9A36828ABD72100F694C5 /* LaunchPresenter.swift */,
+				B7F9A36A28ABD72800F694C5 /* LaunchModel.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7AF8EE12895779F00617364 /* OpenProjectTimeTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AF8F0C289577A000617364 /* Build configuration list for PBXNativeTarget "OpenProjectTimeTracker" */;
+			buildPhases = (
+				B7AF8EDE2895779F00617364 /* Sources */,
+				B7AF8EDF2895779F00617364 /* Frameworks */,
+				B7AF8EE02895779F00617364 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenProjectTimeTracker;
+			packageProductDependencies = (
+				B7AF8F2728958E8100617364 /* OAuthSwift */,
+				B7F9A35528AB942400F694C5 /* Swift-ISO8601-DurationParser */,
+			);
+			productName = OpenProjectTimeTracker;
+			productReference = B7AF8EE22895779F00617364 /* OpenProjectTimeTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7AF8EF7289577A000617364 /* OpenProjectTimeTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AF8F0F289577A000617364 /* Build configuration list for PBXNativeTarget "OpenProjectTimeTrackerTests" */;
+			buildPhases = (
+				B7AF8EF4289577A000617364 /* Sources */,
+				B7AF8EF5289577A000617364 /* Frameworks */,
+				B7AF8EF6289577A000617364 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7AF8EFA289577A000617364 /* PBXTargetDependency */,
+			);
+			name = OpenProjectTimeTrackerTests;
+			productName = OpenProjectTimeTrackerTests;
+			productReference = B7AF8EF8289577A000617364 /* OpenProjectTimeTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B7AF8F01289577A000617364 /* OpenProjectTimeTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AF8F12289577A000617364 /* Build configuration list for PBXNativeTarget "OpenProjectTimeTrackerUITests" */;
+			buildPhases = (
+				B7AF8EFE289577A000617364 /* Sources */,
+				B7AF8EFF289577A000617364 /* Frameworks */,
+				B7AF8F00289577A000617364 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7AF8F04289577A000617364 /* PBXTargetDependency */,
+			);
+			name = OpenProjectTimeTrackerUITests;
+			productName = OpenProjectTimeTrackerUITests;
+			productReference = B7AF8F02289577A000617364 /* OpenProjectTimeTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7AF8EDA2895779F00617364 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					B7AF8EE12895779F00617364 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					B7AF8EF7289577A000617364 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = B7AF8EE12895779F00617364;
+					};
+					B7AF8F01289577A000617364 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = B7AF8EE12895779F00617364;
+					};
+				};
+			};
+			buildConfigurationList = B7AF8EDD2895779F00617364 /* Build configuration list for PBXProject "OpenProjectTimeTracker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7AF8ED92895779F00617364;
+			packageReferences = (
+				B7AF8F2628958E8100617364 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+				B7F9A35428AB942400F694C5 /* XCRemoteSwiftPackageReference "Swift-ISO8601-DurationParser" */,
+			);
+			productRefGroup = B7AF8EE32895779F00617364 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7AF8EE12895779F00617364 /* OpenProjectTimeTracker */,
+				B7AF8EF7289577A000617364 /* OpenProjectTimeTrackerTests */,
+				B7AF8F01289577A000617364 /* OpenProjectTimeTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7AF8EE02895779F00617364 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7AF8EF2289577A000617364 /* LaunchScreen.storyboard in Resources */,
+				B7B18BF9289BF9EC00545968 /* OpenProjectEndpoints.plist in Resources */,
+				B7AF8EEF289577A000617364 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AF8EF6289577A000617364 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AF8F00289577A000617364 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7AF8EDE2895779F00617364 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77C129928A29BB6004F8988 /* TaskDetailView.swift in Sources */,
+				B7C680AE28C1FF7F001CB41A /* OAuthSwift.swift in Sources */,
+				B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */,
+				B7B18BFB289BFA7B00545968 /* OpenProjectEndpoints.swift in Sources */,
+				B743E1B62897C62A00FE944A /* AuthorizationScreenFactory.swift in Sources */,
+				B7F9A32628AA63AB00F694C5 /* UserDataParser.swift in Sources */,
+				B7C5BA2C289D06AD000A10D7 /* TimerScreenFactory.swift in Sources */,
+				B7F9A31B28AA605900F694C5 /* WorkPackagesRequest.swift in Sources */,
+				B7AF8F2B2895A83B00617364 /* UIView.swift in Sources */,
+				B7C5BA43289D3E9E000A10D7 /* TaskService.swift in Sources */,
+				B7C5BA49289D5E93000A10D7 /* ReusableCell.swift in Sources */,
+				B7D588E128A3E5FB00A7764B /* TimerView.swift in Sources */,
+				B7D588D928A3B7F300A7764B /* SummaryContentView.swift in Sources */,
+				B7252835289A61BA008C2699 /* Coordinator.swift in Sources */,
+				B7F9A36128ABD02600F694C5 /* LaunchViewController.swift in Sources */,
+				B7F9A32B28AA65B300F694C5 /* TimeEntriesCreateRequest.swift in Sources */,
+				B7C5BA39289D2E2F000A10D7 /* Colors.swift in Sources */,
+				B725283B289A69C8008C2699 /* AppCoordinator.swift in Sources */,
+				B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */,
+				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
+				B7F9A33528AA69F700F694C5 /* TimeEntriesListParser.swift in Sources */,
+				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
+				B7F9A32828AA641300F694C5 /* UserDataRequestFactory.swift in Sources */,
+				B7F9A33328AA693D00F694C5 /* TimeEntriesListRequest.swift in Sources */,
+				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
+				B7F9A33E28AA6F7500F694C5 /* TimeEntryFormatter.swift in Sources */,
+				B7F9A36B28ABD72800F694C5 /* LaunchModel.swift in Sources */,
+				B7F9A32F28AA66DE00F694C5 /* EmptyParser.swift in Sources */,
+				B7F9A36728ABD64300F694C5 /* LaunchScreenFactory.swift in Sources */,
+				B7F9A35E28ABA1BA00F694C5 /* WorkPackageParser.swift in Sources */,
+				B7C5BA4D289D5F95000A10D7 /* ConfigurableCell.swift in Sources */,
+				B7AF8F212895880B00617364 /* AuthorizationContentView.swift in Sources */,
+				B7F9A32428AA636C00F694C5 /* UserDataRequest.swift in Sources */,
+				B7C5BA31289D06E4000A10D7 /* TimerContentView.swift in Sources */,
+				B7F9A34228AA70CF00F694C5 /* Comment.swift in Sources */,
+				B7F9A35C28AB9D2D00F694C5 /* WorkPackageRequest.swift in Sources */,
+				B7C9D4BB28ACE10600EEF694 /* AuthorizationPresenter.swift in Sources */,
+				B725283D289A8969008C2699 /* TimerCoordinator.swift in Sources */,
+				B7F9A34D28AB835200F694C5 /* TaskListDataProvider.swift in Sources */,
+				B7F9A36928ABD72100F694C5 /* LaunchPresenter.swift in Sources */,
+				B7C5BA2F289D06DD000A10D7 /* TimerViewController.swift in Sources */,
+				B7F9A36528ABD28500F694C5 /* DSSlimButton.swift in Sources */,
+				B7F9A30E28AA4E0900F694C5 /* InfiniteTableView.swift in Sources */,
+				B7730EF528AF828D00597FA6 /* DSLabel.swift in Sources */,
+				B7F9A31228AA5B9700F694C5 /* RequestProtocol.swift in Sources */,
+				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
+				B7F9A33928AA6C0100F694C5 /* TimeEntryListModel.swift in Sources */,
+				B7F9A34028AA6FE100F694C5 /* TimeEntryUpdateRequest.swift in Sources */,
+				B771C7E028B7B1B500208EA3 /* DSTimePicker.swift in Sources */,
+				B7D588DD28A3B80500A7764B /* SummaryPresenter.swift in Sources */,
+				B7D588D528A3AEA300A7764B /* TimeEntriesService.swift in Sources */,
+				B7AF8F1F289587EE00617364 /* AuthorizationViewController.swift in Sources */,
+				B7F9A30B28AA32F600F694C5 /* UIFont.swift in Sources */,
+				B7C5BA4B289D5F66000A10D7 /* TaskListCell.swift in Sources */,
+				B7B18BFD289BFB3A00545968 /* PlistReader.swift in Sources */,
+				B7AF8EE62895779F00617364 /* AppDelegate.swift in Sources */,
+				B7C5BA37289D2DB8000A10D7 /* DSButton.swift in Sources */,
+				B7252839289A695A008C2699 /* CoordinatorFactory.swift in Sources */,
+				B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */,
+				B7F9A31D28AA615F00F694C5 /* WorkPackagesParser.swift in Sources */,
+				B7B18BF7289BF7EE00545968 /* OAuth2Swift.swift in Sources */,
+				B7252837289A67FD008C2699 /* AuthorizationCoordinator.swift in Sources */,
+				B7F9A34F28AB835C00F694C5 /* TimeEntryesDataProvider.swift in Sources */,
+				B743E1C62897E91200FE944A /* Alert.swift in Sources */,
+				B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */,
+				B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */,
+				B7F9A36328ABD07F00F694C5 /* LaunchContentView.swift in Sources */,
+				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
+				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
+				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,
+				B7D588E528A3F73000A7764B /* Date.swift in Sources */,
+				B743E1B42897C24500FE944A /* AuthorizationToken.swift in Sources */,
+				B7C5BA33289D13A8000A10D7 /* TimerPresenter.swift in Sources */,
+				B7F9A33128AA67D100F694C5 /* TimeEntriesRequestFactory.swift in Sources */,
+				B735EB6F28BCE5E300B1E515 /* UserDefaults.swift in Sources */,
+				B7F9A35828AB955800F694C5 /* DateComponents.swift in Sources */,
+				B7B18BFF289C048900545968 /* OpenProjectService.swift in Sources */,
+				B74FC52228A63667001791B1 /* DSTextField.swift in Sources */,
+				B77C129128A29A2F004F8988 /* TaskListContentView.swift in Sources */,
+				B77C129728A29A48004F8988 /* TaskListModel.swift in Sources */,
+				B7F9A31F28AA61F000F694C5 /* WorkPackagesRequestFactory.swift in Sources */,
+				B77C129528A29A40004F8988 /* TaskListPresenter.swift in Sources */,
+				B7C5BA35289D13B0000A10D7 /* TimerModel.swift in Sources */,
+				B7F9A31428AA5C1100F694C5 /* ParserProtocol.swift in Sources */,
+				B7C9D4BD28ACE10F00EEF694 /* AuthorizationModel.swift in Sources */,
+				B7AF8EE82895779F00617364 /* SceneDelegate.swift in Sources */,
+				B7C5BA47289D5118000A10D7 /* Task.swift in Sources */,
+				B725283F289A8F11008C2699 /* CoordinatorRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AF8EF4289577A000617364 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B735EB6528BCC92500B1E515 /* ParsersTests.swift in Sources */,
+				B770FEB728B3A7100067672E /* TimeEntriesDataProviderTests.swift in Sources */,
+				B770FEAE28B389110067672E /* TimerModelMock.swift in Sources */,
+				B770FEB528B39E300067672E /* TaskListDataProviderTests.swift in Sources */,
+				B770FEA028B37D640067672E /* AuthorizationPresenterTests.swift in Sources */,
+				B735EB7128BCE77A00B1E515 /* UserDefaultsMock.swift in Sources */,
+				B770FEA428B3818D0067672E /* TimeEntriesServiceMock.swift in Sources */,
+				B735EB7928BCF86600B1E515 /* AuthorizationCheckCoordinatorTests.swift in Sources */,
+				B770FEBA28B3AEB00067672E /* TaskListDataProviderMock.swift in Sources */,
+				B770FEB328B39D400067672E /* TaskServiceMock.swift in Sources */,
+				B735EB6928BCDCAB00B1E515 /* TaskServiceTests.swift in Sources */,
+				B735EB8028BF4AD300B1E515 /* AuthorizationScreenFactoryMock.swift in Sources */,
+				B735EB5C28BCBE8000B1E515 /* RequestMock.swift in Sources */,
+				B735EB8B28BF654B00B1E515 /* CoordinatorFactoryMock.swift in Sources */,
+				B7C9D4CB28ACF57500EEF694 /* LaunchModelTests.swift in Sources */,
+				B735EB8F28C1FAF400B1E515 /* TimeEntryFormatterTests.swift in Sources */,
+				B770FEB028B389420067672E /* TimerPresenterTests.swift in Sources */,
+				B735EB5328BCB1B800B1E515 /* OAuth2SwiftMock.swift in Sources */,
+				B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */,
+				B7C9D4C728ACF52E00EEF694 /* TokenStorageMock.swift in Sources */,
+				B7C9D4C528ACF4DC00EEF694 /* UserServiceMock.swift in Sources */,
+				B735EB8D28BF668A00B1E515 /* AppCoordinatorTests.swift in Sources */,
+				B735EB7628BCF7D600B1E515 /* CoordinatorRouterMock.swift in Sources */,
+				B735EB8228BF4D8400B1E515 /* TimerCoordinatorTests.swift in Sources */,
+				B735EB6B28BCE1E500B1E515 /* UserServiceTests.swift in Sources */,
+				B735EB8928BF62C900B1E515 /* CoordinatorMock.swift in Sources */,
+				B735EB5E28BCBEBF00B1E515 /* ParserMock.swift in Sources */,
+				B7C680B028C20096001CB41A /* OAuthSwiftMock.swift in Sources */,
+				B735EB6728BCDA5000B1E515 /* RequestServiceMock.swift in Sources */,
+				B7C680AC28C1FED7001CB41A /* URLHandlerTests.swift in Sources */,
+				B735EB7E28BF4AAB00B1E515 /* AuthorizationCoordinatorTests.swift in Sources */,
+				B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */,
+				B735EB5928BCB63600B1E515 /* XCTestCase.swift in Sources */,
+				B770FEA828B385750067672E /* TimerDataStorageMock.swift in Sources */,
+				B735EB5628BCB3A200B1E515 /* OpenProjectServiceTests.swift in Sources */,
+				B770FEBC28B3AF7A0067672E /* TimeEntriesDataProviderMock.swift in Sources */,
+				B735EB7428BCE7F200B1E515 /* TimerDataStorageTests.swift in Sources */,
+				B735EB8428BF4DAB00B1E515 /* TimerScreenFactoryMock.swift in Sources */,
+				B735EB7C28BCF8EE00B1E515 /* LaunchScreenFactoryMock.swift in Sources */,
+				B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */,
+				B770FEAB28B386300067672E /* TimerModelTests.swift in Sources */,
+				B770FEA628B382590067672E /* SummaryModelTests.swift in Sources */,
+				B735EB6D28BCE2BB00B1E515 /* TimeEntriesServiceTests.swift in Sources */,
+				B770FEBE28B3B0BC0067672E /* TaskListModelTests.swift in Sources */,
+				B7C9D4C328ACF3BE00EEF694 /* RefreshServiceMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AF8EFE289577A000617364 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7AF8F09289577A000617364 /* OpenProjectTimeTrackerUITestsLaunchTests.swift in Sources */,
+				B7AF8F07289577A000617364 /* OpenProjectTimeTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7AF8EFA289577A000617364 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7AF8EE12895779F00617364 /* OpenProjectTimeTracker */;
+			targetProxy = B7AF8EF9289577A000617364 /* PBXContainerItemProxy */;
+		};
+		B7AF8F04289577A000617364 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7AF8EE12895779F00617364 /* OpenProjectTimeTracker */;
+			targetProxy = B7AF8F03289577A000617364 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B7AF8EF0289577A000617364 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7AF8EF1289577A000617364 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7AF8F0A289577A000617364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7AF8F0B289577A000617364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7AF8F0D289577A000617364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 383J7R89WY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B7AF8F0E289577A000617364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 383J7R89WY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenProjectTimeTracker/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Time Tracker";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B7AF8F10289577A000617364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8YBRN8X3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenProjectTimeTracker.app/OpenProjectTimeTracker";
+			};
+			name = Debug;
+		};
+		B7AF8F11289577A000617364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8YBRN8X3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenProjectTimeTracker.app/OpenProjectTimeTracker";
+			};
+			name = Release;
+		};
+		B7AF8F13289577A000617364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8YBRN8X3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OpenProjectTimeTracker;
+			};
+			name = Debug;
+		};
+		B7AF8F14289577A000617364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y8YBRN8X3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vonrehberg.OpenProjectTimeTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OpenProjectTimeTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7AF8EDD2895779F00617364 /* Build configuration list for PBXProject "OpenProjectTimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AF8F0A289577A000617364 /* Debug */,
+				B7AF8F0B289577A000617364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B7AF8F0C289577A000617364 /* Build configuration list for PBXNativeTarget "OpenProjectTimeTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AF8F0D289577A000617364 /* Debug */,
+				B7AF8F0E289577A000617364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B7AF8F0F289577A000617364 /* Build configuration list for PBXNativeTarget "OpenProjectTimeTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AF8F10289577A000617364 /* Debug */,
+				B7AF8F11289577A000617364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B7AF8F12289577A000617364 /* Build configuration list for PBXNativeTarget "OpenProjectTimeTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AF8F13289577A000617364 /* Debug */,
+				B7AF8F14289577A000617364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7AF8F2628958E8100617364 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		B7F9A35428AB942400F694C5 /* XCRemoteSwiftPackageReference "Swift-ISO8601-DurationParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leonx98/Swift-ISO8601-DurationParser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7AF8F2728958E8100617364 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AF8F2628958E8100617364 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
+		B7F9A35528AB942400F694C5 /* Swift-ISO8601-DurationParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7F9A35428AB942400F694C5 /* XCRemoteSwiftPackageReference "Swift-ISO8601-DurationParser" */;
+			productName = "Swift-ISO8601-DurationParser";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B7AF8EDA2895779F00617364 /* Project object */;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>userData</key>
+	<string>users/me</string>
+	<key>tasks</key>
+	<string>work_packages</string>
+	<key>timeEntries</key>
+	<string>time_entries</string>
+</dict>
+</plist>

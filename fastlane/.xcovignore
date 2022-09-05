@@ -1,0 +1,9 @@
+# Exclude all view controllers and views
+- .*View.swift
+- .*ViewController.swift
+
+# Exclude all factories
+- .*Factory.swift
+
+- OpenProjectTimeTracker/Source/App/DesignSystem
+- OpenProjectTimeTracker/Source/App/Extensions

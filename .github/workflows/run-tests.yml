@@ -1,0 +1,58 @@
+name: run_tests
+on: push
+
+jobs:
+  build_and_test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Create config file
+        run: |
+          touch OpenProjectAPI.xcconfig
+          echo OPEN_PROJECT_CONSUMER_KEY="key" >> OpenProjectAPI.xcconfig
+          cat OpenProjectAPI.xcconfig
+          
+      - name: Bundle Install
+        run: bundle install
+        
+      - name: Unit tests
+        run: |
+            bundle exec fastlane tests
+            echo "tests_success=true" >> $GITHUB_ENV
+            
+      - name: Count coverage
+        run: |
+            bundle exec fastlane coverage
+
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v5.5
+
+      - name: Build success badge for main
+        if: |
+            env.tests_success &&
+            steps.branch-name.outputs.current_branch == 'main'
+        uses: schneegans/dynamic-badges-action@v1.4.0
+        with:
+            auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
+            gistID: ${{ secrets.GIST_ID }}
+            filename: TimeTrackerShields.json
+            label: main
+            message: succeeded
+            color: brightgreen
+            
+      - name: Build failure badge for main
+        if: |
+            ! env.tests_success &&
+            steps.branch-name.outputs.current_branch == 'main'
+        uses: schneegans/dynamic-badges-action@v1.4.0
+        with:
+            auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
+            gistID: ${{ secrets.GIST_ID }}
+            filename: TimeTrackerShields.json
+            label: main
+            message: failed
+            color: red

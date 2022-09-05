@@ -2,7 +2,7 @@ name: run_tests
 on: push
 
 jobs:
-  build_and_test_with_signing:
+  build_and_test:
     runs-on: macos-latest
 
     steps:
@@ -31,28 +31,28 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v5.5
 
-      - name: Build success badge for develop
+      - name: Build success badge for main
         if: |
             env.tests_success &&
-            steps.branch-name.outputs.current_branch == 'develop'
+            steps.branch-name.outputs.current_branch == 'main'
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
             gistID: ${{ secrets.GIST_ID }}
             filename: TimeTrackerShields.json
-            label: develop
+            label: main
             message: succeeded
             color: brightgreen
             
-      - name: Build failure badge for develop
+      - name: Build failure badge for main
         if: |
             ! env.tests_success &&
-            steps.branch-name.outputs.current_branch == 'develop'
+            steps.branch-name.outputs.current_branch == 'main'
         uses: schneegans/dynamic-badges-action@v1.4.0
         with:
             auth: ${{ secrets.SHIELDS_GIST_TOKEN }}
             gistID: ${{ secrets.GIST_ID }}
             filename: TimeTrackerShields.json
-            label: develop
+            label: main
             message: failed
             color: red

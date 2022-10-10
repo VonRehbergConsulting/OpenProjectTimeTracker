@@ -46,6 +46,8 @@
 		B743E1C82897EBF100FE944A /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B743E1C72897EBF100FE944A /* URLHandler.swift */; };
 		B74FC52028A5014C001791B1 /* TimerDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */; };
 		B74FC52228A63667001791B1 /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC52128A63667001791B1 /* DSTextField.swift */; };
+		B766666E28F4363700A34718 /* LogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766666D28F4363700A34718 /* LogScreen.swift */; };
+		B766667028F4397500A34718 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766666F28F4397500A34718 /* UIWindow.swift */; };
 		B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9728B377960067672E /* AuthorizationModelTests.swift */; };
 		B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */; };
 		B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */; };
@@ -206,6 +208,8 @@
 		B743E1C72897EBF100FE944A /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		B74FC51F28A5014C001791B1 /* TimerDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDataStorage.swift; sourceTree = "<group>"; };
 		B74FC52128A63667001791B1 /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
+		B766666D28F4363700A34718 /* LogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogScreen.swift; sourceTree = "<group>"; };
+		B766666F28F4397500A34718 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		B770FE9728B377960067672E /* AuthorizationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelTests.swift; sourceTree = "<group>"; };
 		B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceMock.swift; sourceTree = "<group>"; };
 		B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelMock.swift; sourceTree = "<group>"; };
@@ -666,6 +670,7 @@
 				B7F9A35F28ABD01900F694C5 /* Launch */,
 				B7AF8F1A2895799700617364 /* Authorization */,
 				B7C5BA2A289D0692000A10D7 /* Timer */,
+				B766666D28F4363700A34718 /* LogScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				B7F9A30A28AA32F600F694C5 /* UIFont.swift */,
 				B7F9A35728AB955800F694C5 /* DateComponents.swift */,
 				B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */,
+				B766666F28F4397500A34718 /* UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1070,6 +1076,7 @@
 				B7252841289A9993008C2699 /* TokenStorage.swift in Sources */,
 				B7F9A33E28AA6F7500F694C5 /* TimeEntryFormatter.swift in Sources */,
 				B7F9A36B28ABD72800F694C5 /* LaunchModel.swift in Sources */,
+				B766667028F4397500A34718 /* UIWindow.swift in Sources */,
 				B7F9A32F28AA66DE00F694C5 /* EmptyParser.swift in Sources */,
 				B7F9A36728ABD64300F694C5 /* LaunchScreenFactory.swift in Sources */,
 				B7F9A35E28ABA1BA00F694C5 /* WorkPackageParser.swift in Sources */,
@@ -1111,6 +1118,7 @@
 				B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */,
 				B7F9A36328ABD07F00F694C5 /* LaunchContentView.swift in Sources */,
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
+				B766666E28F4363700A34718 /* LogScreen.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,
 				B7D588E528A3F73000A7764B /* Date.swift in Sources */,
@@ -1338,6 +1346,7 @@
 		};
 		B7AF8F0D289577A000617364 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7C680B128C5ED41001CB41A /* OpenProjectAPI.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

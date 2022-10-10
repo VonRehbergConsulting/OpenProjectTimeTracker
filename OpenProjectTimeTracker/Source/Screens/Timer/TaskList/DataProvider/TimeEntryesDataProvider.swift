@@ -57,7 +57,7 @@ final class TimeEntriesDataProvider: TimeEntriesListDataProviderProtocol {
     func loadNext(_ completion: @escaping ([Int]) -> Void) {
         guard isLoading == false else { return }
         isLoading = true
-        Logger.log("Loading tasks")
+        Logger.log("Loading time entries")
         service.list(userID: userID, page: nextPage, date: Date()) { [weak self] result in
             guard let self = self else { return }
             if let preProcessHandler = self.preProcessHandler {

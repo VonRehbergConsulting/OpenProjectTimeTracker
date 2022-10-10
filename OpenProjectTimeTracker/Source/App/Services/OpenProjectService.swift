@@ -136,6 +136,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
                                            renewHeaders: nil,
                                            body: requestConfig.request.body,
                                            onTokenRenewal: { [weak self] result in
+            Logger.log("Refreshing token")
             guard let self = self else { return }
             switch result {
             case .success(let credentials):

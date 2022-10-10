@@ -21,7 +21,24 @@ class Logger {
     // MARK: - Properties
     
     static var isDetailed = false
-    static var isLoggingEnabled = true
+    static var isLoggingEnabled = {
+        #if DEBUG
+        return true
+        #endif
+        #if RELEASE
+        return false
+        #endif
+    }()
+    
+    static var onDeviceLogEnabled: Bool = {
+        #if DEBUG
+        return true
+        #endif
+        #if RELEASE
+        return false
+        #endif
+    }()
+    private(set) static var log: [String] = []
     
     // MARK: - Methods
     
@@ -33,10 +50,10 @@ class Logger {
         column: Int = #column,
         function: String = #function
     ) {
-        if isLoggingEnabled {
-            let message = "\(logData(logEvent: event, filename: filename, line: line, column: column, function: function)): \(object)"
-            print(message)
-        }
+        guard isLoggingEnabled || onDeviceLogEnabled == true else { return }
+        let message = "\(logData(logEvent: event, filename: filename, line: line, column: column, function: function)): \(object)"
+        if isLoggingEnabled { print(message) }
+        if onDeviceLogEnabled { log.append(message) }
     }
     
     // MARK: - Private helpers

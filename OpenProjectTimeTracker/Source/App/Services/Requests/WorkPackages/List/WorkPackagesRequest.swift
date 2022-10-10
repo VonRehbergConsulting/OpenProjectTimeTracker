@@ -19,7 +19,7 @@ struct WorkPackagesRequest: RequestProtocol {
     
     init(userID: Int, page: Int) {
         parameters = [
-            "filters": "[{\"assignee\":{\"operator\":\"=\",\"values\":[\"\(userID)\"]}}]",
+            "filters": "[{\"assignee\":{\"operator\":\"=\",\"values\":[\"\(userID)\"]}}, {\"status\":{\"operator\":\"!\",\"values\":[\"12\"]}}]",
             "pageSize": pageSize,
             "offset": page
         ]

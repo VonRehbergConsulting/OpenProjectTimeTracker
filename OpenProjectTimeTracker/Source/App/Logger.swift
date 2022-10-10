@@ -21,7 +21,7 @@ class Logger {
     // MARK: - Properties
     
     static var isDetailed = false
-    static var isLoggingEnabled = {
+    static var isLoggingEnabled: Bool = {
         #if DEBUG
         return true
         #endif

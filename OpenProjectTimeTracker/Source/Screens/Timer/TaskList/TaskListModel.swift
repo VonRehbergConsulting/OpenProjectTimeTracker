@@ -17,6 +17,7 @@ protocol TaskListModelProtocol {
     
     var taskCount: Int { get }
     var timeEntryCount: Int { get }
+    var timeSpent: Double { get }
     
     func task(at index: Int) -> Task?
     func task(id: Int, completion: @escaping (Task?) -> Void)
@@ -51,6 +52,7 @@ final class TaskListModel: TaskListModelProtocol {
     
     var taskCount: Int { taskDataProvider.itemCount }
     var timeEntryCount: Int { timeEntryDataProvider.itemCount }
+    var timeSpent: Double { timeEntryDataProvider.timeSpent }
     
     func task(at index: Int) -> Task? {
         taskDataProvider.item(at: index)

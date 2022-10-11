@@ -99,6 +99,7 @@ final class TimerPresenter: TimerPresenterProtocol {
                 model.startTime = Date()
             }
         }
+        Logger.log("Timer started")
     }
     
     func stopTimer() {
@@ -109,6 +110,7 @@ final class TimerPresenter: TimerPresenterProtocol {
         if model.stopTime == nil {
             model.stopTime = Date()
         }
+        Logger.log("Timer stopped")
     }
     
     func resetTimer() {

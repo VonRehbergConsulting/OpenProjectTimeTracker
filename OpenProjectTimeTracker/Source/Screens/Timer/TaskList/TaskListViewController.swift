@@ -107,6 +107,11 @@ final class TaskListViewController: UIViewController,
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if presenter?.modelType == .timeEntry { return "Time spent: \(presenter?.timeSpent ?? "")" }
+        return nil
+    }
+    
     // MARK: - UIScrollViewDelegate
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

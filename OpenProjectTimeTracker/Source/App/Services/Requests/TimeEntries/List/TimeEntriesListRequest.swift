@@ -9,7 +9,7 @@ import Foundation
 
 struct TimeEntriesListRequest: RequestProtocol {
     
-    private let pageSize = 20
+    private let pageSize = 40
     
     var url: String = OpenProjectEndpoints.timeEntries.reference
     var method: HTTPMethod = .get

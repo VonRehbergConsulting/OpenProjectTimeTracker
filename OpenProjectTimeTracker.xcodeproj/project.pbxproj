@@ -48,6 +48,7 @@
 		B74FC52228A63667001791B1 /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74FC52128A63667001791B1 /* DSTextField.swift */; };
 		B766666E28F4363700A34718 /* LogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766666D28F4363700A34718 /* LogScreen.swift */; };
 		B766667028F4397500A34718 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766666F28F4397500A34718 /* UIWindow.swift */; };
+		B766667628F5764A00A34718 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766667528F5764A00A34718 /* TimeInterval.swift */; };
 		B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9728B377960067672E /* AuthorizationModelTests.swift */; };
 		B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */; };
 		B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */; };
@@ -210,6 +211,7 @@
 		B74FC52128A63667001791B1 /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
 		B766666D28F4363700A34718 /* LogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogScreen.swift; sourceTree = "<group>"; };
 		B766666F28F4397500A34718 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		B766667528F5764A00A34718 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		B770FE9728B377960067672E /* AuthorizationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelTests.swift; sourceTree = "<group>"; };
 		B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceMock.swift; sourceTree = "<group>"; };
 		B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelMock.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				B7D588E428A3F73000A7764B /* Date.swift */,
 				B7F9A30A28AA32F600F694C5 /* UIFont.swift */,
 				B7F9A35728AB955800F694C5 /* DateComponents.swift */,
+				B766667528F5764A00A34718 /* TimeInterval.swift */,
 				B735EB6E28BCE5E300B1E515 /* UserDefaults.swift */,
 				B766666F28F4397500A34718 /* UIWindow.swift */,
 			);
@@ -1070,6 +1073,7 @@
 				B7D588DB28A3B7FC00A7764B /* SummaryViewController.swift in Sources */,
 				B743E1AE2897B85E00FE944A /* Logger.swift in Sources */,
 				B7F9A33528AA69F700F694C5 /* TimeEntriesListParser.swift in Sources */,
+				B766667628F5764A00A34718 /* TimeInterval.swift in Sources */,
 				B7C5BA45289D41AF000A10D7 /* NetworkError.swift in Sources */,
 				B7F9A32828AA641300F694C5 /* UserDataRequestFactory.swift in Sources */,
 				B7F9A33328AA693D00F694C5 /* TimeEntriesListRequest.swift in Sources */,
@@ -1362,7 +1366,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1394,7 +1398,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

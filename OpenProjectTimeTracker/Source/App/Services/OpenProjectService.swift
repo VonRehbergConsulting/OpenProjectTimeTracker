@@ -84,8 +84,10 @@ class OpenProjectService: AuthorizationServiceProtocol,
                     refreshToken: credential.oauthRefreshToken
                 )
                 self.tokenStorage.token = token
+                Logger.log(event: .success, "Authorization succeeded")
                 completion(.success(token))
             case .failure(let error):
+                Logger.log(event: .failure, "Authorization failed")
                 completion(.failure(error))
             }
         }
@@ -94,6 +96,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
     // MARK: - RefreshTokenProtocol
     
     func refresh(_ token: AuthorizationToken, completion: @escaping (Result<AuthorizationToken, Error>) -> Void) {
+        Logger.log(event: .request, "Refresh token")
         oauth2swift.renewAccessToken(withRefreshToken: token.refreshToken, parameters: nil, headers: nil) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -103,14 +106,17 @@ class OpenProjectService: AuthorizationServiceProtocol,
                     refreshToken: credential.oauthRefreshToken
                 )
                 self.tokenStorage.token = token
+                Logger.log(event: .success, "Token refreshed")
                 completion(.success(token))
             case .failure(let error):
                 if let swiftError = error.errorUserInfo["error"] as? NSError,
                    self.isUnauthorizedError(swiftError)
                 {
                     self.tokenStorage.token = nil
+                    Logger.log(event: .failure, "Unauthorized")
                     completion(.failure(NetworkError.unanthorized))
                 } else {
+                    Logger.log(event: .failure, "Can't refresh token")
                     completion(.failure(error))
                 }
             }
@@ -129,6 +135,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
         case .patch:
             oauthMethod = .PATCH
         }
+        Logger.log(event: .request, "\(requestConfig.request.method) \(requestConfig.request.url)")
         oauth2swift.startAuthorizedRequest(requestConfig.request.url,
                                            method: oauthMethod,
                                            parameters: requestConfig.request.parameters,
@@ -143,7 +150,7 @@ class OpenProjectService: AuthorizationServiceProtocol,
                 Logger.log("Token refreshed")
                 self.tokenStorage.token = AuthorizationToken(oauthToken: credentials.oauthToken, refreshToken: credentials.oauthRefreshToken)
             case .failure(_):
-                Logger.log(event: .warning, "Cannot refresh token")
+                Logger.log(event: .warning, "Token refreshing failed")
                 self.tokenStorage.token = nil
             }
 
@@ -152,16 +159,20 @@ class OpenProjectService: AuthorizationServiceProtocol,
             switch result {
             case .success(let (response)):
                 if let parsedData = requestConfig.parser.parse(response.data) {
+                    Logger.log(event: .success, "Request completed")
                     completion(.success(parsedData))
                 } else {
+                    Logger.log(event: .failure, "Parsing error")
                     completion(.failure(NetworkError.parsingError))
                 }
             case .failure(let error):
                 if let swiftError = error.errorUserInfo["error"] as? Error,
                    self.isUnauthorizedError(swiftError) {
                     self.tokenStorage.token = nil
+                    Logger.log(event: .failure, "Unauthorized")
                     completion(.failure(NetworkError.unanthorized))
                 } else {
+                    Logger.log(event: .failure, "Failed to complete request")
                     completion(.failure(error))
                 }
             }

@@ -14,6 +14,7 @@ enum LogEvent: String {
     case info = "ℹ️"
     case success = "✅"
     case failure = "❌"
+    case request = "✉️"
 }
 
 class Logger {

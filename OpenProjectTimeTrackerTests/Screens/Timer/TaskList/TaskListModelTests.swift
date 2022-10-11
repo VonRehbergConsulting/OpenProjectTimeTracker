@@ -34,6 +34,14 @@ final class TaskListModelTests: XCTestCase {
         XCTAssertEqual(model.taskCount, 4)
     }
     
+    func testTimeSpent() {
+        // Arrange
+        timeEntriesProvider.timeSpent = 123
+        
+        // Assert
+        XCTAssertEqual(model.timeSpent, 123)
+    }
+    
     func testTimeEntryCount() {
         // Arrange
         timeEntriesProvider.itemCount = 4

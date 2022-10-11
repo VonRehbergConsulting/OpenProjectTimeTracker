@@ -43,7 +43,9 @@ final class TimeEntriesDataProviderTests: XCTestCase {
     
     func testLoadNextSuccess() {
         // Arrange
-        let timeSpent = Calendar.current.dateComponents([.second], from: Date())
+        var timeSpent = DateComponents()
+        timeSpent.hour = 2
+        timeSpent.minute = 18
         let items: [TimeEntryListModel] = [
             .init(id: 1, projectTitle: "Project 1", workPackageTitle: "Taks 1", workPackageID: 11, timeSpent: timeSpent),
             .init(id: 2, projectTitle: "Project 2", workPackageTitle: "Taks 2", workPackageID: 12, timeSpent: timeSpent)
@@ -65,6 +67,7 @@ final class TimeEntriesDataProviderTests: XCTestCase {
         XCTAssertEqual(secondResult, [2, 3])
         XCTAssertEqual(provider.itemCount, 4)
         XCTAssertEqual(provider.item(at: 3)?.id, 2)
+        XCTAssertEqual(provider.timeSpent, 33120.0)
     }
     
     // MARK: - reload

@@ -34,6 +34,7 @@ class DSTextField: UIView, UITextFieldDelegate {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(buttonAction))
         imageView.addGestureRecognizer(recognizer)
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         return imageView
     }()
     

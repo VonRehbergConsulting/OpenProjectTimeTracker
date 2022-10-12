@@ -27,13 +27,6 @@ final class CommentSuggestionViewController: UIViewController,
         return tableView
     }()
     
-    private lazy var closeButton: DSButton = {
-        let button = DSButton().disableMask()
-        button.setTitle("Close", for: .normal)
-        button.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
-        return button
-    }()
-    
     // MARK: - Properties
     
     var items: [String] = [] {
@@ -42,33 +35,20 @@ final class CommentSuggestionViewController: UIViewController,
         }
     }
     
-    var finishFlow: ((String) -> Void)?
+    var finishFlow: ((String?) -> Void)?
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Comments"
         layout()
     }
     
     private func layout() {
         view.backgroundColor = .systemGroupedBackground
-        
         view.addSubview(tableView)
-        view.addSubview(closeButton)
-        
         tableView.attachToSuperview()
-        NSLayoutConstraint.activate([
-            closeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.buttonInset),
-            closeButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            closeButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5),
-        ])
-    }
-    
-    // MARK: - Actions
-    
-    @objc private func closeButtonAction() {
-        dismiss(animated: true)
     }
     
     // MARK: - UITableViewDelegate
@@ -83,7 +63,6 @@ final class CommentSuggestionViewController: UIViewController,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         finishFlow?(items[indexPath.row])
-        dismiss(animated: true)
     }
     
     // MARK: - UITableViewDataSource

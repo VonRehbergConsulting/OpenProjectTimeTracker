@@ -14,7 +14,10 @@ protocol SummaryModelProtocol: AnyObject {
     var timeSpent: DateComponents { get set }
     var comment: String? { get set }
     
+    var commentSuggestions: [String] { get }
+    
     func saveTimeEntry(_ completion: @escaping (Bool) -> Void)
+    func loadCommentSuggestions(_ completion: @escaping ((() -> Void)))
 }
 
 final class SummaryModel: SummaryModelProtocol {
@@ -33,6 +36,8 @@ final class SummaryModel: SummaryModelProtocol {
     
     let taskTitle: String?
     let projectTitle: String?
+    
+    var commentSuggestions: [String] = []
     
     // MARK: - Lifecycle
     
@@ -65,6 +70,27 @@ final class SummaryModel: SummaryModelProtocol {
             updateTimeEntry(id: timeEntryID, completion)
         } else {
             createTimeEntry(completion)
+        }
+    }
+    
+    func loadCommentSuggestions(_ completion: @escaping ((() -> Void))) {
+        Logger.log("Loading comment suggestions")
+        guard let workPackageString = taskHref.components(separatedBy: "/").last,
+              let workPackage = Int(workPackageString) else {
+            Logger.log(event: .warning, "Can't get work package id")
+            completion()
+            return
+        }
+        service.list(userID: nil, page: 1, date: nil, workPackage: workPackage) { [weak self] result in
+            switch result {
+            case .success(let items):
+                Logger.log(event: .success, "Comment suggestions loaded: \(items.count)")
+                self?.commentSuggestions = items.compactMap({ $0.comment != "" ? $0.comment : nil })
+                completion()
+            case .failure(_):
+                Logger.log(event: .failure, "Failed to load suggestions")
+                completion()
+            }
         }
     }
     

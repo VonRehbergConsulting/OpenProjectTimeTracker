@@ -9,7 +9,7 @@ import Foundation
 
 protocol TimeEntriesRequestFactoryProtocol {
     
-    func createTimeEntriesListRquestConfig(userID: Int, page: Int, date: Date) -> RequestConfig<TimeEntriesListParser>
+    func createTimeEntriesListRquestConfig(userID: Int?, page: Int, date: Date?, workPackage: Int?) -> RequestConfig<TimeEntriesListParser>
     
     func createTimeEnrtiesCreateRequestConfig(userID: Int,
                                               projectHref: String,
@@ -24,8 +24,8 @@ protocol TimeEntriesRequestFactoryProtocol {
 
 final class TimeEntriesRequestFactory: TimeEntriesRequestFactoryProtocol {
     
-    func createTimeEntriesListRquestConfig(userID: Int, page: Int, date: Date)  -> RequestConfig<TimeEntriesListParser> {
-        let request = TimeEntriesListRequest(userID: userID, page: page, date: date)
+    func createTimeEntriesListRquestConfig(userID: Int?, page: Int, date: Date?, workPackage: Int?)  -> RequestConfig<TimeEntriesListParser> {
+        let request = TimeEntriesListRequest(userID: userID, page: page, date: date, workPackage: workPackage)
         let parser = TimeEntriesListParser()
         return RequestConfig(request: request, parser: parser)
     }

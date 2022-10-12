@@ -21,6 +21,8 @@ protocol TimerCoordinatorProtocol: AnyObject {
                         projectTitle: String?,
                         comment: String?,
                         _ completion: @escaping () -> Void)
+    
+    func routeToCommentSuggestions(items: [String], _ finishFlow: @escaping ((String?) -> Void))
 }
 
 class TimerCoordinator: Coordinator,
@@ -100,10 +102,21 @@ class TimerCoordinator: Coordinator,
                                                                projectTitle: projectTitle,
                                                                comment: comment
         )
+        viewController.coordinator = self
         viewController.finishFlow = { [weak self] in
             self?.router.pop(animated: true)
             completion()
         }
+        router.push(viewController, animated: true)
+    }
+    
+    func routeToCommentSuggestions(items: [String], _ finishFlow: @escaping ((String?) -> Void)) {
+        let viewController = CommentSuggestionViewController()
+        viewController.finishFlow = { [weak self] comment in
+            finishFlow(comment)
+            self?.router.pop(animated: true)
+        }
+        viewController.items = items
         router.push(viewController, animated: true)
     }
 }

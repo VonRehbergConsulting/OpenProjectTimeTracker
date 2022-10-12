@@ -17,10 +17,16 @@ struct TimeEntriesListRequest: RequestProtocol {
     var headers: [String : String] = [:]
     var body: Data? = nil
     
-    init(userID: Int, page: Int, date: Date) {
-        let dateString = TimeEntryFormatter.formatDate(date)
+    init(userID: Int?, page: Int, date: Date?, workPackage: Int?) {
+        var filters: [String] = []
+        if let userID = userID { filters.append("{\"user\":{\"operator\":\"=\",\"values\":[\"\(userID)\"]}}") }
+        if let date = date {
+            let dateString = TimeEntryFormatter.formatDate(date)
+            filters.append("{\"spent_on\":{\"operator\":\"=d\",\"values\":[\"\(dateString)\"]}}")
+        }
+        if let workPackage = workPackage { filters.append("{\"workPackage\":{\"operator\":\"=\",\"values\":[\"\(workPackage)\"]}}") }
         parameters = [
-            "filters": "[{\"user\":{\"operator\":\"=\",\"values\":[\"\(userID)\"]}}, {\"spent_on\":{\"operator\":\"=d\",\"values\":[\"\(dateString)\"]}}]",
+            "filters": "[\(filters.joined(separator: ","))]",
             "pageSize": pageSize,
             "offset": page
         ]

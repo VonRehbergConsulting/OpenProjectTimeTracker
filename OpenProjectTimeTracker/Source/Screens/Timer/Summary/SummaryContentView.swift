@@ -71,7 +71,6 @@ final class SummaryContentView: UIView {
         textField.shouldReturnHandler = { [weak self] in
             textField.resignFirstResponder()
         }
-        textField.buttonImage = .actions
         return textField
     }()
     
@@ -163,6 +162,10 @@ final class SummaryContentView: UIView {
             timeTextField.text = nil
         }
         commentTextField.text = comment
+    }
+    
+    func showCommentSuggestionsButton() {
+        commentTextField.buttonImage = Images.iconMore
     }
     
     // MARK: - Actions

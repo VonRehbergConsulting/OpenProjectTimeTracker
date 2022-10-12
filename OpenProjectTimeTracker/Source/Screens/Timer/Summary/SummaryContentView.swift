@@ -71,6 +71,7 @@ final class SummaryContentView: UIView {
         textField.shouldReturnHandler = { [weak self] in
             textField.resignFirstResponder()
         }
+        textField.buttonImage = .actions
         return textField
     }()
     
@@ -101,6 +102,10 @@ final class SummaryContentView: UIView {
     }
     
     var saveButtonAction: (() -> Void)?
+    var commentSuggestionsAction: (() -> Void)? {
+        get { commentTextField.buttonHandler }
+        set { commentTextField.buttonHandler = newValue }
+    }
     
     var comment: String? {
         get { commentTextField.text }
@@ -184,6 +189,10 @@ final class SummaryContentView: UIView {
     
     @objc private func saveButtonOnTap() {
         saveButtonAction?()
+    }
+    
+    @objc  private func commentSuggestionsOnTap() {
+        commentSuggestionsAction?()
     }
     
     // MARK: - Private helpers

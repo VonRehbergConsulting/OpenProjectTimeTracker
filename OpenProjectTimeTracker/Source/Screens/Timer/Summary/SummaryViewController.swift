@@ -48,5 +48,16 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
                 }
             }
         }
+        contentView?.commentSuggestionsAction = { [weak self] in
+            guard let self = self else { return }
+            let viewController = CommentSuggestionViewController()
+            viewController.finishFlow = { [weak self] comment in
+                guard let self = self else { return }
+                self.presenter?.comment = comment
+                self.contentView?.comment = comment
+            }
+            viewController.items = ["Comment 1", "Another comment"]
+            self.present(viewController, animated: true)
+        }
     }
 }

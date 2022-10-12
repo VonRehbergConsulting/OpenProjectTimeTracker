@@ -14,6 +14,7 @@ class DSTextField: UIView, UITextFieldDelegate {
     private struct Constants {
         static let labelInset: CGFloat = 8
         static let edgeInset: CGFloat = 8
+        static let spacing: CGFloat = 8
     }
     
     // MARK: - Subviews
@@ -22,8 +23,18 @@ class DSTextField: UIView, UITextFieldDelegate {
         let textField = UITextField().disableMask()
         textField.isEnabled = true
         textField.backgroundColor = .clear
+        textField.rightView = imageView
         textField.delegate = self
         return textField
+    }()
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView().disableMask()
+        imageView.isUserInteractionEnabled = true
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(buttonAction))
+        imageView.addGestureRecognizer(recognizer)
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        return imageView
     }()
     
     private lazy var descriptionLabel: UILabel = {
@@ -55,8 +66,20 @@ class DSTextField: UIView, UITextFieldDelegate {
         get { descriptionLabel.text }
         set { descriptionLabel.text = newValue }
     }
+    var buttonImage: UIImage? {
+        get { imageView.image }
+        set {
+            imageView.image = newValue
+            if newValue != nil {
+                textField.rightViewMode = .unlessEditing
+            } else {
+                textField.rightViewMode = .never
+            }
+        }
+    }
     
     var shouldReturnHandler: (() -> Bool)?
+    var buttonHandler: (() -> Void)?
     
     // MARK: - Lifecycle
     
@@ -103,5 +126,11 @@ class DSTextField: UIView, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         shouldReturnHandler?() ?? false
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func buttonAction() {
+        buttonHandler?()
     }
 }

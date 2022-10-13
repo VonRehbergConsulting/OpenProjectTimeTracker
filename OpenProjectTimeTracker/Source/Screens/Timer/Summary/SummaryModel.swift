@@ -84,8 +84,9 @@ final class SummaryModel: SummaryModelProtocol {
         service.list(userID: nil, page: 1, date: nil, workPackage: workPackage) { [weak self] result in
             switch result {
             case .success(let items):
-                Logger.log(event: .success, "Comment suggestions loaded: \(items.count)")
-                self?.commentSuggestions = items.compactMap({ $0.comment != "" ? $0.comment : nil })
+                let comments = items.compactMap({ $0.comment != "" ? $0.comment : nil })
+                self?.commentSuggestions = Array(Set(comments))
+                Logger.log(event: .success, "Comment suggestions loaded: \(self?.commentSuggestions.count ?? 0)")
                 completion()
             case .failure(_):
                 Logger.log(event: .failure, "Failed to load suggestions")

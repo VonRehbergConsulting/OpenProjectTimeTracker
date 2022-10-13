@@ -9,7 +9,7 @@ import Foundation
 
 protocol TimeEntriesServiceProtocol {
     
-    func list(userID: Int, page: Int, date: Date, _ completion: @escaping (Result<[TimeEntryListModel], Error>) -> Void)
+    func list(userID: Int?, page: Int, date: Date?, workPackage: Int?, _ completion: @escaping (Result<[TimeEntryListModel], Error>) -> Void)
     
     func create(userID: Int,
                 projectHref: String,
@@ -43,8 +43,8 @@ final class TimeEntriesService: TimeEntriesServiceProtocol {
     
     // MARK: - TimeEntriesServiceProtocol
     
-    func list(userID: Int, page: Int, date: Date, _ completion: @escaping (Result<[TimeEntryListModel], Error>) -> Void) {
-        let requestConfig = requestFactory.createTimeEntriesListRquestConfig(userID: userID, page: page, date: date)
+    func list(userID: Int?, page: Int, date: Date?, workPackage: Int?, _ completion: @escaping (Result<[TimeEntryListModel], Error>) -> Void) {
+        let requestConfig = requestFactory.createTimeEntriesListRquestConfig(userID: userID, page: page, date: date, workPackage: workPackage)
         service.send(requestConfig: requestConfig, completion)
     }
     

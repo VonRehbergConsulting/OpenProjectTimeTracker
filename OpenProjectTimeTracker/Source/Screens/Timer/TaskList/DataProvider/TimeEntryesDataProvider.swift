@@ -60,7 +60,7 @@ final class TimeEntriesDataProvider: TimeEntriesListDataProviderProtocol {
         guard isLoading == false else { return }
         isLoading = true
         Logger.log("Loading time entries")
-        service.list(userID: userID, page: nextPage, date: Date()) { [weak self] result in
+        service.list(userID: userID, page: nextPage, date: Date(), workPackage: nil) { [weak self] result in
             guard let self = self else { return }
             if let preProcessHandler = self.preProcessHandler {
                 self.preProcessHandler = nil

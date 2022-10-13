@@ -49,6 +49,9 @@
 		B766666E28F4363700A34718 /* LogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766666D28F4363700A34718 /* LogScreen.swift */; };
 		B766667028F4397500A34718 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766666F28F4397500A34718 /* UIWindow.swift */; };
 		B766667628F5764A00A34718 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766667528F5764A00A34718 /* TimeInterval.swift */; };
+		B766667928F5A5E400A34718 /* CommentSuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766667828F5A5E400A34718 /* CommentSuggestionViewController.swift */; };
+		B766667B28F5A74100A34718 /* CommentSuggestionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766667A28F5A74100A34718 /* CommentSuggestionViewCell.swift */; };
+		B766667D28F6C6A400A34718 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766667C28F6C6A400A34718 /* Images.swift */; };
 		B770FE9828B377960067672E /* AuthorizationModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9728B377960067672E /* AuthorizationModelTests.swift */; };
 		B770FE9A28B377CB0067672E /* AuthorizationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */; };
 		B770FE9E28B37D030067672E /* AuthorizationModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */; };
@@ -212,6 +215,9 @@
 		B766666D28F4363700A34718 /* LogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogScreen.swift; sourceTree = "<group>"; };
 		B766666F28F4397500A34718 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		B766667528F5764A00A34718 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		B766667828F5A5E400A34718 /* CommentSuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSuggestionViewController.swift; sourceTree = "<group>"; };
+		B766667A28F5A74100A34718 /* CommentSuggestionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSuggestionViewCell.swift; sourceTree = "<group>"; };
+		B766667C28F6C6A400A34718 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		B770FE9728B377960067672E /* AuthorizationModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelTests.swift; sourceTree = "<group>"; };
 		B770FE9928B377CB0067672E /* AuthorizationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceMock.swift; sourceTree = "<group>"; };
 		B770FE9D28B37D030067672E /* AuthorizationModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModelMock.swift; sourceTree = "<group>"; };
@@ -465,6 +471,15 @@
 			path = Storages;
 			sourceTree = "<group>";
 		};
+		B766667728F5A5AC00A34718 /* CommentSuggestion */ = {
+			isa = PBXGroup;
+			children = (
+				B766667A28F5A74100A34718 /* CommentSuggestionViewCell.swift */,
+				B766667828F5A5E400A34718 /* CommentSuggestionViewController.swift */,
+			);
+			path = CommentSuggestion;
+			sourceTree = "<group>";
+		};
 		B770FE9628B3778A0067672E /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,10 +684,10 @@
 		B7AF8F192895798C00617364 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B766666D28F4363700A34718 /* LogScreen.swift */,
 				B7F9A35F28ABD01900F694C5 /* Launch */,
 				B7AF8F1A2895799700617364 /* Authorization */,
 				B7C5BA2A289D0692000A10D7 /* Timer */,
-				B766666D28F4363700A34718 /* LogScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -710,6 +725,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C5BA38289D2E2E000A10D7 /* Colors.swift */,
+				B766667C28F6C6A400A34718 /* Images.swift */,
 				B7C5BA36289D2DB8000A10D7 /* DSButton.swift */,
 				B7F9A36428ABD28500F694C5 /* DSSlimButton.swift */,
 				B7730EF428AF828D00597FA6 /* DSLabel.swift */,
@@ -741,6 +757,7 @@
 				B7C5BA2D289D06C7000A10D7 /* Timer */,
 				B77C128F28A299CC004F8988 /* TaskList */,
 				B7D588D728A3B7A600A7764B /* Summary */,
+				B766667728F5A5AC00A34718 /* CommentSuggestion */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -1099,6 +1116,7 @@
 				B7F9A30E28AA4E0900F694C5 /* InfiniteTableView.swift in Sources */,
 				B7730EF528AF828D00597FA6 /* DSLabel.swift in Sources */,
 				B7F9A31228AA5B9700F694C5 /* RequestProtocol.swift in Sources */,
+				B766667D28F6C6A400A34718 /* Images.swift in Sources */,
 				B743E1C42897E1B400FE944A /* APIKey.swift in Sources */,
 				B7F9A33928AA6C0100F694C5 /* TimeEntryListModel.swift in Sources */,
 				B7F9A34028AA6FE100F694C5 /* TimeEntryUpdateRequest.swift in Sources */,
@@ -1121,7 +1139,9 @@
 				B77C129328A29A38004F8988 /* TaskListViewController.swift in Sources */,
 				B7F9A31828AA5DA300F694C5 /* RequestConfig.swift in Sources */,
 				B7F9A36328ABD07F00F694C5 /* LaunchContentView.swift in Sources */,
+				B766667B28F5A74100A34718 /* CommentSuggestionViewCell.swift in Sources */,
 				B7B18C01289C08D400545968 /* AuthorizationCheckCoordinator.swift in Sources */,
+				B766667928F5A5E400A34718 /* CommentSuggestionViewController.swift in Sources */,
 				B766666E28F4363700A34718 /* LogScreen.swift in Sources */,
 				B7B18BF5289BF5B000545968 /* UserService.swift in Sources */,
 				B7D588DF28A3B80B00A7764B /* SummaryModel.swift in Sources */,

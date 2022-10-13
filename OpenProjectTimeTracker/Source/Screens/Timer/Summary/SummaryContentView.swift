@@ -101,6 +101,10 @@ final class SummaryContentView: UIView {
     }
     
     var saveButtonAction: (() -> Void)?
+    var commentSuggestionsAction: (() -> Void)? {
+        get { commentTextField.buttonHandler }
+        set { commentTextField.buttonHandler = newValue }
+    }
     
     var comment: String? {
         get { commentTextField.text }
@@ -160,6 +164,10 @@ final class SummaryContentView: UIView {
         commentTextField.text = comment
     }
     
+    func showCommentSuggestionsButton() {
+        commentTextField.buttonImage = Images.iconMore
+    }
+    
     // MARK: - Actions
     
     @objc private func timeTextFieldOnTap() {
@@ -184,6 +192,10 @@ final class SummaryContentView: UIView {
     
     @objc private func saveButtonOnTap() {
         saveButtonAction?()
+    }
+    
+    @objc  private func commentSuggestionsOnTap() {
+        commentSuggestionsAction?()
     }
     
     // MARK: - Private helpers

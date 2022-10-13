@@ -30,7 +30,7 @@ extension OAuth2Swift: OAuth2SwiftProtocol {
             authorizeUrl: APIKey.authorizeURL,
             accessTokenUrl: APIKey.tokenURL,
             responseType: "code",
-            contentType: ""
+            contentType: "application/x-www-form-urlencoded"
         )
         allowMissingStateCheck = true
         let handler = SafariURLHandler(viewController: viewController, oauthSwift: self)

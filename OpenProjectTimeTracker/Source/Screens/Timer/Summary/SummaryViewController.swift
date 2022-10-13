@@ -17,6 +17,7 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
     
     var contentView: SummaryContentView? { view as? SummaryContentView }
     
+    weak var coordinator: TimerCoordinatorProtocol?
     var presenter: SummaryPresenterProtocol?
     
     var finishFlow: (() -> Void)?
@@ -29,6 +30,14 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter?.loadCommentSuggestions() { [weak self] in
+            if let commentSuggestions = self?.presenter?.commentSuggestions,
+               !commentSuggestions.isEmpty {
+                self?.contentView?.showCommentSuggestionsButton()
+            }
+        }
+        
         navigationItem.title = "Overview"
         contentView?.setData(taskTitle: presenter?.taskTitle,
                              projectTitle: presenter?.projectTitle,
@@ -46,6 +55,19 @@ final class SummaryViewController: UIViewController, SummaryViewProtocol {
                 } else {
                     self.showAlert(title: "Error", message: "Can't log work")
                 }
+            }
+        }
+        contentView?.commentSuggestionsAction = { [weak self] in
+            guard let self = self,
+                  let items = self.presenter?.commentSuggestions,
+                  !items.isEmpty
+            else { return }
+            self.coordinator?.routeToCommentSuggestions(items: items) { [weak self] comment in
+                guard let self = self,
+                      comment != nil
+                else { return }
+                self.presenter?.comment = comment
+                self.contentView?.comment = comment
             }
         }
     }

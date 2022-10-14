@@ -11,7 +11,7 @@ import Foundation
 final class TimeEntriesServiceMock: TimeEntriesServiceProtocol {
     
     var listStub: Result<[TimeEntryListModel], Error>?
-    func list(userID: Int, page: Int, date: Date, _ completion: @escaping (Result<[TimeEntryListModel], Error>) -> Void) {
+    func list(userID: Int?, page: Int, date: Date?, workPackage: Int?, _ completion: @escaping (Result<[TimeEntryListModel], Error>) -> Void) {
         guard let listStub = listStub else { return }
         completion(listStub)
     }

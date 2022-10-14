@@ -9,6 +9,16 @@ import Foundation
 
 extension DateComponents {
     
+    var timeInterval: TimeInterval {
+        let calendar = Calendar.current
+        let date = Date()
+        guard let increasedDate = calendar.date(byAdding: self, to: date) else {
+            Logger.log(event: .error, "Can't calculate time interval")
+            return TimeInterval()
+        }
+        return increasedDate - date
+    }
+    
     var clockTime: String {
         let hoursStr = processNumber(hour)
         let minutesStr = processNumber(minute)

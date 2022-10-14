@@ -9,6 +9,7 @@ import Foundation
 
 protocol TimeEntriesListDataProviderProtocol {
     var itemCount: Int { get }
+    var timeSpent: Double { get }
     
     func item(at index: Int) -> TimeEntryListModel?
     
@@ -26,6 +27,7 @@ final class TimeEntriesDataProvider: TimeEntriesListDataProviderProtocol {
     private let service: TimeEntriesServiceProtocol
     
     private var items = [TimeEntryListModel]()
+    private(set) var timeSpent = 0.0
     private var isLoading = false
     private var nextPage = 1
     
@@ -57,8 +59,8 @@ final class TimeEntriesDataProvider: TimeEntriesListDataProviderProtocol {
     func loadNext(_ completion: @escaping ([Int]) -> Void) {
         guard isLoading == false else { return }
         isLoading = true
-        Logger.log("Loading tasks")
-        service.list(userID: userID, page: nextPage, date: Date()) { [weak self] result in
+        Logger.log("Loading time entries")
+        service.list(userID: userID, page: nextPage, date: Date(), workPackage: nil) { [weak self] result in
             guard let self = self else { return }
             if let preProcessHandler = self.preProcessHandler {
                 self.preProcessHandler = nil
@@ -72,6 +74,9 @@ final class TimeEntriesDataProvider: TimeEntriesListDataProviderProtocol {
                 let responseCount = response.count
                 Logger.log(event: .success, "Time entries loaded: \(responseCount)")
                 if responseCount > 0 {
+                    for item in response {
+                        self.timeSpent += item.timeSpent.timeInterval
+                    }
                     self.nextPage += 1
                     let firstIndex = self.items.count
                     self.items.append(contentsOf: response)
@@ -103,6 +108,7 @@ final class TimeEntriesDataProvider: TimeEntriesListDataProviderProtocol {
         clearCompletion = nil
         preProcessHandler = { [weak self] in self?.items = [] }
         nextPage = 1
+        timeSpent = 0.0
         loadNext { _ in completion() }
     }
 }

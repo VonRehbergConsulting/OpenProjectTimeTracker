@@ -106,7 +106,7 @@ final class TimeEntriesServiceTests: XCTestCase {
         var result: Error?
         
         // Act
-        service.list(userID: 1, page: 1, date: Date()) { response in
+        service.list(userID: 1, page: 1, date: Date(), workPackage: nil) { response in
             switch response {
             case .failure(let error):
                 result = error
@@ -129,7 +129,7 @@ final class TimeEntriesServiceTests: XCTestCase {
         var result: [TimeEntryListModel]?
         
         // Act
-        service.list(userID: 1, page: 1, date: Date()) { response in
+        service.list(userID: 1, page: 1, date: Date(), workPackage: nil) { response in
             switch response {
             case .failure(_):
                 XCTFail()

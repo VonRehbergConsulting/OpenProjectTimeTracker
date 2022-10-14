@@ -117,4 +117,60 @@ final class SummaryModelTests: XCTestCase {
         // Assert
         XCTAssertFalse(success)
     }
+    
+    func testLoadSuggestionsSuccess() {
+        // Arrange
+        service.listStub = .success([
+            .init(id: 1, projectTitle: "Pr", workPackageTitle: "T", workPackageID: 2, timeSpent: DateComponents(hour: 1), comment: "Duplicate"),
+            .init(id: 2, projectTitle: "Pr", workPackageTitle: "T", workPackageID: 2, timeSpent: DateComponents(hour: 2), comment: "Comment"),
+            .init(id: 2, projectTitle: "Pr", workPackageTitle: "T", workPackageID: 2, timeSpent: DateComponents(hour: 3), comment: "Duplicate"),
+        ])
+        model = SummaryModel(service: service,
+                             timeEntryID: 10,
+                             userID: 5,
+                             taskHref: "task/2",
+                             projectHref: "project",
+                             timeSpent: DateComponents(),
+                             taskTitle: "title",
+                             projectTitle: "projectTitle",
+                             comment: "comment"
+        )
+        var completionCalled = false
+        
+        // Act
+        model.loadCommentSuggestions {
+            completionCalled = true
+        }
+        
+        // Assert
+        XCTAssertTrue(completionCalled)
+        XCTAssertEqual(model.commentSuggestions.count, 2)
+        XCTAssertTrue(model.commentSuggestions.contains("Comment"))
+        XCTAssertTrue(model.commentSuggestions.contains("Duplicate"))
+    }
+    
+    func testLoadSuggestionsFailure() {
+        // Arrange
+        service.listStub = .failure(NetworkError.unknownError)
+        model = SummaryModel(service: service,
+                             timeEntryID: 10,
+                             userID: 5,
+                             taskHref: "task/2",
+                             projectHref: "project",
+                             timeSpent: DateComponents(),
+                             taskTitle: "title",
+                             projectTitle: "projectTitle",
+                             comment: "comment"
+        )
+        var completionCalled = false
+        
+        // Act
+        model.loadCommentSuggestions {
+            completionCalled = true
+        }
+        
+        // Assert
+        XCTAssertTrue(completionCalled)
+        XCTAssertEqual(model.commentSuggestions.count, 0)
+    }
 }

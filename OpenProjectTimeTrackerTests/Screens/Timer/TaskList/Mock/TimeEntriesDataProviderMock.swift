@@ -10,6 +10,7 @@
 final class TimeEntriesDataProviderMock: TimeEntriesListDataProviderProtocol {
     
     var itemCount: Int = 0
+    var timeSpent: Double = 0.0
     
     var itemStub: TimeEntryListModel?
     func item(at index: Int) -> TimeEntryListModel? {

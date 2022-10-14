@@ -14,7 +14,10 @@ protocol SummaryPresenterProtocol: AnyObject {
     var timeSpent: DateComponents? { get set }
     var comment: String? { get set }
     
+    var commentSuggestions: [String]? { get }
+    
     func createTimeEntry(_ completion: @escaping (Bool) -> Void)
+    func loadCommentSuggestions(_ completion: @escaping ((() -> Void)))
 }
 
 final class SummaryPresenter: SummaryPresenterProtocol {
@@ -40,7 +43,13 @@ final class SummaryPresenter: SummaryPresenterProtocol {
         set { model?.comment = newValue}
     }
     
+    var commentSuggestions: [String]? { model?.commentSuggestions }
+    
     func createTimeEntry(_ completion: @escaping (Bool) -> Void) {
         model?.saveTimeEntry(completion)
+    }
+    
+    func loadCommentSuggestions(_ completion: @escaping ((() -> Void))) {
+        model?.loadCommentSuggestions(completion)
     }
 }

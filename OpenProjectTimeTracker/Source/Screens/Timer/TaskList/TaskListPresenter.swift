@@ -11,6 +11,7 @@ protocol TaskListPresenterProtocol: AnyObject {
     
     var modelType: TaskListPresenter.ModelType { get set }
     var itemsCount: Int { get }
+    var timeSpent: String { get }
     
     func item(at indexPath: IndexPath) -> TaskListCell.Configuration?
     func outputData(at indexPath: IndexPath, _ completion: @escaping (Task?, TimeEntryListModel?) -> Void)
@@ -43,6 +44,8 @@ final class TaskListPresenter: TaskListPresenterProtocol {
             return model?.timeEntryCount ?? 0
         }
     }
+    
+    var timeSpent: String { model?.timeSpent.shortClockTime ?? "" }
     
     func item(at indexPath: IndexPath) -> TaskListCell.Configuration? {
         switch modelType {
